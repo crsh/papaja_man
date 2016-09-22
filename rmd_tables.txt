@@ -1,0 +1,14 @@
+Pixidust: https://github.com/nutterb/pixiedust/blob/master/README.md
+
+xtable: https://cran.r-project.org/web/packages/xtable/xtable.pdf
+
+tables: https://cran.r-project.org/web/packages/tables/vignettes/tables.pdf
+
+stargazer: https://cran.r-project.org/web/packages/stargazer/index.html
+
+knitr::kable
+
+Hmisc::latex
+
+
+https://twitter.com/polesasunder/status/464132152347475968/photo/1

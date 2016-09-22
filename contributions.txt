@@ -1,0 +1,4 @@
+# Needed
+
+# Workflow
+Commit messages: http://chris.beams.io/posts/git-commit/

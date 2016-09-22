@@ -1,0 +1,140 @@
+http://www.ncbi.nlm.nih.gov/pubmed/24886202
+Bakker, M. & Wicherts, J. M. (2011). The (mis)reporting of statistical results in psychology journals. Behavior Research Methods, 43, 666-678.
+	"18% of statistical results in the psychological literature are incorrectly reported [...]  around 15% of the articles contained at least one statistical conclusion that proved, upon recalculation, to be incorrect"
+
+The Prevalence of Statistical Reporting Errors in Psychology (1985-2013)
+https://osf.io/e9qbp/
+
+Study: 31 emailed requests for data to replicate SEMs yield 4 positive answers (87% non-reps)
+http://t.co/gClUQgoKtL http://t.co/88l0eUJIbf
+
+Statistical Reporting Errors and Collaboration on Statistical Analyses in Psychological Science
+http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0114876
+
+
+49% of econ paper results were successfully reproduced with original data and code, and help from original authors: http://t.co/13UUbwaD8x
+
+
+Of the subset of articles that were amenable to testing with the GRIM technique (N = 71), around half (N = 36; 50.7%) appeared to contain at least one reported mean inconsistent with the reported sample sizes and scale characteristics, and more than 20% (N = 16) contained multiple such inconsistencies. We requested the data sets corresponding to 21 of these articles, receiving positive responses in 9 cases. We were able to confirm the presence of at least one reporting error in all cases, with 2 articles requiring extensive corrections.
+https://peerj.com/preprints/2064/
+
+
+
+http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.1001747
+http://biostatistics.oxfordjournals.org/content/11/3/385.full
+http://www.r-bloggers.com/translate2r-migrate-spss-scripts-to-r-at-the-push-of-a-button/
+
+http://osc.centerforopenscience.org/2014/10/30/reproducible-reporting/
+
+Gandrud, C. (2013). Reproducible research with R and RStudio. CRC Press.
+Stodden, V., Leisch, F., & Peng, R. D. (Eds.). (2014). Implementing Reproducible Research. CRC Press.
+Xie, Yihui. Dynamic Documents with R and knitr. CRC Press, 2013.
+
+
+Fanelli D (2013) Only reporting guidelines can save (soft) science. European Journal of Personality 27(2): 124
+	"Good research practices notwithstanding, therefore, the keys to good science are good reporting practices, which, interestingly, are much easier to ensure. Indeed, reporting guidelines are rapidly being adopted in biomedical and clinical research, where initiatives such as the EQUATOR Network (http://www.equator-network.org) and Minimum Information about a Biomedical or Biological Investigation (http://mibbi.sourceforge.net) publish updated lists of details that authors need to provide, depending on what methodology they used. Major journals have adopted these guidelines spontaneously because doing so improves their reputation. If authors do not comply, their papers are rejected."
+
+
+More references: http://de.scribd.com/doc/71234390/The-Joy-of-Sweave-A-Beginner-s-Guide-to-Reproducible-Research-with-Sweave
+
+
+The first article about #APAStyle was published in the Feb 1929 issue of Psychological Bulletin! #TBT @apa_journals http://t.co/1e5CMBqfv8
+
+Willingness to Share Research Data Is Related to the Strength of the Evidence and the Quality of Reporting of Statistical Results
+http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0026828
+
+
+Sharing Detailed Research Data Is Associated with Increased Citation Rate
+http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308
+
+
+
+A first complication is conceptual, because arguably little benefit accrues if another researcher simply clicks “go” or “run” and produces the same numbers from the same data and source code as a previous researcher. Arguably, more would be gained by an independent re-analysis, whereby the second analyst seeks to reproduce the reported results from the raw data and without being guided (and potentially misled) by the first analyst’s code. However, should a second independent analysis yield incompatible results, then access to the original source code can help resolve those discrepancies.
+
+But this is where the second complication arises: the technicalities of sharing source code are also non-trivial. There are obstacles that arise from the use of different platforms (Windows vs. Mac vs. Linux), or from issues such as missing external libraries or tacit assumptions about local directory structures. Ideally, therefore, the source code and data should be prepared in a manner that avoids such pernickety and annoying glitches.
+
+http://www.psychonomic.org/featured-content-detail/go-check-ts-6b6-27c-transparent-workflow-tools-sci
+
+
+
+
+Researchers from the United States Federal Reserve and the Department of the Treasury tried to replicate the results from 67 papers across 13 prestigious journals, but even after contacting authors when necessary, they were successful in only 49 per cent of cases where the data were not confidential and the researchers had the right software to analyse it.
+
+the main reason for being unable to replicate findings was an inability to find the right data or the computer code that produced the original results, even after contacting the authors. Code was missing crucial functions, or certain variables were absent from the data, the paper says.
+
+However, in nine cases for which the authors of the paper had the right dataset and code, they nonetheless got a different result or the code failed to finish executing
+
+Is Economics Research Replicable? Sixty Published Papers fromThirteen Journals Say ”Usually Not”
+http://www.federalreserve.gov/econresdata/feds/2015/files/2015083pap.pdf
+http://theconversation.com/the-replication-crisis-has-engulfed-economics-49202
+
+
+It finds that of the 24 empirical papers subjected to in-house replication review since September 2012, only four packages did not require any modifications. Most troubling, 14 packages (58%) had results in the paper that differed from those generated by the author’s own code.
+http://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=10269209&fileId=S1049096516000196
+
+
+
+Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm
+http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128
+
+
+Peer review openness initiative: http://opennessinitiative.org/PRO_Initiative_RSOS.pdf
+
+
+# Alternatives
+- Sweave: http://link.springer.com/chapter/10.1007/978-3-642-57489-4_89
+	-> Example of irreproducible research: http://www.nature.com/nm/journal/v13/n11/full/nm1107-1276b.html
+- RepoRts
+
+- Matlab-tool for reproducible analyses: http://link.springer.com/article/10.3758%2Fs13428-015-0616-x
+
+- PapeR
+
+- kmr
+
+
+
+# Abstract
+
+papar: Create publication-ready manuscripts in R
+
+Recently, growing attention has been drawn to the large number of scientific findings that are not reproducible.
+One aspect of this worrisome state of affairs, which is not limited to the field of psychology, is non-reproducibility of statistical analyses and scientific computations.
+Given that raw data are available, the reproducibility of analyses should be considered a minimum standard for judging scientific claims (Peng, 2011).
+Two obvious reasons for non-reproducibility of analyses are (1) incorrect and (2) incomplete reporting of methods and statistics. 
+A review of psychological journal articles found that 18% of the statistical results were reported incorrectly; these errors lead to incorrect inferences in 15% of surveyed articles (Bakker & Wicherts, 2011).
+Dynamic documents that merge report and analysis scripts are an effective way to avoid erronenous statistics in manuscripts (Gandrud, 2013).
+We introduce the R package 'papaja' that builds on the 'knitr' package allowing authors to use the easy-to-learn Markdown syntax to harness the typesetting-power of LaTeX.
+papaja-functions additionally ensures that all necessary statistics are reported to ensure reproducibility and facilitate future synthesis of results.
+
+
+
+J of the American Statistical Association appoints ‘reproducibility editors’ to assure code and data are shared https://t.co/BsdpwPtets
+
+
+
+
+
+papaja: Create publication-ready manuscripts in R
+
+Recently, growing attention has been drawn to the large number of scientific findings that are not reproducible.
+One aspect of this worrisome state of affairs, which is not limited to the field of psychology, is non-reproducibility of statistical analyses and scientific computations.
+Given that raw data are available, the reproducibility of analyses should be considered a minimum standard for judging scientific claims (Peng, 2011).
+Two obvious reasons for non-reproducibility of analyses are incorrect and incomplete reporting of methods and statistics.
+A review of psychological journal articles found that 18% of the statistical results were reported incorrectly; these errors lead to incorrect inferences in 15% of surveyed articles (Bakker & Wicherts, 2011).
+Dynamic documents that merge reports and analysis scripts are an effective way to avoid erroneous statistical reporting (Gandrud, 2013).
+We introduce 'papaja', a package for the R Statistical Environment (R Core Team, 2014) that provides a framework to create dynamic documents that adhere to APA guidelines.
+papaja is tailored to the needs of experimental psychologists: we supply convenience functions to report commonly used statistics in accordance with APA guidelines and in a way that ensures reproducibility of analyses and facilitates future synthesis of results.
+
+
+
+
+
+
+
+Journals:
+- BRM
+- PB&R? http://twitter.com/EJWagenmakers/status/642803257501458432
+
+
+

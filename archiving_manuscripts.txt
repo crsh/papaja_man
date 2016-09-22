@@ -1,0 +1,5 @@
+Dataverse:
+- dvn: https://journal.r-project.org/archive/2014-1/leeper.pdf; https://ropensci.org/blog/2014/02/20/dvn-dataverse-network/
+
+OSF:
+- osfr: https://github.com/chartgerink/osfr
