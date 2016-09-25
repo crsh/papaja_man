@@ -1,0 +1,116 @@
+# Reporting
+
+## Reporting statistics
+- in_paren()
+- printnum()
+  - printp()
+  - inline hook
+
+### htest (t-tests, correlations, etc.)
+
+### lm (linear regression)
+#### anova (model comparisons)
+
+### anova, Anova, Anova.mlm (ANOVA)
+
+#### glht, lsmeans, ref.grid (post-hoc tests)
+
+
+
+
+The functions `apa_print()` and `apa_table()` facilitate reporting results of your analyses. Take a look at the [.Rmd](https://github.com/crsh/papaja/blob/master/example/example.Rmd) of the example manuscript in the folder `example` and the resulting [.pdf](https://raw.githubusercontent.com/crsh/papaja/master/example/example.pdf).
+
+Drop a supported analysis result, such as an `htest`- or `lm`-object, into `apa_print()` and receive a list of possible character strings that you can use to report the results of your analysis.
+
+```{r}
+my_lm <- lm(Sepal.Width ~ Sepal.Length + Petal.Width + Petal.Length, data = iris)
+apa_lm <- apa_print(my_lm)
+```
+
+One element of this list is `apa_lm$table` that, in the case of an `lm`-object, will contain a complete regression table. Pass `apa_lm$table` to `apa_table()` to turn it into a proper table in your PDF or Word document (remember to set the chunk option `results = "asis"`).
+
+```{r results = "asis"}
+apa_table(apa_lm$table, caption = "Iris regression table.")
+```
+
+<!-- GitHub markdown doesn't support MathJax
+
+---
+
+Table. *Iris regression table.*
+
+| Predictor     | *b*   | 95% CI          | *t(146)*   | *p*       |
+|:--------------|:-----:|:---------------:|:----------:|:---------:|
+| Intercept     | 1.04  |  [0.51, 1.58]   | 3.85       | &lt; .001 |
+| Sepal Length  | 0.61  |  [0.48, 0.73]   | 9.77       | &lt; .001 |
+| Petal Width   | 0.56  |  [0.32, 0.80]   | 4.55       | &lt; .001 |
+| Petal Length  | -0.59 |  [-0.71, -0.46] | -9.43      | &lt; .001 |
+
+---
+-->
+
+`papaja` currently provides methods for the following object classes:
+
+```{r supported_s3_methods, echo = FALSE, results = "asis"}
+print_classes <- gsub("apa_print\\.", "", as.character(utils::methods("apa_print")))
+print_classes <- c(print_classes, rep(NA,  length(print_classes) %% 4))
+print_classes <- matrix(print_classes, ncol = 4)
+colnames(print_classes) <- apply(print_classes, 2, function(x) {
+  first_letters <- tolower(substr(x, 1, 1))
+  first_letters <- c(first_letters[1], tail(first_letters, 1))
+  first_letters[is.na(first_letters)] <- "z"
+  col_names <- if(first_letters[1] == first_letters[2]) first_letters[1] else paste(first_letters, collapse = "-")
+  toupper(col_names)
+})
+knitr::kable(print_classes)
+```
+
+
+
+Any output from R is included as you usually would using R Markdown.
+By default the R code will not be displayed in the final documents.
+If you wish to show off your code you need to set `echo = TRUE` in the chunk options.
+
+
+### Report statistical analyses
+`apa_print()` will help you report the results of your statistical analyses.
+The function will format the contents of R objects and produce readily reportable text.
+
+```{r echo = TRUE, eval = FALSE}
+recall_anova <- afex::aov_car(
+  Recall ~ (Task * Valence * Dosage) + Error(Subject/(Task * Valence)) + Dosage
+  , data = mixed_data
+  , type = 3
+)
+recall_anova_results <- apa_print(recall_anova, es = "pes")
+recall_anova_results_p <- apa_print(recall_anova, es = "pes", in_paren = TRUE)
+```
+
+Now, you can report the results of your analyses like so:
+
+```{r eval = FALSE, echo = TRUE, eval = FALSE}
+Item valence (`r anova_results_p$full$Valence`) and the task affected recall
+performance, `r anova_results$full$Task`; the dosage, however, had no effect
+on recall, `r anova_results$full$Dosage`. There was no significant interaction.
+```
+
+<!--
+> Item valence (`r #recall_anova_results_p$full$Valence`) and the task affected recall performance, `r #recall_anova_results$full$Task`;
+> the dosage, however, had no effect on recall, `r #recall_anova_results$full$Dosage`.
+> There was no significant interaction.
+-->
+
+What's even more fun, you can easily create a complete ANOVA table using by passing `recall_anova_results$table` to `apa_table()`, see \autoref{ref:anova}.
+
+```{r results = "asis", echo = TRUE, eval = FALSE}
+apa_table(
+  recall_anova_results$table
+  , align = c("l", "r", "c", "r", "r", "r")
+  , caption = "ANOVA table for the analyis of the example data set. \\label{ref:anova}"
+  , note = "This is a table created using apa\\_print() and apa\\_table()."
+)
+```
+
+
+
+## Caching

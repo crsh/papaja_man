@@ -1,0 +1,17 @@
+bookdown::gitbook:
+  css: style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./" ><b>papaja: Reproducible APA<br \>manuscripts with R Markdown</b></a></li>
+      after: |
+        <li><a href="https://github.com/crsh/papaja" target="blank">papaja on GitHub</a></li>
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    edit:
+      link: https://github.com/crsh/papaja_man/edit/master/%s
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+bookdown::epub_book: default

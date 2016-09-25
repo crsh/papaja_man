@@ -1,1 +1,3 @@
-http://robjhyndman.com/hyndsight/jss-rpackages/
+- JSS http://robjhyndman.com/hyndsight/jss-rpackages/
+- BRM
+- PB&R? http://twitter.com/EJWagenmakers/status/642803257501458432

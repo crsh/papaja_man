@@ -1,0 +1,47 @@
+--- 
+title           : "papaja: Reproducible APA manuscripts with R Markdown"
+author          : "Frederik Aust"
+date            : "`r Sys.Date()`"
+site            : bookdown::bookdown_site
+output          : bookdown::html_book
+documentclass   : book
+bibliography    : [book.bib, r_packages.bib]
+biblio-style    : apalike
+link-citations  : yes
+github-repo     : rstudio/bookdown-demo
+description     : >
+  "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+---
+
+```{r libraries_and_options, echo = FALSE, message = FALSE, warning = FALSE}
+library("knitr")
+
+library("papaja")
+```
+
+```{r cite_r, echo = FALSE}
+r_refs("r_packages.bib")
+r_citations <- cite_r("r_packages", footnote = TRUE)
+```
+
+```{r not_on_cran, echo = FALSE}
+not_on_cran <- "`papaja` has not yet been submitted to CRAN because it is under active development.
+Currently, there are still a couple of loose ends we would like to tie up before we release the package to a larger audience.
+If you would like to contribute to speed up the process, have a look at the chapters [Limitations] and [Future directions]."
+```
+
+
+
+# Preface {-}
+
+`r not_on_cran`
+
+This manual is fully reproducible and was written in `r r_citations$r`.
+If you find anything wrong with it, please let us know by opening an [issue on GitHub](https://github.com/crsh/papaja_man/issues) or creating a pull request.
+
+---
+
+```{r session_info, echo = FALSE}
+devtools::session_info()
+```
+

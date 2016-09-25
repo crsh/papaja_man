@@ -1,3 +1,29 @@
+# Introduction
+
+papaja is short for 'preparing APA journal articles' and is the name of this R package designed to create fully reproducible journal articles that seamlessly fuse statistical analyses, simulations, and prose.
+A manuscript written with `papaja` can be thought of as an extensively commented analysis script ready for publication in a scientific journal.
+
+## Motivation
+
+APA style is not going anywhere. It is one of the major style regimes in academia and is used in many fields other than Psychology, including medical and other public health journals.
+
+If you want to publish psychological research, you will have to produce properly formatted APA style manuscripts.
+
+Don’t mix content and style
+
+A general principle in typesetting — be it on (digital) paper or the web — is to separate content and style. Separation is commonly achieved through the use of a markup language, which is a system of document annotations. These annotations declare portions of text as title, section headings, or list items but crucially, they are agnostic to what this means visually (e.g., <bold>text</bold> instead of text). There are several advantages to this approach but I’ll only briefly name three of them here:
+
+1. **Focus on writing**. It seems that a common form of procrastination for many writers is making a document pretty. Adding a newline here or a manual line break there, moving a table just two pixels to the left, etc. When writing a markup document in a plain text document it let’s you focus on the content rather than the style.
+2. **Swiftly adjust the style**. If your paper is rejected and the next target journal prefers a different flavor of APA style, there is no need to touch your writing. As a simple example, I recently submitted a paper to a journal that asked me to collect all figure captions at the end of the document on one page rather than printing them below the corresponding figures. Because my captions were declared as such, I left the text unchanged (captions below the figures) and simply changed the option controlling the captions’ position within the document.
+3. **Write plain text files**. Once you move to writing in plain text files, you open yourself up to a whole new world of very helpful tools to facilitate your writing and collaboration, such as dynamic documents or the version control system git, but that’s a topic for another blog post.
+
+
+This is what is called a [dynamic document](http://en.wikipedia.org/wiki/Living_document) (Xie, 2013) and the topic of a future blog post.
+
+
+
+<!--
+
 http://www.ncbi.nlm.nih.gov/pubmed/24886202
 Bakker, M. & Wicherts, J. M. (2011). The (mis)reporting of statistical results in psychology journals. Behavior Research Methods, 43, 666-678.
 	"18% of statistical results in the psychological literature are incorrectly reported [...]  around 15% of the articles contained at least one statistical conclusion that proved, upon recalculation, to be incorrect"
@@ -126,15 +152,125 @@ Dynamic documents that merge reports and analysis scripts are an effective way t
 We introduce 'papaja', a package for the R Statistical Environment (R Core Team, 2014) that provides a framework to create dynamic documents that adhere to APA guidelines.
 papaja is tailored to the needs of experimental psychologists: we supply convenience functions to report commonly used statistics in accordance with APA guidelines and in a way that ensures reproducibility of analyses and facilitates future synthesis of results.
 
+-->
+
+As you may have heard, recently, interest in reproducible research has been growing.
+Reproducible data analysis is an easy to implement and important aspect of the strive towards reproducibility.
+For *R* users, R Markdown has been suggested as one possible framework for reproducible analyses.
+`papaja` is a R-package in the making including a [R Markdown](http://rmarkdown.rstudio.com/) template that can be used with (or without) [RStudio](http://www.rstudio.com/) to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition).
+The package uses the \LaTeX document class [apa6](http://www.ctan.org/pkg/apa6) and a .docx-reference file, so you can create PDF documents, or Word documents if you have to.
+Moreover, `papaja` supplies R-functions that facilitate reporting results of your analyses in accordance with APA guidelines.
+
+Markdown is a simple formatting syntax that can be used to author HTML, PDF, and MS Word documents (among others).
+In the following I will assume you have hopped onto the band wagon and know how to use R Markdown to conduct and comment your analyses.
+If this is not the case, I recommend you get to grips with [R Markdown](http://R Markdown.rstudio.com/) first.
+I use [RStudio](http://www.rstudio.com/) (which makes use of [pandoc](http://johnmacfarlane.net/pandoc/)) to create my documents, but the general process works using any other text editor.
+
+
+## Implementation
+
+*In this section we provide a quick overview of the software and the underlying design principles.
+Unless you are interested in these details it's safe to skip this section.*
+
+Quick technical overview (what software is involved, what are possible sources of error)
+
+
+### Guiding principles
+Our design decisions are based on two guiding principles: 
+
+
+1. `papaja` **is convertible**.
+A central motivation for the development of the package was the experience that many (if not most) scientific journals in psychology require that the final version of a submitted manuscript be Microsoft Word or documents.
+We, thus, strive to employ solutions that work for both LaTeX and Word output formats even if it means that some of the functions are less versatile than they could be.
+
+2. `papaja` **does not compute**.
+The package is meant to facilitate writing reports and manuscripts in APA style; it is **not** meant to provide functions to analyse data.
+Functions provided in this package do as few computations for you as possible to grant authors maximal flexibility to do all analyses as they see fit.[^maintenance]
+That said, `papaja` functions do compute statistics that should be routinely reported according to APA guidelines, such as confidence intervals, if they are not provided in the analysis output objects.
+We try to enable customization and replacement of these defaults whenever we can.
+
+[^maintenance]: Moreover, limiting the amount of computing done by the package facilitates maintenance of its functions.
+
+
+## Alternatives
+
+Needless to say, not all journals require manuscripts to be prepared according to APA guidelines.
+Other journal templates for the `rmarkdown` package are available in the [`rticles`](https://github.com/rstudio/rticles) package.
+It includes a set of templates for authoring of R related journal and conference submissions.
+
+- papeR
+- reportR
+
+
+## Getting started
+
+### Software requirements
+
+To use `papaja` you need to make sure the following software is installed on your computer:
+  
+@. **[R](http://www.r-project.org/) 2.11.1 or later**.
+@. **[TeX](http://de.wikipedia.org/wiki/TeX) 2013 or later**. Try [MikTeX](http://miktex.org/) for Windows, [MacTeX](https://tug.org/mactex/) for Mac, or [TeX Live](http://www.tug.org/texlive/) for Linux. Some Linux users may need a few additional TeX packages for the LaTeX document class `apa6` to work:
+    
+```{sh ubuntu_extras, eval = FALSE}
+sudo apt-get install texlive texlive-publishers texlive-fonts-extra texlive-latex-extra texlive-humanities lmodern
+```
+
+@. **[pandoc](http://johnmacfarlane.net/pandoc/) 1.16 or later**. If you work with [RStudio](http://www.rstudio.com/) (0.98.932 or later) pandoc should already be installed, otherwise install pandoc using the [instructions for your operating system](https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md)
+
+
+### Installing papaja
+Once all that is taken care of, install `papaja` from GitHub.
+  
+```{r install_papapja, eval = FALSE}
+# Install devtools package if necessary
+if(!"devtools" %in% rownames(installed.packages())) install.packages("devtools")
+
+# Install papaja
+devtools::install_github("crsh/papaja")
+```
+
+`r not_on_cran`
+
+### Creating a document
+
+Once you have installed `papaja` and all other [required software][Software requirements], the APA manuscript template is available through the RStudio menus when creating a new R Markdown file, Figure  \@ref(fig:template-selection).
+
+```{r template-selection, echo = FALSE, fig.cap = "papaja's APA6 template is available through the RStudio menues."}
+include_graphics("https://raw.githubusercontent.com/crsh/papaja/master/inst/images/template_selection.png")
+```
+
+When you click RStudio's *Knit* button (Figure \@ref(fig:knit-button)) `papaja`, `rmarkdown,` and `knitr` work together to create an APA conform manuscript that includes both your manuscript text and the results of any embedded R code.
+
+```{r knit-button, echo = FALSE, fig.cap = "The *Knit* button in the RStudio."}
+include_graphics("https://raw.githubusercontent.com/crsh/papaja/master/inst/images/knitting.png")
+```
+
+
+If you don't use RStudio, you can achieve the same result via the R command line.
+Use `rmarkdown::draft()` to create a new R Markdown file and `rmarkdown::render()` to render the document.
+
+```{r new_document, eval = FALSE}
+# Create new R Markdown file
+rmarkdown::draft(
+  "mymanuscript.Rmd"
+  , "apa6"
+  , package = "papaja"
+  , create_dir = FALSE
+  , edit = FALSE
+)
+
+# Render manuscript
+rmarkdown::render("mymanuscript.Rmd")
+```
+
+---
 
 
 
 
+`papaja` is a R-package in the making including a [R Markdown](http://rmarkdown.rstudio.com/) template that can be used with (or without) [RStudio](http://www.rstudio.com/) to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition). The package uses the LaTeX document class [apa6](http://www.ctan.org/pkg/apa6) and a .docx-reference file, so you can create PDF documents, or Word documents if you have to. Moreover, `papaja` supplies R-functions that facilitate reporting results of your analyses in accordance with APA guidelines.
 
 
-Journals:
-- BRM
-- PB&R? http://twitter.com/EJWagenmakers/status/642803257501458432
-
-
-
+```{block2, type='rmdimportant'}
+Because **knitr** does not allow duplicate chunk labels in a source document, you need to make sure there are no duplicate labels in your book chapters, otherwise **knitr** will signal an error when knitting the merged Rmd file. 
+```

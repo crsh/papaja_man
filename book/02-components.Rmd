@@ -1,0 +1,209 @@
+# R Markdown components
+
+Generally, R Markdown files consist of two parts.
+The first is the YAML front matter that contains the documents meta information and rendering options.
+It is located at the top of the R Markdown document.
+The second part is the main body that contains R code chunks and prose in Markdown format.
+
+## YAML front matter
+
+[YAML](https://en.wikipedia.org/wiki/YAML) is a human-readable and easy to write language to define data structures.
+You don't need to familiarize yourself intimately with YAML to use R Markdown or `papaja` and I suggest you try to just use it.
+The following is the default YAML front matter.
+
+```{r yaml_front_matter, results = 'asis', echo = FALSE, eval = FALSE}
+yaml <- readLines(
+  system.file(
+    "rmarkdown", "templates", "apa6", "skeleton"
+    , "skeleton.Rmd"
+    , package = "papaja"
+  )
+)
+
+cat(
+  paste(
+    "    "
+    , c(
+      "" # "```{yaml yaml_front_matter, eval = FALSE}"
+      , yaml[which(yaml == "---")[1]:which(yaml == "---")[2]]
+      # , "```"
+    )
+    , collapse = "\n"
+  )
+)
+```
+
+```{yaml yaml_front_matter_, eval = FALSE}
+---
+title             : "The title"
+shorttitle        : "Title"
+
+author: 
+  - name          : "First Author"
+    affiliation   : "1"
+    corresponding : yes    # Define only one corresponding author
+    address       : "Postal address"
+    email         : "my@email.com"
+  - name          : "Ernst-August Doelle"
+    affiliation   : "1,2"
+
+affiliation:
+  - id            : "1"
+    institution   : "Wilhelm-Wundt-University"
+  - id            : "2"
+    institution   : "Konstanz Business School"
+
+author_note: >
+  Complete departmental affiliations for each author (note the indentation, if you start a new paragraph).
+
+  Enter author note here.
+
+abstract: >
+  Enter abstract here (note the indentation, if you start a new paragraph).
+  
+keywords          : "keywords"
+wordcount         : "X"
+
+figsintext        : no
+figurelist        : no
+tablelist         : no
+lineno            : yes
+
+lang              : "english"
+class             : "man"
+output            : papaja::apa6_pdf
+
+bibliography:
+  - r-references.bib
+---
+```
+
+### Manuscript meta data
+
+The `title` is the full name of the manuscript that is printed on the title page and at the beginning of the introduction.
+The `shorttitle` is a shortened variant of the title and will be printed in the running head on every page.
+
+`author` is a structured list.
+Each author's information is given in a separate element that is indented and starts with `-`.
+A full `name` and an `affiliation` symbol need to be provided for every author.
+The symbol is later printed as superscript following the author's name and can be a combination of multiple symbols if the author has multiple affiliations (e.g., Ernst-August Doelle^1,2^).
+Exactly one author has to be declared as corresponding author by adding `corresponding: yes` and the fields `address` and `email` to the author's information.
+The latter two fields are used to automatically generate the last sentence of the author note giving the contact information of the corresponding author---as required by the APA guidelines---and is optional, that is, it will not be printed, for all other authors.
+
+`affiliation` is another structured list containing the institutions' information; again each new element is indented and starts with `-`.
+The `id` is printed as superscript in front of the `institution` name below the author names on the title page (e.g., ^2^ Konstanz Business School).
+
+`author_note` and `abstract` contain the text for the corresponding sections of the manuscript.
+The `>` indicates that all following indented lines are part of this field.
+Finally, `keywords` and `wordcount`[^word_count] are printed below the abstract.
+
+[^word_count]:
+We hope to automate the word count [in the future][Future directions].
+For now, we recommend using the [wordcountaddin](https://github.com/benmarwick/wordcountaddin) package [@r-wordcountaddin].
+
+An additional field, that is not included in the default YAML front matter is `note`.
+The contents of this field is printed on title page below the author information and can be used to add remarks, such as "Preprint submitted on June, 29th, 2016".
+
+
+### Rendering options
+
+The first set of rendering options breaks with the [guiding principal][Guiding principles] *is convertible*; they have no effect on Word documents.
+I decided to implement these nonetheless because they are required by some journals and can be used for submissions where (initially) PDF documents are accepted.
+`figsintext` indicates whether figures and tables should included at the end of the document---as required by APA guidelines---or rendered in the body of the document.
+If `figurelist` or `tablelist` are set to `yes` a list of figure or table captions is given following the reference section.
+`lineno` indicates whether lines should be continuously numbered through out the manuscript.
+
+The language of the manuscript is given in `lang` and affects automatically generated text, such as "Author note" on the title page or "Figure 1." in figure captions.
+Currently, `english` and `german` are supported.
+`class` defines the layout style of the manuscript.
+`man` produces the default APA manuscript style, `doc` produces a more typical document (single-spaced, single-column).
+The latter option is currently not only available for Word documents.
+
+The `output` field determines the type of document that is created, either `papaja::apa6_pdf` or `papaja::apa6_word`.
+Additional arguments can be passed to these functions, e.g. to delete the TeX source file at the end of the rendering process.
+See `?apa6_pdf` for details.
+
+```{yaml eval = FALSE}
+output: 
+  papaja::apa6_pdf:
+    keep_tex: FALSE
+```
+
+The last field, `bibliography`, contains a list of one or more Bib(La)TeX files containing the references cited in the manuscript.
+By default, `papaja` assumes that you will cite R and all R packages used for the analysis contained in `r-references.bib`.
+See [CITATION SECTION] for instructions on how to automate this.
+
+Any additional rendering options supported by `rmarkdown::pdf_document()` or `rmarkdown::word_document()` can be added to the YAML front matter.
+
+
+## Body
+
+The body of R Markdown documents consists of prose written in Markdown interspersed with R code.
+
+### Markdown
+
+Markdown, an easy-to-read and -write annotation system that makes writing APA style a breeze.
+
+[Markdown](http://en.wikipedia.org/wiki/Markdown) is intended to be as easy-to-read and easy-to-write as possible. The following is an excerpt from the APA example manuscript written in Markdown.
+
+```{markdown markdown_example}
+# Methods
+## Participants
+Younger adults (14 women, 10 men, $M_{age} = 19.5$ years, age range: 18–22 years) were recruited with flyers posted on the Boston College campus. <!-- Add flyer to appendix! -->
+Older adults (15 women, nine men, $M_{age} = 76.1$ years, age range: 68–84 years) were recruited through the Harvard Cooperative on Aging (see Table 1, for demographics and test scores).[^p]
+
+[^p]: Analyses of covariance were conducted with these covariates, with no resulting influences of these variables on the pattern or magnitude of the results.
+```
+
+Without knowing anything about Markdown, it should be easy to guess what the annotations mean. # declare hierarchical section headings, <!-- and --> envelope comments, and [^p] adds a reference to a footnote. As you can see, Markdown is easy to learn and will quickly save time in manuscript preparation. The only thing that may be scary at first are the equations enveloped by $. Equations are written in the powerful, yet, fairly simple equation syntax used in LaTeX. Although LaTeX is widely used to write entire manuscripts (not just equations), it is not very popular in the field of Psychology. I suspect that the neglect is largely due to its complexity and long learning curve, which I find rather deterring myself. Both seem to outweigh the advantages of the system when it comes to handling citations and cross-references or typesetting large documents, complex tables, and equations which are rare in the average Psychology paper. That is why I like the idea of using Markdown as a simple interface to harness the power of LaTeX without having to write or know much about LaTeX.
+
+### R code
+
+There are two ways to include R code in R Markdown documents.
+The primary method is to insert code chunks.
+
+    `r ''````{r code_chunk, echo = FALSE}
+    age_mean <- mean(demographics$age)
+    ```
+
+These chunks are enclosed in ``r ''```` and the first line defines the programming language `` ``r ''`r``, the chunk label or name `code_chunk`, and additional options `echo = FALSE`.
+By default, `papaja` sets the two chunk options globally for all chunks, `echo = FALSE` and `message = FALSE`.
+`echo = FALSE` hides the code in each code chunk and `message = FALSE` hides any messages generated by the R code so that they are not included in the manuscript.
+Both settings can be overwritten by the user.
+
+R code can also be included in a line of regular text by inserting `` ``r ''`r ...` ``, where `...` is the desired code to be executed.
+Including R code inline is a conveinient way of including the contents of variables as part of the text.
+For example, imagine you compute the mean and standard deviation of participants' age and store them variables named `age_mean` and `age_sd`.
+You can report these numbers by printing the variables in inline R code.
+
+```{r inline_r_code, eval = FALSE, }
+Participants mean age was `r age_mean` years ($SD = `r age_sd`).
+```
+
+In R Markdown documents, as in any other R script, code is executed serially (i.e., from top to bottom).
+Thus, any variables that are called in code chunks or inline R code must be defined above.
+
+
+## Splitting the document
+
+Some authors may prefer to split long manuscripts into multiple component files for better clarity.
+There are two basic strategies to split R Markdown documents that can be combined or used in isolation: sourcing R scripts and splitting the R Markdown document.
+If the R Markdown document contains a lot of code, it may be helpful to disincorporate parts of the code, such as reading, merging, restructuring, and relabeling data files.
+The R scripts can then be executed at the respective section of the document using `source()`.
+
+Some authors may prefer to split long manuscripts into a master or parent document and multiple children.
+The master document, for example, consists of the YAML front matter and includes the children, which are themselves R Markdown documents without a YAML front matter.
+
+    ...
+    
+    `r ''````{r child = "introduction.Rmd"}
+    ```
+    `r ''````{r child = "methods.Rmd"}
+    ```
+    `r ''````{r child = "results.Rmd"}
+    ```
+    `r ''````{r child = "discussion.Rmd"}
+    ```
+    
+    # References
+
