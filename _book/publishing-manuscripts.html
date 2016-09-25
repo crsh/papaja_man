@@ -15,7 +15,7 @@
   
   
   <meta property="og:description" content="<p>“This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.”</p>" />
-  <meta name="github-repo" content="rstudio/bookdown-demo" />
+  <meta name="github-repo" content="crsh/papaja_man" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
@@ -25,7 +25,8 @@
 
 <meta name="author" content="Frederik Aust">
 
-<meta name="date" content="2016-09-23">
+  
+<meta name="date" content="2016-09-25">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -38,8 +39,8 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="final-words.html">
-<link rel="next" href="future-directions.html">
+<link rel="prev" href="reporting.html">
+<link rel="next" href="limitations.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -135,18 +136,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="3" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i><b>3</b> Writing</a><ul>
 <li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#workflow"><i class="fa fa-check"></i><b>3.1</b> Workflow</a></li>
-<li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a></li>
-<li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#citations-1"><i class="fa fa-check"></i><b>3.3</b> Citations</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="writing.html"><a href="writing.html#connecting-to-reference-manager"><i class="fa fa-check"></i><b>3.3.1</b> Connecting to reference manager</a></li>
-<li class="chapter" data-level="3.3.2" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.3.2</b> Referencing R and its packages</a></li>
+<li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.2.1</b> Working with a reference manager</a></li>
+<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.2</b> Referencing R and its packages</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#tables"><i class="fa fa-check"></i><b>3.4</b> Tables</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="writing.html"><a href="writing.html#alternatives-1"><i class="fa fa-check"></i><b>3.4.1</b> Alternatives</a></li>
+<li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#tables"><i class="fa fa-check"></i><b>3.3</b> Tables</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="writing.html"><a href="writing.html#alternatives-1"><i class="fa fa-check"></i><b>3.3.1</b> Alternatives</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="writing.html"><a href="writing.html#figures"><i class="fa fa-check"></i><b>3.5</b> Figures</a></li>
-<li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.6</b> Equations</a></li>
-<li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.7</b> Cross referencing</a></li>
-<li class="chapter" data-level="3.8" data-path="writing.html"><a href="writing.html#appendices"><i class="fa fa-check"></i><b>3.8</b> Appendices</a></li>
+<li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#figures"><i class="fa fa-check"></i><b>3.4</b> Figures</a></li>
+<li class="chapter" data-level="3.5" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.5</b> Equations</a></li>
+<li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#cross-references"><i class="fa fa-check"></i><b>3.6</b> Cross references</a></li>
+<li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#appendices"><i class="fa fa-check"></i><b>3.7</b> Appendices</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#reporting-statistics"><i class="fa fa-check"></i><b>4.1</b> Reporting statistics</a><ul>
@@ -157,8 +157,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#caching"><i class="fa fa-check"></i><b>4.2</b> Caching</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a><ul>
-<li class="chapter" data-level="5.1" data-path="final-words.html"><a href="final-words.html#published-papers-written-using-papaja"><i class="fa fa-check"></i><b>5.1</b> Published papers written using papaja</a></li>
+<li class="chapter" data-level="5" data-path="publishing-manuscripts.html"><a href="publishing-manuscripts.html"><i class="fa fa-check"></i><b>5</b> Publishing manuscripts</a><ul>
+<li class="chapter" data-level="5.1" data-path="publishing-manuscripts.html"><a href="publishing-manuscripts.html#published-papers-written-using-papaja"><i class="fa fa-check"></i><b>5.1</b> Published papers written using papaja</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>6</b> Limitations</a><ul>
 <li class="chapter" data-level="6.1" data-path="limitations.html"><a href="limitations.html#ms-word-caveat"><i class="fa fa-check"></i><b>6.1</b> MS word caveat</a></li>
@@ -191,18 +191,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="limitations" class="section level1">
-<h1><span class="header-section-number">6</span> Limitations</h1>
-<div id="ms-word-caveat" class="section level2">
-<h2><span class="header-section-number">6.1</span> MS word caveat</h2>
-<ul>
-<li>apa_table() etc.</li>
-<li><p>Checklist</p></li>
-<li>The references in Word violate the APA guidelines in that there is no hanging indentation (i.e. indentation of all lines but the first one). As of now there is no fix for this problem.</li>
-<li>In-text citation incorrectly use ampersands instead of “and”. This is a current limitation of the <a href="https://hackage.haskell.org/package/pandoc-citeproc">pandoc-citeproc</a> filter. I’m still looking for ways to fix this.</li>
-<li>Citations may mess with RStudios syntax highlighting in the current line. Incorrect highlighting following a citation does not necessarily indicate incorrect syntax.</li>
-<li><p>Printing PDF from RStudio’s PDF viewer can produce weird results. If you want to print your manuscript I suggest you use any other PDF viewer of your choice.</p></li>
-</ul>
+<div id="publishing-manuscripts" class="section level1">
+<h1><span class="header-section-number">5</span> Publishing manuscripts</h1>
+<div id="published-papers-written-using-papaja" class="section level2">
+<h2><span class="header-section-number">5.1</span> Published papers written using papaja</h2>
+<p>Although <code>papaja</code> is not yet on CRAN and is still undergoing a lot of changes, there are peer-reviewed publications that use it. If you have published a paper that was written with <code>papaja</code>, let me know and I will add it to this list.</p>
+<p>Stahl, C., Barth, M., &amp; Haider, H. (2015). Distorted estimates of implicit and explicit learning in applications of the process-dissociation procedure to the SRT task. <em>Consciousness &amp; Cognition</em>, 37, 27–43. doi: <a href="http://dx.doi.org/10.1016/j.concog.2015.08.003">10.1016/j.concog.2015.08.003</a></p>
+<p>Aust, F., &amp; Edwards, J. D. (2016). Incremental validity of Useful Field of View subtests for the prediction of Instrumental Activities of Daily Living. <em>Journal of Clinical and Experimental Neuropsychology</em>, 38, 497-515. doi: <a href="http://dx.doi.org/10.1080/13803395.2015.1125453">10.1080/13803395.2015.1125453</a></p>
+<p>Stahl, C., Haaf, J., &amp; Corneille, O. (2016). Subliminal Evaluative Conditioning? Above-Chance CS Identification May Be Necessary and Insufficient for Attitude Learning. <em>Journal of Experimental Psychology: General</em>, 27. doi: <a href="http://dx.doi.org/10.1037/xge0000191">10.1037/xge0000191</a></p>
 
 </div>
 </div>
@@ -211,8 +207,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="final-words.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="future-directions.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="reporting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="limitations.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -239,7 +235,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/crsh/papaja_man/edit/master/06-limitations.Rmd",
+"link": "https://github.com/crsh/papaja_man/edit/master/05-publishing.Rmd",
 "text": null
 },
 "download": null,

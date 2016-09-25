@@ -1,2 +1,3 @@
 # papaja_man
-Manual for the R package papaja
+
+Draft of a manual for the R package [papaja](https://github.com/crsh/papaja)

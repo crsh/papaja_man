@@ -1,7 +1,4 @@
-# Final Words
-
-We have finished a nice book.
-
+# Publishing manuscripts
 
 ## Published papers written using papaja
 

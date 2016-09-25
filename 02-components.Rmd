@@ -134,6 +134,7 @@ By default, `papaja` assumes that you will cite R and all R packages used for th
 See [CITATION SECTION] for instructions on how to automate this.
 
 Any additional rendering options supported by `rmarkdown::pdf_document()` or `rmarkdown::word_document()` can be added to the YAML front matter.
+If you, for example, need a different citation style, you can set `csl` to the path of a [CSL](http://citationstyles.org/) style definition file.
 
 
 ## Body
