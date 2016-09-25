@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>papaja: Reproducible APA manuscripts with R Markdown</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="<p>“This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.”</p>">
+  <meta name="generator" content="bookdown 0.1.9 and GitBook 2.6.7">
+
+  <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>“This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.”</p>" />
+  <meta name="github-repo" content="crsh/papaja_man" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+  
+  <meta name="twitter:description" content="<p>“This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.”</p>" />
+  
+
+<meta name="author" content="Frederik Aust">
+
+  
+<meta name="date" content="2016-09-25">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="r-markdown-components.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./" ><b>papaja: Reproducible APA<br \>manuscripts with R Markdown</b></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#implementation"><i class="fa fa-check"></i><b>1.2</b> Implementation</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#guiding-principles"><i class="fa fa-check"></i><b>1.2.1</b> Guiding principles</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>1.3</b> Alternatives</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#getting-started"><i class="fa fa-check"></i><b>1.4</b> Getting started</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#software-requirements"><i class="fa fa-check"></i><b>1.4.1</b> Software requirements</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#installing-papaja"><i class="fa fa-check"></i><b>1.4.2</b> Installing papaja</a></li>
+<li class="chapter" data-level="1.4.3" data-path="introduction.html"><a href="introduction.html#creating-a-document"><i class="fa fa-check"></i><b>1.4.3</b> Creating a document</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-markdown-components.html"><a href="r-markdown-components.html"><i class="fa fa-check"></i><b>2</b> R Markdown components</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#yaml-front-matter"><i class="fa fa-check"></i><b>2.1</b> YAML front matter</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#manuscript-meta-data"><i class="fa fa-check"></i><b>2.1.1</b> Manuscript meta data</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#rendering-options"><i class="fa fa-check"></i><b>2.1.2</b> Rendering options</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#body"><i class="fa fa-check"></i><b>2.2</b> Body</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#markdown"><i class="fa fa-check"></i><b>2.2.1</b> Markdown</a></li>
+<li class="chapter" data-level="2.2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#r-code"><i class="fa fa-check"></i><b>2.2.2</b> R code</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="r-markdown-components.html"><a href="r-markdown-components.html#splitting-the-document"><i class="fa fa-check"></i><b>2.3</b> Splitting the document</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i><b>3</b> Writing</a><ul>
+<li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#workflow"><i class="fa fa-check"></i><b>3.1</b> Workflow</a></li>
+<li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.2.1</b> Working with a reference manager</a></li>
+<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.2</b> Referencing R and its packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#tables"><i class="fa fa-check"></i><b>3.3</b> Tables</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="writing.html"><a href="writing.html#alternatives-1"><i class="fa fa-check"></i><b>3.3.1</b> Alternatives</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#figures"><i class="fa fa-check"></i><b>3.4</b> Figures</a></li>
+<li class="chapter" data-level="3.5" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.5</b> Equations</a></li>
+<li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#cross-references"><i class="fa fa-check"></i><b>3.6</b> Cross references</a></li>
+<li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#appendices"><i class="fa fa-check"></i><b>3.7</b> Appendices</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
+<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#reporting-statistics"><i class="fa fa-check"></i><b>4.1</b> Reporting statistics</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.1.1</b> htest (t-tests, correlations, etc.)</a></li>
+<li class="chapter" data-level="4.1.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.1.2</b> lm (linear regression)</a></li>
+<li class="chapter" data-level="4.1.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-anova"><i class="fa fa-check"></i><b>4.1.3</b> anova, Anova, Anova.mlm (ANOVA)</a></li>
+<li class="chapter" data-level="4.1.4" data-path="reporting.html"><a href="reporting.html#report-statistical-analyses"><i class="fa fa-check"></i><b>4.1.4</b> Report statistical analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#caching"><i class="fa fa-check"></i><b>4.2</b> Caching</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="publishing-manuscripts.html"><a href="publishing-manuscripts.html"><i class="fa fa-check"></i><b>5</b> Publishing manuscripts</a><ul>
+<li class="chapter" data-level="5.1" data-path="publishing-manuscripts.html"><a href="publishing-manuscripts.html#published-papers-written-using-papaja"><i class="fa fa-check"></i><b>5.1</b> Published papers written using papaja</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>6</b> Limitations</a><ul>
+<li class="chapter" data-level="6.1" data-path="limitations.html"><a href="limitations.html#ms-word-caveat"><i class="fa fa-check"></i><b>6.1</b> MS word caveat</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>7</b> Future directions</a><ul>
+<li class="chapter" data-level="7.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>7.1</b> Contributions</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>7.1.1</b> Workflow</a></li>
+<li class="chapter" data-level="7.1.2" data-path="future-directions.html"><a href="future-directions.html#wanted"><i class="fa fa-check"></i><b>7.1.2</b> Wanted</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/crsh/papaja" target="blank">papaja on GitHub</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">papaja: Reproducible APA manuscripts with R Markdown</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>papaja is short for ‘preparing APA journal articles’ and is the name of this R package designed to create fully reproducible journal articles that seamlessly fuse statistical analyses, simulations, and prose. A manuscript written with <code>papaja</code> can be thought of as an extensively commented analysis script ready for publication in a scientific journal.</p>
+<div id="motivation" class="section level2">
+<h2><span class="header-section-number">1.1</span> Motivation</h2>
+<p>APA style is not going anywhere. It is one of the major style regimes in academia and is used in many fields other than Psychology, including medical and other public health journals.</p>
+<p>If you want to publish psychological research, you will have to produce properly formatted APA style manuscripts.</p>
+<p>Don’t mix content and style</p>
+<p>A general principle in typesetting — be it on (digital) paper or the web — is to separate content and style. Separation is commonly achieved through the use of a markup language, which is a system of document annotations. These annotations declare portions of text as title, section headings, or list items but crucially, they are agnostic to what this means visually (e.g., <bold>text</bold> instead of text). There are several advantages to this approach but I’ll only briefly name three of them here:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Focus on writing</strong>. It seems that a common form of procrastination for many writers is making a document pretty. Adding a newline here or a manual line break there, moving a table just two pixels to the left, etc. When writing a markup document in a plain text document it let’s you focus on the content rather than the style.</li>
+<li><strong>Swiftly adjust the style</strong>. If your paper is rejected and the next target journal prefers a different flavor of APA style, there is no need to touch your writing. As a simple example, I recently submitted a paper to a journal that asked me to collect all figure captions at the end of the document on one page rather than printing them below the corresponding figures. Because my captions were declared as such, I left the text unchanged (captions below the figures) and simply changed the option controlling the captions’ position within the document.</li>
+<li><strong>Write plain text files</strong>. Once you move to writing in plain text files, you open yourself up to a whole new world of very helpful tools to facilitate your writing and collaboration, such as dynamic documents or the version control system git, but that’s a topic for another blog post.</li>
+</ol>
+<p>This is what is called a <a href="http://en.wikipedia.org/wiki/Living_document">dynamic document</a> (Xie, 2013) and the topic of a future blog post.</p>
+<!--
+
+http://www.ncbi.nlm.nih.gov/pubmed/24886202
+Bakker, M. & Wicherts, J. M. (2011). The (mis)reporting of statistical results in psychology journals. Behavior Research Methods, 43, 666-678.
+    "18% of statistical results in the psychological literature are incorrectly reported [...]  around 15% of the articles contained at least one statistical conclusion that proved, upon recalculation, to be incorrect"
+
+The Prevalence of Statistical Reporting Errors in Psychology (1985-2013)
+https://osf.io/e9qbp/
+
+Study: 31 emailed requests for data to replicate SEMs yield 4 positive answers (87% non-reps)
+http://t.co/gClUQgoKtL http://t.co/88l0eUJIbf
+
+Statistical Reporting Errors and Collaboration on Statistical Analyses in Psychological Science
+http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0114876
+
+
+49% of econ paper results were successfully reproduced with original data and code, and help from original authors: http://t.co/13UUbwaD8x
+
+
+Of the subset of articles that were amenable to testing with the GRIM technique (N = 71), around half (N = 36; 50.7%) appeared to contain at least one reported mean inconsistent with the reported sample sizes and scale characteristics, and more than 20% (N = 16) contained multiple such inconsistencies. We requested the data sets corresponding to 21 of these articles, receiving positive responses in 9 cases. We were able to confirm the presence of at least one reporting error in all cases, with 2 articles requiring extensive corrections.
+https://peerj.com/preprints/2064/
+
+
+
+http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.1001747
+http://biostatistics.oxfordjournals.org/content/11/3/385.full
+http://www.r-bloggers.com/translate2r-migrate-spss-scripts-to-r-at-the-push-of-a-button/
+
+http://osc.centerforopenscience.org/2014/10/30/reproducible-reporting/
+
+Gandrud, C. (2013). Reproducible research with R and RStudio. CRC Press.
+Stodden, V., Leisch, F., & Peng, R. D. (Eds.). (2014). Implementing Reproducible Research. CRC Press.
+Xie, Yihui. Dynamic Documents with R and knitr. CRC Press, 2013.
+
+
+Fanelli D (2013) Only reporting guidelines can save (soft) science. European Journal of Personality 27(2): 124
+    "Good research practices notwithstanding, therefore, the keys to good science are good reporting practices, which, interestingly, are much easier to ensure. Indeed, reporting guidelines are rapidly being adopted in biomedical and clinical research, where initiatives such as the EQUATOR Network (http://www.equator-network.org) and Minimum Information about a Biomedical or Biological Investigation (http://mibbi.sourceforge.net) publish updated lists of details that authors need to provide, depending on what methodology they used. Major journals have adopted these guidelines spontaneously because doing so improves their reputation. If authors do not comply, their papers are rejected."
+
+
+More references: http://de.scribd.com/doc/71234390/The-Joy-of-Sweave-A-Beginner-s-Guide-to-Reproducible-Research-with-Sweave
+
+
+The first article about #APAStyle was published in the Feb 1929 issue of Psychological Bulletin! #TBT @apa_journals http://t.co/1e5CMBqfv8
+
+Willingness to Share Research Data Is Related to the Strength of the Evidence and the Quality of Reporting of Statistical Results
+http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0026828
+
+
+Sharing Detailed Research Data Is Associated with Increased Citation Rate
+http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000308
+
+
+
+A first complication is conceptual, because arguably little benefit accrues if another researcher simply clicks “go” or “run” and produces the same numbers from the same data and source code as a previous researcher. Arguably, more would be gained by an independent re-analysis, whereby the second analyst seeks to reproduce the reported results from the raw data and without being guided (and potentially misled) by the first analyst’s code. However, should a second independent analysis yield incompatible results, then access to the original source code can help resolve those discrepancies.
+
+But this is where the second complication arises: the technicalities of sharing source code are also non-trivial. There are obstacles that arise from the use of different platforms (Windows vs. Mac vs. Linux), or from issues such as missing external libraries or tacit assumptions about local directory structures. Ideally, therefore, the source code and data should be prepared in a manner that avoids such pernickety and annoying glitches.
+
+http://www.psychonomic.org/featured-content-detail/go-check-ts-6b6-27c-transparent-workflow-tools-sci
+
+
+
+
+Researchers from the United States Federal Reserve and the Department of the Treasury tried to replicate the results from 67 papers across 13 prestigious journals, but even after contacting authors when necessary, they were successful in only 49 per cent of cases where the data were not confidential and the researchers had the right software to analyse it.
+
+the main reason for being unable to replicate findings was an inability to find the right data or the computer code that produced the original results, even after contacting the authors. Code was missing crucial functions, or certain variables were absent from the data, the paper says.
+
+However, in nine cases for which the authors of the paper had the right dataset and code, they nonetheless got a different result or the code failed to finish executing
+
+Is Economics Research Replicable? Sixty Published Papers fromThirteen Journals Say ”Usually Not”
+http://www.federalreserve.gov/econresdata/feds/2015/files/2015083pap.pdf
+http://theconversation.com/the-replication-crisis-has-engulfed-economics-49202
+
+
+It finds that of the 24 empirical papers subjected to in-house replication review since September 2012, only four packages did not require any modifications. Most troubling, 14 packages (58%) had results in the paper that differed from those generated by the author’s own code.
+http://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=10269209&fileId=S1049096516000196
+
+
+
+Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm
+http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128
+
+
+Peer review openness initiative: http://opennessinitiative.org/PRO_Initiative_RSOS.pdf
+
+
+# Alternatives
+- Sweave: http://link.springer.com/chapter/10.1007/978-3-642-57489-4_89
+    -> Example of irreproducible research: http://www.nature.com/nm/journal/v13/n11/full/nm1107-1276b.html
+- RepoRts
+
+- Matlab-tool for reproducible analyses: http://link.springer.com/article/10.3758%2Fs13428-015-0616-x
+
+- PapeR
+
+- kmr
+
+
+
+# Abstract
+
+papar: Create publication-ready manuscripts in R
+
+Recently, growing attention has been drawn to the large number of scientific findings that are not reproducible.
+One aspect of this worrisome state of affairs, which is not limited to the field of psychology, is non-reproducibility of statistical analyses and scientific computations.
+Given that raw data are available, the reproducibility of analyses should be considered a minimum standard for judging scientific claims (Peng, 2011).
+Two obvious reasons for non-reproducibility of analyses are (1) incorrect and (2) incomplete reporting of methods and statistics. 
+A review of psychological journal articles found that 18% of the statistical results were reported incorrectly; these errors lead to incorrect inferences in 15% of surveyed articles (Bakker & Wicherts, 2011).
+Dynamic documents that merge report and analysis scripts are an effective way to avoid erronenous statistics in manuscripts (Gandrud, 2013).
+We introduce the R package 'papaja' that builds on the 'knitr' package allowing authors to use the easy-to-learn Markdown syntax to harness the typesetting-power of LaTeX.
+papaja-functions additionally ensures that all necessary statistics are reported to ensure reproducibility and facilitate future synthesis of results.
+
+
+
+J of the American Statistical Association appoints ‘reproducibility editors’ to assure code and data are shared https://t.co/BsdpwPtets
+
+
+
+
+
+papaja: Create publication-ready manuscripts in R
+
+Recently, growing attention has been drawn to the large number of scientific findings that are not reproducible.
+One aspect of this worrisome state of affairs, which is not limited to the field of psychology, is non-reproducibility of statistical analyses and scientific computations.
+Given that raw data are available, the reproducibility of analyses should be considered a minimum standard for judging scientific claims (Peng, 2011).
+Two obvious reasons for non-reproducibility of analyses are incorrect and incomplete reporting of methods and statistics.
+A review of psychological journal articles found that 18% of the statistical results were reported incorrectly; these errors lead to incorrect inferences in 15% of surveyed articles (Bakker & Wicherts, 2011).
+Dynamic documents that merge reports and analysis scripts are an effective way to avoid erroneous statistical reporting (Gandrud, 2013).
+We introduce 'papaja', a package for the R Statistical Environment (R Core Team, 2014) that provides a framework to create dynamic documents that adhere to APA guidelines.
+papaja is tailored to the needs of experimental psychologists: we supply convenience functions to report commonly used statistics in accordance with APA guidelines and in a way that ensures reproducibility of analyses and facilitates future synthesis of results.
+
+-->
+<p>As you may have heard, recently, interest in reproducible research has been growing. Reproducible data analysis is an easy to implement and important aspect of the strive towards reproducibility. For <em>R</em> users, R Markdown has been suggested as one possible framework for reproducible analyses. <code>papaja</code> is a R-package in the making including a <a href="http://rmarkdown.rstudio.com/">R Markdown</a> template that can be used with (or without) <a href="http://www.rstudio.com/">RStudio</a> to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition). The package uses the document class <a href="http://www.ctan.org/pkg/apa6">apa6</a> and a .docx-reference file, so you can create PDF documents, or Word documents if you have to. Moreover, <code>papaja</code> supplies R-functions that facilitate reporting results of your analyses in accordance with APA guidelines.</p>
+<p>Markdown is a simple formatting syntax that can be used to author HTML, PDF, and MS Word documents (among others). In the following I will assume you have hopped onto the band wagon and know how to use R Markdown to conduct and comment your analyses. If this is not the case, I recommend you get to grips with <a href="http://R%20Markdown.rstudio.com/">R Markdown</a> first. I use <a href="http://www.rstudio.com/">RStudio</a> (which makes use of <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>) to create my documents, but the general process works using any other text editor.</p>
+</div>
+<div id="implementation" class="section level2">
+<h2><span class="header-section-number">1.2</span> Implementation</h2>
+<p><em>In this section we provide a quick overview of the software and the underlying design principles. Unless you are interested in these details it’s safe to skip this section.</em></p>
+<p>Quick technical overview (what software is involved, what are possible sources of error)</p>
+<div id="guiding-principles" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Guiding principles</h3>
+<p>Our design decisions are based on two guiding principles:</p>
+<ol style="list-style-type: decimal">
+<li><p><code>papaja</code> <strong>is convertible</strong>. A central motivation for the development of the package was the experience that many (if not most) scientific journals in psychology require that the final version of a submitted manuscript be Microsoft Word or documents. We, thus, strive to employ solutions that work for both LaTeX and Word output formats even if it means that some of the functions are less versatile than they could be.</p></li>
+<li><p><code>papaja</code> <strong>does not compute</strong>. The package is meant to facilitate writing reports and manuscripts in APA style; it is <strong>not</strong> meant to provide functions to analyse data. Functions provided in this package do as few computations for you as possible to grant authors maximal flexibility to do all analyses as they see fit.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> That said, <code>papaja</code> functions do compute statistics that should be routinely reported according to APA guidelines, such as confidence intervals, if they are not provided in the analysis output objects. We try to enable customization and replacement of these defaults whenever we can.</p></li>
+</ol>
+</div>
+</div>
+<div id="alternatives" class="section level2">
+<h2><span class="header-section-number">1.3</span> Alternatives</h2>
+<p>Needless to say, not all journals require manuscripts to be prepared according to APA guidelines. Other journal templates for the <code>rmarkdown</code> package are available in the <a href="https://github.com/rstudio/rticles"><code>rticles</code></a> package. It includes a set of templates for authoring of R related journal and conference submissions.</p>
+<ul>
+<li>papeR</li>
+<li>reportR</li>
+</ul>
+</div>
+<div id="getting-started" class="section level2">
+<h2><span class="header-section-number">1.4</span> Getting started</h2>
+<div id="software-requirements" class="section level3">
+<h3><span class="header-section-number">1.4.1</span> Software requirements</h3>
+<p>To use <code>papaja</code> you need to make sure the following software is installed on your computer:</p>
+<ol style="list-style-type: decimal">
+<li><strong><a href="http://www.r-project.org/">R</a> 2.11.1 or later</strong>.</li>
+<li><strong><a href="http://de.wikipedia.org/wiki/TeX">TeX</a> 2013 or later</strong>. Try <a href="http://miktex.org/">MikTeX</a> for Windows, <a href="https://tug.org/mactex/">MacTeX</a> for Mac, or <a href="http://www.tug.org/texlive/">TeX Live</a> for Linux. Some Linux users may need a few additional TeX packages for the LaTeX document class <code>apa6</code> to work:</li>
+</ol>
+<pre class="sh"><code>sudo apt-get install texlive texlive-publishers texlive-fonts-extra texlive-latex-extra texlive-humanities lmodern</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><strong><a href="http://johnmacfarlane.net/pandoc/">pandoc</a> 1.16 or later</strong>. If you work with <a href="http://www.rstudio.com/">RStudio</a> (0.98.932 or later) pandoc should already be installed, otherwise install pandoc using the <a href="https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md">instructions for your operating system</a></li>
+</ol>
+</div>
+<div id="installing-papaja" class="section level3">
+<h3><span class="header-section-number">1.4.2</span> Installing papaja</h3>
+<p>Once all that is taken care of, install <code>papaja</code> from GitHub.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install devtools package if necessary</span>
+if(!<span class="st">&quot;devtools&quot;</span> %in%<span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+
+<span class="co"># Install papaja</span>
+devtools::<span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)</code></pre></div>
+<p><code>papaja</code> has not yet been submitted to CRAN because it is under active development. Currently, there are still a couple of loose ends we would like to tie up before we release the package to a larger audience. If you would like to contribute to speed up the process, have a look at the chapters <a href="limitations.html#limitations">Limitations</a> and <a href="future-directions.html#future-directions">Future directions</a>.</p>
+</div>
+<div id="creating-a-document" class="section level3">
+<h3><span class="header-section-number">1.4.3</span> Creating a document</h3>
+<p>Once you have installed <code>papaja</code> and all other <a href="introduction.html#software-requirements">required software</a>, the APA manuscript template is available through the RStudio menus when creating a new R Markdown file, Figure <a href="introduction.html#fig:template-selection">1.1</a>.</p>
+<div class="figure"><span id="fig:template-selection"></span>
+<img src="https://raw.githubusercontent.com/crsh/papaja/master/inst/images/template_selection.png" alt="papaja's APA6 template is available through the RStudio menues."  />
+<p class="caption">
+Figure 1.1: papaja’s APA6 template is available through the RStudio menues.
+</p>
+</div>
+<p>When you click RStudio’s <em>Knit</em> button (Figure <a href="introduction.html#fig:knit-button">1.2</a>) <code>papaja</code>, <code>rmarkdown,</code> and <code>knitr</code> work together to create an APA conform manuscript that includes both your manuscript text and the results of any embedded R code.</p>
+<div class="figure"><span id="fig:knit-button"></span>
+<img src="https://raw.githubusercontent.com/crsh/papaja/master/inst/images/knitting.png" alt="The *Knit* button in the RStudio."  />
+<p class="caption">
+Figure 1.2: The <em>Knit</em> button in the RStudio.
+</p>
+</div>
+<p>If you don’t use RStudio, you can achieve the same result via the R command line. Use <code>rmarkdown::draft()</code> to create a new R Markdown file and <code>rmarkdown::render()</code> to render the document.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create new R Markdown file</span>
+rmarkdown::<span class="kw">draft</span>(
+  <span class="st">&quot;mymanuscript.Rmd&quot;</span>
+  , <span class="st">&quot;apa6&quot;</span>
+  , <span class="dt">package =</span> <span class="st">&quot;papaja&quot;</span>
+  , <span class="dt">create_dir =</span> <span class="ot">FALSE</span>
+  , <span class="dt">edit =</span> <span class="ot">FALSE</span>
+)
+
+<span class="co"># Render manuscript</span>
+rmarkdown::<span class="kw">render</span>(<span class="st">&quot;mymanuscript.Rmd&quot;</span>)</code></pre></div>
+<hr />
+<p><code>papaja</code> is a R-package in the making including a <a href="http://rmarkdown.rstudio.com/">R Markdown</a> template that can be used with (or without) <a href="http://www.rstudio.com/">RStudio</a> to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition). The package uses the LaTeX document class <a href="http://www.ctan.org/pkg/apa6">apa6</a> and a .docx-reference file, so you can create PDF documents, or Word documents if you have to. Moreover, <code>papaja</code> supplies R-functions that facilitate reporting results of your analyses in accordance with APA guidelines.</p>
+
+<div class="rmdimportant">
+Because <strong>knitr</strong> does not allow duplicate chunk labels in a source document, you need to make sure there are no duplicate labels in your book chapters, otherwise <strong>knitr</strong> will signal an error when knitting the merged Rmd file.
+</div>
+<p></p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Moreover, limiting the amount of computing done by the package facilitates maintenance of its functions.<a href="introduction.html#fnref1">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-markdown-components.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/crsh/papaja_man/edit/master/01-introduction.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

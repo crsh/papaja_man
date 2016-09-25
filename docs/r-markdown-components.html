@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>papaja: Reproducible APA manuscripts with R Markdown</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="<p>“This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.”</p>">
+  <meta name="generator" content="bookdown 0.1.9 and GitBook 2.6.7">
+
+  <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>“This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.”</p>" />
+  <meta name="github-repo" content="crsh/papaja_man" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+  
+  <meta name="twitter:description" content="<p>“This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.”</p>" />
+  
+
+<meta name="author" content="Frederik Aust">
+
+  
+<meta name="date" content="2016-09-25">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="introduction.html">
+<link rel="next" href="writing.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./" ><b>papaja: Reproducible APA<br \>manuscripts with R Markdown</b></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#implementation"><i class="fa fa-check"></i><b>1.2</b> Implementation</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#guiding-principles"><i class="fa fa-check"></i><b>1.2.1</b> Guiding principles</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>1.3</b> Alternatives</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#getting-started"><i class="fa fa-check"></i><b>1.4</b> Getting started</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#software-requirements"><i class="fa fa-check"></i><b>1.4.1</b> Software requirements</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#installing-papaja"><i class="fa fa-check"></i><b>1.4.2</b> Installing papaja</a></li>
+<li class="chapter" data-level="1.4.3" data-path="introduction.html"><a href="introduction.html#creating-a-document"><i class="fa fa-check"></i><b>1.4.3</b> Creating a document</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-markdown-components.html"><a href="r-markdown-components.html"><i class="fa fa-check"></i><b>2</b> R Markdown components</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#yaml-front-matter"><i class="fa fa-check"></i><b>2.1</b> YAML front matter</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#manuscript-meta-data"><i class="fa fa-check"></i><b>2.1.1</b> Manuscript meta data</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#rendering-options"><i class="fa fa-check"></i><b>2.1.2</b> Rendering options</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#body"><i class="fa fa-check"></i><b>2.2</b> Body</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#markdown"><i class="fa fa-check"></i><b>2.2.1</b> Markdown</a></li>
+<li class="chapter" data-level="2.2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#r-code"><i class="fa fa-check"></i><b>2.2.2</b> R code</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="r-markdown-components.html"><a href="r-markdown-components.html#splitting-the-document"><i class="fa fa-check"></i><b>2.3</b> Splitting the document</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i><b>3</b> Writing</a><ul>
+<li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#workflow"><i class="fa fa-check"></i><b>3.1</b> Workflow</a></li>
+<li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.2.1</b> Working with a reference manager</a></li>
+<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.2</b> Referencing R and its packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#tables"><i class="fa fa-check"></i><b>3.3</b> Tables</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="writing.html"><a href="writing.html#alternatives-1"><i class="fa fa-check"></i><b>3.3.1</b> Alternatives</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#figures"><i class="fa fa-check"></i><b>3.4</b> Figures</a></li>
+<li class="chapter" data-level="3.5" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.5</b> Equations</a></li>
+<li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#cross-references"><i class="fa fa-check"></i><b>3.6</b> Cross references</a></li>
+<li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#appendices"><i class="fa fa-check"></i><b>3.7</b> Appendices</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
+<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#reporting-statistics"><i class="fa fa-check"></i><b>4.1</b> Reporting statistics</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.1.1</b> htest (t-tests, correlations, etc.)</a></li>
+<li class="chapter" data-level="4.1.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.1.2</b> lm (linear regression)</a></li>
+<li class="chapter" data-level="4.1.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-anova"><i class="fa fa-check"></i><b>4.1.3</b> anova, Anova, Anova.mlm (ANOVA)</a></li>
+<li class="chapter" data-level="4.1.4" data-path="reporting.html"><a href="reporting.html#report-statistical-analyses"><i class="fa fa-check"></i><b>4.1.4</b> Report statistical analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#caching"><i class="fa fa-check"></i><b>4.2</b> Caching</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="publishing-manuscripts.html"><a href="publishing-manuscripts.html"><i class="fa fa-check"></i><b>5</b> Publishing manuscripts</a><ul>
+<li class="chapter" data-level="5.1" data-path="publishing-manuscripts.html"><a href="publishing-manuscripts.html#published-papers-written-using-papaja"><i class="fa fa-check"></i><b>5.1</b> Published papers written using papaja</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>6</b> Limitations</a><ul>
+<li class="chapter" data-level="6.1" data-path="limitations.html"><a href="limitations.html#ms-word-caveat"><i class="fa fa-check"></i><b>6.1</b> MS word caveat</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>7</b> Future directions</a><ul>
+<li class="chapter" data-level="7.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>7.1</b> Contributions</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>7.1.1</b> Workflow</a></li>
+<li class="chapter" data-level="7.1.2" data-path="future-directions.html"><a href="future-directions.html#wanted"><i class="fa fa-check"></i><b>7.1.2</b> Wanted</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/crsh/papaja" target="blank">papaja on GitHub</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">papaja: Reproducible APA manuscripts with R Markdown</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-markdown-components" class="section level1">
+<h1><span class="header-section-number">2</span> R Markdown components</h1>
+<p>Generally, R Markdown files consist of two parts. The first is the YAML front matter that contains the documents meta information and rendering options. It is located at the top of the R Markdown document. The second part is the main body that contains R code chunks and prose in Markdown format.</p>
+<div id="yaml-front-matter" class="section level2">
+<h2><span class="header-section-number">2.1</span> YAML front matter</h2>
+<p><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> is a human-readable and easy to write language to define data structures. You don’t need to familiarize yourself intimately with YAML to use R Markdown or <code>papaja</code> and I suggest you try to just use it. The following is the default YAML front matter.</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
+<span class="fu">title             :</span> <span class="st">&quot;The title&quot;</span>
+<span class="fu">shorttitle        :</span> <span class="st">&quot;Title&quot;</span>
+
+<span class="fu">author:</span> 
+  <span class="kw">-</span> <span class="fu">name          :</span> <span class="st">&quot;First Author&quot;</span>
+    <span class="fu">affiliation   :</span> <span class="st">&quot;1&quot;</span>
+    <span class="fu">corresponding :</span> yes    <span class="co"># Define only one corresponding author</span>
+    <span class="fu">address       :</span> <span class="st">&quot;Postal address&quot;</span>
+    <span class="fu">email         :</span> <span class="st">&quot;my@email.com&quot;</span>
+  <span class="kw">-</span> <span class="fu">name          :</span> <span class="st">&quot;Ernst-August Doelle&quot;</span>
+    <span class="fu">affiliation   :</span> <span class="st">&quot;1,2&quot;</span>
+
+<span class="fu">affiliation:</span>
+  <span class="kw">-</span> <span class="fu">id            :</span> <span class="st">&quot;1&quot;</span>
+    <span class="fu">institution   :</span> <span class="st">&quot;Wilhelm-Wundt-University&quot;</span>
+  <span class="kw">-</span> <span class="fu">id            :</span> <span class="st">&quot;2&quot;</span>
+    <span class="fu">institution   :</span> <span class="st">&quot;Konstanz Business School&quot;</span>
+
+<span class="fu">author_note:</span> &gt;
+  Complete departmental affiliations for each author (note the indentation, if you start a new paragraph).
+
+  Enter author note here.
+
+<span class="fu">abstract:</span> &gt;
+  Enter abstract here (note the indentation, if you start a new paragraph).
+  
+<span class="fu">keywords          :</span> <span class="st">&quot;keywords&quot;</span>
+<span class="fu">wordcount         :</span> <span class="st">&quot;X&quot;</span>
+
+<span class="fu">figsintext        :</span> no
+<span class="fu">figurelist        :</span> no
+<span class="fu">tablelist         :</span> no
+<span class="fu">lineno            :</span> yes
+
+<span class="fu">lang              :</span> <span class="st">&quot;english&quot;</span>
+<span class="fu">class             :</span> <span class="st">&quot;man&quot;</span>
+<span class="fu">output            :</span> papaja::apa6_pdf
+
+<span class="fu">bibliography:</span>
+  <span class="kw">-</span> r-references.bib
+<span class="ot">---</span></code></pre></div>
+<div id="manuscript-meta-data" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Manuscript meta data</h3>
+<p>The <code>title</code> is the full name of the manuscript that is printed on the title page and at the beginning of the introduction. The <code>shorttitle</code> is a shortened variant of the title and will be printed in the running head on every page.</p>
+<p><code>author</code> is a structured list. Each author’s information is given in a separate element that is indented and starts with <code>-</code>. A full <code>name</code> and an <code>affiliation</code> symbol need to be provided for every author. The symbol is later printed as superscript following the author’s name and can be a combination of multiple symbols if the author has multiple affiliations (e.g., Ernst-August Doelle<sup>1,2</sup>). Exactly one author has to be declared as corresponding author by adding <code>corresponding: yes</code> and the fields <code>address</code> and <code>email</code> to the author’s information. The latter two fields are used to automatically generate the last sentence of the author note giving the contact information of the corresponding author—as required by the APA guidelines—and is optional, that is, it will not be printed, for all other authors.</p>
+<p><code>affiliation</code> is another structured list containing the institutions’ information; again each new element is indented and starts with <code>-</code>. The <code>id</code> is printed as superscript in front of the <code>institution</code> name below the author names on the title page (e.g., <sup>2</sup> Konstanz Business School).</p>
+<p><code>author_note</code> and <code>abstract</code> contain the text for the corresponding sections of the manuscript. The <code>&gt;</code> indicates that all following indented lines are part of this field. Finally, <code>keywords</code> and <code>wordcount</code><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> are printed below the abstract.</p>
+<p>An additional field, that is not included in the default YAML front matter is <code>note</code>. The contents of this field is printed on title page below the author information and can be used to add remarks, such as “Preprint submitted on June, 29th, 2016”.</p>
+</div>
+<div id="rendering-options" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Rendering options</h3>
+<p>The first set of rendering options breaks with the <a href="introduction.html#guiding-principles">guiding principal</a> <em>is convertible</em>; they have no effect on Word documents. I decided to implement these nonetheless because they are required by some journals and can be used for submissions where (initially) PDF documents are accepted. <code>figsintext</code> indicates whether figures and tables should included at the end of the document—as required by APA guidelines—or rendered in the body of the document. If <code>figurelist</code> or <code>tablelist</code> are set to <code>yes</code> a list of figure or table captions is given following the reference section. <code>lineno</code> indicates whether lines should be continuously numbered through out the manuscript.</p>
+<p>The language of the manuscript is given in <code>lang</code> and affects automatically generated text, such as “Author note” on the title page or “Figure 1.” in figure captions. Currently, <code>english</code> and <code>german</code> are supported. <code>class</code> defines the layout style of the manuscript. <code>man</code> produces the default APA manuscript style, <code>doc</code> produces a more typical document (single-spaced, single-column). The latter option is currently not only available for Word documents.</p>
+<p>The <code>output</code> field determines the type of document that is created, either <code>papaja::apa6_pdf</code> or <code>papaja::apa6_word</code>. Additional arguments can be passed to these functions, e.g. to delete the TeX source file at the end of the rendering process. See <code>?apa6_pdf</code> for details.</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span> 
+  <span class="fu">papaja:</span>:apa6_pdf:
+    <span class="fu">keep_tex:</span> FALSE</code></pre></div>
+<p>The last field, <code>bibliography</code>, contains a list of one or more Bib(La)TeX files containing the references cited in the manuscript. By default, <code>papaja</code> assumes that you will cite R and all R packages used for the analysis contained in <code>r-references.bib</code>. See [CITATION SECTION] for instructions on how to automate this.</p>
+<p>Any additional rendering options supported by <code>rmarkdown::pdf_document()</code> or <code>rmarkdown::word_document()</code> can be added to the YAML front matter. If you, for example, need a different citation style, you can set <code>csl</code> to the path of a <a href="http://citationstyles.org/">CSL</a> style definition file.</p>
+</div>
+</div>
+<div id="body" class="section level2">
+<h2><span class="header-section-number">2.2</span> Body</h2>
+<p>The body of R Markdown documents consists of prose written in Markdown interspersed with R code.</p>
+<div id="markdown" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Markdown</h3>
+<p>Markdown, an easy-to-read and -write annotation system that makes writing APA style a breeze.</p>
+<p><a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> is intended to be as easy-to-read and easy-to-write as possible. The following is an excerpt from the APA example manuscript written in Markdown.</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Methods</span>
+<span class="fu">## Participants</span>
+Younger adults (14 women, 10 men, $M_{age} = 19.5$ years, age range: 18–22 years) were recruited with flyers posted on the Boston College campus. &lt;!--<span class="co"> Add flyer to appendix! --&gt;</span>
+Older adults (15 women, nine men, $M_{age} = 76.1$ years, age range: 68–84 years) were recruited through the Harvard Cooperative on Aging (see Table 1, for demographics and test scores).<span class="ot">[^p]</span>
+
+<span class="ot">[^p]</span>: Analyses of covariance were conducted with these covariates, with no resulting influences of these variables on the pattern or magnitude of the results.</code></pre></div>
+<p>Without knowing anything about Markdown, it should be easy to guess what the annotations mean. # declare hierarchical section headings, <!-- and --> envelope comments, and [^p] adds a reference to a footnote. As you can see, Markdown is easy to learn and will quickly save time in manuscript preparation. The only thing that may be scary at first are the equations enveloped by $. Equations are written in the powerful, yet, fairly simple equation syntax used in LaTeX. Although LaTeX is widely used to write entire manuscripts (not just equations), it is not very popular in the field of Psychology. I suspect that the neglect is largely due to its complexity and long learning curve, which I find rather deterring myself. Both seem to outweigh the advantages of the system when it comes to handling citations and cross-references or typesetting large documents, complex tables, and equations which are rare in the average Psychology paper. That is why I like the idea of using Markdown as a simple interface to harness the power of LaTeX without having to write or know much about LaTeX.</p>
+</div>
+<div id="r-code" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> R code</h3>
+<p>There are two ways to include R code in R Markdown documents. The primary method is to insert code chunks.</p>
+<pre><code>```{r code_chunk, echo = FALSE}
+age_mean &lt;- mean(demographics$age)
+```</code></pre>
+<p>These chunks are enclosed in ``<code>and the first line defines the programming language</code> <code>r``, the chunk label or name</code>code_chunk<code>, and additional options</code>echo = FALSE<code>. By default,</code>papaja<code>sets the two chunk options globally for all chunks,</code>echo = FALSE<code>and</code>message = FALSE<code>.</code>echo = FALSE<code>hides the code in each code chunk and</code>message = FALSE` hides any messages generated by the R code so that they are not included in the manuscript. Both settings can be overwritten by the user.</p>
+<p>R code can also be included in a line of regular text by inserting <code>`r ...`</code>, where <code>...</code> is the desired code to be executed. Including R code inline is a conveinient way of including the contents of variables as part of the text. For example, imagine you compute the mean and standard deviation of participants’ age and store them variables named <code>age_mean</code> and <code>age_sd</code>. You can report these numbers by printing the variables in inline R code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Participants mean age was <span class="st">`</span><span class="dt">r age_mean</span><span class="st">`</span> <span class="kw">years</span> ($<span class="dt">SD =</span> <span class="st">`</span><span class="dt">r age_sd</span><span class="st">`</span>).</code></pre></div>
+<p>In R Markdown documents, as in any other R script, code is executed serially (i.e., from top to bottom). Thus, any variables that are called in code chunks or inline R code must be defined above.</p>
+</div>
+</div>
+<div id="splitting-the-document" class="section level2">
+<h2><span class="header-section-number">2.3</span> Splitting the document</h2>
+<p>Some authors may prefer to split long manuscripts into multiple component files for better clarity. There are two basic strategies to split R Markdown documents that can be combined or used in isolation: sourcing R scripts and splitting the R Markdown document. If the R Markdown document contains a lot of code, it may be helpful to disincorporate parts of the code, such as reading, merging, restructuring, and relabeling data files. The R scripts can then be executed at the respective section of the document using <code>source()</code>.</p>
+<p>Some authors may prefer to split long manuscripts into a master or parent document and multiple children. The master document, for example, consists of the YAML front matter and includes the children, which are themselves R Markdown documents without a YAML front matter.</p>
+<pre><code>...
+
+```{r child = &quot;introduction.Rmd&quot;}
+```
+```{r child = &quot;methods.Rmd&quot;}
+```
+```{r child = &quot;results.Rmd&quot;}
+```
+```{r child = &quot;discussion.Rmd&quot;}
+```
+
+# References</code></pre>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>We hope to automate the word count <a href="future-directions.html#future-directions">in the future</a>. For now, we recommend using the <a href="https://github.com/benmarwick/wordcountaddin">wordcountaddin</a> package <span class="citation">(<span class="citeproc-not-found" data-reference-id="r-wordcountaddin"><strong>???</strong></span>)</span>.<a href="r-markdown-components.html#fnref2">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="writing.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/crsh/papaja_man/edit/master/02-components.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

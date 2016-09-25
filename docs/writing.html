@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>papaja: Reproducible APA manuscripts with R Markdown</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="<p>“This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.”</p>">
+  <meta name="generator" content="bookdown 0.1.9 and GitBook 2.6.7">
+
+  <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>“This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.”</p>" />
+  <meta name="github-repo" content="crsh/papaja_man" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+  
+  <meta name="twitter:description" content="<p>“This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.”</p>" />
+  
+
+<meta name="author" content="Frederik Aust">
+
+  
+<meta name="date" content="2016-09-25">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="r-markdown-components.html">
+<link rel="next" href="reporting.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./" ><b>papaja: Reproducible APA<br \>manuscripts with R Markdown</b></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#implementation"><i class="fa fa-check"></i><b>1.2</b> Implementation</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#guiding-principles"><i class="fa fa-check"></i><b>1.2.1</b> Guiding principles</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>1.3</b> Alternatives</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#getting-started"><i class="fa fa-check"></i><b>1.4</b> Getting started</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#software-requirements"><i class="fa fa-check"></i><b>1.4.1</b> Software requirements</a></li>
+<li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#installing-papaja"><i class="fa fa-check"></i><b>1.4.2</b> Installing papaja</a></li>
+<li class="chapter" data-level="1.4.3" data-path="introduction.html"><a href="introduction.html#creating-a-document"><i class="fa fa-check"></i><b>1.4.3</b> Creating a document</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-markdown-components.html"><a href="r-markdown-components.html"><i class="fa fa-check"></i><b>2</b> R Markdown components</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#yaml-front-matter"><i class="fa fa-check"></i><b>2.1</b> YAML front matter</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#manuscript-meta-data"><i class="fa fa-check"></i><b>2.1.1</b> Manuscript meta data</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#rendering-options"><i class="fa fa-check"></i><b>2.1.2</b> Rendering options</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#body"><i class="fa fa-check"></i><b>2.2</b> Body</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#markdown"><i class="fa fa-check"></i><b>2.2.1</b> Markdown</a></li>
+<li class="chapter" data-level="2.2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#r-code"><i class="fa fa-check"></i><b>2.2.2</b> R code</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="r-markdown-components.html"><a href="r-markdown-components.html#splitting-the-document"><i class="fa fa-check"></i><b>2.3</b> Splitting the document</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i><b>3</b> Writing</a><ul>
+<li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#workflow"><i class="fa fa-check"></i><b>3.1</b> Workflow</a></li>
+<li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.2.1</b> Working with a reference manager</a></li>
+<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.2</b> Referencing R and its packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#tables"><i class="fa fa-check"></i><b>3.3</b> Tables</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="writing.html"><a href="writing.html#alternatives-1"><i class="fa fa-check"></i><b>3.3.1</b> Alternatives</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#figures"><i class="fa fa-check"></i><b>3.4</b> Figures</a></li>
+<li class="chapter" data-level="3.5" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.5</b> Equations</a></li>
+<li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#cross-references"><i class="fa fa-check"></i><b>3.6</b> Cross references</a></li>
+<li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#appendices"><i class="fa fa-check"></i><b>3.7</b> Appendices</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
+<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#reporting-statistics"><i class="fa fa-check"></i><b>4.1</b> Reporting statistics</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.1.1</b> htest (t-tests, correlations, etc.)</a></li>
+<li class="chapter" data-level="4.1.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.1.2</b> lm (linear regression)</a></li>
+<li class="chapter" data-level="4.1.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-anova"><i class="fa fa-check"></i><b>4.1.3</b> anova, Anova, Anova.mlm (ANOVA)</a></li>
+<li class="chapter" data-level="4.1.4" data-path="reporting.html"><a href="reporting.html#report-statistical-analyses"><i class="fa fa-check"></i><b>4.1.4</b> Report statistical analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#caching"><i class="fa fa-check"></i><b>4.2</b> Caching</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="publishing-manuscripts.html"><a href="publishing-manuscripts.html"><i class="fa fa-check"></i><b>5</b> Publishing manuscripts</a><ul>
+<li class="chapter" data-level="5.1" data-path="publishing-manuscripts.html"><a href="publishing-manuscripts.html#published-papers-written-using-papaja"><i class="fa fa-check"></i><b>5.1</b> Published papers written using papaja</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>6</b> Limitations</a><ul>
+<li class="chapter" data-level="6.1" data-path="limitations.html"><a href="limitations.html#ms-word-caveat"><i class="fa fa-check"></i><b>6.1</b> MS word caveat</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>7</b> Future directions</a><ul>
+<li class="chapter" data-level="7.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>7.1</b> Contributions</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>7.1.1</b> Workflow</a></li>
+<li class="chapter" data-level="7.1.2" data-path="future-directions.html"><a href="future-directions.html#wanted"><i class="fa fa-check"></i><b>7.1.2</b> Wanted</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/crsh/papaja" target="blank">papaja on GitHub</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">papaja: Reproducible APA manuscripts with R Markdown</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="writing" class="section level1">
+<h1><span class="header-section-number">3</span> Writing</h1>
+<div id="workflow" class="section level2">
+<h2><span class="header-section-number">3.1</span> Workflow</h2>
+<ul>
+<li>Don’t edit raw data</li>
+<li>Don’t set a working directory</li>
+<li>Generate graphics from R code</li>
+<li>Don’t edit word documents</li>
+</ul>
+<p>Use a reference manager</p>
+<p>If you are not already using a reference manager such as Zotero, I strongly suggest you start doing so. Reference managers are like iTunes for your literature; they help you search, download, and organize papers. Most importantly, with a few clicks you can export a collection of references you need for a paper into a .bib-file. Once your references are in a .bib-file that resides in the same folder as your Markdown-file, you can easily add citations to your Markdown document. Each reference has a unique handle, e.g. lewandowsky_computational_2011, which you can use in Markdown. <span class="citation">(<span class="citeproc-not-found" data-reference-id="lewandowsky_computational_2011"><strong>???</strong></span>)</span> creates an in-text citation; <span class="citation">(<span class="citeproc-not-found" data-reference-id="lewandowsky_computational_2011"><strong>???</strong></span>)</span> creates a citation in parentheses. Everything reference-related, such as in-text citation and the reference section, will be taken cared of automatically.</p>
+<ul>
+<li>RStudio</li>
+<li>Section overview</li>
+<li>Spell check</li>
+</ul>
+</div>
+<div id="citations" class="section level2">
+<h2><span class="header-section-number">3.2</span> Citations</h2>
+<p>No manuscript is complete without citation. In order for citations to work, you need to supply a Bib(La)TeX file to the <code>bibliography</code> parameter in the YAML front matter (<code>bibliography: my.bib</code>). Once this is done, <code>[e.g., @james_1890; @bem_2011]</code> produces a regular citation within parentheses <span class="citation">(e.g., <span class="citeproc-not-found" data-reference-id="james_1890"><strong>???</strong></span>, <span class="citeproc-no-output"><strong>???</strong></span>)</span>. To cite a source in text simply omit the brackets; for example, write <code>@james_1890</code> to cite <span class="citation">(<span class="citeproc-not-found" data-reference-id="james_1890"><strong>???</strong></span>)</span>. For other options see the <a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">overview of the R Markdown citation syntax</a>.</p>
+<p>The citation style is automatically set to APA style. If you need to use a different citation style, you can set in the YAML front matter by adding a <code>csl</code> parameter. See the <a href="http://R%20Markdown.rstudio.com/authoring_bibliographies_and_citations.html">R Markdown documentation</a> and <a href="http://citationstyles.org/">Citation Style Language</a> for further details.</p>
+<p>If you use RStudio, I have created an <a href="https://github.com/crsh/citr">easy-to-use add-in</a> that facilitates inserting citations. The relevant references will, of course, be added to the documents reference section automatically.</p>
+<p><code>citr</code></p>
+<div id="working-with-a-reference-manager" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Working with a reference manager</h3>
+<ul>
+<li>Bib(La)TeX export of Mendeley</li>
+<li>Better Bib(La)TeX intergration of citr</li>
+</ul>
+</div>
+<div id="referencing-r-and-its-packages" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Referencing R and its packages</h3>
+<p>I think it is important to credit the software we use. A lot of R packages are developed by academics free of charge. As citations are the currency of science, it’s easy to compensate volunteers for their work by citing the R packages we use. I suspect that, among other things, this is rarely done because it is tedious work. That’s why papaja makes citing R and its packages easy:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">r_refs</span>(<span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span>)
+my_citation &lt;-<span class="st"> </span><span class="kw">cite_r</span>(<span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span>)</code></pre></div>
+<p><code>r_refs()</code> creates a BibTeX file containing citations for R and all currently loaded packages. <code>cite_r()</code> takes these citations and turns them into readily reportable text. <code>my_citation</code> now contains the following text that you can use in your document: R <span class="citation">(3.3.1, R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(0.16.1, Singmann, Bolker, Westfall, &amp; Aust, <a href="#ref-R-afex">2016</a>)</span>, <em>dplyr</em> <span class="citation">(0.5.0, Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>estimability</em> <span class="citation">(1.1.1, Lenth, <a href="#ref-R-estimability">2015</a>)</span>, <em>knitr</em> <span class="citation">(1.14.4, Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(1.1.12, Bates, Mächler, Bolker, &amp; Walker, <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(2.23.5, Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>Matrix</em> <span class="citation">(1.2.7, Bates &amp; Maechler, <a href="#ref-R-Matrix">2016</a>)</span>, <em>papaja</em> <span class="citation">(0.1.0.9440, Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>reshape2</em> <span class="citation">(1.4.1, Wickham, <a href="#ref-R-reshape2">2007</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(0.1.0, Marwick, n.d.)</span></p>
+</div>
+</div>
+<div id="tables" class="section level2">
+<h2><span class="header-section-number">3.3</span> Tables</h2>
+<p>For prettier tables, I suggest you try <code>apa_table()</code>, which builds on <code>knitr</code>’s <code>kable()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">descriptives &lt;-<span class="st"> </span>mixed_data %&gt;%<span class="st"> </span><span class="kw">group_by</span>(Dosage) %&gt;%
+<span class="st">  </span><span class="kw">summarize</span>(
+    <span class="dt">Mean =</span> <span class="kw">mean</span>(Recall)
+    , <span class="dt">Median =</span> <span class="kw">median</span>(Recall)
+    , <span class="dt">SD =</span> <span class="kw">sd</span>(Recall)
+    , <span class="dt">Min =</span> <span class="kw">min</span>(Recall)
+    , <span class="dt">Max =</span> <span class="kw">max</span>(Recall)
+  )
+descriptives[, -<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">printnum</span>(descriptives[, -<span class="dv">1</span>])
+
+<span class="kw">apa_table</span>(
+  descriptives
+  , <span class="dt">caption =</span> <span class="st">&quot;Descriptive statistics of correct recall by dosage.&quot;</span>
+  , <span class="dt">note =</span> <span class="st">&quot;This table was created with apa_table()&quot;</span>
+  , <span class="dt">escape =</span> <span class="ot">TRUE</span>
+)</code></pre></div>
+<p>Of course popular packages like <code>xtable</code><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> or <code>tables</code> can also be used to create tables when knitting PDF documents. These packages, however, cannot be used when you want to create Microsoft Word documents because they rely on for typesetting. <code>apa_table()</code> creates tables that conform to APA guidelines and are correctly rendered in PDF and Word documents. But don’t get too excited. In papaja, table formatting is somewhat limited for Word documents due to missing functionality in pandoc (e.g., it is not possible to have cells or headers span across multiple columns).</p>
+<p>As required by the APA guidelines, tables are deferred to the final pages of the manuscript when creating a PDF. To place tables and figures in your text instead, set the <code>figsintext</code> parameter in the YAML header to <code>yes</code> or <code>true</code>, as I have done in this document. Again, this is not the case in Word documents due to limited pandoc functionality. The bottom line is, Word documents will be less polished than PDF. The resulting documents should suffice to enable collaboration with Wordy colleagues and prepare a journal submission with limited manual labor.</p>
+<div id="alternatives-1" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Alternatives</h3>
+<p>Pixidust: <a href="https://github.com/nutterb/pixiedust/blob/master/README.md" class="uri">https://github.com/nutterb/pixiedust/blob/master/README.md</a></p>
+<p>xtable: <a href="https://cran.r-project.org/web/packages/xtable/xtable.pdf" class="uri">https://cran.r-project.org/web/packages/xtable/xtable.pdf</a></p>
+<p>tables: <a href="https://cran.r-project.org/web/packages/tables/vignettes/tables.pdf" class="uri">https://cran.r-project.org/web/packages/tables/vignettes/tables.pdf</a></p>
+<p>stargazer: <a href="https://cran.r-project.org/web/packages/stargazer/index.html" class="uri">https://cran.r-project.org/web/packages/stargazer/index.html</a></p>
+<p>knitr::kable</p>
+<p>Hmisc::latex</p>
+<p><a href="https://twitter.com/polesasunder/status/464132152347475968/photo/1" class="uri">https://twitter.com/polesasunder/status/464132152347475968/photo/1</a></p>
+</div>
+</div>
+<div id="figures" class="section level2">
+<h2><span class="header-section-number">3.4</span> Figures</h2>
+<p>As usual in R Markdown, you can embed R-generated plots into your document, see .</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_beeplot</span>(
+  mixed_data
+  , <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>
+  , <span class="dt">dv =</span> <span class="st">&quot;Recall&quot;</span>
+  , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Task&quot;</span>, <span class="st">&quot;Valence&quot;</span>, <span class="st">&quot;Dosage&quot;</span>)
+  , <span class="dt">dispersion =</span> conf_int
+  , <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">30</span>)
+  , <span class="dt">las =</span> <span class="dv">1</span>
+  , <span class="dt">args_points =</span> <span class="kw">list</span>(<span class="dt">cex =</span> <span class="fl">1.5</span>)
+  , <span class="dt">args_arrows =</span> <span class="kw">list</span>(<span class="dt">length =</span> <span class="fl">0.025</span>)
+)</code></pre></div>
+<p>Again, as required by the APA guidelines, figures are deferred to the final pages of the document unless you set <code>figsintext</code> to <code>yes</code>.</p>
+<ul>
+<li>barplot</li>
+<li>lineplot</li>
+<li>violinplot/beeswarm</li>
+</ul>
+<p>Be sure to also check out <code>apa_barplot()</code> and <code>apa_beeplot()</code> if you work with factorial designs. If you prefer creating your plots with <code>ggplot2</code> try <code>theme_apa()</code>.</p>
+</div>
+<div id="equations" class="section level2">
+<h2><span class="header-section-number">3.5</span> Equations</h2>
+<p>If you need to report formulas, you can use the flexible syntax (it will work in Word documents, too). Inline math must be enclosed in <code>$</code> or <code>\(</code> and <code>\)</code> and the result will look like this: <span class="math inline">\(d&#39; = z(H) - z(FA)\)</span>. For larger formulas displayed equations are more appropriate; they are enclosed in <code>$$</code> or <code>\[</code>and <code>\]</code>,</p>
+<p><span class="math display">\[
+d&#39; = \frac{\mu_{old} - \mu_{new}}{\sqrt{0.5(\sigma^2_{old} + \sigma^2_{new})}}.
+\]</span></p>
+</div>
+<div id="cross-references" class="section level2">
+<h2><span class="header-section-number">3.6</span> Cross references</h2>
+<p>Currently, <code>rmarkdown</code> does not support proper cross-referencing with the document. For this document, I have simply interspersed my R markdown document with to accomplish cross-references. A new version of pandoc (1.16), that is not <em>yet</em> shipped with RStudio, supports proper cross-referencing that will work with Word documents as well.</p>
+</div>
+<div id="appendices" class="section level2">
+<h2><span class="header-section-number">3.7</span> Appendices</h2>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-base">
+<p>R Core Team. (2016). <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a></p>
+</div>
+<div id="ref-R-afex">
+<p>Singmann, H., Bolker, B., Westfall, J., &amp; Aust, F. (2016). <em>afex: Analysis of Factorial Experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=afex" class="uri">https://CRAN.R-project.org/package=afex</a></p>
+</div>
+<div id="ref-R-dplyr">
+<p>Wickham, H., &amp; Francois, R. (2016). <em>dplyr: A Grammar of Data Manipulation</em>. Retrieved from <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a></p>
+</div>
+<div id="ref-R-estimability">
+<p>Lenth, R. V. (2015). <em>estimability: Tools for Assessing Estimability of Linear Predictions</em>. Retrieved from <a href="https://CRAN.R-project.org/package=estimability" class="uri">https://CRAN.R-project.org/package=estimability</a></p>
+</div>
+<div id="ref-R-knitr">
+<p>Xie, Y. (2015). <em>Dynamic Documents with R and knitr</em> (2nd ed.). Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a></p>
+</div>
+<div id="ref-R-lme4">
+<p>Bates, D., Mächler, M., Bolker, B., &amp; Walker, S. (2015). Fitting Linear Mixed-Effects Models Using lme4. <em>Journal of Statistical Software</em>, <em>67</em>(1), 1–48. doi:<a href="https://doi.org/10.18637/jss.v067.i01">10.18637/jss.v067.i01</a></p>
+</div>
+<div id="ref-R-lsmeans">
+<p>Lenth, R. V. (2016). Least-Squares Means: The R Package lsmeans. <em>Journal of Statistical Software</em>, <em>69</em>(1), 1–33. doi:<a href="https://doi.org/10.18637/jss.v069.i01">10.18637/jss.v069.i01</a></p>
+</div>
+<div id="ref-R-Matrix">
+<p>Bates, D., &amp; Maechler, M. (2016). <em>Matrix: Sparse and Dense Matrix Classes and Methods</em>. Retrieved from <a href="https://CRAN.R-project.org/package=Matrix" class="uri">https://CRAN.R-project.org/package=Matrix</a></p>
+</div>
+<div id="ref-R-papaja">
+<p>Aust, F., &amp; Barth, M. (2016). <em>papaja: Create APA manuscripts with RMarkdown</em>. Retrieved from <a href="https://github.com/crsh/papaja" class="uri">https://github.com/crsh/papaja</a></p>
+</div>
+<div id="ref-R-reshape2">
+<p>Wickham, H. (2007). Reshaping Data with the reshape Package. <em>Journal of Statistical Software</em>, <em>21</em>(12), 1–20. Retrieved from <a href="http://www.jstatsoft.org/v21/i12/" class="uri">http://www.jstatsoft.org/v21/i12/</a></p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>When you use <code>xtable()</code>, table captions are <a href="http://tex.stackexchange.com/questions/42209/centering-tables-in-document-class-apa6">set to the left page margin</a>.<a href="writing.html#fnref3">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-markdown-components.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reporting.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/crsh/papaja_man/edit/master/03-writing.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
