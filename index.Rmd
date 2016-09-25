@@ -6,24 +6,25 @@ date            : "`r Sys.Date()`"
 site            : bookdown::bookdown_site
 output          : bookdown::html_book
 documentclass   : book
-bibliography    : r-references.bib
+bibliography    : [references.bib, r-references.bib]
 csl             : apa6.csl
 link-citations  : yes
 github-repo     : crsh/papaja_man
 description     : >
-  "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+  ""
 ---
 
 ```{r libraries_and_options, echo = FALSE, message = FALSE, warning = FALSE}
 library("knitr")
 
 library("papaja")
+library("citr")
 library("wordcountaddin")
 ```
 
 ```{r cite_r, echo = FALSE}
 r_refs("r-references.bib")
-r_citations <- cite_r("r-rferences.bib", footnote = TRUE)
+r_citations <- cite_r("r-references.bib", footnote = TRUE)
 ```
 
 ```{r not_on_cran, echo = FALSE}
@@ -41,6 +42,9 @@ It is currently in the process of being written; I'm publishing new sections of 
 If you have suggestions for improvements or additional topics you would like to see covered, please let me know by opening an [issue on GitHub](https://github.com/crsh/papaja_man/issues) or creating a pull request.
 
 `r not_on_cran`
+
+If you are interested in reproducible research with R more generally, I recommend the books by @xie_dynamic_2015 and @gandrud_reproducible_2013.
+Furthermore, @stodden_implementing_2014 give an overview of tools, practices, and plattforms to implement reproducible research.
 
 This manual is fully reproducible and was written in `r r_citations$r`.
 

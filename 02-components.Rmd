@@ -99,7 +99,7 @@ Finally, `keywords` and `wordcount`[^word_count] are printed below the abstract.
 
 [^word_count]:
 We hope to automate the word count [in the future][Future directions].
-For now, we recommend using the [wordcountaddin](https://github.com/benmarwick/wordcountaddin) package [@r-wordcountaddin].
+For now, we recommend using the [wordcountaddin](https://github.com/benmarwick/wordcountaddin) package [@R-wordcountaddin].
 
 An additional field, that is not included in the default YAML front matter is `note`.
 The contents of this field is printed on title page below the author information and can be used to add remarks, such as "Preprint submitted on June, 29th, 2016".
