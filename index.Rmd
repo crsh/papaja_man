@@ -16,8 +16,9 @@ description     : >
 
 ```{r libraries_and_options, echo = FALSE, message = FALSE, warning = FALSE}
 library("knitr")
-
 library("papaja")
+
+library("DiagrammeR")
 ```
 
 ```{r cite_r, echo = FALSE}

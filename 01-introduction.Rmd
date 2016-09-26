@@ -35,6 +35,7 @@ The importance of reproducibility was pinpointed by the U.S. National Science Fo
 > Reproducibility is a minimum necessary condition for a finding to be believable and informative. [p. 4, @cacioppo_social_2015]
 
 
+
 <!--
 
 http://www.ncbi.nlm.nih.gov/pubmed/24886202
@@ -179,6 +180,59 @@ Unless you are interested in these details it's safe to skip this section.*
 
 Quick technical overview (what software is involved, what are possible sources of error)
 
+```{r software-process-diagram, fig.cap = "Process diagram illustrating the compilation of reproducible reports written with `papaja`. Boxes represent input files, diamonds represent compiling software, and ovals represent output files. Dashed components are by default implicit (components of R Markdown files) or deleted after the compilation and, thus, invisible to the user.", echo = FALSE, fig.height = 7}
+# grViz("
+# digraph software_process {
+#   graph [rankdir = TB, fontname = Helvetica, ranksep = 0.8, overlap = FALSE]
+# 
+#   node [shape = box, fontname = Helvetica, fontsize = 16]
+# 
+#   # Input
+#   node [margin = 0.2]
+#   prose [label = 'Prose.md', style = 'dashed']
+#   code [label = 'Code.R', style = 'dashed']
+#   manuscript [label = 'Manuscript.Rmd']
+#   data [label = 'Data.csv']
+#   references [label = 'References.bib']
+# 
+#   # Output
+#   node [shape = oval, style = dashed, margin = 0.1]
+#   markdown [label = 'Manuscript.md']
+# 
+#   node[style = solid]
+#   figure [label = 'Figure.eps']
+#   tex [label = 'Manuscript.tex']
+#   pdf [label = 'Manuscript.pdf']
+#   docx [label = 'Manuscript.docx']
+# 
+#   # Software
+#   node [shape = diamond]
+#   r [label = 'R']
+#   pandoc [label = 'pandoc']
+#   latex [label = 'LaTeX']
+# 
+#   # Transitions
+#   edge [arrowhead = 'normal', fontname = Helvetica, fontsize = 15, arrowhead = vee]
+#   {prose code} -> manuscript
+# 
+#   {manuscript data} -> r
+#   r -> r [label = 'papaja\n&nbsp;&nbsp;rmarkdown\nknitr']
+#   r -> {markdown figure}
+# 
+#   {markdown figure references} -> pandoc
+#   pandoc -> pandoc [label = 'knitr\npapaja\npandoc-citeproc']
+#   pandoc -> tex -> latex -> pdf
+#   pandoc -> docx
+#   latex -> latex [label = '&nbsp;apa6']
+# 
+#   {rank = same; pdf; docx}
+# }
+# ")
+
+include_graphics("software_process.png")
+```
+
+
 
 ### Guiding principles
 Our design decisions are based on two guiding principles: 
@@ -224,7 +278,7 @@ sudo apt-get install texlive texlive-publishers texlive-fonts-extra texlive-late
 
 @. **[pandoc](http://johnmacfarlane.net/pandoc/) 1.16 or later**. If you work with [RStudio](http://www.rstudio.com/) (0.98.932 or later) pandoc should already be installed, otherwise install pandoc using the [instructions for your operating system](https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md)
 
-Moreover, I recommend that you use a references manager, such as [Zotero](https://www.zotero.org/).
+Although not necessary for the use of `papaja`, I recommend that you use a references manager, such as [Zotero](https://www.zotero.org/), to facilitate reference management and [citations][Citations].
 
 
 ### Installing papaja
