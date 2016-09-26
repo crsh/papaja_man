@@ -64,6 +64,8 @@ abstract: >
 keywords          : "keywords"
 wordcount         : "X"
 
+bibliography      : ["r-references.bib"]
+
 figsintext        : no
 figurelist        : no
 tablelist         : no
@@ -72,9 +74,6 @@ lineno            : yes
 lang              : "english"
 class             : "man"
 output            : papaja::apa6_pdf
-
-bibliography:
-  - r-references.bib
 ---
 ```
 
@@ -100,6 +99,11 @@ Finally, `keywords` and `wordcount`[^word_count] are printed below the abstract.
 [^word_count]:
 We hope to automate the word count [in the future][Future directions].
 For now, we recommend using the [wordcountaddin](https://github.com/benmarwick/wordcountaddin) package [@R-wordcountaddin].
+
+The `bibliography` field, contains a list of one or more Bib(La)TeX files containing the references cited in the manuscript.
+Additional files can be added by appending them to the list separated by commas, e.g. `bibliography: ["my_bib1.bib", "my_bib2.bib"]`.
+By default, `papaja` assumes that you will cite R and all R packages used for the analysis contained in `r-references.bib`.
+See [Citations] for instructions on how to automate this.
 
 An additional field, that is not included in the default YAML front matter is `note`.
 The contents of this field is printed on title page below the author information and can be used to add remarks, such as "Preprint submitted on June, 29th, 2016".
@@ -128,10 +132,6 @@ output:
   papaja::apa6_pdf:
     keep_tex: FALSE
 ```
-
-The last field, `bibliography`, contains a list of one or more Bib(La)TeX files containing the references cited in the manuscript.
-By default, `papaja` assumes that you will cite R and all R packages used for the analysis contained in `r-references.bib`.
-See [CITATION SECTION] for instructions on how to automate this.
 
 Any additional rendering options supported by `rmarkdown::pdf_document()` or `rmarkdown::word_document()` can be added to the YAML front matter.
 If you, for example, need a different citation style, you can set `csl` to the path of a [CSL](http://citationstyles.org/) style definition file.
