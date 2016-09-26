@@ -18,8 +18,6 @@ description     : >
 library("knitr")
 
 library("papaja")
-library("citr")
-library("wordcountaddin")
 ```
 
 ```{r cite_r, echo = FALSE}
@@ -43,7 +41,7 @@ If you have suggestions for improvements or additional topics you would like to 
 
 `r not_on_cran`
 
-If you are interested in reproducible research with R more generally, I recommend the books by @xie_dynamic_2015 and @gandrud_reproducible_2013.
+If you are interested in reproducible research with R more generally, I recommend the books by @R-knitr and @gandrud_reproducible_2013.
 Furthermore, @stodden_implementing_2014 give an overview of tools, practices, and plattforms to implement reproducible research.
 
 This manual is fully reproducible and was written in `r r_citations$r`.

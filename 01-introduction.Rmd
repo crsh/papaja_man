@@ -206,6 +206,7 @@ It includes a set of templates for authoring of R related journal and conference
 - papeR
 - reportR & apaStyle
 - Sweave
+- schoRsch [@pfister_schorsch:_2016]
 
 
 ## Getting started
