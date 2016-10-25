@@ -148,7 +148,7 @@ $$
 d' = \frac{\mu_{old} - \mu_{new}}{\sqrt{0.5(\sigma^2_{old} + \sigma^2_{new})}}.
 $$
 
-## Cross references
+## Cross-referencing
 
 Currently, `rmarkdown` does not support proper cross-referencing with the document.
 For this document, I have simply interspersed my R markdown document with \LaTeX to accomplish cross-references.

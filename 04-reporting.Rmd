@@ -1,6 +1,59 @@
 # Reporting
 
 ## Reporting statistics
+
+```{r formatting-process-diagram, fig.cap = "Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.", fig.align = "center", echo = FALSE}
+# grViz("
+# digraph reporting_process {
+#   graph [rankdir = TB, fontname = Helvetica, ranksep = 0.8, overlap = FALSE]
+# 
+#   node [shape = box, fontname = Helvetica, margin = 0.2]
+# 
+#   # Input
+#   format [label = 'rmarkdown.pandoc.to']
+#   table [label = '$table']
+# 
+#   subgraph cluster_0 {
+#     htest [label = 'htest']
+#     lm [label = 'lm']
+#     aov [label = 'aov\naovlist\nafex_aov\nAnova.mlm']
+#     anova [label = 'anova']
+# 
+#     style = rounded
+#     label = 'Analysis results (S3-objects)'
+#   }
+#   
+#   # apa_print output
+#   subgraph cluster_1 {
+#     estimate [label = '$estimate']
+#     statistic [label = '$statistic']
+#     full [label = '$full']
+# 
+#     style = rounded
+#     label = 'Formatted text'
+#     labelloc = 'b'
+#   }
+# 
+#   # Output
+#   l_table [label = 'LaTeX table']
+#   p_table [label = 'pandoc table']
+# 
+#   # papaja functions
+#   node [shape = diamond, margin = 0.1]
+#   apa_print [label = 'apa_print.class()']
+#   apa_table [label = 'apa_table()']
+# 
+#   # Transitions
+#   edge [fontname = Helvetica, fontsize = 15, arrowhead = vee]
+#   {htest lm aov anova} -> apa_print -> {estimate statistic full table}
+#   {table format} -> apa_table -> {l_table p_table}
+# }
+# ")
+
+include_graphics("result_formatting_process.png")
+```
+
+
 - in_paren()
 - printnum()
   - printp()

@@ -64,17 +64,17 @@ abstract: >
 keywords          : "keywords"
 wordcount         : "X"
 
+bibliography      : ["r-references.bib"]
+
 figsintext        : no
 figurelist        : no
 tablelist         : no
+footnotelist      : no
 lineno            : yes
 
 lang              : "english"
 class             : "man"
 output            : papaja::apa6_pdf
-
-bibliography:
-  - r-references.bib
 ---
 ```
 
@@ -110,7 +110,7 @@ The contents of this field is printed on title page below the author information
 The first set of rendering options breaks with the [guiding principal][Guiding principles] *is convertible*; they have no effect on Word documents.
 I decided to implement these nonetheless because they are required by some journals and can be used for submissions where (initially) PDF documents are accepted.
 `figsintext` indicates whether figures and tables should included at the end of the document---as required by APA guidelines---or rendered in the body of the document.
-If `figurelist` or `tablelist` are set to `yes` a list of figure or table captions is given following the reference section.
+If `figurelist`, `tablelist`, or `footnotelist` are set to `yes` a list of figure captions, table captions, or footnotes is given following the reference section.
 `lineno` indicates whether lines should be continuously numbered through out the manuscript.
 
 The language of the manuscript is given in `lang` and affects automatically generated text, such as "Author note" on the title page or "Figure 1." in figure captions.

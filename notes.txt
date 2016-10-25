@@ -1,0 +1,35 @@
+https://www.force11.org/software-citation-principles
+
+
+http://www.win-vector.com/blog/2016/10/adding-polished-significance-summaries-to-papers-using-r/
+
+
+http://spp.sagepub.com/content/early/2016/10/06/1948550616673876.abstract
+The GRIM Test
+A Simple Technique Detects Numerous Anomalies in the Reporting of Results in Psychology
+
+> We tested this technique with a sample of 260 recent empirical articles in leading journals. Of the articles that we could test with the GRIM technique (N = 71), around half (N = 36) appeared to contain at least one inconsistent mean, and more than 20% (N = 16) contained multiple such inconsistencies. We requested the data sets corresponding to 21 of these articles, receiving positive responses in 9 cases. We confirmed the presence of at least one reporting error in all cases, with three articles requiring extensive corrections.
+
+https://peerj.com/preprints/2400/
+The GRIMMER test: A method for testing the validity of reported measures of variability
+
+
+- Wenn ein R chunck mit Figure ohne leerem Absatz direkt unter einem Text ist funktioniert auteref & fig not in text nicht mehr, oder?
+
+- Hast du eine Erklärung zu cite r und so im Manual (gehe mal davon aus)?
+
+- Wie funktioniert cite r mit Footnote = FALSE; habe es auf die schnelle nicht hinbekommen
+
+- War etwas verwirrt, das in der Funktion der Befehl um Pakete zu ignorieren pkg heißt (Hatte die Intuition das der Befehl das Gegenteil bewirkt)
+
+- evtl als Beispiel wie man Wörter/Zahlen tiefer stellen kann (wir bei uns z.B. BF01, weil ich denke das viele das nutzen wollen und kein Tex können)
+
+- Gibt es eine Option alle Fußnoten im pdf/word auf einer extra Seite zu haben
+
+- Word count im Word Dokument, wird die Zahl übernommen oder der Text vom Template?
+
+- Gibt es kein RStudio Spellcheck der Title?
+
+$2 \times 2$  ANOVA anstatt
+
+2 x 2 ANOVA 

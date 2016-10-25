@@ -25,7 +25,7 @@
 
 <meta name="author" content="Frederik Aust">
 
-<meta name="date" content="2016-09-26">
+<meta name="date" content="2016-10-25">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -112,10 +112,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a><ul>
-<li class="chapter" data-level="1.1.1" data-path="introduction.html"><a href="introduction.html#reproducible-reports"><i class="fa fa-check"></i><b>1.1.1</b> Reproducible reports</a></li>
+<li class="chapter" data-level="1.1.1" data-path="introduction.html"><a href="introduction.html#reproducible-scientific-reports"><i class="fa fa-check"></i><b>1.1.1</b> Reproducible scientific reports</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#implementation"><i class="fa fa-check"></i><b>1.2</b> Implementation</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#guiding-principles"><i class="fa fa-check"></i><b>1.2.1</b> Guiding principles</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#document-compilation"><i class="fa fa-check"></i><b>1.2.2</b> Document compilation</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>1.3</b> Alternatives</a></li>
 <li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#getting-started"><i class="fa fa-check"></i><b>1.4</b> Getting started</a><ul>
@@ -146,7 +147,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#figures"><i class="fa fa-check"></i><b>3.4</b> Figures</a></li>
 <li class="chapter" data-level="3.5" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.5</b> Equations</a></li>
-<li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#cross-references"><i class="fa fa-check"></i><b>3.6</b> Cross references</a></li>
+<li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.6</b> Cross-referencing</a></li>
 <li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#appendices"><i class="fa fa-check"></i><b>3.7</b> Appendices</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
@@ -198,12 +199,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>papaja is short for ‘preparing APA journal articles’ and is the name of this R package designed to create fully reproducible journal articles that seamlessly fuse statistical analyses, simulations, and prose. A manuscript written with <code>papaja</code> can be thought of as an extensively commented analysis script ready for publication in a scientific journal.</p>
 <div id="motivation" class="section level2">
 <h2><span class="header-section-number">1.1</span> Motivation</h2>
-<p>APA style is one of the major style regimes in academia concerned with written scientific communication and is defined in the <em>Publication Manual of the American Psychological Association</em> <span class="citation">(American Psychological Association, <a href="#ref-american_psychological_association_publication_2010">2010</a>)</span>. Research in psychology and many fields other, including other social sciences, medicine, and public health is reported in APA style. If you want to publish psychological research, you will have to produce properly formatted APA style manuscripts. While the merits of standardizing scientific reporting are undisputed, mastering the currently 272 pages of Publication Manual’s style definitions puts an undeniable burden on authors. To simplify the writing process researchers have developed strategies to automate the implementation of APA style.</p>
-<p>The dominant approach to writing scientific reports in psychology is, without a doubt, the use of common word processors such as Microsoft Word or Libre Office. Available APA style document templates set up page margins, line spacing, fonts, and related aspects of the manuscript. The format of citations and references can be automated by using references managers that integrate with the word processor, such as <a href="https://www.zotero.org/">Zotero</a>.</p>
-<p>Far less common in psychology, is the use of markup systems, such as <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a> or <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>. A key concept of markup systems is to separate style from content by means of document annotations. These annotations declare portions of text for example as title, section headings, or list items but, crucially, they are agnostic to what this means visually (e.g., <code>&lt;emphasize&gt;text&lt;/emphasize&gt;</code> instead of <em>text</em>). There are several advantages to this approach but, curcially for the present purpose, plain text files are required to create fully reproducible scientific reports.</p>
-<div id="reproducible-reports" class="section level3">
-<h3><span class="header-section-number">1.1.1</span> Reproducible reports</h3>
-<p>Dynamic scientific reports fuse prose and simulation or analysis scripts <span class="citation">(Gandrud, <a href="#ref-gandrud_reproducible_2013">2013</a>; Xie, <a href="#ref-R-knitr">2015</a>)</span>. Each time a dynamic document is compiled, the scripts are executed anew and the results—statistics, tables, and figures—are recreated and inserted into the document. Thereby dynamic documents allow automated reporting of results in accordance with style guidelines, which is currently not possible with the prevalent use of Microsoft Word or Libre Office. Importantly, dynamic documents ensure that the results reported in the manuscript are free of rounding or transcription errors and correspond to the latest analyses. This is the reason why dynamic scientific reports are commonly refered to as reproducible scientific reports or reproducible reports. Thus, the term reproducibility here means that given a dataset and analysis script any analyst obtains the same statistical results <span class="citation">(Asendorpf et al., <a href="#ref-asendorpf_recommendations_2013">2013</a>; Cacioppo, Kaplan, Krosnick, Olds, &amp; Dean, <a href="#ref-cacioppo_social_2015">2015</a>)</span>.</p>
+<p>APA style is one of the major style regimes in academia concerned with written scientific communication and is defined in the <em>Publication Manual of the American Psychological Association</em> <span class="citation">(APA; American Psychological Association, <a href="#ref-american_psychological_association_publication_2010">2010</a>)</span>. Research in psychology and many fields other, including other social sciences, medicine, and public health is reported in APA style. If you want to publish psychological research, you will have to produce properly formatted APA style manuscripts. While the merits of standardizing scientific reporting are undisputed, mastering the currently 272 pages of Publication Manual’s style definitions puts an undeniable burden on authors. To simplify the writing process researchers have developed strategies to automate the implementation of APA style.</p>
+<p>The dominant approach to writing scientific reports in psychology is the use of common word processors such as Microsoft Word or Libre Office. Available APA style document templates set up page margins, line spacing, fonts, and related aspects of the manuscript. The format of citations and references can be automated by using references managers that integrate with the word processor, such as <a href="https://www.zotero.org/">Zotero</a>.</p>
+<p>Far less common in psychology, is the use of markup systems, such as <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a> or <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>. A key concept of markup systems is to separate style from content by means of document annotations. These annotations declare portions of text for example as title, section headings, or list items but, crucially, they are agnostic to what this means visually (e.g., <code>&lt;emphasize&gt;text&lt;/emphasize&gt;</code> instead of <em>text</em>). There are several advantages to this approach but, curcially for the present purpose, markup system compile plain text files to produce the final document. Critically, the compilation process is required for fully reproducible scientific reports.</p>
+<div id="reproducible-scientific-reports" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Reproducible scientific reports</h3>
+<p>Dynamic scientific reports fuse prose and simulation or analysis scripts <span class="citation">(Gandrud, <a href="#ref-gandrud_reproducible_2013">2013</a>; Xie, <a href="#ref-R-knitr">2015</a>)</span>. Each time a dynamic document is compiled, the scripts are executed anew and the results—statistics, tables, and figures—are recreated and inserted into the document. Thereby dynamic documents allow automated reporting of results, which is currently not possible with the prevalent use of Microsoft Word or Libre Office. Importantly, dynamic documents ensure that the results reported in the manuscript are free of rounding or transcription errors and correspond to the performed analyses. This is the reason why dynamic scientific reports are commonly refered to as reproducible scientific reports or reproducible reports. Thus, the term reproducibility here means that given a dataset and analysis script any analyst obtains the same statistical results <span class="citation">(Asendorpf et al., <a href="#ref-asendorpf_recommendations_2013">2013</a>; Cacioppo, Kaplan, Krosnick, Olds, &amp; Dean, <a href="#ref-cacioppo_social_2015">2015</a>)</span>.</p>
 <p>The importance of reproducibility was pinpointed by the U.S. National Science Foundation subcommittee on replicability in science:</p>
 <blockquote>
 <p>Reproducibility is a minimum necessary condition for a finding to be believable and informative. <span class="citation">(p. 4, Cacioppo et al., <a href="#ref-cacioppo_social_2015">2015</a>)</span></p>
@@ -333,27 +334,41 @@ We introduce 'papaja', a package for the R Statistical Environment (R Core Team,
 papaja is tailored to the needs of experimental psychologists: we supply convenience functions to report commonly used statistics in accordance with APA guidelines and in a way that ensures reproducibility of analyses and facilitates future synthesis of results.
 
 -->
-<p>For <em>R</em> users, R Markdown has been suggested as one possible framework for reproducible analyses. <code>papaja</code> is a R-package in the making including a <a href="http://rmarkdown.rstudio.com/">R Markdown</a> template that can be used with (or without) <a href="http://www.rstudio.com/">RStudio</a> to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition). The package uses the document class <a href="http://www.ctan.org/pkg/apa6">apa6</a> and a .docx-reference file, so you can create PDF documents, or Word documents if you have to. Moreover, <code>papaja</code> supplies R-functions that facilitate reporting results of your analyses in accordance with APA guidelines.</p>
+<p>R Markdown has been suggested as one possible framework for reproducible analyses <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-rmarkdown"><strong>???</strong></span>)</span>. <code>papaja</code> is a R-package in the making including a <a href="http://rmarkdown.rstudio.com/">R Markdown</a> template that can be used with (or without) <a href="http://www.rstudio.com/">RStudio</a> to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition). The package uses the document class <a href="http://www.ctan.org/pkg/apa6">apa6</a> and a .docx-reference file, so you can create PDF documents, or Word documents if you have to. Moreover, <code>papaja</code> supplies R-functions that facilitate reporting results of your analyses in accordance with APA guidelines.</p>
 <p>Markdown is a simple formatting syntax that can be used to author HTML, PDF, and MS Word documents (among others). In the following I will assume you have hopped onto the band wagon and know how to use R Markdown to conduct and comment your analyses. If this is not the case, I recommend you get to grips with <a href="http://R%20Markdown.rstudio.com/">R Markdown</a> first. I use <a href="http://www.rstudio.com/">RStudio</a> (which makes use of <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>) to create my documents, but the general process works using any other text editor.</p>
 </div>
 </div>
 <div id="implementation" class="section level2">
 <h2><span class="header-section-number">1.2</span> Implementation</h2>
 <p><em>In this section we provide a quick overview of the software and the underlying design principles. Unless you are interested in these details it’s safe to skip this section.</em></p>
-<p>Quick technical overview (what software is involved, what are possible sources of error)</p>
-<div class="figure"><span id="fig:software-process-diagram"></span>
-<img src="software_process.png" alt="Process diagram illustrating the compilation of reproducible reports written with `papaja`. Boxes represent input files, diamonds represent compiling software, and ovals represent output files. Dashed components are by default implicit (components of R Markdown files) or deleted after the compilation and, thus, invisible to the user."  />
-<p class="caption">
-Figure 1.1: Process diagram illustrating the compilation of reproducible reports written with <code>papaja</code>. Boxes represent input files, diamonds represent compiling software, and ovals represent output files. Dashed components are by default implicit (components of R Markdown files) or deleted after the compilation and, thus, invisible to the user.
-</p>
-</div>
 <div id="guiding-principles" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> Guiding principles</h3>
-<p>Our design decisions are based on two guiding principles:</p>
+<p>In our development of this package our design decisions are based on two guiding principles:</p>
 <ol style="list-style-type: decimal">
-<li><p><code>papaja</code> <strong>is convertible</strong>. A central motivation for the development of the package was the experience that many (if not most) scientific journals in psychology require that the final version of a submitted manuscript be Microsoft Word or documents. We, thus, strive to employ solutions that work for both LaTeX and Word output formats even if it means that some of the functions are less versatile than they could be.</p></li>
-<li><p><code>papaja</code> <strong>does not compute</strong>. The package is meant to facilitate writing reports and manuscripts in APA style; it is <strong>not</strong> meant to provide functions to analyse data. Functions provided in this package do as few computations for you as possible to grant authors maximal flexibility to do all analyses as they see fit.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> That said, <code>papaja</code> functions do compute statistics that should be routinely reported according to APA guidelines, such as confidence intervals, if they are not provided in the analysis output objects. We try to enable customization and replacement of these defaults whenever we can.</p></li>
+<li><p><strong><code>papaja</code> is convertible</strong>. A central motivation for the development of the package was the experience that many (if not most) scientific journals in psychology require that the final version of a submitted manuscript be provided as a Microsoft Word or RTF document. We, thus, strive to employ solutions that work for both LaTeX and Word output formats even if it means that some of the functions are less versatile than they could be.</p></li>
+<li><p><strong><code>papaja</code> does not compute</strong>. The package is meant to facilitate writing reports and manuscripts in APA style; it is <em>not</em> meant to analyse data. Functions provided in this package do as little computing as possible to grant authors maximal analytic flexibility. Moreover, limiting the amount of computing done by the package facilitates package maintenance.</p></li>
 </ol>
+<p>While we are guided by these principles, they are guidelines rather than commandments and we deviate from them if necessary. For example, <code>papaja</code> functions do compute statistics that should be routinely reported according to APA guidelines, such as confidence intervals, if they are not provided in the analysis output objects. We, however, try to enable customization and replacement of these defaults whenever we can.</p>
+</div>
+<div id="document-compilation" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Document compilation</h3>
+<p>It is important to note that <code>papaja</code> builds on several existing R packages, which in turn build on other software, to compile the final document. This layered software design grants the package its capabilities but it comes at a cost: When compilation of a <code>papaja</code>-document throws an error it may not be immediately obvious to an inexperienced user, which part of the process failed. We, thus, provide an overview of the compilation process and the software involved.</p>
+<p>The compilation process is outlined in Figure <a href="introduction.html#fig:compilation-process-diagram">1.1</a>. As detailed in the <a href="r-markdown-components.html#r-markdown-components">R Markdown components</a> section, an R Markdown document consists of three components:</p>
+<ol style="list-style-type: decimal">
+<li>A YAML front matter that contains document meta data,</li>
+<li>prose written in markdown (and optionally LaTeX) syntax, and</li>
+<li>R code in so-called <em>code chunks</em>.</li>
+</ol>
+<p>Additionally, the R code contained in an R Markdown document usually accesses data that are either stored in a file on the computers hard drive or a database on the local network or internet. When the document is compiled either by calling <code>rmarkdown::render()</code> or by clicking the Knit-button in RStudio, the YAML front matter is parsed. Errors during this processing step are usually due to erroneous YAML syntax and start with <code>Error in yaml::yaml.load(enc2utf8(string), ...) :</code>. Next, the R code inside the R Markdown document is executed sequentially from top to bottom of the document and the resulting output is inserted into the document in markdown syntax. Any figures that are generated during the execution of the R code are stored to the hard drive and embedded into the markdown document. The R code is executed in a new R session with an empty workspace, no attached packages, and with the working directory set to the path of the R Markdown file. If any portion of the R code throws an error the compilation is aborted. In RStudio the debugger will point to the first line of the R code chunk that threw the error—not the exact line responsible for the error—and report the error message. R error messages usually start with <code>Error:</code>, for example, <code>Error: Object 'experiment_data' not found.</code></p>
+<div class="figure" style="text-align: center"><span id="fig:compilation-process-diagram"></span>
+<img src="compilation_process.png" alt="Process diagram illustrating the compilation of reproducible reports written with `papaja`. Boxes represent input files, diamonds represent compiling software, and ovals represent output files. Dashed components are either implicit (components of R Markdown files) or by default deleted after the compilation and, thus, invisible to the user."  />
+<p class="caption">
+Figure 1.1: Process diagram illustrating the compilation of reproducible reports written with <code>papaja</code>. Boxes represent input files, diamonds represent compiling software, and ovals represent output files. Dashed components are either implicit (components of R Markdown files) or by default deleted after the compilation and, thus, invisible to the user.
+</p>
+</div>
+<p>After the R code has been executed the <code>bookdown</code> document format <code>pdf_document2()</code> or <code>word_document2()</code>, respectively, provides functions that enable the cross-referencing syntax <code>\@ref()</code> described in the <a href="writing.html#cross-referencing">Cross-referencing</a> section. Incorrect use of the cross-referencing syntax typically does not interfere with the document compilation but is apparent from missing or incorrect cross-references in the compiled document, e.g. instead of a figure number the document may contain the figure handle such as <code></code>. The result of this processing step is a pure markdown document containing only a YAML header, prose in markdown (and optionally LaTeX) syntax and rendered images in PDF, EPS, PNG, and TIFF formats at 300 dpi as set by <code>apa6_pdf()</code> or <code>apa6_word()</code>, respectively.</p>
+<p>The mardown document, images and an optional BiB(La)TeX file that contains bibliographic information are the input to the next processing step. <code>rmarkdown::render()</code> assambles a system call to pandoc that is supplemented by <code>papaja</code> to include a call to an additional filter and can be further customized by the user. pandoc parses the contents of the markdown file and translates it into an abstrac syntax tree (AST). The <code>pandoc-citeproc</code> filter is than applied to the AST to replace the citation markup by the citation text and insert a reference section. As detailed in the <a href="writing.html#citations">Citations</a> section, <code>pandoc-citeproc</code> relies on the <a href="http://citationstyles.org/">citation styles language</a> (CSL), an XML-based specification of citation and bibliography formatting rules. Unfortunately, CSL does not support in-text citations. To overcome this limitation, <code>pandoc-citeproc</code> provides a separate syntax for in-text citations, which is based on the same CSL style. As a result the CSL APA6 style uses ampersands for all citations, including in-text citations, defying the APA citation style. That is why <code>papaja</code> provides an additional R-based filter that is applied to the AST to replace ampersands in in-text citations with the word <em>and</em>.</p>
+<p>After all filters have been applied to the AST pandoc converts the document into the target output format, that is, PDF or DOCX. To create DOCX-documents <code>papaja</code> provides a reference DOCX-file containing page setup and style definitions that pandoc uses to create the manuscript file. That is, pandoc translates the AST directly to the office open XML format. To create PDF-documents pandoc in turn relies on LaTeX, that is, pandoc translates the AST to a TeX-file based on a templated provided by <code>papaja</code>. The TeX-file template invokes the <code>apa6</code> LaTeX document class [@???] and loads several additional LaTeX packages. pandoc then generates a system call to LaTeX to render the PDF document. During this processing step, that is, following the pandoc system calls, errors are due to failures of LaTeX to compile the TeX-file and usually start with <code>!</code>, for example, <code>! Undefined control sequence.</code> or <code>! Missing $ inserted</code>.</p>
 </div>
 </div>
 <div id="alternatives" class="section level2">
@@ -364,6 +379,7 @@ Figure 1.1: Process diagram illustrating the compilation of reproducible reports
 <li>reportR &amp; apaStyle</li>
 <li>Sweave</li>
 <li>schoRsch <span class="citation">(Pfister &amp; Janczyk, <a href="#ref-pfister_schorsch:_2016">2016</a>)</span></li>
+<li>sigr</li>
 </ul>
 </div>
 <div id="getting-started" class="section level2">
@@ -373,12 +389,13 @@ Figure 1.1: Process diagram illustrating the compilation of reproducible reports
 <p>To use <code>papaja</code> you need to make sure the following software is installed on your computer:</p>
 <ol class="example" style="list-style-type: decimal">
 <li><strong><a href="http://www.r-project.org/">R</a> 2.11.1 or later</strong>.</li>
+<li><strong><a href="http://johnmacfarlane.net/pandoc/">pandoc</a> 1.16 or later</strong>. If you work with <a href="http://www.rstudio.com/">RStudio</a> (0.98.932 or later) pandoc should already be installed, otherwise install pandoc using the <a href="https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md">instructions for your operating system</a></li>
+</ol>
+<p>If you want to create PDF- in addition to DOCX-files you need</p>
+<ol start="3" class="example" style="list-style-type: decimal">
 <li><strong><a href="http://de.wikipedia.org/wiki/TeX">TeX</a> 2013 or later</strong>. Try <a href="http://miktex.org/">MikTeX</a> for Windows, <a href="https://tug.org/mactex/">MacTeX</a> for Mac, or <a href="http://www.tug.org/texlive/">TeX Live</a> for Linux. Some Linux users may need a few additional TeX packages for the LaTeX document class <code>apa6</code> to work:</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install texlive texlive-publishers texlive-fonts-extra texlive-latex-extra texlive-humanities lmodern</code></pre></div>
-<ol start="3" class="example" style="list-style-type: decimal">
-<li><strong><a href="http://johnmacfarlane.net/pandoc/">pandoc</a> 1.16 or later</strong>. If you work with <a href="http://www.rstudio.com/">RStudio</a> (0.98.932 or later) pandoc should already be installed, otherwise install pandoc using the <a href="https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md">instructions for your operating system</a></li>
-</ol>
 <p>Although not necessary for the use of <code>papaja</code>, I recommend that you use a references manager, such as <a href="https://www.zotero.org/">Zotero</a>, to facilitate reference management and <a href="writing.html#citations">citations</a>.</p>
 </div>
 <div id="installing-papaja" class="section level3">
@@ -393,18 +410,18 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;crsh/pap
 </div>
 <div id="creating-a-document" class="section level3">
 <h3><span class="header-section-number">1.4.3</span> Creating a document</h3>
-<p>Once you have installed <code>papaja</code> and all other <a href="introduction.html#software-requirements">required software</a>, the APA manuscript template is available through the RStudio menus when creating a new R Markdown file, Figure <a href="introduction.html#fig:template-selection">1.2</a>.</p>
+<p>Once you have installed <code>papaja</code> and all other <a href="introduction.html#software-requirements">required software</a>, the APA manuscript template is available through the RStudio menus when creating a new R Markdown file, Figure <a href="introduction.html#fig:template-selection">1.3</a>.</p>
 <div class="figure"><span id="fig:template-selection"></span>
 <img src="https://raw.githubusercontent.com/crsh/papaja/master/inst/images/template_selection.png" alt="papaja's APA6 template is available through the RStudio menues."  />
 <p class="caption">
-Figure 1.2: papaja’s APA6 template is available through the RStudio menues.
+Figure 1.3: papaja’s APA6 template is available through the RStudio menues.
 </p>
 </div>
-<p>When you click RStudio’s <em>Knit</em> button (Figure <a href="introduction.html#fig:knit-button">1.3</a>) <code>papaja</code>, <code>rmarkdown,</code> and <code>knitr</code> work together to create an APA conform manuscript that includes both your manuscript text and the results of any embedded R code.</p>
+<p>When you click RStudio’s <em>Knit</em> button (Figure <a href="introduction.html#fig:knit-button">1.4</a>) <code>papaja</code>, <code>rmarkdown,</code> and <code>knitr</code> work together to create an APA conform manuscript that includes both your manuscript text and the results of any embedded R code.</p>
 <div class="figure"><span id="fig:knit-button"></span>
 <img src="https://raw.githubusercontent.com/crsh/papaja/master/inst/images/knitting.png" alt="The *Knit* button in the RStudio."  />
 <p class="caption">
-Figure 1.3: The <em>Knit</em> button in the RStudio.
+Figure 1.4: The <em>Knit</em> button in the RStudio.
 </p>
 </div>
 <p>If you don’t use RStudio, you can achieve the same result via the R command line. Use <code>rmarkdown::draft()</code> to create a new R Markdown file and <code>rmarkdown::render()</code> to render the document.</p>
@@ -450,12 +467,6 @@ Because <strong>knitr</strong> does not allow duplicate chunk labels in a source
 <div id="ref-pfister_schorsch:_2016">
 <p>Pfister, R., &amp; Janczyk, M. (2016). schoRsch: An R package for analyzing and reporting factorial experiments. <em>The Quantitative Methods for Psychology</em>, <em>12</em>(2), 147–151. doi:<a href="https://doi.org/10.20982/tqmp.12.2.p147">10.20982/tqmp.12.2.p147</a></p>
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Moreover, limiting the amount of computing done by the package facilitates maintenance of its functions.<a href="introduction.html#fnref1">↩</a></p></li>
-</ol>
 </div>
             </section>
 
