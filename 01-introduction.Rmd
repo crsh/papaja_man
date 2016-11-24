@@ -274,7 +274,7 @@ R error messages usually start with `Error:`, for example, `Error: Object 'exper
 # }
 # ")
 
-include_graphics("compilation_process.png")
+knitr::include_graphics("compilation_process.png")
 ```
 
 After the R code has been executed the `bookdown` document format `pdf_document2()` or `word_document2()`, respectively, provides functions that enable the cross-referencing syntax `\@ref()` described in the [Cross-referencing] section.
@@ -351,13 +351,13 @@ devtools::install_github("crsh/papaja")
 Once you have installed `papaja` and all other [required software][Software requirements], the APA manuscript template is available through the RStudio menus when creating a new R Markdown file, Figure  \@ref(fig:template-selection).
 
 ```{r template-selection, echo = FALSE, fig.cap = "papaja's APA6 template is available through the RStudio menues."}
-include_graphics("https://raw.githubusercontent.com/crsh/papaja/master/inst/images/template_selection.png")
+knitr::include_graphics("https://raw.githubusercontent.com/crsh/papaja/master/inst/images/template_selection.png")
 ```
 
 When you click RStudio's *Knit* button (Figure \@ref(fig:knit-button)) `papaja`, `rmarkdown,` and `knitr` work together to create an APA conform manuscript that includes both your manuscript text and the results of any embedded R code.
 
 ```{r knit-button, echo = FALSE, fig.cap = "The *Knit* button in the RStudio."}
-include_graphics("https://raw.githubusercontent.com/crsh/papaja/master/inst/images/knitting.png")
+knitr::include_graphics("https://raw.githubusercontent.com/crsh/papaja/master/inst/images/knitting.png")
 ```
 
 

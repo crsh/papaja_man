@@ -8,7 +8,7 @@
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.2.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,13 +25,8 @@
 
 <meta name="author" content="Frederik Aust">
 
-<meta name="date" content="2016-10-25">
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
+<meta name="date" content="2016-11-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -361,7 +356,7 @@ papaja is tailored to the needs of experimental psychologists: we supply conveni
 </ol>
 <p>Additionally, the R code contained in an R Markdown document usually accesses data that are either stored in a file on the computers hard drive or a database on the local network or internet. When the document is compiled either by calling <code>rmarkdown::render()</code> or by clicking the Knit-button in RStudio, the YAML front matter is parsed. Errors during this processing step are usually due to erroneous YAML syntax and start with <code>Error in yaml::yaml.load(enc2utf8(string), ...) :</code>. Next, the R code inside the R Markdown document is executed sequentially from top to bottom of the document and the resulting output is inserted into the document in markdown syntax. Any figures that are generated during the execution of the R code are stored to the hard drive and embedded into the markdown document. The R code is executed in a new R session with an empty workspace, no attached packages, and with the working directory set to the path of the R Markdown file. If any portion of the R code throws an error the compilation is aborted. In RStudio the debugger will point to the first line of the R code chunk that threw the error—not the exact line responsible for the error—and report the error message. R error messages usually start with <code>Error:</code>, for example, <code>Error: Object 'experiment_data' not found.</code></p>
 <div class="figure" style="text-align: center"><span id="fig:compilation-process-diagram"></span>
-<img src="compilation_process.png" alt="Process diagram illustrating the compilation of reproducible reports written with `papaja`. Boxes represent input files, diamonds represent compiling software, and ovals represent output files. Dashed components are either implicit (components of R Markdown files) or by default deleted after the compilation and, thus, invisible to the user."  />
+<img src="compilation_process.png" alt="Process diagram illustrating the compilation of reproducible reports written with `papaja`. Boxes represent input files, diamonds represent compiling software, and ovals represent output files. Dashed components are either implicit (components of R Markdown files) or by default deleted after the compilation and, thus, invisible to the user." width="263" />
 <p class="caption">
 Figure 1.1: Process diagram illustrating the compilation of reproducible reports written with <code>papaja</code>. Boxes represent input files, diamonds represent compiling software, and ovals represent output files. Dashed components are either implicit (components of R Markdown files) or by default deleted after the compilation and, thus, invisible to the user.
 </p>
@@ -387,15 +382,15 @@ Figure 1.1: Process diagram illustrating the compilation of reproducible reports
 <div id="software-requirements" class="section level3">
 <h3><span class="header-section-number">1.4.1</span> Software requirements</h3>
 <p>To use <code>papaja</code> you need to make sure the following software is installed on your computer:</p>
-<ol class="example" style="list-style-type: decimal">
+<ol style="list-style-type: decimal">
 <li><strong><a href="http://www.r-project.org/">R</a> 2.11.1 or later</strong>.</li>
 <li><strong><a href="http://johnmacfarlane.net/pandoc/">pandoc</a> 1.16 or later</strong>. If you work with <a href="http://www.rstudio.com/">RStudio</a> (0.98.932 or later) pandoc should already be installed, otherwise install pandoc using the <a href="https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md">instructions for your operating system</a></li>
 </ol>
 <p>If you want to create PDF- in addition to DOCX-files you need</p>
-<ol start="3" class="example" style="list-style-type: decimal">
+<ol start="3" style="list-style-type: decimal">
 <li><strong><a href="http://de.wikipedia.org/wiki/TeX">TeX</a> 2013 or later</strong>. Try <a href="http://miktex.org/">MikTeX</a> for Windows, <a href="https://tug.org/mactex/">MacTeX</a> for Mac, or <a href="http://www.tug.org/texlive/">TeX Live</a> for Linux. Some Linux users may need a few additional TeX packages for the LaTeX document class <code>apa6</code> to work:</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install texlive texlive-publishers texlive-fonts-extra texlive-latex-extra texlive-humanities lmodern</code></pre></div>
+<pre class="sh"><code>sudo apt-get install texlive texlive-publishers texlive-fonts-extra texlive-latex-extra texlive-humanities lmodern</code></pre>
 <p>Although not necessary for the use of <code>papaja</code>, I recommend that you use a references manager, such as <a href="https://www.zotero.org/">Zotero</a>, to facilitate reference management and <a href="writing.html#citations">citations</a>.</p>
 </div>
 <div id="installing-papaja" class="section level3">
@@ -438,11 +433,11 @@ rmarkdown::<span class="kw">draft</span>(
 rmarkdown::<span class="kw">render</span>(<span class="st">&quot;mymanuscript.Rmd&quot;</span>)</code></pre></div>
 <hr />
 <p><code>papaja</code> is a R-package in the making including a <a href="http://rmarkdown.rstudio.com/">R Markdown</a> template that can be used with (or without) <a href="http://www.rstudio.com/">RStudio</a> to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition). The package uses the LaTeX document class <a href="http://www.ctan.org/pkg/apa6">apa6</a> and a .docx-reference file, so you can create PDF documents, or Word documents if you have to. Moreover, <code>papaja</code> supplies R-functions that facilitate reporting results of your analyses in accordance with APA guidelines.</p>
+
 <div class="rmdimportant">
-<p>
 Because <strong>knitr</strong> does not allow duplicate chunk labels in a source document, you need to make sure there are no duplicate labels in your book chapters, otherwise <strong>knitr</strong> will signal an error when knitting the merged Rmd file.
-</p>
 </div>
+<p></p>
 
 </div>
 </div>
@@ -456,7 +451,7 @@ Because <strong>knitr</strong> does not allow duplicate chunk labels in a source
 <p>Gandrud, C. (2013). <em>Reproducible Research with R and Rstudio</em> (Auflage: New.). Boca Raton: Crc Pr Inc.</p>
 </div>
 <div id="ref-R-knitr">
-<p>Xie, Y. (2015). <em>Dynamic documents with R and knitr</em> (2nd ed.). Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a></p>
+<p>Xie, Y. (2015). <em>Dynamic Documents with R and knitr</em> (2nd ed.). Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a></p>
 </div>
 <div id="ref-asendorpf_recommendations_2013">
 <p>Asendorpf, J. B., Conner, M., De Fruyt, F., De Houwer, J., Denissen, J. J. A., Fiedler, K., … Wicherts, J. M. (2013). Recommendations for Increasing Replicability in Psychology. <em>European Journal of Personality</em>, <em>27</em>(2), 108–119. doi:<a href="https://doi.org/10.1002/per.1919">10.1002/per.1919</a></p>
@@ -465,7 +460,7 @@ Because <strong>knitr</strong> does not allow duplicate chunk labels in a source
 <p>Cacioppo, J. T., Kaplan, R. M., Krosnick, J. A., Olds, J. L., &amp; Dean, H. (2015). <em>Social, Behavioral, and Economic Sciences Perspectives on Robust and Reliable Science</em> (Report of the Subcommittee on Replicability in Science). Arlington, VA: National Science Foundation. Retrieved from <a href="http://web.stanford.edu/group/bps/cgi-bin/wordpress/wp-content/uploads/2015/09/NSF-Robust-Research-Workshop-Report.pdf" class="uri">http://web.stanford.edu/group/bps/cgi-bin/wordpress/wp-content/uploads/2015/09/NSF-Robust-Research-Workshop-Report.pdf</a></p>
 </div>
 <div id="ref-pfister_schorsch:_2016">
-<p>Pfister, R., &amp; Janczyk, M. (2016). schoRsch: An R package for analyzing and reporting factorial experiments. <em>The Quantitative Methods for Psychology</em>, <em>12</em>(2), 147–151. doi:<a href="https://doi.org/10.20982/tqmp.12.2.p147">10.20982/tqmp.12.2.p147</a></p>
+<p>Pfister, R., &amp; Janczyk, M. (2016). schoRsch: An R Package for Analyzing and Reporting Factorial Experiments. <em>The Quantitative Methods for Psychology</em>, <em>12</em>(2), 147–151. doi:<a href="https://doi.org/10.20982/tqmp.12.2.p147">10.20982/tqmp.12.2.p147</a></p>
 </div>
 </div>
             </section>
@@ -487,6 +482,7 @@ Because <strong>knitr</strong> does not allow duplicate chunk labels in a source
 require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
+"github": false,
 "facebook": true,
 "twitter": true,
 "google": false,
@@ -502,7 +498,7 @@ gitbook.start({
 },
 "edit": {
 "link": "https://github.com/crsh/papaja_man/edit/master/01-introduction.Rmd",
-"text": null
+"text": "Edit"
 },
 "download": null,
 "toc": {

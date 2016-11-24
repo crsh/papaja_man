@@ -8,7 +8,7 @@
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.2.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,13 +25,8 @@
 
 <meta name="author" content="Frederik Aust">
 
-<meta name="date" content="2016-10-25">
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
+<meta name="date" content="2016-11-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -199,7 +194,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="reporting-statistics" class="section level2">
 <h2><span class="header-section-number">4.1</span> Reporting statistics</h2>
 <div class="figure" style="text-align: center"><span id="fig:formatting-process-diagram"></span>
-<img src="result_formatting_process.png" alt="Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript."  />
+<img src="result_formatting_process.png" alt="Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript." width="272" />
 <p class="caption">
 Figure 4.1: Process diagram illustrating the use of <code>apa_print()</code> methods and <code>apa_table()</code> to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.
 </p>
@@ -232,7 +227,47 @@ apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(my_lm)</c
 <center>
 Table. <em>Iris regression table.</em>
 </center>
-<p>[1] “Predictor <span class="math inline">\(b\)</span> 95\% CI <span class="math inline">\(t(146)\)</span> <span class="math inline">\(p\)</span>” [2] “————- —— ——————- ——— ——-” [3] “Intercept 1.04 <span class="math inline">\([0.51\)</span>, <span class="math inline">\(1.58]\)</span> 3.85 &lt; .001” [4] “Sepal Length 0.61 <span class="math inline">\([0.48\)</span>, <span class="math inline">\(0.73]\)</span> 9.77 &lt; .001” [5] “Petal Width 0.56 <span class="math inline">\([0.32\)</span>, <span class="math inline">\(0.80]\)</span> 4.55 &lt; .001” [6] “Petal Length -0.59 <span class="math inline">\([-0.71\)</span>, <span class="math inline">\(-0.46]\)</span> -9.43 &lt; .001” attr(,“format”) [1] “pandoc” attr(,“class”) [1] “knit_asis” attr(,“knit_cacheable”) [1] NA</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Predictor</th>
+<th align="left"><span class="math inline">\(b\)</span></th>
+<th align="left">95% CI</th>
+<th align="left"><span class="math inline">\(t(146)\)</span></th>
+<th align="left"><span class="math inline">\(p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Intercept</td>
+<td align="left">1.04</td>
+<td align="left"><span class="math inline">\([0.51\)</span>, <span class="math inline">\(1.58]\)</span></td>
+<td align="left">3.85</td>
+<td align="left">&lt; .001</td>
+</tr>
+<tr class="even">
+<td align="left">Sepal Length</td>
+<td align="left">0.61</td>
+<td align="left"><span class="math inline">\([0.48\)</span>, <span class="math inline">\(0.73]\)</span></td>
+<td align="left">9.77</td>
+<td align="left">&lt; .001</td>
+</tr>
+<tr class="odd">
+<td align="left">Petal Width</td>
+<td align="left">0.56</td>
+<td align="left"><span class="math inline">\([0.32\)</span>, <span class="math inline">\(0.80]\)</span></td>
+<td align="left">4.55</td>
+<td align="left">&lt; .001</td>
+</tr>
+<tr class="even">
+<td align="left">Petal Length</td>
+<td align="left">-0.59</td>
+<td align="left"><span class="math inline">\([-0.71\)</span>, <span class="math inline">\(-0.46]\)</span></td>
+<td align="left">-9.43</td>
+<td align="left">&lt; .001</td>
+</tr>
+</tbody>
+</table>
 <!-- GitHub markdown doesn't support MathJax
 
 ---
@@ -340,6 +375,7 @@ on recall, <span class="st">`</span><span class="dt">r anova_results$full$Dosage
 require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
+"github": false,
 "facebook": true,
 "twitter": true,
 "google": false,
@@ -355,7 +391,7 @@ gitbook.start({
 },
 "edit": {
 "link": "https://github.com/crsh/papaja_man/edit/master/04-reporting.Rmd",
-"text": null
+"text": "Edit"
 },
 "download": null,
 "toc": {
