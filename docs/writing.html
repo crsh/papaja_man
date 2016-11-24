@@ -129,12 +129,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#markdown"><i class="fa fa-check"></i><b>2.2.1</b> Markdown</a></li>
 <li class="chapter" data-level="2.2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#r-code"><i class="fa fa-check"></i><b>2.2.2</b> R code</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="r-markdown-components.html"><a href="r-markdown-components.html#splitting-the-document"><i class="fa fa-check"></i><b>2.3</b> Splitting the document</a></li>
+<li class="chapter" data-level="2.3" data-path="r-markdown-components.html"><a href="r-markdown-components.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>2.3</b> Splitting an R Markdown document</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i><b>3</b> Writing</a><ul>
-<li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#workflow"><i class="fa fa-check"></i><b>3.1</b> Workflow</a></li>
+<li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#workflow"><i class="fa fa-check"></i><b>3.1</b> Workflow</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.1.1</b> Working with a reference manager</a></li>
+</ul></li>
 <li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.2.1</b> Working with a reference manager</a></li>
+<li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#conveiniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.1</b> Conveiniently inserting citations with <code>citr</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.2</b> Referencing R and its packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#tables"><i class="fa fa-check"></i><b>3.3</b> Tables</a><ul>
@@ -199,7 +201,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Generate graphics from R code</li>
 <li>Don’t edit word documents</li>
 </ul>
-<p>Use a reference manager</p>
+<div id="working-with-a-reference-manager" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Working with a reference manager</h3>
+<ul>
+<li>Bib(La)TeX export of Mendeley</li>
+<li>Better Bib(La)TeX intergration of citr</li>
+</ul>
 <p>If you are not already using a reference manager such as Zotero, I strongly suggest you start doing so. Reference managers are like iTunes for your literature; they help you search, download, and organize papers. Most importantly, with a few clicks you can export a collection of references you need for a paper into a .bib-file. Once your references are in a .bib-file that resides in the same folder as your Markdown-file, you can easily add citations to your Markdown document. Each reference has a unique handle, e.g. lewandowsky_computational_2011, which you can use in Markdown. <span class="citation">(<span class="citeproc-not-found" data-reference-id="lewandowsky_computational_2011"><strong>???</strong></span>)</span> creates an in-text citation; <span class="citation">(<span class="citeproc-not-found" data-reference-id="lewandowsky_computational_2011"><strong>???</strong></span>)</span> creates a citation in parentheses. Everything reference-related, such as in-text citation and the reference section, will be taken cared of automatically.</p>
 <ul>
 <li>RStudio</li>
@@ -207,18 +214,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Spell check</li>
 </ul>
 </div>
+</div>
 <div id="citations" class="section level2">
 <h2><span class="header-section-number">3.2</span> Citations</h2>
 <p>No manuscript is complete without citation. In order for citations to work, you need to supply a Bib(La)TeX file to the <code>bibliography</code> parameter in the YAML front matter (<code>bibliography: my.bib</code>). Once this is done, <code>[e.g., @james_1890; @bem_2011]</code> produces a regular citation within parentheses <span class="citation">(e.g., <span class="citeproc-not-found" data-reference-id="james_1890"><strong>???</strong></span>, <span class="citeproc-no-output"><strong>???</strong></span>)</span>. To cite a source in text simply omit the brackets; for example, write <code>@james_1890</code> to cite <span class="citation">(<span class="citeproc-not-found" data-reference-id="james_1890"><strong>???</strong></span>)</span>. For other options see the <a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">overview of the R Markdown citation syntax</a>.</p>
 <p>The citation style is automatically set to APA style. If you need to use a different citation style, you can set in the YAML front matter by adding a <code>csl</code> parameter. See the <a href="http://R%20Markdown.rstudio.com/authoring_bibliographies_and_citations.html">R Markdown documentation</a> and <a href="http://citationstyles.org/">Citation Style Language</a> for further details.</p>
-<p>If you use RStudio, I have created an <a href="https://github.com/crsh/citr">easy-to-use add-in</a> that facilitates inserting citations. The relevant references will, of course, be added to the documents reference section automatically.</p>
-<p><code>citr</code></p>
-<div id="working-with-a-reference-manager" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Working with a reference manager</h3>
-<ul>
-<li>Bib(La)TeX export of Mendeley</li>
-<li>Better Bib(La)TeX intergration of citr</li>
-</ul>
+<div id="conveiniently-inserting-citations-with-citr" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Conveiniently inserting citations with <code>citr</code></h3>
+<p><code>citr</code> is an R package that provides functions to search Bib(La)TeX-files to create and insert formatted Markdown citations into the current document. If you use RStudio, the package supplies an easy-to-use <a href="https://rstudio.github.io/rstudioaddins/">RStudio add-in</a> that facilitates inserting citations (Figure <a href="writing.html#fig:citr-gif">3.1</a>). The references for the inserted citations are automatically added to the documents reference section.</p>
+<div class="figure" style="text-align: center"><span id="fig:citr-gif"></span>
+<img src="https://raw.githubusercontent.com/crsh/citr/master/inst/images/addin_demo.gif" alt="Demonstration of the RStudio addin from the `citr` package that inserts R Markdown citations."  />
+<p class="caption">
+Figure 3.1: Demonstration of the RStudio addin from the <code>citr</code> package that inserts R Markdown citations.
+</p>
+</div>
+<p>Once <code>citr</code> is installed (<code>install.packages(&quot;citr&quot;)</code>) and you have restarted your R session, the addin appears in the menus and you can define a <a href="https://rstudio.github.io/rstudioaddins/#keyboard-shorcuts">keyboard shortcut</a> to call the addin.</p>
+<p>The addin will automatically look up the Bib(La)TeX-file(s) specified in the YAML front matter. If the document does not contain a YAML front matter the addin will attempt to locate a parent document and look up the Bib(La)TeX-file specified therein. That is, the addin works its automagic even if you edit R Markdown documents that are included as <a href="http://yihui.name/knitr/demo/child/">children</a> in another R Markdown document (also see <a href="r-markdown-components.html#splitting-an-r-markdown-document">Splitting an R Markdown document</a>). The expected names of a parent document default to <code>c(&quot;index.Rmd&quot;, &quot;master.Rmd&quot;)</code>, it thus works with <a href="https://bookdown.org/"><code>bookdown</code></a> out of the box, but can be customized (e.g., <code>options(citr.parent_documents = &quot;my_parent.Rmd&quot;)</code>).</p>
+<p><code>citr</code> can also be used without RStudio, albeit it is less convenient. The following call searches a Bib(La)TeX-file and creates formatted Markdown citations for the results.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;citr&quot;</span>)
+<span class="kw">md_cite</span>(<span class="st">&quot;foo 2016&quot;</span>, <span class="dt">bib_file =</span> <span class="st">&quot;references.bib&quot;</span>)</code></pre></div>
+<p><code>md_cite()</code> searches the author, year, title, and journal fields of your references.</p>
+<p>If you are using Zotero or Juris-M <code>citr</code> can access your reference database directly. For this to work, you need to install the <a href="https://github.com/retorquere/zotero-better-bibtex/wiki">Better Bib(La)TeX extension</a>, which I would recommend anyway. Once the extension is installed and your reference manager is running, <code>citr</code> will automatically access all your references and keep your Bib(La)Tex-file updated by adding missing references. If you dislike this behavior, you can disable it by setting <code>options(citr.use_betterbiblatex = FALSE)</code>.</p>
 </div>
 <div id="referencing-r-and-its-packages" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Referencing R and its packages</h3>
@@ -291,7 +307,8 @@ d&#39; = \frac{\mu_{old} - \mu_{new}}{\sqrt{0.5(\sigma^2_{old} + \sigma^2_{new})
 </div>
 <div id="cross-referencing" class="section level2">
 <h2><span class="header-section-number">3.6</span> Cross-referencing</h2>
-<p>Currently, <code>rmarkdown</code> does not support proper cross-referencing with the document. For this document, I have simply interspersed my R markdown document with to accomplish cross-references. A new version of pandoc (1.16), that is not <em>yet</em> shipped with RStudio, supports proper cross-referencing that will work with Word documents as well.</p>
+<p><code>papaja</code> builds on the document formats <code>pdf_document2()</code> and <code>word_document2()</code> from the <code>bookdown</code> package. This enables the use of <code>bookdown</code> cross-referencing syntax including automatically generated table and figure labels as detailed in the <a href="https://bookdown.org/yihui/bookdown/cross-references.html">bookdown documentation</a>.</p>
+<!-- Add examples -->
 </div>
 <div id="appendices" class="section level2">
 <h2><span class="header-section-number">3.7</span> Appendices</h2>

@@ -182,7 +182,7 @@ Unless you are interested in these details it's safe to skip this section.*
 ### Guiding principles
 In our development of this package our design decisions are based on two guiding principles:
 
-1. **`papaja` is convertible**.
+1. **`papaja` documents are convertible**.
 A central motivation for the development of the package was the experience that many (if not most) scientific journals in psychology require that the final version of a submitted manuscript be provided as a Microsoft Word or RTF document.
 We, thus, strive to employ solutions that work for both LaTeX and Word output formats even if it means that some of the functions are less versatile than they could be.
 

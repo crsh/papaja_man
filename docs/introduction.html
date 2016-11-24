@@ -129,12 +129,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#markdown"><i class="fa fa-check"></i><b>2.2.1</b> Markdown</a></li>
 <li class="chapter" data-level="2.2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#r-code"><i class="fa fa-check"></i><b>2.2.2</b> R code</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="r-markdown-components.html"><a href="r-markdown-components.html#splitting-the-document"><i class="fa fa-check"></i><b>2.3</b> Splitting the document</a></li>
+<li class="chapter" data-level="2.3" data-path="r-markdown-components.html"><a href="r-markdown-components.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>2.3</b> Splitting an R Markdown document</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i><b>3</b> Writing</a><ul>
-<li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#workflow"><i class="fa fa-check"></i><b>3.1</b> Workflow</a></li>
+<li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#workflow"><i class="fa fa-check"></i><b>3.1</b> Workflow</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.1.1</b> Working with a reference manager</a></li>
+</ul></li>
 <li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.2.1</b> Working with a reference manager</a></li>
+<li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#conveiniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.1</b> Conveiniently inserting citations with <code>citr</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.2</b> Referencing R and its packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#tables"><i class="fa fa-check"></i><b>3.3</b> Tables</a><ul>
@@ -340,7 +342,7 @@ papaja is tailored to the needs of experimental psychologists: we supply conveni
 <h3><span class="header-section-number">1.2.1</span> Guiding principles</h3>
 <p>In our development of this package our design decisions are based on two guiding principles:</p>
 <ol style="list-style-type: decimal">
-<li><p><strong><code>papaja</code> is convertible</strong>. A central motivation for the development of the package was the experience that many (if not most) scientific journals in psychology require that the final version of a submitted manuscript be provided as a Microsoft Word or RTF document. We, thus, strive to employ solutions that work for both LaTeX and Word output formats even if it means that some of the functions are less versatile than they could be.</p></li>
+<li><p><strong><code>papaja</code> documents are convertible</strong>. A central motivation for the development of the package was the experience that many (if not most) scientific journals in psychology require that the final version of a submitted manuscript be provided as a Microsoft Word or RTF document. We, thus, strive to employ solutions that work for both LaTeX and Word output formats even if it means that some of the functions are less versatile than they could be.</p></li>
 <li><p><strong><code>papaja</code> does not compute</strong>. The package is meant to facilitate writing reports and manuscripts in APA style; it is <em>not</em> meant to analyse data. Functions provided in this package do as little computing as possible to grant authors maximal analytic flexibility. Moreover, limiting the amount of computing done by the package facilitates package maintenance.</p></li>
 </ol>
 <p>While we are guided by these principles, they are guidelines rather than commandments and we deviate from them if necessary. For example, <code>papaja</code> functions do compute statistics that should be routinely reported according to APA guidelines, such as confidence intervals, if they are not provided in the analysis output objects. We, however, try to enable customization and replacement of these defaults whenever we can.</p>
