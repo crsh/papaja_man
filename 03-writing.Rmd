@@ -159,11 +159,29 @@ apa_beeplot(
 
 Again, as required by the APA guidelines, figures are deferred to the final pages of the document unless you set `figsintext` to `yes`.
 
-- barplot
-- lineplot
-- violinplot/beeswarm
+`papaja` provides the functions `apa_beeplot`, `apa_lineplot`, and `apa_barplot` to easily plot data from factorial designs.
+They are intended to provide a most convenient way to obtain a publication-ready figure with only the most necessary arguments
+while maintaining enough flexibility for a lot of costomizing.
 
-Be sure to also check out `apa_barplot()` and `apa_beeplot()` if you work with factorial designs.
+A most basic usage would look like this:
+<!--
+```{r fig.cap = "Bee plot of the example data set. Small points represent individual observations, large points represent means, and error bars represent 95% confidence intervals. \\label{fig:bee}", echo = TRUE, dev.args = list(bg = 'white'), eval = FALSE}
+apa_beeplot(
+  mixed_data
+  , id = "Subject"
+  , dv = "Recall"
+  , factors = c("Task", "Valence", "Dosage")
+)
+```
+
+The first argument is the `data.frame` that contains the data,
+while the other argments represent chracter strings identifying the columns that contain the a sibject identifier `id`, the dependendent variable `dv`, and the between- or within-subjects `factors`.
+-->
+
+
+
+They are build around the `graphics` packages that is part of the base distribution of R.
+
 If you prefer creating your plots with `ggplot2` try `theme_apa()`.
 
 ## Equations
