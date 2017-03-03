@@ -204,10 +204,7 @@ We, thus, provide an overview of the compilation process and the software involv
 
 The compilation process is outlined in Figure \@ref(fig:compilation-process-diagram).
 As detailed in the [R Markdown components] section, an R Markdown document consists of three components:
-
-1. A YAML front matter that contains document meta data,
-2. prose written in markdown (and optionally LaTeX) syntax, and
-3. R code in so-called *code chunks*.
+A YAML front matter that contains document meta data, prose written in markdown (and optionally LaTeX) syntax, and R code in so-called *code chunks*.
 
 Additionally, the R code contained in an R Markdown document usually accesses data that are either stored in a file on the computers hard drive or a database on the local network or internet.
 When the document is compiled either by calling `rmarkdown::render()` or by clicking the Knit-button in RStudio, the YAML front matter is parsed.

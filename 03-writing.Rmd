@@ -32,6 +32,8 @@ The relevant references will, of course, be added to the documents reference sec
 
 `citr`
 
+> Nachdem ich bei Ihnen die erste Übungen mit R unternommen habe, versuche ich mich derzeit in Papaja (unser gesamtes Lehrgebiet eignet sich derzeit Papayja an). Ich habe allerdings noch nicht herausgefunden, wie ich die alphabetische Sortierung ausschalten kann, z.B. für den Fall (Berthold & Meier, 2009; Wright, 2009; but see Alfred & Bert, 2007). Können Sie mir evtl. weiterhelfen?
+
 ### Working with a reference manager
 
 - Bib(La)TeX export of Mendeley
