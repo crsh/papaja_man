@@ -182,7 +182,7 @@ Unless you are interested in these details it's safe to skip this section.*
 ### Guiding principles
 In our development of this package our design decisions are based on two guiding principles:
 
-1. **`papaja` is convertible**.
+1. **`papaja` documents are convertible**.
 A central motivation for the development of the package was the experience that many (if not most) scientific journals in psychology require that the final version of a submitted manuscript be provided as a Microsoft Word or RTF document.
 We, thus, strive to employ solutions that work for both LaTeX and Word output formats even if it means that some of the functions are less versatile than they could be.
 
@@ -271,7 +271,7 @@ R error messages usually start with `Error:`, for example, `Error: Object 'exper
 # }
 # ")
 
-include_graphics("compilation_process.png")
+knitr::include_graphics("compilation_process.png")
 ```
 
 After the R code has been executed the `bookdown` document format `pdf_document2()` or `word_document2()`, respectively, provides functions that enable the cross-referencing syntax `\@ref()` described in the [Cross-referencing] section.
@@ -348,13 +348,13 @@ devtools::install_github("crsh/papaja")
 Once you have installed `papaja` and all other [required software][Software requirements], the APA manuscript template is available through the RStudio menus when creating a new R Markdown file, Figure  \@ref(fig:template-selection).
 
 ```{r template-selection, echo = FALSE, fig.cap = "papaja's APA6 template is available through the RStudio menues."}
-include_graphics("https://raw.githubusercontent.com/crsh/papaja/master/inst/images/template_selection.png")
+knitr::include_graphics("https://raw.githubusercontent.com/crsh/papaja/master/inst/images/template_selection.png")
 ```
 
 When you click RStudio's *Knit* button (Figure \@ref(fig:knit-button)) `papaja`, `rmarkdown,` and `knitr` work together to create an APA conform manuscript that includes both your manuscript text and the results of any embedded R code.
 
 ```{r knit-button, echo = FALSE, fig.cap = "The *Knit* button in the RStudio."}
-include_graphics("https://raw.githubusercontent.com/crsh/papaja/master/inst/images/knitting.png")
+knitr::include_graphics("https://raw.githubusercontent.com/crsh/papaja/master/inst/images/knitting.png")
 ```
 
 

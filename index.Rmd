@@ -15,15 +15,13 @@ description     : >
 ---
 
 ```{r libraries_and_options, echo = FALSE, message = FALSE, warning = FALSE}
-library("knitr")
 library("papaja")
-
 library("DiagrammeR")
 ```
 
 ```{r cite_r, echo = FALSE}
 r_refs("r-references.bib")
-r_citations <- cite_r("r-references.bib", footnote = TRUE)
+r_citations <- cite_r("r-references.bib", footnote = FALSE, pkgs = c("Matrix", "estimability", "reshape2"))
 ```
 
 ```{r not_on_cran, echo = FALSE}
@@ -45,7 +43,7 @@ If you have suggestions for improvements or additional topics you would like to 
 If you are interested in reproducible research with R more generally, I recommend the books by @R-knitr and @gandrud_reproducible_2013.
 Furthermore, @stodden_implementing_2014 give an overview of tools, practices, and plattforms to implement reproducible research.
 
-This manual is fully reproducible and was written in `r r_citations$r`.
+This manual is fully reproducible and was written in `r r_citations`.
 
 ---
 

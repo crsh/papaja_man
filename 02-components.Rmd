@@ -121,8 +121,8 @@ If `figurelist`, `tablelist`, or `footnotelist` are set to `yes` a list of figur
 The language of the manuscript is given in `lang` and affects automatically generated text, such as "Author note" on the title page or "Figure 1." in figure captions.
 Currently, `english` and `german` are supported.
 `class` defines the layout style of the manuscript.
-`man` produces the default APA manuscript style, `doc` produces a more typical document (single-spaced, single-column).
-The latter option is currently not only available for Word documents.
+Setting `class` to `man` produces the default APA manuscript style, `doc` produces a more typical document (single-spaced, single-column).
+The latter option is currently not available for Word documents.
 
 The `output` field determines the type of document that is created, either `papaja::apa6_pdf` or `papaja::apa6_word`.
 Additional arguments can be passed to these functions, e.g. to delete the TeX source file at the end of the rendering process.
@@ -144,9 +144,16 @@ The body of R Markdown documents consists of prose written in Markdown intersper
 
 ### Markdown
 
-Markdown, an easy-to-read and -write annotation system that makes writing APA style a breeze.
+A general principle in typesetting---be it on (digital) paper or the web---is to separate content and style.
+Separation is commonly achieved through the use of a markup language, which is a system of document annotations.
+These annotations declare portions of text as, for example, title, section headings, or list items but crucially, they are agnostic to what this means visually (e.g., <bold>text</bold> instead of **text**).
+Separation of content and tyle is useful because it enables swift changes to an entire documents' style or structure.
+Word implements this strategy in their so-called *styles*, which are collections of formatting instructions that can be assigned to parts of the text.
 
-[Markdown](http://en.wikipedia.org/wiki/Markdown) is intended to be as easy-to-read and easy-to-write as possible. The following is an excerpt from the APA example manuscript written in Markdown.
+`papaja` uses [Markdown](http://en.wikipedia.org/wiki/Markdown) [@???] to separate content and style.
+Markdown is intended to be an easy-to-read and -write formatting syntax.
+The key design goal was to create a syntax that is readable as-is.
+The following is an excerpt from the APA example manuscript written in Markdown.
 
 ```{markdown markdown_example}
 # Methods
@@ -157,7 +164,19 @@ Older adults (15 women, nine men, $M_{age} = 76.1$ years, age range: 68–84 yea
 [^p]: Analyses of covariance were conducted with these covariates, with no resulting influences of these variables on the pattern or magnitude of the results.
 ```
 
-Without knowing anything about Markdown, it should be easy to guess what the annotations mean. # declare hierarchical section headings, <!-- and --> envelope comments, and [^p] adds a reference to a footnote. As you can see, Markdown is easy to learn and will quickly save time in manuscript preparation. The only thing that may be scary at first are the equations enveloped by $. Equations are written in the powerful, yet, fairly simple equation syntax used in LaTeX. Although LaTeX is widely used to write entire manuscripts (not just equations), it is not very popular in the field of Psychology. I suspect that the neglect is largely due to its complexity and long learning curve, which I find rather deterring myself. Both seem to outweigh the advantages of the system when it comes to handling citations and cross-references or typesetting large documents, complex tables, and equations which are rare in the average Psychology paper. That is why I like the idea of using Markdown as a simple interface to harness the power of LaTeX without having to write or know much about LaTeX.
+Without knowing anything about Markdown, it should be easy to guess what the annotations mean.
+`#` declare hierarchical section headings, `<!--` and `-->` envelope comments, and `[^p]` adds a reference to a footnote.
+
+<!-- Add examples of most common Markdown syntax -->
+
+A comprehensive overview of the supported Markdown syntax is provided by [RStudio's R Markdown documentation](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html).
+
+The only thing that may be unexpected are the equations enveloped by `$`.
+Equations are written in the powerful [mathematics syntax](https://en.wikibooks.org/wiki/LaTeX/Mathematics) used in LaTeX (see also [Equations]).
+Although LaTeX is widely used to write entire manuscripts (not just equations), it is not very popular in the field of Psychology.
+I suspect that the neglect is largely due to its complexity and long learning curve, which I find rather deterring myself.
+Both seem to outweigh the advantages of the system when it comes to handling citations and cross-references or typesetting large documents, complex tables, and equations.
+Markdown (and pandoc) provide a simple interface to harness the power of LaTeX without having to write or know much about LaTeX (see [Document compilation]).
 
 ### R code
 
@@ -168,10 +187,11 @@ The primary method is to insert code chunks.
     age_mean <- mean(demographics$age)
     ```
 
-These chunks are enclosed in ``r ''```` and the first line defines the programming language `` ``r ''`r``, the chunk label or name `code_chunk`, and additional options `echo = FALSE`.
-By default, `papaja` sets the two chunk options globally for all chunks, `echo = FALSE` and `message = FALSE`.
+These chunks are enclosed in ` `r ''```` ` and the first line defines the programming language (`r`, other lanugages, such as `python` are possible), the chunk label or name (`code_chunk`), and additional options (e.g., `echo = FALSE`).
+By default, `papaja` sets the chunk options `echo = FALSE` and `message = FALSE` globally for all chunks.
 `echo = FALSE` hides the code in each code chunk and `message = FALSE` hides any messages generated by the R code so that they are not included in the manuscript.
 Both settings can be overwritten by the user.
+See the [knitr documentation](http://yihui.name/knitr/options/) for further chunk options.
 
 R code can also be included in a line of regular text by inserting `` ``r ''`r ...` ``, where `...` is the desired code to be executed.
 Including R code inline is a conveinient way of including the contents of variables as part of the text.
@@ -179,14 +199,14 @@ For example, imagine you compute the mean and standard deviation of participants
 You can report these numbers by printing the variables in inline R code.
 
 ```{r inline_r_code, eval = FALSE, }
-Participants mean age was `r age_mean` years ($SD = `r age_sd`).
+Participants mean age was `r age_mean` years ($SD = `r age_sd`$).
 ```
 
 In R Markdown documents, as in any other R script, code is executed serially (i.e., from top to bottom).
 Thus, any variables that are called in code chunks or inline R code must be defined above.
 
 
-## Splitting the document
+## Splitting an R Markdown document
 
 Some authors may prefer to split long manuscripts into multiple component files for better clarity.
 There are two basic strategies to split R Markdown documents that can be combined or used in isolation: sourcing R scripts and splitting the R Markdown document.
@@ -195,8 +215,7 @@ The R scripts can then be executed at the respective section of the document usi
 
 Some authors may prefer to split long manuscripts into a master or parent document and multiple children.
 The master document, for example, consists of the YAML front matter and includes the children, which are themselves R Markdown documents without a YAML front matter.
-
-    ...
+To include a child document, insert an empty chunk and provide the path to the R Markdown document in the chunk option `child`.
     
     `r ''````{r child = "introduction.Rmd"}
     ```
@@ -206,6 +225,4 @@ The master document, for example, consists of the YAML front matter and includes
     ```
     `r ''````{r child = "discussion.Rmd"}
     ```
-    
-    # References
 

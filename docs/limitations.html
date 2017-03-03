@@ -8,7 +8,7 @@
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.1 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.2.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,13 +25,8 @@
 
 <meta name="author" content="Frederik Aust">
 
-<meta name="date" content="2016-10-25">
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
+<meta name="date" content="2016-11-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -134,12 +129,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#markdown"><i class="fa fa-check"></i><b>2.2.1</b> Markdown</a></li>
 <li class="chapter" data-level="2.2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#r-code"><i class="fa fa-check"></i><b>2.2.2</b> R code</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="r-markdown-components.html"><a href="r-markdown-components.html#splitting-the-document"><i class="fa fa-check"></i><b>2.3</b> Splitting the document</a></li>
+<li class="chapter" data-level="2.3" data-path="r-markdown-components.html"><a href="r-markdown-components.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>2.3</b> Splitting an R Markdown document</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i><b>3</b> Writing</a><ul>
-<li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#workflow"><i class="fa fa-check"></i><b>3.1</b> Workflow</a></li>
+<li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#workflow"><i class="fa fa-check"></i><b>3.1</b> Workflow</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.1.1</b> Working with a reference manager</a></li>
+</ul></li>
 <li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.2.1</b> Working with a reference manager</a></li>
+<li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#conveiniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.1</b> Conveiniently inserting citations with <code>citr</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.2</b> Referencing R and its packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#tables"><i class="fa fa-check"></i><b>3.3</b> Tables</a><ul>
@@ -228,6 +225,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
+"github": false,
 "facebook": true,
 "twitter": true,
 "google": false,
@@ -243,7 +241,7 @@ gitbook.start({
 },
 "edit": {
 "link": "https://github.com/crsh/papaja_man/edit/master/07-limitations.Rmd",
-"text": null
+"text": "Edit"
 },
 "download": null,
 "toc": {
