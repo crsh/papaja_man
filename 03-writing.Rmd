@@ -165,11 +165,12 @@ apa_beeplot(
 Again, as required by the APA guidelines, figures are deferred to the final pages of the document unless you set `figsintext` to `yes`.
 
 `papaja` provides the functions `apa_beeplot`, `apa_lineplot`, and `apa_barplot` to easily plot data from factorial designs.
-They are intended to provide a most convenient way to obtain a publication-ready figure with only the most necessary arguments
-while maintaining enough flexibility for a lot of costomizing.
+They are intended to provide a convenient way to obtain a publication-ready figure with only the most necessary arguments;
+while maintaining enough flexibility for a lot of customizing.
+The basic arguments to these functions are all the same , so you only need to learn one syntax to generate these different types of plots. Moreover, this comes with the additional advantage that you can easily switch between these types of plots by simply replacing some letters in the function call.
 
 A most basic usage would look like this:
-<!--
+
 ```{r fig.cap = "Bee plot of the example data set. Small points represent individual observations, large points represent means, and error bars represent 95% confidence intervals. \\label{fig:bee}", echo = TRUE, dev.args = list(bg = 'white'), eval = FALSE}
 apa_beeplot(
   mixed_data
@@ -180,13 +181,25 @@ apa_beeplot(
 ```
 
 The first argument is the `data.frame` that contains the data,
-while the other argments represent chracter strings identifying the columns that contain the a sibject identifier `id`, the dependendent variable `dv`, and the between- or within-subjects `factors`.
--->
+while the other argments represent chracter strings identifying the columns that contain the subject identifier `id`,
+the dependendent variable `dv`,
+and the between- or within-subjects `factors`. Currently, up to four factors are supported.
+
+If you have more than one observation per participant-factor-level-combination, these observations are aggregated.
+You can specify individual aggregation functions via `fun_aggregate`.
+
+### What is plotted?
+
+For each cell of the submitted data, the following information is plotted:
+
+- A measure of central tendency.
+- A measure of dispersion.
+- The name of the dependent variable on the y ayis
+- 
 
 
 
-They are build around the `graphics` packages that is part of the base distribution of R.
-
+The plot functions in `papaja` are build around the `graphics` packages that is part of the base distribution of R.
 If you prefer creating your plots with `ggplot2` try `theme_apa()`.
 
 ## Equations
