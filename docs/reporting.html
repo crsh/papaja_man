@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.2.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -26,7 +25,7 @@
 <meta name="author" content="Frederik Aust">
 
 
-<meta name="date" content="2016-11-24">
+<meta name="date" content="2017-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -35,7 +34,6 @@
   
 <link rel="prev" href="writing.html">
 <link rel="next" href="collaborative-writing.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -95,6 +93,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <body>
 
 
+
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
@@ -137,19 +136,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#conveiniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.1</b> Conveiniently inserting citations with <code>citr</code></a></li>
-<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.2</b> Referencing R and its packages</a></li>
+<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager-1"><i class="fa fa-check"></i><b>3.2.2</b> Working with a reference manager</a></li>
+<li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.3</b> Referencing R and its packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#tables"><i class="fa fa-check"></i><b>3.3</b> Tables</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="writing.html"><a href="writing.html#alternatives-1"><i class="fa fa-check"></i><b>3.3.1</b> Alternatives</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#figures"><i class="fa fa-check"></i><b>3.4</b> Figures</a></li>
+<li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#figures"><i class="fa fa-check"></i><b>3.4</b> Figures</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="writing.html"><a href="writing.html#what-is-plotted"><i class="fa fa-check"></i><b>3.4.1</b> What is plotted?</a></li>
+</ul></li>
 <li class="chapter" data-level="3.5" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.5</b> Equations</a></li>
 <li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.6</b> Cross-referencing</a></li>
 <li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#appendices"><i class="fa fa-check"></i><b>3.7</b> Appendices</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#reporting-statistics"><i class="fa fa-check"></i><b>4.1</b> Reporting statistics</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.1.1</b> htest (t-tests, correlations, etc.)</a></li>
+<li class="chapter" data-level="4.1.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.1.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
 <li class="chapter" data-level="4.1.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.1.2</b> lm (linear regression)</a></li>
 <li class="chapter" data-level="4.1.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-anova"><i class="fa fa-check"></i><b>4.1.3</b> anova, Anova, Anova.mlm (ANOVA)</a></li>
 <li class="chapter" data-level="4.1.4" data-path="reporting.html"><a href="reporting.html#report-statistical-analyses"><i class="fa fa-check"></i><b>4.1.4</b> Report statistical analyses</a></li>
@@ -196,11 +198,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="reporting-statistics" class="section level2">
 <h2><span class="header-section-number">4.1</span> Reporting statistics</h2>
 <div class="figure" style="text-align: center"><span id="fig:formatting-process-diagram"></span>
-<img src="result_formatting_process.png" alt="Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript." width="272" />
+<img src="result_formatting_process.png" alt="Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript."  />
 <p class="caption">
 Figure 4.1: Process diagram illustrating the use of <code>apa_print()</code> methods and <code>apa_table()</code> to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.
 </p>
 </div>
+<p>First of all, the function <code>printnum()</code> can be used to include a numeric value into text, with the correct rounding and with or without a leading zero. For example, if you want to include a mean into text, just write</p>
+<pre class="text"><code>Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).</code></pre>
+<p>which will result in: Participants mean age was <span class="math inline">\(22.84\)</span> years (<span class="math inline">\(SD = 3.78\)</span>).</p>
 <ul>
 <li>in_paren()</li>
 <li>printnum()</li>
@@ -208,7 +213,8 @@ Figure 4.1: Process diagram illustrating the use of <code>apa_print()</code> met
 <li>inline hook</li>
 </ul>
 <div id="htest-t-tests-correlations-etc." class="section level3">
-<h3><span class="header-section-number">4.1.1</span> htest (t-tests, correlations, etc.)</h3>
+<h3><span class="header-section-number">4.1.1</span> htest (<em>t</em> tests, correlations, etc.)</h3>
+<p>In R, the results of a <span class="math inline">\(t\)</span> test (regardless of the exact type of <span class="math inline">\(t\)</span> test) are stored in an <code>htest</code> object.</p>
 </div>
 <div id="lm-linear-regression" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> lm (linear regression)</h3>
@@ -226,9 +232,9 @@ Figure 4.1: Process diagram illustrating the use of <code>apa_print()</code> met
 apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(my_lm)</code></pre></div>
 <p>One element of this list is <code>apa_lm$table</code> that, in the case of an <code>lm</code>-object, will contain a complete regression table. Pass <code>apa_lm$table</code> to <code>apa_table()</code> to turn it into a proper table in your PDF or Word document (remember to set the chunk option <code>results = &quot;asis&quot;</code>).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(apa_lm$table, <span class="dt">caption =</span> <span class="st">&quot;Iris regression table.&quot;</span>)</code></pre></div>
-<center>
-Table. <em>Iris regression table.</em>
-</center>
+<caption>
+<span id="tab:unnamed-chunk-8">Table 4.1: </span><em>Iris regression table.</em>
+</caption>
 <table>
 <thead>
 <tr class="header">
@@ -286,39 +292,59 @@ Table. *Iris regression table.*
 ---
 -->
 <p><code>papaja</code> currently provides methods for the following object classes:</p>
+<pre><code>## Warning in matrix(print_classes, ncol = 4): Datenlänge [26] ist kein Teiler
+## oder Vielfaches der Anzahl der Zeilen [7]</code></pre>
 <table>
 <thead>
 <tr class="header">
-<th align="left">A</th>
-<th align="left">A-L</th>
+<th align="left">A-B</th>
+<th align="left">B-H</th>
 <th align="left">L-S</th>
-<th align="left">S</th>
+<th align="left">S-A</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">afex_aov</td>
-<td align="left">aovlist</td>
-<td align="left">lm</td>
-<td align="left">summary.aovlist</td>
-</tr>
-<tr class="even">
-<td align="left">anova</td>
-<td align="left">glht</td>
-<td align="left">lsmobj</td>
-<td align="left">summary.glht</td>
-</tr>
-<tr class="odd">
-<td align="left">Anova.mlm</td>
-<td align="left">htest</td>
-<td align="left">summary.Anova.mlm</td>
+<td align="left">BFBayesFactorList</td>
+<td align="left">list</td>
 <td align="left">summary.lm</td>
 </tr>
 <tr class="even">
-<td align="left">aov</td>
-<td align="left">list</td>
-<td align="left">summary.aov</td>
+<td align="left">anova</td>
+<td align="left">apa_print,BFBayesFactorList-method</td>
+<td align="left">lm</td>
 <td align="left">summary.ref.grid</td>
+</tr>
+<tr class="odd">
+<td align="left">Anova.mlm</td>
+<td align="left">apa_print,BFBayesFactor-method</td>
+<td align="left">lsmobj</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">apa_print,ANY-method</td>
+<td align="left">BFBayesFactorTop</td>
+<td align="left">summary.Anova.mlm</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">aov</td>
+<td align="left">apa_print,BFBayesFactorTop-method</td>
+<td align="left">summary.aov</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">aovlist</td>
+<td align="left">glht</td>
+<td align="left">summary.aovlist</td>
+<td align="left">afex_aov</td>
+</tr>
+<tr class="odd">
+<td align="left">BFBayesFactor</td>
+<td align="left">htest</td>
+<td align="left">summary.glht</td>
+<td align="left">anova</td>
 </tr>
 </tbody>
 </table>
@@ -364,8 +390,9 @@ on recall, <span class="st">`</span><span class="dt">r anova_results$full$Dosage
         </div>
       </div>
 <a href="writing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="collaborative-writing.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="collaborative-writing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -374,7 +401,7 @@ on recall, <span class="st">`</span><span class="dt">r anova_results$full$Dosage
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -395,7 +422,7 @@ gitbook.start({
 "link": "https://github.com/crsh/papaja_man/edit/master/04-reporting.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["papaja_manual.pdf", "papaja_manual.epub"],
 "toc": {
 "collapse": "subsection"
 }
@@ -408,7 +435,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+<meta property="og:type" content="book" />
+
+
+<meta property="og:description" content="<p>“”</p>" />
+<meta name="github-repo" content="crsh/papaja_man" />
+
+<meta name="author" content="Frederik Aust" />
+
+<meta name="date" content="2017-10-28" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="<p>“”</p>">
+
+<title>papaja: Reproducible APA manuscripts with R Markdown</title>
+
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#preface">Preface</a></li>
+<li class="has-sub"><a href="1-introduction.html#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li class="has-sub"><a href="1-1-motivation.html#motivation"><span class="toc-section-number">1.1</span> Motivation</a><ul>
+<li><a href="1-1-motivation.html#reproducible-scientific-reports"><span class="toc-section-number">1.1.1</span> Reproducible scientific reports</a></li>
+</ul></li>
+<li class="has-sub"><a href="1-2-implementation.html#implementation"><span class="toc-section-number">1.2</span> Implementation</a><ul>
+<li><a href="1-2-implementation.html#guiding-principles"><span class="toc-section-number">1.2.1</span> Guiding principles</a></li>
+<li><a href="1-2-implementation.html#document-compilation"><span class="toc-section-number">1.2.2</span> Document compilation</a></li>
+</ul></li>
+<li><a href="1-3-alternatives.html#alternatives"><span class="toc-section-number">1.3</span> Alternatives</a></li>
+<li class="has-sub"><a href="1-4-getting-started.html#getting-started"><span class="toc-section-number">1.4</span> Getting started</a><ul>
+<li><a href="1-4-getting-started.html#software-requirements"><span class="toc-section-number">1.4.1</span> Software requirements</a></li>
+<li><a href="1-4-getting-started.html#installing-papaja"><span class="toc-section-number">1.4.2</span> Installing papaja</a></li>
+<li><a href="1-4-getting-started.html#creating-a-document"><span class="toc-section-number">1.4.3</span> Creating a document</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="2-r-markdown-components.html#r-markdown-components"><span class="toc-section-number">2</span> R Markdown components</a><ul>
+<li class="has-sub"><a href="2-1-yaml-front-matter.html#yaml-front-matter"><span class="toc-section-number">2.1</span> YAML front matter</a><ul>
+<li><a href="2-1-yaml-front-matter.html#manuscript-meta-data"><span class="toc-section-number">2.1.1</span> Manuscript meta data</a></li>
+<li><a href="2-1-yaml-front-matter.html#rendering-options"><span class="toc-section-number">2.1.2</span> Rendering options</a></li>
+</ul></li>
+<li class="has-sub"><a href="2-2-body.html#body"><span class="toc-section-number">2.2</span> Body</a><ul>
+<li><a href="2-2-body.html#markdown"><span class="toc-section-number">2.2.1</span> Markdown</a></li>
+<li><a href="2-2-body.html#r-code"><span class="toc-section-number">2.2.2</span> R code</a></li>
+</ul></li>
+<li><a href="2-3-splitting-an-r-markdown-document.html#splitting-an-r-markdown-document"><span class="toc-section-number">2.3</span> Splitting an R Markdown document</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-writing.html#writing"><span class="toc-section-number">3</span> Writing</a><ul>
+<li class="has-sub"><a href="3-1-workflow.html#workflow"><span class="toc-section-number">3.1</span> Workflow</a><ul>
+<li><a href="3-1-workflow.html#working-with-a-reference-manager"><span class="toc-section-number">3.1.1</span> Working with a reference manager</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-2-citations.html#citations"><span class="toc-section-number">3.2</span> Citations</a><ul>
+<li><a href="3-2-citations.html#conveiniently-inserting-citations-with-citr"><span class="toc-section-number">3.2.1</span> Conveiniently inserting citations with <code>citr</code></a></li>
+<li><a href="3-2-citations.html#working-with-a-reference-manager-1"><span class="toc-section-number">3.2.2</span> Working with a reference manager</a></li>
+<li><a href="3-2-citations.html#referencing-r-and-its-packages"><span class="toc-section-number">3.2.3</span> Referencing R and its packages</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-3-tables.html#tables"><span class="toc-section-number">3.3</span> Tables</a><ul>
+<li><a href="3-3-tables.html#alternatives-1"><span class="toc-section-number">3.3.1</span> Alternatives</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-4-figures.html#figures"><span class="toc-section-number">3.4</span> Figures</a><ul>
+<li><a href="3-4-figures.html#what-is-plotted"><span class="toc-section-number">3.4.1</span> What is plotted?</a></li>
+</ul></li>
+<li><a href="3-5-equations.html#equations"><span class="toc-section-number">3.5</span> Equations</a></li>
+<li><a href="3-6-cross-referencing.html#cross-referencing"><span class="toc-section-number">3.6</span> Cross-referencing</a></li>
+<li><a href="3-7-appendices.html#appendices"><span class="toc-section-number">3.7</span> Appendices</a></li>
+</ul></li>
+<li class="has-sub"><a href="4-reporting.html#reporting"><span class="toc-section-number">4</span> Reporting</a><ul>
+<li class="has-sub"><a href="4-1-reporting-statistics.html#reporting-statistics"><span class="toc-section-number">4.1</span> Reporting statistics</a><ul>
+<li><a href="4-1-reporting-statistics.html#htest-t-tests-correlations-etc."><span class="toc-section-number">4.1.1</span> htest (<span class="math inline">\(t\)</span> tests, correlations, etc.)</a></li>
+<li><a href="4-1-reporting-statistics.html#lm-linear-regression"><span class="toc-section-number">4.1.2</span> lm (linear regression)</a></li>
+<li><a href="4-1-reporting-statistics.html#anova-anova-anova.mlm-anova"><span class="toc-section-number">4.1.3</span> anova, Anova, Anova.mlm (ANOVA)</a></li>
+<li><a href="4-1-reporting-statistics.html#report-statistical-analyses"><span class="toc-section-number">4.1.4</span> Report statistical analyses</a></li>
+</ul></li>
+<li><a href="4-2-caching.html#caching"><span class="toc-section-number">4.2</span> Caching</a></li>
+</ul></li>
+<li><a href="5-collaborative-writing.html#collaborative-writing"><span class="toc-section-number">5</span> Collaborative writing</a></li>
+<li class="has-sub"><a href="6-publishing-manuscripts.html#publishing-manuscripts"><span class="toc-section-number">6</span> Publishing manuscripts</a><ul>
+<li><a href="6-1-published-papers-written-using-papaja.html#published-papers-written-using-papaja"><span class="toc-section-number">6.1</span> Published papers written using papaja</a></li>
+</ul></li>
+<li class="has-sub"><a href="7-limitations.html#limitations"><span class="toc-section-number">7</span> Limitations</a><ul>
+<li><a href="7-1-ms-word-caveat.html#ms-word-caveat"><span class="toc-section-number">7.1</span> MS word caveat</a></li>
+</ul></li>
+<li class="has-sub"><a href="8-future-directions.html#future-directions"><span class="toc-section-number">8</span> Future directions</a><ul>
+<li class="has-sub"><a href="8-1-contributions.html#contributions"><span class="toc-section-number">8.1</span> Contributions</a><ul>
+<li><a href="8-1-contributions.html#workflow-1"><span class="toc-section-number">8.1.1</span> Workflow</a></li>
+<li><a href="8-1-contributions.html#wanted"><span class="toc-section-number">8.1.2</span> Wanted</a></li>
+</ul></li>
+</ul></li>
+<li><a href="references.html#references">References</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="citations" class="section level2">
+<h2><span class="header-section-number">3.2</span> Citations</h2>
+<p>No manuscript is complete without citation. In order for citations to work, you need to supply a Bib(La)TeX file to the <code>bibliography</code> parameter in the YAML front matter (<code>bibliography: my.bib</code>). Once this is done, <code>[e.g., @james_1890; @bem_2011]</code> produces a regular citation within parentheses <span class="citation">(e.g., <span class="citeproc-not-found" data-reference-id="james_1890"><strong>???</strong></span>, <span class="citeproc-no-output"><strong>???</strong></span>)</span>. To cite a source in text simply omit the brackets; for example, write <code>@james_1890</code> to cite <span class="citation">(<span class="citeproc-not-found" data-reference-id="james_1890"><strong>???</strong></span>)</span>. For other options see the <a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">overview of the R Markdown citation syntax</a>.</p>
+<p>The citation style is automatically set to APA style. If you need to use a different citation style, you can set in the YAML front matter by adding a <code>csl</code> parameter. See the <a href="http://R%20Markdown.rstudio.com/authoring_bibliographies_and_citations.html">R Markdown documentation</a> and <a href="http://citationstyles.org/">Citation Style Language</a> for further details.</p>
+<div id="conveiniently-inserting-citations-with-citr" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Conveiniently inserting citations with <code>citr</code></h3>
+<p><code>citr</code> is an R package that provides functions to search Bib(La)TeX-files to create and insert formatted Markdown citations into the current document. If you use RStudio, the package supplies an easy-to-use <a href="https://rstudio.github.io/rstudioaddins/">RStudio add-in</a> that facilitates inserting citations (Figure <a href="3-2-citations.html#fig:citr-gif">2.1</a>). The references for the inserted citations are automatically added to the documents reference section.</p>
+<blockquote>
+<p>Nachdem ich bei Ihnen die erste Übungen mit R unternommen habe, versuche ich mich derzeit in Papaja (unser gesamtes Lehrgebiet eignet sich derzeit Papayja an). Ich habe allerdings noch nicht herausgefunden, wie ich die alphabetische Sortierung ausschalten kann, z.B. für den Fall (Berthold &amp; Meier, 2009; Wright, 2009; but see Alfred &amp; Bert, 2007). Können Sie mir evtl. weiterhelfen?</p>
+</blockquote>
+</div>
+<div id="working-with-a-reference-manager-1" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Working with a reference manager</h3>
+<div class="figure" style="text-align: center"><span id="fig:citr-gif"></span>
+<img src="https://raw.githubusercontent.com/crsh/citr/master/inst/images/addin_demo.gif" alt="Demonstration of the RStudio addin from the `citr` package that inserts R Markdown citations."  />
+<p class="caption">
+Figure 2.1: Demonstration of the RStudio addin from the <code>citr</code> package that inserts R Markdown citations.
+</p>
+</div>
+<p>Once <code>citr</code> is installed (<code>install.packages(&quot;citr&quot;)</code>) and you have restarted your R session, the addin appears in the menus and you can define a <a href="https://rstudio.github.io/rstudioaddins/#keyboard-shorcuts">keyboard shortcut</a> to call the addin.</p>
+<p>The addin will automatically look up the Bib(La)TeX-file(s) specified in the YAML front matter. If the document does not contain a YAML front matter the addin will attempt to locate a parent document and look up the Bib(La)TeX-file specified therein. That is, the addin works its automagic even if you edit R Markdown documents that are included as <a href="http://yihui.name/knitr/demo/child/">children</a> in another R Markdown document (also see <a href="2-3-splitting-an-r-markdown-document.html#splitting-an-r-markdown-document">Splitting an R Markdown document</a>). The expected names of a parent document default to <code>c(&quot;index.Rmd&quot;, &quot;master.Rmd&quot;)</code>, it thus works with <a href="https://bookdown.org/"><code>bookdown</code></a> out of the box, but can be customized (e.g., <code>options(citr.parent_documents = &quot;my_parent.Rmd&quot;)</code>).</p>
+<p><code>citr</code> can also be used without RStudio, albeit it is less convenient. The following call searches a Bib(La)TeX-file and creates formatted Markdown citations for the results.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;citr&quot;</span>)
+<span class="kw">md_cite</span>(<span class="st">&quot;foo 2016&quot;</span>, <span class="dt">bib_file =</span> <span class="st">&quot;references.bib&quot;</span>)</code></pre></div>
+<p><code>md_cite()</code> searches the author, year, title, and journal fields of your references.</p>
+<p>If you are using Zotero or Juris-M <code>citr</code> can access your reference database directly. For this to work, you need to install the <a href="https://github.com/retorquere/zotero-better-bibtex/wiki">Better Bib(La)TeX extension</a>, which I would recommend anyway. Once the extension is installed and your reference manager is running, <code>citr</code> will automatically access all your references and keep your Bib(La)Tex-file updated by adding missing references. If you dislike this behavior, you can disable it by setting <code>options(citr.use_betterbiblatex = FALSE)</code>.</p>
+</div>
+<div id="referencing-r-and-its-packages" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Referencing R and its packages</h3>
+<p>I think it is important to credit the software we use. A lot of R packages are developed by academics free of charge. As citations are the currency of science, it’s easy to compensate volunteers for their work by citing the R packages we use. I suspect that, among other things, this is rarely done because it is tedious work. That’s why papaja makes citing R and its packages easy:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">r_refs</span>(<span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span>)
+my_citation &lt;-<span class="st"> </span><span class="kw">cite_r</span>(<span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span>)</code></pre></div>
+<p><code>r_refs()</code> creates a BibTeX file containing citations for R and all currently loaded packages. <code>cite_r()</code> takes these citations and turns them into readily reportable text. <code>my_citation</code> now contains the following text that you can use in your document: R <span class="citation">(3.4.2, R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(0.18.0, Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>citr</em> <span class="citation">(0.2.0, Aust, <a href="#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(0.9.2, Sveidqvist et al., <a href="#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(0.7.4, Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>estimability</em> <span class="citation">(1.2, Lenth, <a href="#ref-R-estimability">2015</a>)</span>, <em>knitr</em> <span class="citation">(1.17, Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(1.1.14, Bates et al., <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(2.27.2, Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>Matrix</em> <span class="citation">(1.2.11, Bates &amp; Maechler, <a href="#ref-R-Matrix">2016</a>)</span>, <em>papaja</em> <span class="citation">(0.1.0.9492, Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>reshape2</em> <span class="citation">(1.4.2, Wickham, <a href="#ref-R-reshape2">2007</a>)</span>, <em>shiny</em> <span class="citation">(1.0.5, Chang et al., <a href="#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(0.2.0, Marwick, n.d.)</span></p>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-base">
+<p>R Core Team. (2016). <em>R: A language and environment for statistical computing</em>. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a></p>
+</div>
+<div id="ref-R-afex">
+<p>Singmann, H., Bolker, B., Westfall, J., &amp; Aust, F. (2016). <em>Afex: Analysis of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=afex" class="uri">https://CRAN.R-project.org/package=afex</a></p>
+</div>
+<div id="ref-R-citr">
+<p>Aust, F. (2016). <em>Citr: ’RStudio’ add-in to insert markdown citations</em>. Retrieved from <a href="https://CRAN.R-project.org/package=citr" class="uri">https://CRAN.R-project.org/package=citr</a></p>
+</div>
+<div id="ref-R-DiagrammeR">
+<p>Sveidqvist, K., Bostock, M., Pettitt, C., Daines, M., Kashcha, A., &amp; Iannone, R. (2016). <em>DiagrammeR: Create graph diagrams and flowcharts using r</em>. Retrieved from <a href="https://CRAN.R-project.org/package=DiagrammeR" class="uri">https://CRAN.R-project.org/package=DiagrammeR</a></p>
+</div>
+<div id="ref-R-dplyr">
+<p>Wickham, H., &amp; Francois, R. (2016). <em>Dplyr: A grammar of data manipulation</em>. Retrieved from <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a></p>
+</div>
+<div id="ref-R-estimability">
+<p>Lenth, R. V. (2015). <em>Estimability: Tools for assessing estimability of linear predictions</em>. Retrieved from <a href="https://CRAN.R-project.org/package=estimability" class="uri">https://CRAN.R-project.org/package=estimability</a></p>
+</div>
+<div id="ref-R-knitr">
+<p>Xie, Y. (2015). <em>Dynamic documents with R and knitr</em> (2nd ed.). Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a></p>
+</div>
+<div id="ref-R-lme4">
+<p>Bates, D., Mächler, M., Bolker, B., &amp; Walker, S. (2015). Fitting linear mixed-effects models using lme4. <em>Journal of Statistical Software</em>, <em>67</em>(1), 1–48. doi:<a href="https://doi.org/10.18637/jss.v067.i01">10.18637/jss.v067.i01</a></p>
+</div>
+<div id="ref-R-lsmeans">
+<p>Lenth, R. V. (2016). Least-squares means: The R package lsmeans. <em>Journal of Statistical Software</em>, <em>69</em>(1), 1–33. doi:<a href="https://doi.org/10.18637/jss.v069.i01">10.18637/jss.v069.i01</a></p>
+</div>
+<div id="ref-R-Matrix">
+<p>Bates, D., &amp; Maechler, M. (2016). <em>Matrix: Sparse and dense matrix classes and methods</em>. Retrieved from <a href="https://CRAN.R-project.org/package=Matrix" class="uri">https://CRAN.R-project.org/package=Matrix</a></p>
+</div>
+<div id="ref-R-papaja">
+<p>Aust, F., &amp; Barth, M. (2016). <em>Papaja: Create apa manuscripts with rmarkdown</em>. Retrieved from <a href="https://github.com/crsh/papaja" class="uri">https://github.com/crsh/papaja</a></p>
+</div>
+<div id="ref-R-reshape2">
+<p>Wickham, H. (2007). Reshaping data with the reshape package. <em>Journal of Statistical Software</em>, <em>21</em>(12), 1–20. Retrieved from <a href="http://www.jstatsoft.org/v21/i12/" class="uri">http://www.jstatsoft.org/v21/i12/</a></p>
+</div>
+<div id="ref-R-shiny">
+<p>Chang, W., Cheng, J., Allaire, J., Xie, Y., &amp; McPherson, J. (2016). <em>Shiny: Web application framework for r</em>. Retrieved from <a href="http://shiny.rstudio.com" class="uri">http://shiny.rstudio.com</a></p>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="3-1-workflow.html"><button class="btn btn-default">Previous</button></a>
+<a href="3-3-tables.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

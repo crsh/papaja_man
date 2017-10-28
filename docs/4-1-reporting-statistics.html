@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+<meta property="og:type" content="book" />
+
+
+<meta property="og:description" content="<p>“”</p>" />
+<meta name="github-repo" content="crsh/papaja_man" />
+
+<meta name="author" content="Frederik Aust" />
+
+<meta name="date" content="2017-10-28" />
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+<meta name="description" content="<p>“”</p>">
+
+<title>papaja: Reproducible APA manuscripts with R Markdown</title>
+
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#preface">Preface</a></li>
+<li class="has-sub"><a href="1-introduction.html#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li class="has-sub"><a href="1-1-motivation.html#motivation"><span class="toc-section-number">1.1</span> Motivation</a><ul>
+<li><a href="1-1-motivation.html#reproducible-scientific-reports"><span class="toc-section-number">1.1.1</span> Reproducible scientific reports</a></li>
+</ul></li>
+<li class="has-sub"><a href="1-2-implementation.html#implementation"><span class="toc-section-number">1.2</span> Implementation</a><ul>
+<li><a href="1-2-implementation.html#guiding-principles"><span class="toc-section-number">1.2.1</span> Guiding principles</a></li>
+<li><a href="1-2-implementation.html#document-compilation"><span class="toc-section-number">1.2.2</span> Document compilation</a></li>
+</ul></li>
+<li><a href="1-3-alternatives.html#alternatives"><span class="toc-section-number">1.3</span> Alternatives</a></li>
+<li class="has-sub"><a href="1-4-getting-started.html#getting-started"><span class="toc-section-number">1.4</span> Getting started</a><ul>
+<li><a href="1-4-getting-started.html#software-requirements"><span class="toc-section-number">1.4.1</span> Software requirements</a></li>
+<li><a href="1-4-getting-started.html#installing-papaja"><span class="toc-section-number">1.4.2</span> Installing papaja</a></li>
+<li><a href="1-4-getting-started.html#creating-a-document"><span class="toc-section-number">1.4.3</span> Creating a document</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="2-r-markdown-components.html#r-markdown-components"><span class="toc-section-number">2</span> R Markdown components</a><ul>
+<li class="has-sub"><a href="2-1-yaml-front-matter.html#yaml-front-matter"><span class="toc-section-number">2.1</span> YAML front matter</a><ul>
+<li><a href="2-1-yaml-front-matter.html#manuscript-meta-data"><span class="toc-section-number">2.1.1</span> Manuscript meta data</a></li>
+<li><a href="2-1-yaml-front-matter.html#rendering-options"><span class="toc-section-number">2.1.2</span> Rendering options</a></li>
+</ul></li>
+<li class="has-sub"><a href="2-2-body.html#body"><span class="toc-section-number">2.2</span> Body</a><ul>
+<li><a href="2-2-body.html#markdown"><span class="toc-section-number">2.2.1</span> Markdown</a></li>
+<li><a href="2-2-body.html#r-code"><span class="toc-section-number">2.2.2</span> R code</a></li>
+</ul></li>
+<li><a href="2-3-splitting-an-r-markdown-document.html#splitting-an-r-markdown-document"><span class="toc-section-number">2.3</span> Splitting an R Markdown document</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-writing.html#writing"><span class="toc-section-number">3</span> Writing</a><ul>
+<li class="has-sub"><a href="3-1-workflow.html#workflow"><span class="toc-section-number">3.1</span> Workflow</a><ul>
+<li><a href="3-1-workflow.html#working-with-a-reference-manager"><span class="toc-section-number">3.1.1</span> Working with a reference manager</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-2-citations.html#citations"><span class="toc-section-number">3.2</span> Citations</a><ul>
+<li><a href="3-2-citations.html#conveiniently-inserting-citations-with-citr"><span class="toc-section-number">3.2.1</span> Conveiniently inserting citations with <code>citr</code></a></li>
+<li><a href="3-2-citations.html#working-with-a-reference-manager-1"><span class="toc-section-number">3.2.2</span> Working with a reference manager</a></li>
+<li><a href="3-2-citations.html#referencing-r-and-its-packages"><span class="toc-section-number">3.2.3</span> Referencing R and its packages</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-3-tables.html#tables"><span class="toc-section-number">3.3</span> Tables</a><ul>
+<li><a href="3-3-tables.html#alternatives-1"><span class="toc-section-number">3.3.1</span> Alternatives</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-4-figures.html#figures"><span class="toc-section-number">3.4</span> Figures</a><ul>
+<li><a href="3-4-figures.html#what-is-plotted"><span class="toc-section-number">3.4.1</span> What is plotted?</a></li>
+</ul></li>
+<li><a href="3-5-equations.html#equations"><span class="toc-section-number">3.5</span> Equations</a></li>
+<li><a href="3-6-cross-referencing.html#cross-referencing"><span class="toc-section-number">3.6</span> Cross-referencing</a></li>
+<li><a href="3-7-appendices.html#appendices"><span class="toc-section-number">3.7</span> Appendices</a></li>
+</ul></li>
+<li class="has-sub"><a href="4-reporting.html#reporting"><span class="toc-section-number">4</span> Reporting</a><ul>
+<li class="has-sub"><a href="4-1-reporting-statistics.html#reporting-statistics"><span class="toc-section-number">4.1</span> Reporting statistics</a><ul>
+<li><a href="4-1-reporting-statistics.html#htest-t-tests-correlations-etc."><span class="toc-section-number">4.1.1</span> htest (<span class="math inline">\(t\)</span> tests, correlations, etc.)</a></li>
+<li><a href="4-1-reporting-statistics.html#lm-linear-regression"><span class="toc-section-number">4.1.2</span> lm (linear regression)</a></li>
+<li><a href="4-1-reporting-statistics.html#anova-anova-anova.mlm-anova"><span class="toc-section-number">4.1.3</span> anova, Anova, Anova.mlm (ANOVA)</a></li>
+<li><a href="4-1-reporting-statistics.html#report-statistical-analyses"><span class="toc-section-number">4.1.4</span> Report statistical analyses</a></li>
+</ul></li>
+<li><a href="4-2-caching.html#caching"><span class="toc-section-number">4.2</span> Caching</a></li>
+</ul></li>
+<li><a href="5-collaborative-writing.html#collaborative-writing"><span class="toc-section-number">5</span> Collaborative writing</a></li>
+<li class="has-sub"><a href="6-publishing-manuscripts.html#publishing-manuscripts"><span class="toc-section-number">6</span> Publishing manuscripts</a><ul>
+<li><a href="6-1-published-papers-written-using-papaja.html#published-papers-written-using-papaja"><span class="toc-section-number">6.1</span> Published papers written using papaja</a></li>
+</ul></li>
+<li class="has-sub"><a href="7-limitations.html#limitations"><span class="toc-section-number">7</span> Limitations</a><ul>
+<li><a href="7-1-ms-word-caveat.html#ms-word-caveat"><span class="toc-section-number">7.1</span> MS word caveat</a></li>
+</ul></li>
+<li class="has-sub"><a href="8-future-directions.html#future-directions"><span class="toc-section-number">8</span> Future directions</a><ul>
+<li class="has-sub"><a href="8-1-contributions.html#contributions"><span class="toc-section-number">8.1</span> Contributions</a><ul>
+<li><a href="8-1-contributions.html#workflow-1"><span class="toc-section-number">8.1.1</span> Workflow</a></li>
+<li><a href="8-1-contributions.html#wanted"><span class="toc-section-number">8.1.2</span> Wanted</a></li>
+</ul></li>
+</ul></li>
+<li><a href="references.html#references">References</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="reporting-statistics" class="section level2">
+<h2><span class="header-section-number">4.1</span> Reporting statistics</h2>
+<div class="figure" style="text-align: center"><span id="fig:formatting-process-diagram"></span>
+<img src="result_formatting_process.png" alt="Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript."  />
+<p class="caption">
+Figure 2.2: Process diagram illustrating the use of <code>apa_print()</code> methods and <code>apa_table()</code> to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.
+</p>
+</div>
+<ul>
+<li>in_paren()</li>
+<li>printnum()</li>
+<li>printp()</li>
+<li>inline hook</li>
+</ul>
+<div id="htest-t-tests-correlations-etc." class="section level3">
+<h3><span class="header-section-number">4.1.1</span> htest (<span class="math inline">\(t\)</span> tests, correlations, etc.)</h3>
+<p>In R, the results of a <span class="math inline">\(t\)</span> test (regardless of the exact type of <span class="math inline">\(t\)</span> test) are stored in an <code>htest</code> object.</p>
+</div>
+<div id="lm-linear-regression" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> lm (linear regression)</h3>
+<div id="anova-model-comparisons" class="section level4">
+<h4><span class="header-section-number">4.1.2.1</span> anova (model comparisons)</h4>
+</div>
+</div>
+<div id="anova-anova-anova.mlm-anova" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> anova, Anova, Anova.mlm (ANOVA)</h3>
+<div id="glht-lsmeans-ref.grid-post-hoc-tests" class="section level4">
+<h4><span class="header-section-number">4.1.3.1</span> glht, lsmeans, ref.grid (post-hoc tests)</h4>
+<p>The functions <code>apa_print()</code> and <code>apa_table()</code> facilitate reporting results of your analyses. Take a look at the <a href="https://github.com/crsh/papaja/blob/master/example/example.Rmd">.Rmd</a> of the example manuscript in the folder <code>example</code> and the resulting <a href="https://raw.githubusercontent.com/crsh/papaja/master/example/example.pdf">.pdf</a>.</p>
+<p>Drop a supported analysis result, such as an <code>htest</code>- or <code>lm</code>-object, into <code>apa_print()</code> and receive a list of possible character strings that you can use to report the results of your analysis.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_lm &lt;-<span class="st"> </span><span class="kw">lm</span>(Sepal.Width ~<span class="st"> </span>Sepal.Length +<span class="st"> </span>Petal.Width +<span class="st"> </span>Petal.Length, <span class="dt">data =</span> iris)
+apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(my_lm)</code></pre></div>
+<p>One element of this list is <code>apa_lm$table</code> that, in the case of an <code>lm</code>-object, will contain a complete regression table. Pass <code>apa_lm$table</code> to <code>apa_table()</code> to turn it into a proper table in your PDF or Word document (remember to set the chunk option <code>results = &quot;asis&quot;</code>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(apa_lm$table, <span class="dt">caption =</span> <span class="st">&quot;Iris regression table.&quot;</span>)</code></pre></div>
+<caption>
+<span id="tab:unnamed-chunk-8">Table 2.1: </span><em>Iris regression table.</em>
+</caption>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Predictor</th>
+<th align="left"><span class="math inline">\(b\)</span></th>
+<th align="left">95% CI</th>
+<th align="left"><span class="math inline">\(t(146)\)</span></th>
+<th align="left"><span class="math inline">\(p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Intercept</td>
+<td align="left">1.04</td>
+<td align="left"><span class="math inline">\([0.51\)</span>, <span class="math inline">\(1.58]\)</span></td>
+<td align="left">3.85</td>
+<td align="left">&lt; .001</td>
+</tr>
+<tr class="even">
+<td align="left">Sepal Length</td>
+<td align="left">0.61</td>
+<td align="left"><span class="math inline">\([0.48\)</span>, <span class="math inline">\(0.73]\)</span></td>
+<td align="left">9.77</td>
+<td align="left">&lt; .001</td>
+</tr>
+<tr class="odd">
+<td align="left">Petal Width</td>
+<td align="left">0.56</td>
+<td align="left"><span class="math inline">\([0.32\)</span>, <span class="math inline">\(0.80]\)</span></td>
+<td align="left">4.55</td>
+<td align="left">&lt; .001</td>
+</tr>
+<tr class="even">
+<td align="left">Petal Length</td>
+<td align="left">-0.59</td>
+<td align="left"><span class="math inline">\([-0.71\)</span>, <span class="math inline">\(-0.46]\)</span></td>
+<td align="left">-9.43</td>
+<td align="left">&lt; .001</td>
+</tr>
+</tbody>
+</table>
+<!-- GitHub markdown doesn't support MathJax
+
+---
+
+Table. *Iris regression table.*
+
+| Predictor     | *b*   | 95% CI          | *t(146)*   | *p*       |
+|:--------------|:-----:|:---------------:|:----------:|:---------:|
+| Intercept     | 1.04  |  [0.51, 1.58]   | 3.85       | &lt; .001 |
+| Sepal Length  | 0.61  |  [0.48, 0.73]   | 9.77       | &lt; .001 |
+| Petal Width   | 0.56  |  [0.32, 0.80]   | 4.55       | &lt; .001 |
+| Petal Length  | -0.59 |  [-0.71, -0.46] | -9.43      | &lt; .001 |
+
+---
+-->
+<p><code>papaja</code> currently provides methods for the following object classes:</p>
+<pre><code>## Warning in matrix(print_classes, ncol = 4): Datenlänge [26] ist kein Teiler
+## oder Vielfaches der Anzahl der Zeilen [7]</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">A-B</th>
+<th align="left">B-H</th>
+<th align="left">L-S</th>
+<th align="left">S-A</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">afex_aov</td>
+<td align="left">BFBayesFactorList</td>
+<td align="left">list</td>
+<td align="left">summary.lm</td>
+</tr>
+<tr class="even">
+<td align="left">anova</td>
+<td align="left">apa_print,BFBayesFactorList-method</td>
+<td align="left">lm</td>
+<td align="left">summary.ref.grid</td>
+</tr>
+<tr class="odd">
+<td align="left">Anova.mlm</td>
+<td align="left">apa_print,BFBayesFactor-method</td>
+<td align="left">lsmobj</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">apa_print,ANY-method</td>
+<td align="left">BFBayesFactorTop</td>
+<td align="left">summary.Anova.mlm</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">aov</td>
+<td align="left">apa_print,BFBayesFactorTop-method</td>
+<td align="left">summary.aov</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">aovlist</td>
+<td align="left">glht</td>
+<td align="left">summary.aovlist</td>
+<td align="left">afex_aov</td>
+</tr>
+<tr class="odd">
+<td align="left">BFBayesFactor</td>
+<td align="left">htest</td>
+<td align="left">summary.glht</td>
+<td align="left">anova</td>
+</tr>
+</tbody>
+</table>
+<p>Any output from R is included as you usually would using R Markdown. By default the R code will not be displayed in the final documents. If you wish to show off your code you need to set <code>echo = TRUE</code> in the chunk options.</p>
+</div>
+</div>
+<div id="report-statistical-analyses" class="section level3">
+<h3><span class="header-section-number">4.1.4</span> Report statistical analyses</h3>
+<p><code>apa_print()</code> will help you report the results of your statistical analyses. The function will format the contents of R objects and produce readily reportable text.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">recall_anova &lt;-<span class="st"> </span>afex::<span class="kw">aov_car</span>(
+  Recall ~<span class="st"> </span>(Task *<span class="st"> </span>Valence *<span class="st"> </span>Dosage) +<span class="st"> </span><span class="kw">Error</span>(Subject/(Task *<span class="st"> </span>Valence)) +<span class="st"> </span>Dosage
+  , <span class="dt">data =</span> mixed_data
+  , <span class="dt">type =</span> <span class="dv">3</span>
+)
+recall_anova_results &lt;-<span class="st"> </span><span class="kw">apa_print</span>(recall_anova, <span class="dt">es =</span> <span class="st">&quot;pes&quot;</span>)
+recall_anova_results_p &lt;-<span class="st"> </span><span class="kw">apa_print</span>(recall_anova, <span class="dt">es =</span> <span class="st">&quot;pes&quot;</span>, <span class="dt">in_paren =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>Now, you can report the results of your analyses like so:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Item <span class="kw">valence</span> (<span class="st">`</span><span class="dt">r anova_results_p$full$Valence</span><span class="st">`</span>) and the task affected recall
+performance, <span class="st">`</span><span class="dt">r anova_results$full$Task</span><span class="st">`</span>; the dosage, however, had no effect
+on recall, <span class="st">`</span><span class="dt">r anova_results$full$Dosage</span><span class="st">`</span>. There was no significant interaction.</code></pre></div>
+<!--
+> Item valence () and the task affected recall performance, ;
+> the dosage, however, had no effect on recall, .
+> There was no significant interaction.
+-->
+<p>What’s even more fun, you can easily create a complete ANOVA table using by passing <code>recall_anova_results$table</code> to <code>apa_table()</code>, see .</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(
+  recall_anova_results$table
+  , <span class="dt">align =</span> <span class="kw">c</span>(<span class="st">&quot;l&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;r&quot;</span>)
+  , <span class="dt">caption =</span> <span class="st">&quot;ANOVA table for the analyis of the example data set. </span><span class="ch">\\</span><span class="st">label{ref:anova}&quot;</span>
+  , <span class="dt">note =</span> <span class="st">&quot;This is a table created using apa</span><span class="ch">\\</span><span class="st">_print() and apa</span><span class="ch">\\</span><span class="st">_table().&quot;</span>
+)</code></pre></div>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="4-reporting.html"><button class="btn btn-default">Previous</button></a>
+<a href="4-2-caching.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

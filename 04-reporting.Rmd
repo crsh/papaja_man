@@ -51,17 +51,28 @@
 # ")
 
 knitr::include_graphics("result_formatting_process.png")
+age_mean <- 22.8395
+age_sd <- 3.7846237542894
 ```
 
+First of all, the function `printnum()` can be used to include a numeric value into text,
+with the correct rounding and with or without a leading zero.
+For example, if you want to include a mean into text, just write
+
+```{r inline-printnum, eval = FALSE, highlight = FALSE}
+Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).
+```
+
+which will result in: Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).
 
 - in_paren()
 - printnum()
   - printp()
   - inline hook
 
-### htest ($t$ tests, correlations, etc.)
+### htest (*t* tests, correlations, etc.)
 
-In R, the results of a $t$ test (regardless of the exact type of $t$ test) are stored in a `htest` object.
+In R, the results of a $t$ test (regardless of the exact type of $t$ test) are stored in an `htest` object.
 
 
 

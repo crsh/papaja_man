@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.2.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -26,7 +25,7 @@
 <meta name="author" content="Frederik Aust">
 
 
-<meta name="date" content="2016-11-24">
+<meta name="date" content="2017-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -35,7 +34,6 @@
   
 <link rel="prev" href="r-markdown-components.html">
 <link rel="next" href="reporting.html">
-
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -95,6 +93,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <body>
 
 
+
   <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
 
     <div class="book-summary">
@@ -137,19 +136,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#conveiniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.1</b> Conveiniently inserting citations with <code>citr</code></a></li>
-<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.2</b> Referencing R and its packages</a></li>
+<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager-1"><i class="fa fa-check"></i><b>3.2.2</b> Working with a reference manager</a></li>
+<li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.3</b> Referencing R and its packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#tables"><i class="fa fa-check"></i><b>3.3</b> Tables</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="writing.html"><a href="writing.html#alternatives-1"><i class="fa fa-check"></i><b>3.3.1</b> Alternatives</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#figures"><i class="fa fa-check"></i><b>3.4</b> Figures</a></li>
+<li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#figures"><i class="fa fa-check"></i><b>3.4</b> Figures</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="writing.html"><a href="writing.html#what-is-plotted"><i class="fa fa-check"></i><b>3.4.1</b> What is plotted?</a></li>
+</ul></li>
 <li class="chapter" data-level="3.5" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.5</b> Equations</a></li>
 <li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.6</b> Cross-referencing</a></li>
 <li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#appendices"><i class="fa fa-check"></i><b>3.7</b> Appendices</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#reporting-statistics"><i class="fa fa-check"></i><b>4.1</b> Reporting statistics</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.1.1</b> htest (t-tests, correlations, etc.)</a></li>
+<li class="chapter" data-level="4.1.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.1.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
 <li class="chapter" data-level="4.1.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.1.2</b> lm (linear regression)</a></li>
 <li class="chapter" data-level="4.1.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-anova"><i class="fa fa-check"></i><b>4.1.3</b> anova, Anova, Anova.mlm (ANOVA)</a></li>
 <li class="chapter" data-level="4.1.4" data-path="reporting.html"><a href="reporting.html#report-statistical-analyses"><i class="fa fa-check"></i><b>4.1.4</b> Report statistical analyses</a></li>
@@ -222,6 +224,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="conveiniently-inserting-citations-with-citr" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Conveiniently inserting citations with <code>citr</code></h3>
 <p><code>citr</code> is an R package that provides functions to search Bib(La)TeX-files to create and insert formatted Markdown citations into the current document. If you use RStudio, the package supplies an easy-to-use <a href="https://rstudio.github.io/rstudioaddins/">RStudio add-in</a> that facilitates inserting citations (Figure <a href="writing.html#fig:citr-gif">3.1</a>). The references for the inserted citations are automatically added to the documents reference section.</p>
+<blockquote>
+<p>Nachdem ich bei Ihnen die erste Übungen mit R unternommen habe, versuche ich mich derzeit in Papaja (unser gesamtes Lehrgebiet eignet sich derzeit Papayja an). Ich habe allerdings noch nicht herausgefunden, wie ich die alphabetische Sortierung ausschalten kann, z.B. für den Fall (Berthold &amp; Meier, 2009; Wright, 2009; but see Alfred &amp; Bert, 2007). Können Sie mir evtl. weiterhelfen?</p>
+</blockquote>
+</div>
+<div id="working-with-a-reference-manager-1" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Working with a reference manager</h3>
 <div class="figure" style="text-align: center"><span id="fig:citr-gif"></span>
 <img src="https://raw.githubusercontent.com/crsh/citr/master/inst/images/addin_demo.gif" alt="Demonstration of the RStudio addin from the `citr` package that inserts R Markdown citations."  />
 <p class="caption">
@@ -237,11 +245,11 @@ Figure 3.1: Demonstration of the RStudio addin from the <code>citr</code> packag
 <p>If you are using Zotero or Juris-M <code>citr</code> can access your reference database directly. For this to work, you need to install the <a href="https://github.com/retorquere/zotero-better-bibtex/wiki">Better Bib(La)TeX extension</a>, which I would recommend anyway. Once the extension is installed and your reference manager is running, <code>citr</code> will automatically access all your references and keep your Bib(La)Tex-file updated by adding missing references. If you dislike this behavior, you can disable it by setting <code>options(citr.use_betterbiblatex = FALSE)</code>.</p>
 </div>
 <div id="referencing-r-and-its-packages" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Referencing R and its packages</h3>
+<h3><span class="header-section-number">3.2.3</span> Referencing R and its packages</h3>
 <p>I think it is important to credit the software we use. A lot of R packages are developed by academics free of charge. As citations are the currency of science, it’s easy to compensate volunteers for their work by citing the R packages we use. I suspect that, among other things, this is rarely done because it is tedious work. That’s why papaja makes citing R and its packages easy:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">r_refs</span>(<span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span>)
 my_citation &lt;-<span class="st"> </span><span class="kw">cite_r</span>(<span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span>)</code></pre></div>
-<p><code>r_refs()</code> creates a BibTeX file containing citations for R and all currently loaded packages. <code>cite_r()</code> takes these citations and turns them into readily reportable text. <code>my_citation</code> now contains the following text that you can use in your document: R <span class="citation">(3.3.1, R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(0.16.1, Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>citr</em> <span class="citation">(0.2.0, Aust, <a href="#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(0.8.4, Sveidqvist et al., <a href="#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(0.5.0, Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>estimability</em> <span class="citation">(1.1.1, Lenth, <a href="#ref-R-estimability">2015</a>)</span>, <em>knitr</em> <span class="citation">(1.15.2, Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(1.1.12, Bates et al., <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(2.23.5, Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>Matrix</em> <span class="citation">(1.2.6, Bates &amp; Maechler, <a href="#ref-R-Matrix">2016</a>)</span>, <em>papaja</em> <span class="citation">(0.1.0.9456, Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>reshape2</em> <span class="citation">(1.4.1, Wickham, <a href="#ref-R-reshape2">2007</a>)</span>, <em>shiny</em> <span class="citation">(0.13.2.9004, Chang et al., <a href="#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(0.1.0, Marwick, n.d.)</span></p>
+<p><code>r_refs()</code> creates a BibTeX file containing citations for R and all currently loaded packages. <code>cite_r()</code> takes these citations and turns them into readily reportable text. <code>my_citation</code> now contains the following text that you can use in your document: R <span class="citation">(3.4.2, R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(0.18.0, Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>citr</em> <span class="citation">(0.2.0, Aust, <a href="#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(0.9.2, Sveidqvist et al., <a href="#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(0.7.4, Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>estimability</em> <span class="citation">(1.2, Lenth, <a href="#ref-R-estimability">2015</a>)</span>, <em>knitr</em> <span class="citation">(1.17, Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(1.1.14, Bates et al., <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(2.27.2, Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>Matrix</em> <span class="citation">(1.2.11, Bates &amp; Maechler, <a href="#ref-R-Matrix">2016</a>)</span>, <em>papaja</em> <span class="citation">(0.1.0.9492, Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>reshape2</em> <span class="citation">(1.4.2, Wickham, <a href="#ref-R-reshape2">2007</a>)</span>, <em>shiny</em> <span class="citation">(1.0.5, Chang et al., <a href="#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(0.2.0, Marwick, n.d.)</span></p>
 </div>
 </div>
 <div id="tables" class="section level2">
@@ -284,19 +292,43 @@ descriptives[, -<span class="dv">1</span>] &lt;-<span class="st"> </span><span c
   , <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>
   , <span class="dt">dv =</span> <span class="st">&quot;Recall&quot;</span>
   , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Task&quot;</span>, <span class="st">&quot;Valence&quot;</span>, <span class="st">&quot;Dosage&quot;</span>)
-  , <span class="dt">dispersion =</span> conf_int
+  , <span class="dt">dispersion =</span> wsci
+  , <span class="dt">level =</span> .<span class="dv">95</span>
   , <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">30</span>)
   , <span class="dt">las =</span> <span class="dv">1</span>
-  , <span class="dt">args_points =</span> <span class="kw">list</span>(<span class="dt">cex =</span> <span class="fl">1.5</span>)
+  , <span class="dt">args_points =</span> <span class="kw">list</span>(<span class="dt">cex =</span> <span class="dv">1</span>)
   , <span class="dt">args_arrows =</span> <span class="kw">list</span>(<span class="dt">length =</span> <span class="fl">0.025</span>)
 )</code></pre></div>
+<div class="figure"><span id="fig:bee"></span>
+<img src="papaja_manual_files/figure-html/bee-1.png" alt="Bee plot of the example data set. Small points represent individual observations, large points represent means, and error bars represent 95% within-subjects confidence intervals. \label{fig:bee}" width="768" />
+<p class="caption">
+Figure 3.2: Bee plot of the example data set. Small points represent individual observations, large points represent means, and error bars represent 95% within-subjects confidence intervals. 
+</p>
+</div>
 <p>Again, as required by the APA guidelines, figures are deferred to the final pages of the document unless you set <code>figsintext</code> to <code>yes</code>.</p>
+<p><code>papaja</code> provides the functions <code>apa_beeplot</code>, <code>apa_lineplot</code>, and <code>apa_barplot</code> to easily plot data from factorial designs (<code>apa_generic_plot</code> is the underlying workhorse function). They are intended to provide a convenient way to obtain a publication-ready figure with easy-to-learn, human-readable and <em>short</em> syntax; while maintaining enough flexibility for a lot of customizing, if you’re really into this. The basic arguments to these functions are all the same, so you only need to learn one syntax to generate these different types of plots. Moreover, this comes with the additional advantage that you can easily switch between these types of plots by simply replacing some letters in the function call.</p>
+<p>A basic usage would look like this:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_beeplot</span>(
+  <span class="dt">data =</span> mixed_data
+  , <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>
+  , <span class="dt">dv =</span> <span class="st">&quot;Recall&quot;</span>
+  , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Task&quot;</span>, <span class="st">&quot;Valence&quot;</span>, <span class="st">&quot;Dosage&quot;</span>)
+)</code></pre></div>
+<p>The first argument is the <code>data.frame</code> that contains the data, while the other argments represent chracter strings identifying the columns that contain the subject identifier <code>id</code>, the dependendent variable <code>dv</code>, and the between- or within-subjects <code>factors</code>. Yet, zero to four factors are supported.</p>
+<p>Via parameter <code>tendency</code>, you can specify any function that will be used to calculate the measure of central tendency. Via parameter <code>dispersion</code>, you can specify any function that will be used to calculate the measure of dispersion. A little candy: You can also require within-subjects confidence intervals as described by <span class="citation">(<span class="citeproc-not-found" data-reference-id="morey"><strong>???</strong></span>)</span> (as we already did in ).</p>
+<p>If you have more than one observation per participant-factor-level-combination, these observations are aggregated. You can specify individual aggregation functions via <code>fun_aggregate</code>.</p>
+<div id="what-is-plotted" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> What is plotted?</h3>
+<p>For each cell of the submitted data, the following information is plotted:</p>
 <ul>
-<li>barplot</li>
-<li>lineplot</li>
-<li>violinplot/beeswarm</li>
+<li>A measure of central tendency.</li>
+<li>A measure of dispersion.</li>
+<li>The names of depent variable, factors and factor levels; a legend, if necessary.</li>
 </ul>
-<p>Be sure to also check out <code>apa_barplot()</code> and <code>apa_beeplot()</code> if you work with factorial designs. If you prefer creating your plots with <code>ggplot2</code> try <code>theme_apa()</code>.</p>
+<p>The plot functions in <code>papaja</code> are build around the <code>graphics</code> packages that is part of the base distribution of R. A lot of customization can thus be accomplished by calling <code>par</code>.</p>
+<!-- ### Customization -->
+<p>If you prefer creating your plots with <code>ggplot2</code> try <code>theme_apa()</code>.</p>
+</div>
 </div>
 <div id="equations" class="section level2">
 <h2><span class="header-section-number">3.5</span> Equations</h2>
@@ -318,43 +350,43 @@ d&#39; = \frac{\mu_{old} - \mu_{new}}{\sqrt{0.5(\sigma^2_{old} + \sigma^2_{new})
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-R-base">
-<p>R Core Team. (2016). <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a></p>
+<p>R Core Team. (2016). <em>R: A language and environment for statistical computing</em>. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a></p>
 </div>
 <div id="ref-R-afex">
-<p>Singmann, H., Bolker, B., Westfall, J., &amp; Aust, F. (2016). <em>afex: Analysis of Factorial Experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=afex" class="uri">https://CRAN.R-project.org/package=afex</a></p>
+<p>Singmann, H., Bolker, B., Westfall, J., &amp; Aust, F. (2016). <em>Afex: Analysis of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=afex" class="uri">https://CRAN.R-project.org/package=afex</a></p>
 </div>
 <div id="ref-R-citr">
-<p>Aust, F. (2016). <em>citr: ’RStudio’ Add-in to Insert Markdown Citations</em>. Retrieved from <a href="https://CRAN.R-project.org/package=citr" class="uri">https://CRAN.R-project.org/package=citr</a></p>
+<p>Aust, F. (2016). <em>Citr: ’RStudio’ add-in to insert markdown citations</em>. Retrieved from <a href="https://CRAN.R-project.org/package=citr" class="uri">https://CRAN.R-project.org/package=citr</a></p>
 </div>
 <div id="ref-R-DiagrammeR">
-<p>Sveidqvist, K., Bostock, M., Pettitt, C., Daines, M., Kashcha, A., &amp; Iannone, R. (2016). <em>DiagrammeR: Create Graph Diagrams and Flowcharts Using R</em>. Retrieved from <a href="https://CRAN.R-project.org/package=DiagrammeR" class="uri">https://CRAN.R-project.org/package=DiagrammeR</a></p>
+<p>Sveidqvist, K., Bostock, M., Pettitt, C., Daines, M., Kashcha, A., &amp; Iannone, R. (2016). <em>DiagrammeR: Create graph diagrams and flowcharts using r</em>. Retrieved from <a href="https://CRAN.R-project.org/package=DiagrammeR" class="uri">https://CRAN.R-project.org/package=DiagrammeR</a></p>
 </div>
 <div id="ref-R-dplyr">
-<p>Wickham, H., &amp; Francois, R. (2016). <em>dplyr: A Grammar of Data Manipulation</em>. Retrieved from <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a></p>
+<p>Wickham, H., &amp; Francois, R. (2016). <em>Dplyr: A grammar of data manipulation</em>. Retrieved from <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a></p>
 </div>
 <div id="ref-R-estimability">
-<p>Lenth, R. V. (2015). <em>estimability: Tools for Assessing Estimability of Linear Predictions</em>. Retrieved from <a href="https://CRAN.R-project.org/package=estimability" class="uri">https://CRAN.R-project.org/package=estimability</a></p>
+<p>Lenth, R. V. (2015). <em>Estimability: Tools for assessing estimability of linear predictions</em>. Retrieved from <a href="https://CRAN.R-project.org/package=estimability" class="uri">https://CRAN.R-project.org/package=estimability</a></p>
 </div>
 <div id="ref-R-knitr">
-<p>Xie, Y. (2015). <em>Dynamic Documents with R and knitr</em> (2nd ed.). Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a></p>
+<p>Xie, Y. (2015). <em>Dynamic documents with R and knitr</em> (2nd ed.). Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a></p>
 </div>
 <div id="ref-R-lme4">
-<p>Bates, D., Mächler, M., Bolker, B., &amp; Walker, S. (2015). Fitting Linear Mixed-Effects Models Using lme4. <em>Journal of Statistical Software</em>, <em>67</em>(1), 1–48. doi:<a href="https://doi.org/10.18637/jss.v067.i01">10.18637/jss.v067.i01</a></p>
+<p>Bates, D., Mächler, M., Bolker, B., &amp; Walker, S. (2015). Fitting linear mixed-effects models using lme4. <em>Journal of Statistical Software</em>, <em>67</em>(1), 1–48. doi:<a href="https://doi.org/10.18637/jss.v067.i01">10.18637/jss.v067.i01</a></p>
 </div>
 <div id="ref-R-lsmeans">
-<p>Lenth, R. V. (2016). Least-Squares Means: The R Package lsmeans. <em>Journal of Statistical Software</em>, <em>69</em>(1), 1–33. doi:<a href="https://doi.org/10.18637/jss.v069.i01">10.18637/jss.v069.i01</a></p>
+<p>Lenth, R. V. (2016). Least-squares means: The R package lsmeans. <em>Journal of Statistical Software</em>, <em>69</em>(1), 1–33. doi:<a href="https://doi.org/10.18637/jss.v069.i01">10.18637/jss.v069.i01</a></p>
 </div>
 <div id="ref-R-Matrix">
-<p>Bates, D., &amp; Maechler, M. (2016). <em>Matrix: Sparse and Dense Matrix Classes and Methods</em>. Retrieved from <a href="https://CRAN.R-project.org/package=Matrix" class="uri">https://CRAN.R-project.org/package=Matrix</a></p>
+<p>Bates, D., &amp; Maechler, M. (2016). <em>Matrix: Sparse and dense matrix classes and methods</em>. Retrieved from <a href="https://CRAN.R-project.org/package=Matrix" class="uri">https://CRAN.R-project.org/package=Matrix</a></p>
 </div>
 <div id="ref-R-papaja">
-<p>Aust, F., &amp; Barth, M. (2016). <em>papaja: Create APA manuscripts with RMarkdown</em>. Retrieved from <a href="https://github.com/crsh/papaja" class="uri">https://github.com/crsh/papaja</a></p>
+<p>Aust, F., &amp; Barth, M. (2016). <em>Papaja: Create apa manuscripts with rmarkdown</em>. Retrieved from <a href="https://github.com/crsh/papaja" class="uri">https://github.com/crsh/papaja</a></p>
 </div>
 <div id="ref-R-reshape2">
-<p>Wickham, H. (2007). Reshaping Data with the reshape Package. <em>Journal of Statistical Software</em>, <em>21</em>(12), 1–20. Retrieved from <a href="http://www.jstatsoft.org/v21/i12/" class="uri">http://www.jstatsoft.org/v21/i12/</a></p>
+<p>Wickham, H. (2007). Reshaping data with the reshape package. <em>Journal of Statistical Software</em>, <em>21</em>(12), 1–20. Retrieved from <a href="http://www.jstatsoft.org/v21/i12/" class="uri">http://www.jstatsoft.org/v21/i12/</a></p>
 </div>
 <div id="ref-R-shiny">
-<p>Chang, W., Cheng, J., Allaire, J., Xie, Y., &amp; McPherson, J. (2016). <em>shiny: Web Application Framework for R</em>. Retrieved from <a href="http://shiny.rstudio.com" class="uri">http://shiny.rstudio.com</a></p>
+<p>Chang, W., Cheng, J., Allaire, J., Xie, Y., &amp; McPherson, J. (2016). <em>Shiny: Web application framework for r</em>. Retrieved from <a href="http://shiny.rstudio.com" class="uri">http://shiny.rstudio.com</a></p>
 </div>
 </div>
 <div class="footnotes">
@@ -369,8 +401,9 @@ d&#39; = \frac{\mu_{old} - \mu_{new}}{\sqrt{0.5(\sigma^2_{old} + \sigma^2_{new})
         </div>
       </div>
 <a href="r-markdown-components.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="reporting.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
-
+<a href="reporting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
@@ -379,7 +412,7 @@ d&#39; = \frac{\mu_{old} - \mu_{new}}{\sqrt{0.5(\sigma^2_{old} + \sigma^2_{new})
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -400,7 +433,7 @@ gitbook.start({
 "link": "https://github.com/crsh/papaja_man/edit/master/03-writing.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["papaja_manual.pdf", "papaja_manual.epub"],
 "toc": {
 "collapse": "subsection"
 }
@@ -413,7 +446,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);
