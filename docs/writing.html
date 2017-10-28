@@ -286,7 +286,7 @@ descriptives[, -<span class="dv">1</span>] &lt;-<span class="st"> </span><span c
 </div>
 <div id="figures" class="section level2">
 <h2><span class="header-section-number">3.4</span> Figures</h2>
-<p>As usual in R Markdown, you can embed R-generated plots into your document, see .</p>
+<p>As usual in R Markdown, you can embed R-generated plots into your document, see Figure <a href="writing.html#fig:beeswarm">3.2</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_beeplot</span>(
   mixed_data
   , <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>
@@ -299,10 +299,10 @@ descriptives[, -<span class="dv">1</span>] &lt;-<span class="st"> </span><span c
   , <span class="dt">args_points =</span> <span class="kw">list</span>(<span class="dt">cex =</span> <span class="dv">1</span>)
   , <span class="dt">args_arrows =</span> <span class="kw">list</span>(<span class="dt">length =</span> <span class="fl">0.025</span>)
 )</code></pre></div>
-<div class="figure"><span id="fig:bee"></span>
-<img src="papaja_manual_files/figure-html/bee-1.png" alt="Bee plot of the example data set. Small points represent individual observations, large points represent means, and error bars represent 95% within-subjects confidence intervals. \label{fig:bee}" width="768" />
+<div class="figure"><span id="fig:beeswarm"></span>
+<img src="papaja_manual_files/figure-html/beeswarm-1.png" alt="Beeswarm plot of the example data set. Small points represent individual observations, large points represent means, and error bars represent 95% within-subjects confidence intervals." width="768" />
 <p class="caption">
-Figure 3.2: Bee plot of the example data set. Small points represent individual observations, large points represent means, and error bars represent 95% within-subjects confidence intervals. 
+Figure 3.2: Beeswarm plot of the example data set. Small points represent individual observations, large points represent means, and error bars represent 95% within-subjects confidence intervals.
 </p>
 </div>
 <p>Again, as required by the APA guidelines, figures are deferred to the final pages of the document unless you set <code>figsintext</code> to <code>yes</code>.</p>
@@ -315,7 +315,7 @@ Figure 3.2: Bee plot of the example data set. Small points represent individual 
   , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Task&quot;</span>, <span class="st">&quot;Valence&quot;</span>, <span class="st">&quot;Dosage&quot;</span>)
 )</code></pre></div>
 <p>The first argument is the <code>data.frame</code> that contains the data, while the other argments represent chracter strings identifying the columns that contain the subject identifier <code>id</code>, the dependendent variable <code>dv</code>, and the between- or within-subjects <code>factors</code>. Yet, zero to four factors are supported.</p>
-<p>Via parameter <code>tendency</code>, you can specify any function that will be used to calculate the measure of central tendency. Via parameter <code>dispersion</code>, you can specify any function that will be used to calculate the measure of dispersion. A little candy: You can also require within-subjects confidence intervals as described by <span class="citation">(<span class="citeproc-not-found" data-reference-id="morey"><strong>???</strong></span>)</span> (as we already did in ).</p>
+<p>Via parameter <code>tendency</code>, you can specify any function that will be used to calculate the measure of central tendency. Via parameter <code>dispersion</code>, you can specify any function that will be used to calculate the measure of dispersion. A little candy: You can also require within-subjects confidence intervals as described by <span class="citation">(<span class="citeproc-not-found" data-reference-id="morey"><strong>???</strong></span>)</span> (and we already did in Figure <a href="writing.html#fig:beeswarm">3.2</a>).</p>
 <p>If you have more than one observation per participant-factor-level-combination, these observations are aggregated. You can specify individual aggregation functions via <code>fun_aggregate</code>.</p>
 <div id="what-is-plotted" class="section level3">
 <h3><span class="header-section-number">3.4.1</span> What is plotted?</h3>
