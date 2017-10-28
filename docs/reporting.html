@@ -206,6 +206,8 @@ Figure 4.1: Process diagram illustrating the use of <code>apa_print()</code> met
 <p>First of all, the function <code>printnum()</code> can be used to include a numeric value into text, with the correct rounding and with or without a leading zero. For example, if you want to include a mean into text, just write</p>
 <pre class="text"><code>Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).</code></pre>
 <p>which will result in: Participants mean age was <span class="math inline">\(22.84\)</span> years (<span class="math inline">\(SD = 3.78\)</span>).</p>
+<p><code>printnum()</code> is quiet flexible and passes its arguments to the underlying base function <code>formatC()</code> (CAVE: We are currently considering to switch to <code>format()</code>.), so changing the number of digits after the decimal point or the character to be used to indicate the decimal point (e.g., from a point <code>&quot;.&quot;</code> to a comma <code>&quot;,&quot;</code>) is always possible.</p>
+<p>The function <code>printp()</code> is a shorthand version of <code>printnum()</code> with the correct defaults set for printing a <span class="math inline">\(p\)</span> value (i.e., printing <span class="math inline">\(p&lt;.001\)</span> instead of this horrible <span class="math inline">\(p=.000\)</span> bullshit).</p>
 <ul>
 <li>in_paren()</li>
 <li>printnum()</li>

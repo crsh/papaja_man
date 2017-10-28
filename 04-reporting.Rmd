@@ -65,6 +65,14 @@ Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_
 
 which will result in: Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).
 
+`printnum()` is quiet flexible and passes its arguments to the underlying base function `formatC()` 
+(CAVE: We are currently considering to switch to `format()`.),
+so changing the number of digits after the decimal point or the character to be used to indicate the 
+decimal point (e.g., from a point `"."` to a comma `","`) is always possible.
+
+The function `printp()` is a shorthand version of `printnum()` with the correct defaults set for printing a $p$ value
+(i.e., printing $p<.001$ instead of this horrible $p=.000$ bullshit).
+
 - in_paren()
 - printnum()
   - printp()

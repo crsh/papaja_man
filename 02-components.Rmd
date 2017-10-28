@@ -194,13 +194,17 @@ Both settings can be overwritten by the user.
 See the [knitr documentation](http://yihui.name/knitr/options/) for further chunk options.
 
 R code can also be included in a line of regular text by inserting `` ``r ''`r ...` ``, where `...` is the desired code to be executed.
-Including R code inline is a conveinient way of including the contents of variables as part of the text.
+Including R code inline is a convenient way of including the contents of variables as part of the text.
 For example, imagine you compute the mean and standard deviation of participants' age and store them variables named `age_mean` and `age_sd`.
 You can report these numbers by printing the variables in inline R code.
 
 ```{r inline_r_code, eval = FALSE, }
 Participants mean age was `r age_mean` years ($SD = `r age_sd`$).
 ```
+
+Reporting numerical values will frequently require some rounding and/or filling with trailing zeros (e.g., "$24.10$").
+In chapter \@ref(reporting), we introduce papaja functions that are helpful in formatting a multitude of data types
+(e.g. simple numerics, outputs from statistical tests or models, etc.).
 
 In R Markdown documents, as in any other R script, code is executed serially (i.e., from top to bottom).
 Thus, any variables that are called in code chunks or inline R code must be defined above.
