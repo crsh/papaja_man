@@ -19,7 +19,7 @@ The format of citations and references can be automated by using references mana
 Far less common in psychology, is the use of markup systems, such as [LaTeX](https://en.wikipedia.org/wiki/LaTeX) or [Markdown](https://en.wikipedia.org/wiki/Markdown).
 A key concept of markup systems is to separate style from content by means of document annotations.
 These annotations declare portions of text for example as title, section headings, or list items but, crucially, they are agnostic to what this means visually (e.g., `<emphasize>text</emphasize>` instead of *text*).
-There are several advantages to this approach but, curcially for the present purpose, markup system compile plain text files to produce the final document.
+There are several advantages to this approach but, crucially for the present purpose, markup systems compile plain text files to produce the final document.
 Critically, the compilation process is required for fully reproducible scientific reports.
 
 ### Reproducible scientific reports

@@ -59,7 +59,11 @@ knitr::include_graphics("result_formatting_process.png")
   - printp()
   - inline hook
 
-### htest (t-tests, correlations, etc.)
+### htest ($t$ tests, correlations, etc.)
+
+In R, the results of a $t$ test (regardless of the exact type of $t$ test) are stored in a `htest` object.
+
+
 
 ### lm (linear regression)
 #### anova (model comparisons)
