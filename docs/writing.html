@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust">
 
 
-<meta name="date" content="2017-10-28">
+<meta name="date" content="2017-10-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -135,7 +135,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1.1" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.1.1</b> Working with a reference manager</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#conveiniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.1</b> Conveiniently inserting citations with <code>citr</code></a></li>
+<li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.1</b> Conveniently inserting citations with <code>citr</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager-1"><i class="fa fa-check"></i><b>3.2.2</b> Working with a reference manager</a></li>
 <li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.3</b> Referencing R and its packages</a></li>
 </ul></li>
@@ -207,7 +207,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">3.1.1</span> Working with a reference manager</h3>
 <ul>
 <li>Bib(La)TeX export of Mendeley</li>
-<li>Better Bib(La)TeX intergration of citr</li>
+<li>Better Bib(La)TeX integration of citr</li>
 </ul>
 <p>If you are not already using a reference manager such as Zotero, I strongly suggest you start doing so. Reference managers are like iTunes for your literature; they help you search, download, and organize papers. Most importantly, with a few clicks you can export a collection of references you need for a paper into a .bib-file. Once your references are in a .bib-file that resides in the same folder as your Markdown-file, you can easily add citations to your Markdown document. Each reference has a unique handle, e.g. lewandowsky_computational_2011, which you can use in Markdown. <span class="citation">(<span class="citeproc-not-found" data-reference-id="lewandowsky_computational_2011"><strong>???</strong></span>)</span> creates an in-text citation; <span class="citation">(<span class="citeproc-not-found" data-reference-id="lewandowsky_computational_2011"><strong>???</strong></span>)</span> creates a citation in parentheses. Everything reference-related, such as in-text citation and the reference section, will be taken cared of automatically.</p>
 <ul>
@@ -221,8 +221,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">3.2</span> Citations</h2>
 <p>No manuscript is complete without citation. In order for citations to work, you need to supply a Bib(La)TeX file to the <code>bibliography</code> parameter in the YAML front matter (<code>bibliography: my.bib</code>). Once this is done, <code>[e.g., @james_1890; @bem_2011]</code> produces a regular citation within parentheses <span class="citation">(e.g., <span class="citeproc-not-found" data-reference-id="james_1890"><strong>???</strong></span>, <span class="citeproc-no-output"><strong>???</strong></span>)</span>. To cite a source in text simply omit the brackets; for example, write <code>@james_1890</code> to cite <span class="citation">(<span class="citeproc-not-found" data-reference-id="james_1890"><strong>???</strong></span>)</span>. For other options see the <a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">overview of the R Markdown citation syntax</a>.</p>
 <p>The citation style is automatically set to APA style. If you need to use a different citation style, you can set in the YAML front matter by adding a <code>csl</code> parameter. See the <a href="http://R%20Markdown.rstudio.com/authoring_bibliographies_and_citations.html">R Markdown documentation</a> and <a href="http://citationstyles.org/">Citation Style Language</a> for further details.</p>
-<div id="conveiniently-inserting-citations-with-citr" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Conveiniently inserting citations with <code>citr</code></h3>
+<div id="conveniently-inserting-citations-with-citr" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Conveniently inserting citations with <code>citr</code></h3>
 <p><code>citr</code> is an R package that provides functions to search Bib(La)TeX-files to create and insert formatted Markdown citations into the current document. If you use RStudio, the package supplies an easy-to-use <a href="https://rstudio.github.io/rstudioaddins/">RStudio add-in</a> that facilitates inserting citations (Figure <a href="writing.html#fig:citr-gif">3.1</a>). The references for the inserted citations are automatically added to the documents reference section.</p>
 <blockquote>
 <p>Nachdem ich bei Ihnen die erste Übungen mit R unternommen habe, versuche ich mich derzeit in Papaja (unser gesamtes Lehrgebiet eignet sich derzeit Papayja an). Ich habe allerdings noch nicht herausgefunden, wie ich die alphabetische Sortierung ausschalten kann, z.B. für den Fall (Berthold &amp; Meier, 2009; Wright, 2009; but see Alfred &amp; Bert, 2007). Können Sie mir evtl. weiterhelfen?</p>
@@ -271,7 +271,7 @@ descriptives[, -<span class="dv">1</span>] &lt;-<span class="st"> </span><span c
   , <span class="dt">note =</span> <span class="st">&quot;This table was created with apa_table()&quot;</span>
   , <span class="dt">escape =</span> <span class="ot">TRUE</span>
 )</code></pre></div>
-<p>Of course popular packages like <code>xtable</code><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> or <code>tables</code> can also be used to create tables when knitting PDF documents. These packages, however, cannot be used when you want to create Microsoft Word documents because they rely on for typesetting. <code>apa_table()</code> creates tables that conform to APA guidelines and are correctly rendered in PDF and Word documents. But don’t get too excited. In papaja, table formatting is somewhat limited for Word documents due to missing functionality in pandoc (e.g., it is not possible to have cells or headers span across multiple columns).</p>
+<p>Of course popular packages like <code>xtable</code><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> or <code>tables</code> can also be used to create tables when knitting PDF documents. These packages, however, cannot be used when you want to create Microsoft Word documents because they rely on <span class="math inline">\(\LaTeX\)</span> for typesetting. <code>apa_table()</code> creates tables that conform to APA guidelines and are correctly rendered in PDF and Word documents. But don’t get too excited. In papaja, table formatting is somewhat limited for Word documents due to missing functionality in pandoc (e.g., it is not possible to have cells or headers span across multiple columns).</p>
 <p>As required by the APA guidelines, tables are deferred to the final pages of the manuscript when creating a PDF. To place tables and figures in your text instead, set the <code>figsintext</code> parameter in the YAML header to <code>yes</code> or <code>true</code>, as I have done in this document. Again, this is not the case in Word documents due to limited pandoc functionality. The bottom line is, Word documents will be less polished than PDF. The resulting documents should suffice to enable collaboration with Wordy colleagues and prepare a journal submission with limited manual labor.</p>
 <div id="alternatives-1" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Alternatives</h3>
@@ -314,7 +314,7 @@ Figure 3.2: Beeswarm plot of the example data set. Small points represent indivi
   , <span class="dt">dv =</span> <span class="st">&quot;Recall&quot;</span>
   , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Task&quot;</span>, <span class="st">&quot;Valence&quot;</span>, <span class="st">&quot;Dosage&quot;</span>)
 )</code></pre></div>
-<p>The first argument is the <code>data.frame</code> that contains the data, while the other argments represent chracter strings identifying the columns that contain the subject identifier <code>id</code>, the dependendent variable <code>dv</code>, and the between- or within-subjects <code>factors</code>. Yet, zero to four factors are supported.</p>
+<p>The first argument is the <code>data.frame</code> that contains the data, while the other arguments represent character strings identifying the columns that contain the subject identifier <code>id</code>, the dependent variable <code>dv</code>, and the between- or within-subjects <code>factors</code>. Yet, zero to four factors are supported.</p>
 <p>Via parameter <code>tendency</code>, you can specify any function that will be used to calculate the measure of central tendency. Via parameter <code>dispersion</code>, you can specify any function that will be used to calculate the measure of dispersion. A little candy: You can also require within-subjects confidence intervals as described by <span class="citation">(<span class="citeproc-not-found" data-reference-id="morey"><strong>???</strong></span>)</span> (and we already did in Figure <a href="writing.html#fig:beeswarm">3.2</a>).</p>
 <p>If you have more than one observation per participant-factor-level-combination, these observations are aggregated. You can specify individual aggregation functions via <code>fun_aggregate</code>.</p>
 <div id="what-is-plotted" class="section level3">
@@ -323,16 +323,36 @@ Figure 3.2: Beeswarm plot of the example data set. Small points represent indivi
 <ul>
 <li>A measure of central tendency.</li>
 <li>A measure of dispersion.</li>
-<li>The names of depent variable, factors and factor levels; a legend, if necessary.</li>
+<li>The names of dependent variable, factors and factor levels; a legend, if necessary.</li>
 </ul>
 <p>The plot functions in <code>papaja</code> are build around the <code>graphics</code> packages that is part of the base distribution of R. A lot of customization can thus be accomplished by calling <code>par</code>.</p>
+<p>If you are not willing to change these global options, you can pass a lot of parameters to the underlying functions by arguments <code>args_points</code>, <code>args_error_bars</code>, etc. each time you call the plot. See the below example for a more customized version of a beeswarm plot (<a href="writing.html#fig:customized-plot">3.3</a>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_beeplot</span>(
+    <span class="dt">data =</span> mixed_data
+  , <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>
+  , <span class="dt">dv =</span> <span class="st">&quot;Recall&quot;</span>
+  , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Task&quot;</span>, <span class="st">&quot;Valence&quot;</span>, <span class="st">&quot;Dosage&quot;</span>)
+  , <span class="dt">args_points =</span> <span class="kw">list</span>(<span class="dt">cex =</span> <span class="dv">2</span>, <span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;skyblue4&quot;</span>, <span class="st">&quot;indianred3&quot;</span>, <span class="st">&quot;seagreen4&quot;</span>), <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>)
+  , <span class="dt">args_swarm =</span> <span class="kw">list</span>(<span class="dt">cex =</span> <span class="fl">1.2</span>)
+  , <span class="dt">args_error_bars =</span> <span class="kw">list</span>(<span class="dt">length =</span> .<span class="dv">02</span>, <span class="dt">col =</span> <span class="st">&quot;grey20&quot;</span>)
+  , <span class="dt">args_y_axis =</span> <span class="kw">list</span>(<span class="dt">las =</span> <span class="dv">1</span>)
+  , <span class="dt">main =</span> <span class="kw">c</span>(<span class="kw">expression</span>(<span class="kw">italic</span>(A)~<span class="st">&quot;dosage&quot;</span>), <span class="kw">expression</span>(<span class="kw">italic</span>(B)~<span class="st">&quot;dosage&quot;</span>), <span class="kw">expression</span>(<span class="kw">italic</span>(C)~<span class="st">&quot;dosage&quot;</span>))
+  , <span class="dt">dispersion =</span> wsci
+)</code></pre></div>
+<div class="figure"><span id="fig:customized-plot"></span>
+<img src="papaja_manual_files/figure-html/customized-plot-1.png" alt="A customized beeswarm plot. Note that, by default, the swarm inherits parameters from the args_points argument." width="672" />
+<p class="caption">
+Figure 3.3: A customized beeswarm plot. Note that, by default, the swarm inherits parameters from the args_points argument.
+</p>
+</div>
+<p>A footnote on customization: If you customize the colors in your plots, you <em>can</em> use transparency (i.e., via defining colors with <code>rgb()</code>). However, as soon as you do this, your plots will be included in a pixel-based format in your final document, even if you knit to pdf (usually, when knitting to pdf, R plots are included in a vector-based format). Pixel-based plot graphics are not too bad, but may lead to ugly compression artifacts after you uploaded your manuscript to a manuscript submission system. (We already had that problem in our lab.)</p>
 <!-- ### Customization -->
 <p>If you prefer creating your plots with <code>ggplot2</code> try <code>theme_apa()</code>.</p>
 </div>
 </div>
 <div id="equations" class="section level2">
 <h2><span class="header-section-number">3.5</span> Equations</h2>
-<p>If you need to report formulas, you can use the flexible syntax (it will work in Word documents, too). Inline math must be enclosed in <code>$</code> or <code>\(</code> and <code>\)</code> and the result will look like this: <span class="math inline">\(d&#39; = z(H) - z(FA)\)</span>. For larger formulas displayed equations are more appropriate; they are enclosed in <code>$$</code> or <code>\[</code>and <code>\]</code>,</p>
+<p>If you need to report formulas, you can use the flexible <span class="math inline">\(\LaTeX\)</span> syntax (it will work in Word documents, too). Inline math must be enclosed in <code>$</code> or <code>\(</code> and <code>\)</code> and the result will look like this: <span class="math inline">\(d&#39; = z(H) - z(FA)\)</span>. For larger formulas displayed equations are more appropriate; they are enclosed in <code>$$</code> or <code>\[</code>and <code>\]</code>,</p>
 <p><span class="math display">\[
 d&#39; = \frac{\mu_{old} - \mu_{new}}{\sqrt{0.5(\sigma^2_{old} + \sigma^2_{new})}}.
 \]</span></p>

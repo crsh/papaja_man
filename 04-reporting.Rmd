@@ -70,7 +70,7 @@ which will result in: Participants mean age was $`r printnum(age_mean)`$ years (
 so changing the number of digits after the decimal point or the character to be used to indicate the 
 decimal point (e.g., from a point `"."` to a comma `","`) is always possible.
 
-The function `printp()` is a shorthand version of `printnum()` with the correct defaults set for printing a $p$ value
+The function `printp()` is a shorthand version of `printnum()` with the correct defaults set for printing $p$ values
 (i.e., printing $p<.001$ instead of this horrible $p=.000$ bullshit).
 
 - in_paren()
@@ -80,7 +80,7 @@ The function `printp()` is a shorthand version of `printnum()` with the correct 
 
 ### htest (*t* tests, correlations, etc.)
 
-In R, the results of a $t$ test (regardless of the exact type of $t$ test) are stored in an `htest` object.
+The results of a $t$ test (regardless of the exact type of $t$ test) are typically stored in an `htest` object.
 
 
 
@@ -149,6 +149,7 @@ If you wish to show off your code you need to set `echo = TRUE` in the chunk opt
 
 
 ### Report statistical analyses
+
 `apa_print()` will help you report the results of your statistical analyses.
 The function will format the contents of R objects and produce readily reportable text.
 
@@ -176,7 +177,7 @@ on recall, `r anova_results$full$Dosage`. There was no significant interaction.
 > There was no significant interaction.
 -->
 
-What's even more fun, you can easily create a complete ANOVA table using by passing `recall_anova_results$table` to `apa_table()`, see \autoref{ref:anova}.
+What's even more fun, you can easily create a complete ANOVA table by passing `recall_anova_results$table` to `apa_table()`, see \autoref{ref:anova}.
 
 ```{r results = "asis", echo = TRUE, eval = FALSE}
 apa_table(

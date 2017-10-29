@@ -10,7 +10,7 @@
 ### Working with a reference manager
 
 - Bib(La)TeX export of Mendeley
-- Better Bib(La)TeX intergration of citr
+- Better Bib(La)TeX integration of citr
 
 If you are not already using a reference manager such as Zotero, I strongly suggest you start doing so. Reference managers are like iTunes for your literature; they help you search, download, and organize papers. Most importantly, with a few clicks you can export a collection of references you need for a paper into a .bib-file. Once your references are in a .bib-file that resides in the same folder as your Markdown-file, you can easily add citations to your Markdown document. Each reference has a unique handle, e.g. lewandowsky_computational_2011, which you can use in Markdown. @lewandowsky_computational_2011 creates an in-text citation; [@lewandowsky_computational_2011] creates a citation in parentheses. Everything reference-related, such as in-text citation and the reference section, will be taken cared of automatically.
 
@@ -32,7 +32,7 @@ If you need to use a different citation style, you can set in the YAML front mat
 See the [R Markdown documentation](http://R Markdown.rstudio.com/authoring_bibliographies_and_citations.html) and [Citation Style Language](http://citationstyles.org/) for further details.
 
 
-### Conveiniently inserting citations with `citr`
+### Conveniently inserting citations with `citr`
 
 `citr` is an R package that provides functions to search Bib(La)TeX-files to create and insert formatted Markdown citations into the current document.
 If you use RStudio, the package supplies an easy-to-use [RStudio add-in](https://rstudio.github.io/rstudioaddins/) that facilitates inserting citations (Figure \@ref(fig:citr-gif)).
@@ -113,7 +113,7 @@ apa_table(
 ```
 
 Of course popular packages like `xtable`[^xtable] or `tables` can also be used to create tables when knitting PDF documents.
-These packages, however, cannot be used when you want to create Microsoft Word documents because they rely on \LaTeX for typesetting.
+These packages, however, cannot be used when you want to create Microsoft Word documents because they rely on $\LaTeX$ for typesetting.
 `apa_table()` creates tables that conform to APA guidelines and are correctly rendered in PDF and Word documents.
 But don't get too excited.
 In papaja, table formatting is somewhat limited for Word documents due to missing functionality in pandoc (e.g., it is not possible to have cells or headers span across multiple columns).
@@ -188,8 +188,8 @@ apa_beeplot(
 ```
 
 The first argument is the `data.frame` that contains the data,
-while the other argments represent chracter strings identifying the columns that contain the subject identifier `id`,
-the dependendent variable `dv`,
+while the other arguments represent character strings identifying the columns that contain the subject identifier `id`,
+the dependent variable `dv`,
 and the between- or within-subjects `factors`.
 Yet, zero to four factors are supported.
 
@@ -206,10 +206,36 @@ For each cell of the submitted data, the following information is plotted:
 
 - A measure of central tendency.
 - A measure of dispersion.
-- The names of depent variable, factors and factor levels; a legend, if necessary.
+- The names of dependent variable, factors and factor levels; a legend, if necessary.
 
 The plot functions in `papaja` are build around the `graphics` packages that is part of the base distribution of R.
 A lot of customization can thus be accomplished by calling `par`.
+
+If you are not willing to change these global options, you can pass a lot of parameters to the underlying functions
+by arguments `args_points`, `args_error_bars`, etc. each time you call the plot.
+See the below example for a more customized version of a beeswarm plot (\@ref(fig:customized-plot)).
+
+```{r customized-plot, fig.cap = "A customized beeswarm plot. Note that, by default, the swarm inherits parameters from the args_points argument."}
+apa_beeplot(
+    data = mixed_data
+  , id = "Subject"
+  , dv = "Recall"
+  , factors = c("Task", "Valence", "Dosage")
+  , args_points = list(cex = 2, bg = c("skyblue4", "indianred3", "seagreen4"), col = "white")
+  , args_swarm = list(cex = 1.2)
+  , args_error_bars = list(length = .02, col = "grey20")
+  , args_y_axis = list(las = 1)
+  , main = c(expression(italic(A)~"dosage"), expression(italic(B)~"dosage"), expression(italic(C)~"dosage"))
+  , dispersion = wsci
+)
+```
+
+A footnote on customization: If you customize the colors in your plots, you *can* use transparency
+(i.e., via defining colors with `rgb()`).
+However, as soon as you do this, your plots will be included in a pixel-based format in your final document,
+even if you knit to pdf (usually, when knitting to pdf, R plots are included in a vector-based format).
+Pixel-based plot graphics are not too bad, but may lead to ugly compression artifacts after you uploaded your manuscript to
+a manuscript submission system. (We already had that problem in our lab.)
 
 <!-- ### Customization -->
 
@@ -217,7 +243,7 @@ If you prefer creating your plots with `ggplot2` try `theme_apa()`.
 
 ## Equations
 
-If you need to report formulas, you can use the flexible \LaTeX syntax (it will work in Word documents, too).
+If you need to report formulas, you can use the flexible $\LaTeX$ syntax (it will work in Word documents, too).
 Inline math must be enclosed in `$` or `\(` and `\)` and the result will look like this: $d' = z(H) - z(FA)$.
 For larger formulas displayed equations are more appropriate; they are enclosed in `$$` or `\[`and `\]`,
 

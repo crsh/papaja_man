@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust">
 
 
-<meta name="date" content="2017-10-28">
+<meta name="date" content="2017-10-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -135,7 +135,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1.1" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.1.1</b> Working with a reference manager</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#conveiniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.1</b> Conveiniently inserting citations with <code>citr</code></a></li>
+<li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.1</b> Conveniently inserting citations with <code>citr</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager-1"><i class="fa fa-check"></i><b>3.2.2</b> Working with a reference manager</a></li>
 <li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.3</b> Referencing R and its packages</a></li>
 </ul></li>
@@ -207,7 +207,7 @@ Figure 4.1: Process diagram illustrating the use of <code>apa_print()</code> met
 <pre class="text"><code>Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).</code></pre>
 <p>which will result in: Participants mean age was <span class="math inline">\(22.84\)</span> years (<span class="math inline">\(SD = 3.78\)</span>).</p>
 <p><code>printnum()</code> is quiet flexible and passes its arguments to the underlying base function <code>formatC()</code> (CAVE: We are currently considering to switch to <code>format()</code>.), so changing the number of digits after the decimal point or the character to be used to indicate the decimal point (e.g., from a point <code>&quot;.&quot;</code> to a comma <code>&quot;,&quot;</code>) is always possible.</p>
-<p>The function <code>printp()</code> is a shorthand version of <code>printnum()</code> with the correct defaults set for printing a <span class="math inline">\(p\)</span> value (i.e., printing <span class="math inline">\(p&lt;.001\)</span> instead of this horrible <span class="math inline">\(p=.000\)</span> bullshit).</p>
+<p>The function <code>printp()</code> is a shorthand version of <code>printnum()</code> with the correct defaults set for printing <span class="math inline">\(p\)</span> values (i.e., printing <span class="math inline">\(p&lt;.001\)</span> instead of this horrible <span class="math inline">\(p=.000\)</span> bullshit).</p>
 <ul>
 <li>in_paren()</li>
 <li>printnum()</li>
@@ -216,7 +216,7 @@ Figure 4.1: Process diagram illustrating the use of <code>apa_print()</code> met
 </ul>
 <div id="htest-t-tests-correlations-etc." class="section level3">
 <h3><span class="header-section-number">4.1.1</span> htest (<em>t</em> tests, correlations, etc.)</h3>
-<p>In R, the results of a <span class="math inline">\(t\)</span> test (regardless of the exact type of <span class="math inline">\(t\)</span> test) are stored in an <code>htest</code> object.</p>
+<p>The results of a <span class="math inline">\(t\)</span> test (regardless of the exact type of <span class="math inline">\(t\)</span> test) are typically stored in an <code>htest</code> object.</p>
 </div>
 <div id="lm-linear-regression" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> lm (linear regression)</h3>
@@ -372,7 +372,7 @@ on recall, <span class="st">`</span><span class="dt">r anova_results$full$Dosage
 > the dosage, however, had no effect on recall, .
 > There was no significant interaction.
 -->
-<p>What’s even more fun, you can easily create a complete ANOVA table using by passing <code>recall_anova_results$table</code> to <code>apa_table()</code>, see .</p>
+<p>What’s even more fun, you can easily create a complete ANOVA table by passing <code>recall_anova_results$table</code> to <code>apa_table()</code>, see .</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(
   recall_anova_results$table
   , <span class="dt">align =</span> <span class="kw">c</span>(<span class="st">&quot;l&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;r&quot;</span>)

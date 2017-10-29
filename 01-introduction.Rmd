@@ -28,7 +28,7 @@ Dynamic scientific reports fuse prose and simulation or analysis scripts [@R-kni
 Each time a dynamic document is compiled, the scripts are executed anew and the results---statistics, tables, and figures---are recreated and inserted into the document.
 Thereby dynamic documents allow automated reporting of results, which is currently not possible with the prevalent use of Microsoft Word or Libre Office.
 Importantly, dynamic documents ensure that the results reported in the manuscript are free of rounding or transcription errors and correspond to the performed analyses.
-This is the reason why dynamic scientific reports are commonly refered to as reproducible scientific reports or reproducible reports.
+This is the reason why dynamic scientific reports are commonly referred to as reproducible scientific reports or reproducible reports.
 Thus, the term reproducibility here means that given a dataset and analysis script any analyst obtains the same statistical results [@asendorpf_recommendations_2013; @cacioppo_social_2015].
 
 The importance of reproducibility was pinpointed by the U.S. National Science Foundation subcommittee on replicability in science:
@@ -278,9 +278,9 @@ After the R code has been executed the `bookdown` document format `pdf_document2
 Incorrect use of the cross-referencing syntax typically does not interfere with the document compilation but is apparent from missing or incorrect cross-references in the compiled document, e.g. instead of a figure number the document may contain the figure handle such as `(#fig:my-figure)`.
 The result of this processing step is a pure markdown document containing only a YAML header, prose in markdown (and optionally LaTeX) syntax and rendered images in PDF, EPS, PNG, and TIFF formats at 300 dpi as set by `apa6_pdf()` or `apa6_word()`, respectively.
 
-The mardown document, images and an optional BiB(La)TeX file that contains bibliographic information are the input to the next processing step.
-`rmarkdown::render()` assambles a system call to pandoc that is supplemented by `papaja` to include a call to an additional filter and can be further customized by the user.
-pandoc parses the contents of the markdown file and translates it into an abstrac syntax tree (AST).
+The markdown document, images and an optional BiB(La)TeX file that contains bibliographic information are the input to the next processing step.
+`rmarkdown::render()` assembles a system call to pandoc that is supplemented by `papaja` to include a call to an additional filter and can be further customized by the user.
+pandoc parses the contents of the markdown file and translates it into an abstract syntax tree (AST).
 The `pandoc-citeproc` filter is than applied to the AST to replace the citation markup by the citation text and insert a reference section.
 As detailed in the [Citations] section, `pandoc-citeproc` relies on the [citation styles language](http://citationstyles.org/) (CSL), an XML-based specification of citation and bibliography formatting rules.
 Unfortunately, CSL does not support in-text citations.
@@ -291,7 +291,7 @@ That is why `papaja` provides an additional R-based filter that is applied to th
 After all filters have been applied to the AST pandoc converts the document into the target output format, that is, PDF or DOCX.
 To create DOCX-documents `papaja` provides a reference DOCX-file containing page setup and style definitions that pandoc uses to create the manuscript file.
 That is, pandoc translates the AST directly to the office open XML format.
-To create PDF-documents pandoc in turn relies on LaTeX, that is, pandoc translates the AST to a TeX-file based on a templated provided by `papaja`.
+To create PDF-documents pandoc in turn relies on LaTeX, that is, pandoc translates the AST to a TeX-file based on a template provided by `papaja`.
 The TeX-file template invokes the `apa6` LaTeX document class [@???] and loads several additional LaTeX packages.
 pandoc then generates a system call to LaTeX to render the PDF document.
 During this processing step, that is, following the pandoc system calls, errors are due to failures of LaTeX to compile the TeX-file and usually start with `!`, for example, `! Undefined control sequence.` or `! Missing $ inserted`.
