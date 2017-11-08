@@ -87,7 +87,19 @@ The results of a $t$ test (regardless of the exact type of $t$ test) are typical
 ### lm (linear regression)
 #### anova (model comparisons)
 
-### anova, Anova, Anova.mlm (ANOVA)
+### anova, Anova, Anova.mlm (Analysis of Variance -- ANOVA)
+
+*Foreword -- you can skip this if you are not interested in background*.
+Amongst psychologists, analysis of variance is a still-popular and frequently used technique.
+In base R, however, analysis of variance is not implemented in a way that is too useful
+for psychologists, as the `aov`function in the stats package does not provide the much sought-after
+Type-$\rm{I\!I\!I}$ sums-of-squares. A  variety of R packages has emerged to fill the gap, e.g. the
+`car` [@R-car], `ezANOVA` [@R-ezANOVA], and `afex` [@R-afex]. The problem is: All ANOVA functions provide
+different output objects (and using `summary` on these objects generates even other objects) that need to be digested by `apa_print()`.
+Even though we spent quiet some work on `apa_print()` taking everything from ANOVA, there are still some shortcomings: 
+Output objects from `ezANOVA` are not supported, as they do not contain the necessary information to be properly digested.
+
+*Functionality*.
 
 #### glht, lsmeans, ref.grid (post-hoc tests)
 
