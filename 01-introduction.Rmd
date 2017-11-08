@@ -36,6 +36,30 @@ The importance of reproducibility was pinpointed by the U.S. National Science Fo
 > Reproducibility is a minimum necessary condition for a finding to be believable and informative. [p. 4, @cacioppo_social_2015]
 
 
+> Good statistical practice is fundamentally based on transparent assumptions, repro-ducible results, and valid interpretations.
+
+> The ethical statistician [...] strives to promote transparency in design, execution, and reporting or presenting of all analyses
+
+> Makes documentation suitable for replicate analyses, metadata studies, and other research by qualified investigators.
+
+http://www.amstat.org/asa/files/pdfs/EthicalGuidelines.pdf
+
+
+“an article about a computational result is advertising, not scholarship. The actual scholarship is the full software environment, code and data, that produced the result.”  - Buckheit & Donoho, 1995
+
+
+(Elsevier executable paper challenge: 10.1016/j.procs.2011.04.064)
+
+Donoho, D. L., Maleki, A., Rahman, I. U., Shahram, M. & Stodden, V. Reproducible
+research in computational harmonic analysis. Comput. Sci. Eng. 11, 8–18 (2009).
+Donoho and fellow researchers have been at the forefront of reproducibility for
+many years; this a
+
+
+org-mode: http://www.sciencedirect.com/science/article/pii/S0928425711000374?via%3Dihub
+http://yuyang0.github.io/static/doc/babel.pdf
+
+Proprietary software also exists like Inference for R29 – for using R with Microsoft Office – but we do not have any experience with them. Open-source tools like Dexy30 and Sumatra31 are clearly very promising and have capabilities similar to Sweave and org-mode. 
 
 <!--
 
@@ -126,7 +150,8 @@ Peer review openness initiative: http://opennessinitiative.org/PRO_Initiative_RS
 - Matlab-tool for reproducible analyses: http://link.springer.com/article/10.3758%2Fs13428-015-0616-x
 
 - kmr
-
+- statTag: http://sites.northwestern.edu/stattag/
+- StatWeave: http://homepage.divms.uiowa.edu/~rlenth/StatWeave/StatWeave-manual.pdf
 
 
 # Abstract
