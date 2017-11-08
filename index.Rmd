@@ -1,17 +1,25 @@
 --- 
 title           : "papaja: Reproducible APA manuscripts with R Markdown"
-author          : "Frederik Aust"
+author          : "Frederik Aust & Marius Barth"
 institute       : "University of Cologne, Germany"
 date            : "`r Sys.Date()`"
-site            : bookdown::bookdown_site
-output          : bookdown::html_book
-documentclass   : book
+
+description     : >
+  ""
+
+github-repo     : crsh/papaja_man
+
 bibliography    : [references.bib, r-references.bib]
 csl             : apa6.csl
 link-citations  : yes
-github-repo     : crsh/papaja_man
-description     : >
-  ""
+
+documentclass   : book
+site            : bookdown::bookdown_site
+output          :
+  bookdown::gitbook:
+    includes:
+      after_body: disqus.html
+
 ---
 
 ```{r libraries_and_options, echo = FALSE, message = FALSE, warning = FALSE}

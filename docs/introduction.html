@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5.2 and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -22,10 +22,10 @@
   <meta name="twitter:description" content="<p>“”</p>" />
   
 
-<meta name="author" content="Frederik Aust">
+<meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2017-10-29">
+<meta name="date" content="2017-11-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -208,6 +208,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <blockquote>
 <p>Reproducibility is a minimum necessary condition for a finding to be believable and informative. <span class="citation">(p. 4, Cacioppo et al., <a href="#ref-cacioppo_social_2015">2015</a>)</span></p>
 </blockquote>
+<blockquote>
+<p>Good statistical practice is fundamentally based on transparent assumptions, repro-ducible results, and valid interpretations.</p>
+</blockquote>
+<blockquote>
+<p>The ethical statistician […] strives to promote transparency in design, execution, and reporting or presenting of all analyses</p>
+</blockquote>
+<blockquote>
+<p>Makes documentation suitable for replicate analyses, metadata studies, and other research by qualified investigators.</p>
+</blockquote>
+<p><a href="http://www.amstat.org/asa/files/pdfs/EthicalGuidelines.pdf" class="uri">http://www.amstat.org/asa/files/pdfs/EthicalGuidelines.pdf</a></p>
+<p>“an article about a computational result is advertising, not scholarship. The actual scholarship is the full software environment, code and data, that produced the result.” - Buckheit &amp; Donoho, 1995</p>
+<p>(Elsevier executable paper challenge: 10.1016/j.procs.2011.04.064)</p>
+<p>Donoho, D. L., Maleki, A., Rahman, I. U., Shahram, M. &amp; Stodden, V. Reproducible research in computational harmonic analysis. Comput. Sci. Eng. 11, 8–18 (2009). Donoho and fellow researchers have been at the forefront of reproducibility for many years; this a</p>
+<p>org-mode: <a href="http://www.sciencedirect.com/science/article/pii/S0928425711000374?via%3Dihub">http://www.sciencedirect.com/science/article/pii/S0928425711000374?via%3Dihub</a> <a href="http://yuyang0.github.io/static/doc/babel.pdf" class="uri">http://yuyang0.github.io/static/doc/babel.pdf</a></p>
+<p>Proprietary software also exists like Inference for R29 – for using R with Microsoft Office – but we do not have any experience with them. Open-source tools like Dexy30 and Sumatra31 are clearly very promising and have capabilities similar to Sweave and org-mode.</p>
 <!--
 
 http://www.ncbi.nlm.nih.gov/pubmed/24886202
@@ -297,7 +312,8 @@ Peer review openness initiative: http://opennessinitiative.org/PRO_Initiative_RS
 - Matlab-tool for reproducible analyses: http://link.springer.com/article/10.3758%2Fs13428-015-0616-x
 
 - kmr
-
+- statTag: http://sites.northwestern.edu/stattag/
+- StatWeave: http://homepage.divms.uiowa.edu/~rlenth/StatWeave/StatWeave-manual.pdf
 
 
 # Abstract
@@ -355,7 +371,7 @@ papaja is tailored to the needs of experimental psychologists: we supply conveni
 <p>The compilation process is outlined in Figure <a href="introduction.html#fig:compilation-process-diagram">1.1</a>. As detailed in the <a href="r-markdown-components.html#r-markdown-components">R Markdown components</a> section, an R Markdown document consists of three components: A YAML front matter that contains document meta data, prose written in markdown (and optionally LaTeX) syntax, and R code in so-called <em>code chunks</em>.</p>
 <p>Additionally, the R code contained in an R Markdown document usually accesses data that are either stored in a file on the computers hard drive or a database on the local network or internet. When the document is compiled either by calling <code>rmarkdown::render()</code> or by clicking the Knit-button in RStudio, the YAML front matter is parsed. Errors during this processing step are usually due to erroneous YAML syntax and start with <code>Error in yaml::yaml.load(enc2utf8(string), ...) :</code>. Next, the R code inside the R Markdown document is executed sequentially from top to bottom of the document and the resulting output is inserted into the document in markdown syntax. Any figures that are generated during the execution of the R code are stored to the hard drive and embedded into the markdown document. The R code is executed in a new R session with an empty workspace, no attached packages, and with the working directory set to the path of the R Markdown file. If any portion of the R code throws an error the compilation is aborted. In RStudio the debugger will point to the first line of the R code chunk that threw the error—not the exact line responsible for the error—and report the error message. R error messages usually start with <code>Error:</code>, for example, <code>Error: Object 'experiment_data' not found.</code></p>
 <div class="figure" style="text-align: center"><span id="fig:compilation-process-diagram"></span>
-<img src="compilation_process.png" alt="Process diagram illustrating the compilation of reproducible reports written with `papaja`. Boxes represent input files, diamonds represent compiling software, and ovals represent output files. Dashed components are either implicit (components of R Markdown files) or by default deleted after the compilation and, thus, invisible to the user."  />
+<img src="compilation_process.png" alt="Process diagram illustrating the compilation of reproducible reports written with `papaja`. Boxes represent input files, diamonds represent compiling software, and ovals represent output files. Dashed components are either implicit (components of R Markdown files) or by default deleted after the compilation and, thus, invisible to the user." width="263" />
 <p class="caption">
 Figure 1.1: Process diagram illustrating the compilation of reproducible reports written with <code>papaja</code>. Boxes represent input files, diamonds represent compiling software, and ovals represent output files. Dashed components are either implicit (components of R Markdown files) or by default deleted after the compilation and, thus, invisible to the user.
 </p>
@@ -389,17 +405,17 @@ Figure 1.1: Process diagram illustrating the compilation of reproducible reports
 <ol start="3" class="example" style="list-style-type: decimal">
 <li><strong><a href="http://de.wikipedia.org/wiki/TeX">TeX</a> 2013 or later</strong>. Try <a href="http://miktex.org/">MikTeX</a> for Windows, <a href="https://tug.org/mactex/">MacTeX</a> for Mac, or <a href="http://www.tug.org/texlive/">TeX Live</a> for Linux. Some Linux users may need a few additional TeX packages for the LaTeX document class <code>apa6</code> to work:</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="kw">sudo</span> apt-get install texlive texlive-publishers texlive-fonts-extra texlive-latex-extra texlive-humanities lmodern</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install texlive texlive-publishers texlive-fonts-extra texlive-latex-extra texlive-humanities lmodern</code></pre></div>
 <p>Although not necessary for the use of <code>papaja</code>, I recommend that you use a references manager, such as <a href="https://www.zotero.org/">Zotero</a>, to facilitate reference management and <a href="writing.html#citations">citations</a>.</p>
 </div>
 <div id="installing-papaja" class="section level3">
 <h3><span class="header-section-number">1.4.2</span> Installing papaja</h3>
 <p>Once all that is taken care of, install <code>papaja</code> from GitHub.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install devtools package if necessary</span>
-if(!<span class="st">&quot;devtools&quot;</span> %in%<span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+<span class="cf">if</span>(<span class="op">!</span><span class="st">&quot;devtools&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
 
 <span class="co"># Install papaja</span>
-devtools::<span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)</code></pre></div>
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)</code></pre></div>
 <p><code>papaja</code> has not yet been submitted to CRAN because it is under active development. Currently, there are still a couple of loose ends we would like to tie up before we release the package to a larger audience. If you would like to contribute to speed up the process, have a look at the chapters <a href="limitations.html#limitations">Limitations</a> and <a href="future-directions.html#future-directions">Future directions</a>.</p>
 </div>
 <div id="creating-a-document" class="section level3">
@@ -420,7 +436,7 @@ Figure 1.4: The <em>Knit</em> button in the RStudio.
 </div>
 <p>If you don’t use RStudio, you can achieve the same result via the R command line. Use <code>rmarkdown::draft()</code> to create a new R Markdown file and <code>rmarkdown::render()</code> to render the document.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create new R Markdown file</span>
-rmarkdown::<span class="kw">draft</span>(
+rmarkdown<span class="op">::</span><span class="kw">draft</span>(
   <span class="st">&quot;mymanuscript.Rmd&quot;</span>
   , <span class="st">&quot;apa6&quot;</span>
   , <span class="dt">package =</span> <span class="st">&quot;papaja&quot;</span>
@@ -429,14 +445,14 @@ rmarkdown::<span class="kw">draft</span>(
 )
 
 <span class="co"># Render manuscript</span>
-rmarkdown::<span class="kw">render</span>(<span class="st">&quot;mymanuscript.Rmd&quot;</span>)</code></pre></div>
+rmarkdown<span class="op">::</span><span class="kw">render</span>(<span class="st">&quot;mymanuscript.Rmd&quot;</span>)</code></pre></div>
 <hr />
 <p><code>papaja</code> is a R-package in the making including a <a href="http://rmarkdown.rstudio.com/">R Markdown</a> template that can be used with (or without) <a href="http://www.rstudio.com/">RStudio</a> to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition). The package uses the LaTeX document class <a href="http://www.ctan.org/pkg/apa6">apa6</a> and a .docx-reference file, so you can create PDF documents, or Word documents if you have to. Moreover, <code>papaja</code> supplies R-functions that facilitate reporting results of your analyses in accordance with APA guidelines.</p>
 
 <div class="rmdimportant">
 Because <strong>knitr</strong> does not allow duplicate chunk labels in a source document, you need to make sure there are no duplicate labels in your book chapters, otherwise <strong>knitr</strong> will signal an error when knitting the merged Rmd file.
 </div>
-<p></p>
+
 
 </div>
 </div>
@@ -462,6 +478,27 @@ Because <strong>knitr</strong> does not allow duplicate chunk labels in a source
 <p>Pfister, R., &amp; Janczyk, M. (2016). schoRsch: An R package for analyzing and reporting factorial experiments. <em>The Quantitative Methods for Psychology</em>, <em>12</em>(2), 147–151. doi:<a href="https://doi.org/10.20982/tqmp.12.2.p147">10.20982/tqmp.12.2.p147</a></p>
 </div>
 </div>
+<h1>Comments and Questions</h1>
+<div id="disqus_thread"></div>
+  <script>
+  
+  /**
+  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+  /*
+  var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+  */
+    (function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://papaja-manual.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </section>
 
           </div>
