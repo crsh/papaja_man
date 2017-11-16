@@ -150,13 +150,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#appendices"><i class="fa fa-check"></i><b>3.7</b> Appendices</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
-<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.1</b> Results from statistical tests</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.1.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
-<li class="chapter" data-level="4.1.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.1.2</b> lm (linear regression)</a></li>
-<li class="chapter" data-level="4.1.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.1.3</b> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</a></li>
-<li class="chapter" data-level="4.1.4" data-path="reporting.html"><a href="reporting.html#report-statistical-analyses"><i class="fa fa-check"></i><b>4.1.4</b> Report statistical analyses</a></li>
+<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#numerical-values"><i class="fa fa-check"></i><b>4.1</b> Numerical values</a></li>
+<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.2</b> Results from statistical tests</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.2.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.2.2</b> lm (linear regression)</a></li>
+<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.2.3</b> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</a></li>
+<li class="chapter" data-level="4.2.4" data-path="reporting.html"><a href="reporting.html#report-statistical-analyses"><i class="fa fa-check"></i><b>4.2.4</b> Report statistical analyses</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#caching"><i class="fa fa-check"></i><b>4.2</b> Caching</a></li>
+<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#caching"><i class="fa fa-check"></i><b>4.3</b> Caching</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a><ul>
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#useful-rstudio-addins"><i class="fa fa-check"></i><b>5.1</b> Useful RStudio Addins</a></li>
@@ -305,15 +306,6 @@ descriptives[, -<span class="dv">1</span>] &lt;-<span class="st"> </span><span c
   , <span class="dt">args_points =</span> <span class="kw">list</span>(<span class="dt">cex =</span> <span class="dv">1</span>)
   , <span class="dt">args_arrows =</span> <span class="kw">list</span>(<span class="dt">length =</span> <span class="fl">0.025</span>)
 )</code></pre></div>
-<pre><code>## `summarise_each()` is deprecated.
-## Use `summarise_all()`, `summarise_at()` or `summarise_if()` instead.
-## To map `funs` over all variables, use `summarise_all()`
-## `summarise_each()` is deprecated.
-## Use `summarise_all()`, `summarise_at()` or `summarise_if()` instead.
-## To map `funs` over all variables, use `summarise_all()`
-## `summarise_each()` is deprecated.
-## Use `summarise_all()`, `summarise_at()` or `summarise_if()` instead.
-## To map `funs` over all variables, use `summarise_all()`</code></pre>
 <div class="figure"><span id="fig:beeswarm"></span>
 <img src="papaja_manual_files/figure-html/beeswarm-1.png" alt="Beeswarm plot of the example data set. Small points represent individual observations, large points represent means, and error bars represent 95% within-subjects confidence intervals." width="768" />
 <p class="caption">
@@ -354,60 +346,6 @@ Figure 3.2: Beeswarm plot of the example data set. Small points represent indivi
   , <span class="dt">main =</span> <span class="kw">c</span>(<span class="kw">expression</span>(<span class="kw">italic</span>(A)~<span class="st">&quot;dosage&quot;</span>), <span class="kw">expression</span>(<span class="kw">italic</span>(B)~<span class="st">&quot;dosage&quot;</span>), <span class="kw">expression</span>(<span class="kw">italic</span>(C)~<span class="st">&quot;dosage&quot;</span>))
   , <span class="dt">dispersion =</span> wsci
 )</code></pre></div>
-<pre><code>## `summarise_each()` is deprecated.
-## Use `summarise_all()`, `summarise_at()` or `summarise_if()` instead.
-## To map `funs` over all variables, use `summarise_all()`
-## `summarise_each()` is deprecated.
-## Use `summarise_all()`, `summarise_at()` or `summarise_if()` instead.
-## To map `funs` over all variables, use `summarise_all()`
-## `summarise_each()` is deprecated.
-## Use `summarise_all()`, `summarise_at()` or `summarise_if()` instead.
-## To map `funs` over all variables, use `summarise_all()`</code></pre>
-<pre><code>## Warning in plot.window(...): &quot;args_error_bars&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in plot.window(...): &quot;args_y_axis&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in plot.xy(xy, type, ...): &quot;args_error_bars&quot; ist kein
-## Grafikparameter</code></pre>
-<pre><code>## Warning in plot.xy(xy, type, ...): &quot;args_y_axis&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...):
-## &quot;args_error_bars&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...): &quot;args_y_axis&quot;
-## ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...):
-## &quot;args_error_bars&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...): &quot;args_y_axis&quot;
-## ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in title(...): &quot;args_error_bars&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in title(...): &quot;args_y_axis&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in plot.window(...): &quot;args_error_bars&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in plot.window(...): &quot;args_y_axis&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in plot.xy(xy, type, ...): &quot;args_error_bars&quot; ist kein
-## Grafikparameter</code></pre>
-<pre><code>## Warning in plot.xy(xy, type, ...): &quot;args_y_axis&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...):
-## &quot;args_error_bars&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...): &quot;args_y_axis&quot;
-## ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...):
-## &quot;args_error_bars&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...): &quot;args_y_axis&quot;
-## ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in title(...): &quot;args_error_bars&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in title(...): &quot;args_y_axis&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in plot.window(...): &quot;args_error_bars&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in plot.window(...): &quot;args_y_axis&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in plot.xy(xy, type, ...): &quot;args_error_bars&quot; ist kein
-## Grafikparameter</code></pre>
-<pre><code>## Warning in plot.xy(xy, type, ...): &quot;args_y_axis&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...):
-## &quot;args_error_bars&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...): &quot;args_y_axis&quot;
-## ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...):
-## &quot;args_error_bars&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in axis(side = side, at = at, labels = labels, ...): &quot;args_y_axis&quot;
-## ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in title(...): &quot;args_error_bars&quot; ist kein Grafikparameter</code></pre>
-<pre><code>## Warning in title(...): &quot;args_y_axis&quot; ist kein Grafikparameter</code></pre>
 <div class="figure"><span id="fig:customized-plot"></span>
 <img src="papaja_manual_files/figure-html/customized-plot-1.png" alt="A customized beeswarm plot. Note that, by default, the swarm inherits parameters from the args_points argument." width="672" />
 <p class="caption">

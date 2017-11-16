@@ -1,7 +1,14 @@
 # Reporting
 
 Using `papaja`, it is possible to run all your analyses from within an R Markdown document.
-This section describes how the results of your analyses can be included in text.
+This section describes how you can include the results of your analyses can be included in text.
+It starts with simple numerical values (like a sample mean) and then continues with more-complex
+output, like the results from statistical models and hypothesis tests.
+`papaja` comes with two functions (`printnum` and `apa_print`) that do the job of formatting
+everything according to APA guidelines.
+
+
+## Numerical values
 
 ```{r printnum-values, echo = FALSE}
 age_mean <- 22.8395
