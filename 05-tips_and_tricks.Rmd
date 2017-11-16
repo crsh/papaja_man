@@ -1,0 +1,9 @@
+# Tips and Tricks
+
+## Useful RStudio Addins
+
+## Text references
+
+## Author disambiguation
+
+## Reproducible software environment

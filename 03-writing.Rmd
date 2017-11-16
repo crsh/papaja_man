@@ -244,7 +244,7 @@ If you prefer creating your plots with `ggplot2` try `theme_apa()`.
 ## Equations
 
 If you need to report formulas, you can use the flexible $\LaTeX$ syntax (it will work in Word documents, too).
-Inline math must be enclosed in `$` or `\(` and `\)` and the result will look like this: $d' = z(H) - z(FA)$.
+Inline math must be enclosed in `$` or `\(` and `\)` and the result will look like this: $d' = z(\mathrm{H}) - z(\mathrm{FA})$.
 For larger formulas displayed equations are more appropriate; they are enclosed in `$$` or `\[`and `\]`,
 
 $$
