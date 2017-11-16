@@ -34,7 +34,7 @@ enough to aumatically call it. Thus, writing
 Participants mean age was `r age_mean` years (*SD* = `r age_sd`).
 ```
 
-results in: Participants mean age was `r printnum(age_mean)` years (*SD* = `r printnum(age_sd)`).
+also results in: Participants mean age was `r printnum(age_mean)` years (*SD* = `r printnum(age_sd)`).
 
 ## Results from statistical tests
 
@@ -44,7 +44,13 @@ For this purpose, we created the function `apa_print()`.
 Simply drop the results from a statistical test (e.g. a $t$ test or an ANOVA)
 into `apa_print()`, and you will get an output object that contains all you need
 to report the analysis according to APA guidelines.
-`apa_print()` currently supports a variety of output objects from differ
+`apa_print()` currently supports output objects from a variety of statistical models/tests,
+including $t$ tests, ANOVA, linear regression, and many, many more.
+For a full list of supported output objects, see Table \@ref(tab:supported-s3-methods).
+
+
+
+
 
 ```{r formatting-process-diagram, fig.cap = "Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.", fig.align = "center", echo = FALSE}
 # grViz("
@@ -158,7 +164,7 @@ Table. *Iris regression table.*
 
 `papaja` currently provides methods for the following object classes:
 
-```{r supported_s3_methods, echo = FALSE, results = "asis"}
+```{r supported-s3-methods, echo = FALSE, results = "asis"}
 print_classes <- gsub("apa_print\\.", "", as.character(utils::methods("apa_print")))
 print_classes <- c(print_classes, rep(NA,  length(print_classes) %% 4))
 print_classes <- matrix(print_classes, ncol = 4)
@@ -169,7 +175,7 @@ colnames(print_classes) <- apply(print_classes, 2, function(x) {
   col_names <- if(first_letters[1] == first_letters[2]) first_letters[1] else paste(first_letters, collapse = "-")
   toupper(col_names)
 })
-knitr::kable(print_classes)
+knitr::kable(print_classes, caption = "Object types that are currently supported by `apa_print()`.")
 ```
 
 

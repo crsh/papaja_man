@@ -209,10 +209,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The function <code>printp()</code> is a shorthand version of <code>printnum()</code> with the correct defaults alread set for printing <span class="math inline">\(p\)</span> values (i.e., printing <span class="math inline">\(p &lt; .001\)</span> instead of this horrible <span class="math inline">\(p = .000\)</span> bullshit).</p>
 <p>And btw, if you forget to include <code>printnum</code> in your inline code, <code>papaja</code> is clever enough to aumatically call it. Thus, writing</p>
 <pre class="text"><code>Participants mean age was `r age_mean` years (*SD* = `r age_sd`).</code></pre>
-<p>results in: Participants mean age was 22.84 years (<em>SD</em> = 3.78).</p>
+<p>also results in: Participants mean age was 22.84 years (<em>SD</em> = 3.78).</p>
 <div id="results-from-statistical-tests" class="section level2">
 <h2><span class="header-section-number">4.1</span> Results from statistical tests</h2>
-<p>Output from statistical models and tests needs to be properly formatted before it can be included in text. For this purpose, we created the function <code>apa_print()</code>. Simply drop the results from a statistical test (e.g. a <span class="math inline">\(t\)</span> test or an ANOVA) into <code>apa_print()</code>, and you will get an output object that contains all you need to report the analysis according to APA guidelines. <code>apa_print()</code> currently supports a variety of output objects from differ</p>
+<p>Output from statistical models and tests needs to be properly formatted before it can be included in text. For this purpose, we created the function <code>apa_print()</code>. Simply drop the results from a statistical test (e.g. a <span class="math inline">\(t\)</span> test or an ANOVA) into <code>apa_print()</code>, and you will get an output object that contains all you need to report the analysis according to APA guidelines. <code>apa_print()</code> currently supports output objects from a variety of statistical models/tests, including <span class="math inline">\(t\)</span> tests, ANOVA, linear regression, and many, many more. For a full list of supported output objects, see Table <a href="reporting.html#tab:supported-s3-methods">4.2</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:formatting-process-diagram"></span>
 <img src="result_formatting_process.png" alt="Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript."  />
 <p class="caption">
@@ -304,6 +304,7 @@ Table. *Iris regression table.*
 <pre><code>## Warning in matrix(print_classes, ncol = 4): Datenlänge [26] ist kein Teiler
 ## oder Vielfaches der Anzahl der Zeilen [7]</code></pre>
 <table>
+<caption><span id="tab:supported-s3-methods">Table 4.2: </span>Object types that are currently supported by <code>apa_print()</code>.</caption>
 <thead>
 <tr class="header">
 <th align="left">A-B</th>
