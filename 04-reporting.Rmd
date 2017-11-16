@@ -8,17 +8,16 @@ age_mean <- 22.8395
 age_sd <- 3.7846237542894
 ```
 
-
 Consider a basic example, where you want to include a mean and a standard deviation into text:
 The function `printnum()` can be used to include a numeric value into text,
 with the correct rounding and with or without a leading zero.
 Just write some inline R code like this:
 
 ```{r inline-printnum, eval = FALSE, highlight = FALSE}
-Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).
+Participants mean age was `r printnum(age_mean)` years (*SD* = `r printnum(age_sd)`).
 ```
 
-which will result in: Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).
+which will result in: Participants mean age was `r printnum(age_mean)` years (*SD* = `r printnum(age_sd)`).
 
 `printnum()` is quiet flexible and passes its arguments to the underlying base function `formatC()` 
 (CAVE: We are currently considering to switch to `format()`.),
@@ -32,12 +31,20 @@ And btw, if you forget to include `printnum` in your inline code, `papaja` is cl
 enough to aumatically call it. Thus, writing
 
 ```{r inline-hook, eval = FALSE, highlight = FALSE}
-Participants mean age was $`r age_mean`$ years ($SD = `r age_sd`$).
+Participants mean age was `r age_mean` years (*SD* = `r age_sd`).
 ```
 
-results in : Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).
+results in: Participants mean age was `r printnum(age_mean)` years (*SD* = `r printnum(age_sd)`).
 
 ## Results from statistical tests
+
+Output from statistical models and tests needs to be properly formatted before it
+can be included in text.
+For this purpose, we created the function `apa_print()`.
+Simply drop the results from a statistical test (e.g. a $t$ test or an ANOVA)
+into `apa_print()`, and you will get an output object that contains all you need
+to report the analysis according to APA guidelines.
+`apa_print()` currently supports a variety of output objects from differ
 
 ```{r formatting-process-diagram, fig.cap = "Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.", fig.align = "center", echo = FALSE}
 # grViz("
