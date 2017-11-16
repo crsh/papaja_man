@@ -1,6 +1,43 @@
 # Reporting
 
-## Reporting statistics
+Using `papaja`, it is possible to run all your analyses from within an R Markdown document.
+This section describes how the results of your analyses can be included in text.
+
+```{r printnum-values, echo = FALSE}
+age_mean <- 22.8395
+age_sd <- 3.7846237542894
+```
+
+
+Consider a basic example, where you want to include a mean and a standard deviation into text:
+The function `printnum()` can be used to include a numeric value into text,
+with the correct rounding and with or without a leading zero.
+Just write some inline R code like this:
+
+```{r inline-printnum, eval = FALSE, highlight = FALSE}
+Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).
+```
+
+which will result in: Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).
+
+`printnum()` is quiet flexible and passes its arguments to the underlying base function `formatC()` 
+(CAVE: We are currently considering to switch to `format()`.),
+so changing the number of digits after the decimal point or the character to be used to indicate the 
+decimal point (e.g., from a point `"."` to a comma `","`) is always possible.
+
+The function `printp()` is a shorthand version of `printnum()` with the correct defaults alread set for printing $p$ values
+(i.e., printing $p < .001$ instead of this horrible $p = .000$ bullshit).
+
+And btw, if you forget to include `printnum` in your inline code, `papaja` is clever
+enough to aumatically call it. Thus, writing
+
+```{r inline-hook, eval = FALSE, highlight = FALSE}
+Participants mean age was $`r age_mean`$ years ($SD = `r age_sd`$).
+```
+
+results in : Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).
+
+## Results from statistical tests
 
 ```{r formatting-process-diagram, fig.cap = "Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.", fig.align = "center", echo = FALSE}
 # grViz("
@@ -51,32 +88,7 @@
 # ")
 
 knitr::include_graphics("result_formatting_process.png")
-age_mean <- 22.8395
-age_sd <- 3.7846237542894
 ```
-
-First of all, the function `printnum()` can be used to include a numeric value into text,
-with the correct rounding and with or without a leading zero.
-For example, if you want to include a mean into text, just write
-
-```{r inline-printnum, eval = FALSE, highlight = FALSE}
-Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).
-```
-
-which will result in: Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).
-
-`printnum()` is quiet flexible and passes its arguments to the underlying base function `formatC()` 
-(CAVE: We are currently considering to switch to `format()`.),
-so changing the number of digits after the decimal point or the character to be used to indicate the 
-decimal point (e.g., from a point `"."` to a comma `","`) is always possible.
-
-The function `printp()` is a shorthand version of `printnum()` with the correct defaults set for printing $p$ values
-(i.e., printing $p<.001$ instead of this horrible $p=.000$ bullshit).
-
-- in_paren()
-- printnum()
-  - printp()
-  - inline hook
 
 ### htest (*t* tests, correlations, etc.)
 

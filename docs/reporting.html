@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2017-11-08">
+<meta name="date" content="2017-11-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -150,7 +150,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#appendices"><i class="fa fa-check"></i><b>3.7</b> Appendices</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
-<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#reporting-statistics"><i class="fa fa-check"></i><b>4.1</b> Reporting statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.1</b> Results from statistical tests</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.1.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
 <li class="chapter" data-level="4.1.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.1.2</b> lm (linear regression)</a></li>
 <li class="chapter" data-level="4.1.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.1.3</b> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</a></li>
@@ -195,25 +195,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="reporting" class="section level1">
 <h1><span class="header-section-number">4</span> Reporting</h1>
-<div id="reporting-statistics" class="section level2">
-<h2><span class="header-section-number">4.1</span> Reporting statistics</h2>
+<p>Using <code>papaja</code>, it is possible to run all your analyses from within an R Markdown document. This section describes how the results of your analyses can be included in text.</p>
+<p>Consider a basic example, where you want to include a mean and a standard deviation into text: The function <code>printnum()</code> can be used to include a numeric value into text, with the correct rounding and with or without a leading zero. Just write some inline R code like this:</p>
+<pre class="text"><code>Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).</code></pre>
+<p>which will result in: Participants mean age was <span class="math inline">\(22.84\)</span> years (<span class="math inline">\(SD = 3.78\)</span>).</p>
+<p><code>printnum()</code> is quiet flexible and passes its arguments to the underlying base function <code>formatC()</code> (CAVE: We are currently considering to switch to <code>format()</code>.), so changing the number of digits after the decimal point or the character to be used to indicate the decimal point (e.g., from a point <code>&quot;.&quot;</code> to a comma <code>&quot;,&quot;</code>) is always possible.</p>
+<p>The function <code>printp()</code> is a shorthand version of <code>printnum()</code> with the correct defaults alread set for printing <span class="math inline">\(p\)</span> values (i.e., printing <span class="math inline">\(p &lt; .001\)</span> instead of this horrible <span class="math inline">\(p = .000\)</span> bullshit).</p>
+<p>And btw, if you forget to include <code>printnum</code> in your inline code, <code>papaja</code> is clever enough to aumatically call it. Thus, writing</p>
+<pre class="text"><code>Participants mean age was $`r age_mean`$ years ($SD = `r age_sd`$).</code></pre>
+<p>results in : Participants mean age was <span class="math inline">\(22.84\)</span> years (<span class="math inline">\(SD = 3.78\)</span>).</p>
+<div id="results-from-statistical-tests" class="section level2">
+<h2><span class="header-section-number">4.1</span> Results from statistical tests</h2>
 <div class="figure" style="text-align: center"><span id="fig:formatting-process-diagram"></span>
 <img src="result_formatting_process.png" alt="Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript."  />
 <p class="caption">
 Figure 4.1: Process diagram illustrating the use of <code>apa_print()</code> methods and <code>apa_table()</code> to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.
 </p>
 </div>
-<p>First of all, the function <code>printnum()</code> can be used to include a numeric value into text, with the correct rounding and with or without a leading zero. For example, if you want to include a mean into text, just write</p>
-<pre class="text"><code>Participants mean age was $`r printnum(age_mean)`$ years ($SD = `r printnum(age_sd)`$).</code></pre>
-<p>which will result in: Participants mean age was <span class="math inline">\(22.84\)</span> years (<span class="math inline">\(SD = 3.78\)</span>).</p>
-<p><code>printnum()</code> is quiet flexible and passes its arguments to the underlying base function <code>formatC()</code> (CAVE: We are currently considering to switch to <code>format()</code>.), so changing the number of digits after the decimal point or the character to be used to indicate the decimal point (e.g., from a point <code>&quot;.&quot;</code> to a comma <code>&quot;,&quot;</code>) is always possible.</p>
-<p>The function <code>printp()</code> is a shorthand version of <code>printnum()</code> with the correct defaults set for printing <span class="math inline">\(p\)</span> values (i.e., printing <span class="math inline">\(p&lt;.001\)</span> instead of this horrible <span class="math inline">\(p=.000\)</span> bullshit).</p>
-<ul>
-<li>in_paren()</li>
-<li>printnum()</li>
-<li>printp()</li>
-<li>inline hook</li>
-</ul>
 <div id="htest-t-tests-correlations-etc." class="section level3">
 <h3><span class="header-section-number">4.1.1</span> htest (<em>t</em> tests, correlations, etc.)</h3>
 <p>The results of a <span class="math inline">\(t\)</span> test (regardless of the exact type of <span class="math inline">\(t\)</span> test) are typically stored in an <code>htest</code> object.</p>
@@ -226,7 +224,7 @@ Figure 4.1: Process diagram illustrating the use of <code>apa_print()</code> met
 </div>
 <div id="anova-anova-anova.mlm-analysis-of-variance-anova" class="section level3">
 <h3><span class="header-section-number">4.1.3</span> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</h3>
-<p><em>Foreword – you can skip this if you are not interested in background</em>. Amongst psychologists, analysis of variance is a still-popular and frequently used technique. In base R, however, analysis of variance is not implemented in a way that is too useful for psychologists, as the <code>aov</code>function in the stats package does not provide the much sought-after Type-<span class="math inline">\(\rm{I\!I\!I}\)</span> sums-of-squares. A variety of R packages has emerged to fill the gap, e.g. the <code>car</code> <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-car"><strong>???</strong></span>)</span>, <code>ezANOVA</code> <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-ezANOVA"><strong>???</strong></span>)</span>, and <code>afex</code> <span class="citation">(Singmann et al., <a href="#ref-R-afex">2016</a>)</span>. The problem is: All ANOVA functions provide different output objects (and using <code>summary</code> on these objects generates other objects) that need to be digested by <code>apa_print()</code>. Even though we spent quiet some work on <code>apa_print()</code> taking everything from ANOVA, there are still some shortcomings: Output objects from <code>ezANOVA</code> are not supported, as they do not contain the necessary information to be properly digested.</p>
+<p><em>Foreword – you can skip this if you are not interested in background</em>. Amongst psychologists, analysis of variance is a still-popular and frequently used technique. In base R, however, analysis of variance is not implemented in a way that is too useful for psychologists, as the <code>aov</code>function in the stats package does not provide the much sought-after Type-<span class="math inline">\(\rm{I\!I\!I}\)</span> sums-of-squares. A variety of R packages has emerged to fill the gap, e.g. the <code>car</code> <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-car"><strong>???</strong></span>)</span>, <code>ezANOVA</code> <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-ezANOVA"><strong>???</strong></span>)</span>, and <code>afex</code> <span class="citation">(Singmann et al., <a href="#ref-R-afex">2016</a>)</span>. The problem is: All ANOVA functions provide different output objects (and using <code>summary</code> on these objects generates even other objects) that need to be digested by <code>apa_print()</code>. Even though we spent quiet some work on <code>apa_print()</code> taking everything from ANOVA, there are still some shortcomings: Output objects from <code>ezANOVA</code> are not supported, as they do not contain the necessary information to be properly digested.</p>
 <p><em>Functionality</em>.</p>
 <div id="glht-lsmeans-ref.grid-post-hoc-tests" class="section level4">
 <h4><span class="header-section-number">4.1.3.1</span> glht, lsmeans, ref.grid (post-hoc tests)</h4>
