@@ -201,6 +201,11 @@ In the following I will assume you have hopped onto the band wagon and know how 
 If this is not the case, I recommend you get to grips with [R Markdown](http://R Markdown.rstudio.com/) first.
 I use [RStudio](http://www.rstudio.com/) (which makes use of [pandoc](http://johnmacfarlane.net/pandoc/)) to create my documents, but the general process works using any other text editor.
 
+Although LaTeX is widely used to write entire manuscripts (not just equations), it is not commonly used in the field of psychology.
+We suspect that the neglect is largely due to its complexity and shallow learning curve.
+Both appear to outweigh the advantages of the system when it comes to handling citations and cross-references or typesetting large documents, complex tables, and equations.
+Markdown paired with `pandoc` provides a simple interface to harness the power of LaTeX without requiring in-depth knowledge about LaTeX (see [Document compilation]).
+
 
 ## Implementation
 

@@ -1,6 +1,13 @@
 # Tips and Tricks
 
 - Spell check functionality in RStudio
+- New line for each sentence
+
+## Global chunk options
+
+- figure formats
+
+## Meaningful chunk names
 
 ## Useful RStudio Addins
 
@@ -17,4 +24,57 @@
 
 ## Author disambiguation
 
+[Additional rendering options]
+
 ## Reproducible software environment
+
+- sessionInfo()
+- packrat
+- checkpoint
+- liftr & docker
+
+## RStudio
+
+1. Document outline
+
+
+<!-- If you discover an error in a data file, never modify it directly, but instead write code to correct the value. Explain why you made the fix. -->
+
+<!-- Before you finish for the day, make sure you can knit the notebook (if you’re using caching, make sure to clear the caches). That will let you fix any problems while the code is still fresh in your mind. -->
+
+
+## Splitting an R Markdown document
+
+Some authors may prefer to split long manuscripts into multiple component files for better clarity.
+There are two basic strategies to split R Markdown documents that can be combined or used in isolation: sourcing R scripts and splitting the R Markdown document.
+If the R Markdown document contains a lot of code, it may be helpful to disincorporate parts of the code, such as reading, merging, restructuring, and relabeling data files.
+The R scripts can then be executed at the respective section of the document using `source()`.
+
+Some authors may prefer to split long manuscripts into a master or parent document and multiple children.
+The master document, for example, consists of the YAML front matter and includes the children, which are themselves R Markdown documents without a YAML front matter.
+To include a child document, insert an empty chunk and provide the path to the R Markdown document in the chunk option `child`.
+    
+    `r ''````{r child = "introduction.Rmd"}
+    ```
+    `r ''````{r child = "methods.Rmd"}
+    ```
+    `r ''````{r child = "results.Rmd"}
+    ```
+    `r ''````{r child = "discussion.Rmd"}
+    ```
+
+
+
+
+## Troubleshooting
+
+### R
+
+<!-- Copy and paste from R4DS -->
+<!-- Troubleshooting R Markdown documents can be challenging because you are no longer in an interactive R environment, and you will need to learn some new tricks. The first thing you should always try is to recreate the problem in an interactive session. Restart R, then “Run all chunks” (either from Code menu, under Run region), or with the keyboard shortcut Ctrl + Alt + R. If you’re lucky, that will recreate the problem, and you can figure out what’s going on interactively. -->
+
+<!-- If that doesn’t help, there must be something different between your interactive environment and the R markdown environment. You’re going to need to systematically explore the options. The most common difference is the working directory: the working directory of an R Markdown is the directory in which it lives. Check the working directory is what you expect by including getwd() in a chunk. -->
+
+<!-- Next, brainstorm all the things that might cause the bug. You’ll need to systematically check that they’re the same in your R session and your R markdown session. The easiest way to do that is to set error = TRUE on the chunk causing the problem, then use print() and str() to check that settings are as you expect. -->
+
+
