@@ -19,6 +19,27 @@ If you are not already using a reference manager such as Zotero, I strongly sugg
   - Spell check
 
 
+## Markdown text formatting
+
+<!-- Add examples of most common Markdown syntax -->
+
+<!-- headings, comments, footnotes, images, url -->
+<!-- italics, bold, quotation, en- and em-dash, nbsp -->
+
+A comprehensive overview of the supported Markdown syntax is provided by [RStudio's R Markdown documentation](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html).
+
+<!-- Copy paste from R4DS: -->
+<!-- Instead, as you work through this chapter, and use R Markdown in the future, keep these resources close to hand: -->
+
+<!-- - R Markdown Cheat Sheet: Help > Cheatsheets > R Markdown Cheat Sheet, -->
+
+<!-- - R Markdown Reference Guide: Help > Cheatsheets > R Markdown Reference Guide. -->
+
+<!-- Both cheatsheets are also available at http://rstudio.com/cheatsheets. -->
+
+
+
+
 ## Citations
 
 No manuscript is complete without citation.
@@ -240,6 +261,7 @@ a manuscript submission system. (We already had that problem in our lab.)
 <!-- ### Customization -->
 
 If you prefer creating your plots with `ggplot2` try `theme_apa()`.
+
 
 ## Equations
 

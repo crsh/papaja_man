@@ -5,13 +5,14 @@ The first is the YAML front matter that contains the documents meta information 
 It is located at the top of the R Markdown document.
 The second part is the main body that contains R code chunks and prose in Markdown format.
 
+
 ## YAML front matter
 
 [YAML](https://en.wikipedia.org/wiki/YAML) is a human-readable and easy to write language to define data structures.
 You don't need to familiarize yourself intimately with YAML to use R Markdown or `papaja` and I suggest you try to just use it.
-The following is the default YAML front matter.
+The following is the default YAML front matter; it starts and ends with `---`:
 
-```{r yaml_front_matter, results = 'asis', echo = FALSE, eval = FALSE}
+```{r yaml-front-matter, results = 'asis', echo = FALSE}
 yaml <- readLines(
   system.file(
     "rmarkdown", "templates", "apa6", "skeleton"
@@ -21,112 +22,72 @@ yaml <- readLines(
 )
 
 cat(
-  paste(
-    "    "
-    , c(
-      "" # "```{yaml yaml_front_matter, eval = FALSE}"
+    c(
+      "```yaml"
       , yaml[which(yaml == "---")[1]:which(yaml == "---")[2]]
-      # , "```"
+      , "```"
     )
-    , collapse = "\n"
-  )
+  , sep = "\n"
 )
 ```
 
-```{yaml yaml_front_matter_, eval = FALSE}
----
-title             : "The title"
-shorttitle        : "Title"
 
-author: 
-  - name          : "First Author"
-    affiliation   : "1"
-    corresponding : yes    # Define only one corresponding author
-    address       : "Postal address"
-    email         : "my@email.com"
-  - name          : "Ernst-August Doelle"
-    affiliation   : "1,2"
+### Manuscript metadata
 
-affiliation:
-  - id            : "1"
-    institution   : "Wilhelm-Wundt-University"
-  - id            : "2"
-    institution   : "Konstanz Business School"
+Most of the information contained in the YAML front matter is information about the document.
 
-author_note: >
-  Complete departmental affiliations for each author (note the indentation, if you start a new paragraph).
-
-  Enter author note here.
-
-abstract: >
-  Enter abstract here (note the indentation, if you start a new paragraph).
-  
-keywords          : "keywords"
-wordcount         : "X"
-
-bibliography      : ["r-references.bib"]
-
-figsintext        : no
-figurelist        : no
-tablelist         : no
-footnotelist      : no
-lineno            : yes
-
-lang              : "english"
-class             : "man"
-output            : papaja::apa6_pdf
----
-```
-
-### Manuscript meta data
-
-The `title` is the full name of the manuscript that is printed on the title page and at the beginning of the introduction.
-The `shorttitle` is a shortened variant of the title and will be printed in the running head on every page.
+`title` is the full name of the manuscript that is printed on the title page and at the beginning of the introduction.
+`shorttitle` is a short variant of the title and is printed in the running head on every page.
 
 `author` is a structured list.
 Each author's information is given in a separate element that is indented and starts with `-`.
 A full `name` and an `affiliation` symbol need to be provided for every author.
-The symbol is later printed as superscript following the author's name and can be a combination of multiple symbols if the author has multiple affiliations (e.g., Ernst-August Doelle^1,2^).
+The symbol is printed as superscript following the author's name on the manuscripts title page and can be a combination of multiple symbols if the author has multiple affiliations (e.g., `1,2` yields Ernst-August Doelle^1,2^).
 Exactly one author has to be declared as corresponding author by adding `corresponding: yes` and the fields `address` and `email` to the author's information.
-The latter two fields are used to automatically generate the last sentence of the author note giving the contact information of the corresponding author---as required by the APA guidelines---and is optional, that is, it will not be printed, for all other authors.
+The latter two fields are used to automatically generate the last sentence of the author note that---as required by the APA guidelines---provides the corresponding author's contact information.
 
-`affiliation` is another structured list containing the institutions' information; again each new element is indented and starts with `-`.
-The `id` is printed as superscript in front of the `institution` name below the author names on the title page (e.g., ^2^ Konstanz Business School).
+`affiliation` is another structured list that contains the institutions' information; again each new element is indented and starts with `-`.
+`id` is printed as superscript in front of the `institution` name below the author names on the title page (e.g., `2` yields ^2^ Konstanz Business School).
 
 `author_note` and `abstract` contain the text for the corresponding sections of the manuscript.
-The `>` indicates that all following indented lines are part of this field.
-Finally, `keywords` and `wordcount`[^word_count] are printed below the abstract.
+The `|` indicate that all following *indented* lines, including line breaks and new paragraphs, belong to this field.
+Thus, `abstract` and `author_note` can be structured into multiple paragraphs as shown above.
+`keywords` and `wordcount`[^word_count] are self-explanatory and the corresponding information is printed below the abstract on the second page of the manuscript.
 
 [^word_count]:
 We hope to automate the word count [in the future][Future directions].
-For now, we recommend using the [wordcountaddin](https://github.com/benmarwick/wordcountaddin) package [@R-wordcountaddin].
+For now, we recommend using the [wordcountaddin](https://github.com/benmarwick/wordcountaddin) package [@R-wordcountaddin] to count the words in R Markdonw documents.
+Note, that counting words in R Markdown documents may underestimate the word count in the final document because the R Markdown document does not include the properly formatted citations and does not contain the results of analyses.
+An alternative approach is to use the [`texcount`](http://app.uio.no/ifi/texcount/) command line tool on the TeX-file generated by `papaja::apa6_pdf()`.
 
-The `bibliography` field, contains a list of one or more Bib(La)TeX files containing the references cited in the manuscript.
-Additional files can be added by appending them to the list separated by commas, e.g. `bibliography: ["my_bib1.bib", "my_bib2.bib"]`.
-By default, `papaja` assumes that you will cite R and all R packages used for the analysis contained in `r-references.bib`.
-See [Citations] for instructions on how to automate this.
+`bibliography` contains a list of one or more Bib(La)TeX files that contain the references cited in the manuscript.
+Additional files can be added by appending them to the list separated by commata, e.g. `bibliography: ["my_bib1.bib", "my_bib2.bib"]`.
+By default, `papaja` assumes that you will cite R and all R packages used for the analysis and that the corresponding bibliographic information is contained in `r-references.bib`.
+See [Citations] for instructions on how to automate the citation of R packages.
 
-An additional field, that is not included in the default YAML front matter is `note`.
-The contents of this field is printed on title page below the author information and can be used to add remarks, such as "Preprint submitted on June, 29th, 2016".
+`note` is an add additional metadata field that are not part of the default YAML front matter.
+It's contents is printed on title page in between author information and the author note; it can be used to add remarks, such as "Preprint submitted to peer-review on June, 29th, 2016".
 
 
 ### Rendering options
 
-The first set of rendering options breaks with the [guiding principal][Guiding principles] *is convertible*; they have no effect on Word documents.
-I decided to implement these nonetheless because they are required by some journals and can be used for submissions where (initially) PDF documents are accepted.
-`figsintext` indicates whether figures and tables should included at the end of the document---as required by APA guidelines---or rendered in the body of the document.
-If `figurelist`, `tablelist`, or `footnotelist` are set to `yes` a list of figure captions, table captions, or footnotes is given following the reference section.
-`lineno` indicates whether lines should be continuously numbered through out the manuscript.
+The first set of rendering options breaks with the [guiding principal][Guiding principles] that `papaja` *is convertible* because they have no effect on Microsoft Word documents.
+We decided to implement these options nonetheless because they are required by some journals and can be used for submissions where (initially) PDF/LaTeX documents are accepted.
 
-The language of the manuscript is given in `lang` and affects automatically generated text, such as "Author note" on the title page or "Figure 1." in figure captions.
-Currently, `english` and `german` are supported.
+`figsintext` indicates whether figures and tables are to be positioned at the end of the document---as required by APA guidelines---or included in the body of the document.
+If `figurelist`, `tablelist`, or `footnotelist` are set to `yes` lists of figure captions, table captions, or footnotes are created and placed after the reference section.
+`lineno` indicates whether lines should be continuously numbered throughout the manuscript.
+
+The remaining rendering options affect both PDF and Microsoft Word documents.
+`mask` can be set to `yes` to prepare the manuscript for double-blind peer review by removing author names, affiliations, and author note from the title page.
+<!-- The language of the manuscript is given in `lang` and affects automatically generated text, such as "Author note" on the title page or "Figure 1." in figure captions. -->
+<!-- Currently, `english` and `german` are supported. -->
 `class` defines the layout style of the manuscript.
 Setting `class` to `man` produces the default APA manuscript style, `doc` produces a more typical document (single-spaced, single-column).
-The latter option is currently not available for Word documents.
+The latter option is, however, currently not available for Microsoft Word documents.
 
-The `output` field determines the type of document that is created, either `papaja::apa6_pdf` or `papaja::apa6_word`.
-Additional arguments can be passed to these functions, e.g. to delete the TeX source file at the end of the rendering process.
-See `?apa6_pdf` for details.
+The `output` field determines the type of document that is created and can be either `papaja::apa6_pdf` or `papaja::apa6_word`.
+Additional arguments can be passed to these functions, e.g. to delete the LaTeX source file after the PDF has been rendered (see `?apa6_pdf` for details):
 
 ```{yaml eval = FALSE}
 output: 
@@ -134,8 +95,17 @@ output:
     keep_tex: FALSE
 ```
 
+
+#### Additional rendering options
+
 Any additional rendering options supported by `rmarkdown::pdf_document()` or `rmarkdown::word_document()` can be added to the YAML front matter.
-If you, for example, need a different citation style, you can set `csl` to the path of a [CSL](http://citationstyles.org/) style definition file.
+For example, a different citation style can be used by setting `csl` to the location of a [CSL](http://citationstyles.org/) style definition file.
+For an overview refer see the list of [default variables](https://pandoc.org/MANUAL.html#variables-set-by-pandoc), [language variables](https://pandoc.org/MANUAL.html#language-variables), and [LaTeX variables](https://pandoc.org/MANUAL.html#variables-for-latex) supported by `pandoc` and the [filter modes](https://github.com/jgm/pandoc-citeproc/blob/master/man/pandoc-citeproc.1.md#filter-mode) supported by `pandoc-citeproc`.
+
+`papaja` provides one additional rendering option that is not included in the default YAML header.
+`replace_ampersands` indicates whether to replace `&` by `and` in all in-text citations as required by the APA citation style.
+The option defaults to `yes` if no custom CSL file is specified but to `no` otherwise.
+To replace ampersands in in-text citations with a custom CSL file add `replace_ampersands: yes` to the YAML front matter.
 
 
 ## Body
@@ -144,89 +114,75 @@ The body of R Markdown documents consists of prose written in Markdown intersper
 
 ### Markdown
 
-A general principle in typesetting---be it on (digital) paper or the web---is to separate content and style.
+A general principle in typesetting is to separate content and style.
 Separation is commonly achieved through the use of a markup language, which is a system of document annotations.
-These annotations declare portions of text as, for example, title, section headings, or list items but crucially, they are agnostic to what this means visually (e.g., <bold>text</bold> instead of **text**).
-Separation of content and tyle is useful because it enables swift changes to an entire documents' style or structure.
-Word implements this strategy in their so-called *styles*, which are collections of formatting instructions that can be assigned to parts of the text.
+These annotations declare portions of text as, for example, title, section headings, or list items but, crucially, they are agnostic to what this means visually (e.g., `<bold>text</bold>` instead of **text**).
+Separation of content and style is useful because it enables swift changes to an entire documents' style or structure and facilitates applying a common style across multiple documents.
+Microsoft Word implements this strategy in their so-called *styles*, which are collections of formatting instructions that can be assigned to portions of the text.
 
-`papaja` uses [Markdown](http://en.wikipedia.org/wiki/Markdown) [@???] to separate content and style.
-Markdown is intended to be an easy-to-read and -write formatting syntax.
+`papaja` uses the [Markdown](http://en.wikipedia.org/wiki/Markdown) syntax [@???] to separate content and style.
+Markdown was desigend to be an easy-to-read and -write formatting syntax.
 The key design goal was to create a syntax that is readable as-is.
 The following is an excerpt from the APA example manuscript written in Markdown.
 
 ```{markdown markdown_example}
 # Methods
 ## Participants
-Younger adults (14 women, 10 men, $M_{age} = 19.5$ years, age range: 18–22 years) were recruited with flyers posted on the Boston College campus. <!-- Add flyer to appendix! -->
-Older adults (15 women, nine men, $M_{age} = 76.1$ years, age range: 68–84 years) were recruited through the Harvard Cooperative on Aging (see Table 1, for demographics and test scores).[^p]
+Younger adults (14 women, 10 men, $M_{age} = 19.5$ years, age range: 18–22 years) were
+recruited with flyers posted on the Boston College campus. <!-- TODO: Add flyer to
+appendix! -->
+Older adults (15 women, nine men, $M_{age} = 76.1$ years, age range: 68–84 years) were
+recruited through the Harvard Cooperative on Aging (see Table 1, for demographics and
+test scores).[^p]
 
-[^p]: Analyses of covariance were conducted with these covariates, with no resulting influences of these variables on the pattern or magnitude of the results.
+[^p]: Analyses of covariance were conducted with these covariates, with no resulting
+influences of these variables on the pattern or magnitude of the results.
 ```
 
-Without knowing anything about Markdown, it should be easy to guess what the annotations mean.
-`#` declare hierarchical section headings, `<!--` and `-->` envelope comments, and `[^p]` adds a reference to a footnote.
+Without any prior knowledge of Markdown it should be easy to guess what most of this syntax does:
+`#` and `##` denote first and second order section headings (and so on), `<!--` and `-->` surround comments that will not be displayed in the rendered document, and `[^p]` adds a reference to a footnote that is written out following `[^p]:`.
+The equations surrounded by `$` may be somewhat less intuitive.
+In R Markdown, equations are written in LaTeX's powerful [mathematics syntax](https://en.wikibooks.org/wiki/LaTeX/Mathematics) (also see [Equations]).
+For an overview of the Markdown syntax see [Markdown text formatting].
 
-<!-- Add examples of most common Markdown syntax -->
-
-A comprehensive overview of the supported Markdown syntax is provided by [RStudio's R Markdown documentation](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html).
-
-The only thing that may be unexpected are the equations enveloped by `$`.
-Equations are written in the powerful [mathematics syntax](https://en.wikibooks.org/wiki/LaTeX/Mathematics) used in LaTeX (see also [Equations]).
-Although LaTeX is widely used to write entire manuscripts (not just equations), it is not very popular in the field of Psychology.
-I suspect that the neglect is largely due to its complexity and long learning curve, which I find rather deterring myself.
-Both seem to outweigh the advantages of the system when it comes to handling citations and cross-references or typesetting large documents, complex tables, and equations.
-Markdown (and pandoc) provide a simple interface to harness the power of LaTeX without having to write or know much about LaTeX (see [Document compilation]).
 
 ### R code
 
 There are two ways to include R code in R Markdown documents.
-The primary method is to insert code chunks.
+The primary method is to use so-called *code chunks*.
 
-    `r ''````{r code_chunk, echo = FALSE}
+    `r ''````{r, code-chunk, echo = FALSE}
     age_mean <- mean(demographics$age)
     ```
 
-These chunks are enclosed in ` `r ''```` ` and the first line defines the programming language (`r`, other lanugages, such as `python` are possible), the chunk label or name (`code_chunk`), and additional options (e.g., `echo = FALSE`).
-By default, `papaja` sets the chunk options `echo = FALSE` and `message = FALSE` globally for all chunks.
-`echo = FALSE` hides the code in each code chunk and `message = FALSE` hides any messages generated by the R code so that they are not included in the manuscript.
-Both settings can be overwritten by the user.
-See the [knitr documentation](http://yihui.name/knitr/options/) for further chunk options.
+Code chunks are surrounded by ` `r ''```` ` and should be preceeded and followed by an empty line.
+The behavior of code chunks can be controlled by passing comma-separated options surrounded by braces to the chunk.
+The first option is compulsory and specifies what langauge the code chunk contains and usually be `r`, but other languages, such as `python`, `stan`, or `SQL` are supported.
+[RStudio's knitr language engines documentation](http://rmarkdown.rstudio.com/authoring_knitr_engines.html) provides an overview of all supported languages.
 
-R code can also be included in a line of regular text by inserting `` ``r ''`r ...` ``, where `...` is the desired code to be executed.
-Including R code inline is a convenient way of including the contents of variables as part of the text.
-For example, imagine you compute the mean and standard deviation of participants' age and store them variables named `age_mean` and `age_sd`.
-You can report these numbers by printing the variables in inline R code.
+The second option of a code chunk is its label or name, here `code-chunk`.
+It is good practice to provide a meaningful name for each chunk because chunk names
 
-```{r inline_r_code, eval = FALSE, }
+1. briefly describe the following codes purpose and, hence, are a means of structuring and documenting the code
+2. serve as meaningful names for graphic files that the chunks produce
+3. are required to control when the code of a cached chunk has to be rerun because a preceeding chunk has changed (see [Caching expensive computations]).
+
+By default, `papaja` sets the chunk options `echo = FALSE` and `message = FALSE` for all chunks.
+`echo = FALSE` means that the code chunk is run but hides the code and `message = FALSE` hides any messages generated by the code so that they are not included in the manuscript.
+Both settings can be overwritten if desired.
+See the [knitr chunk options and package options](https://yihui.name/knitr/options/) for a overview of available settings.
+
+R code can also be inserted into in a line of text, for example `` ``r ''`r mean(demographics$age)` ``.
+Writing R code inline is a convenient way of reporting results of computations in the running text.
+For example, the mean and standard deviation of participants' age are stored in variables named `age_mean` and `age_sd`.
+These numbers can be reported by printing the variables in inline R code.
+
+```{markdown}
 Participants mean age was `r age_mean` years ($SD = `r age_sd`$).
 ```
 
-Reporting numerical values will frequently require some rounding and/or filling with trailing zeros (e.g., "$24.10$").
-In chapter \@ref(reporting), we introduce papaja functions that are helpful in formatting a multitude of data types
-(e.g. simple numerics, outputs from statistical tests or models, etc.).
-
-In R Markdown documents, as in any other R script, code is executed serially (i.e., from top to bottom).
+As in any other R script, R code is executed from top to bottom.
 Thus, any variables that are called in code chunks or inline R code must be defined above.
 
-
-## Splitting an R Markdown document
-
-Some authors may prefer to split long manuscripts into multiple component files for better clarity.
-There are two basic strategies to split R Markdown documents that can be combined or used in isolation: sourcing R scripts and splitting the R Markdown document.
-If the R Markdown document contains a lot of code, it may be helpful to disincorporate parts of the code, such as reading, merging, restructuring, and relabeling data files.
-The R scripts can then be executed at the respective section of the document using `source()`.
-
-Some authors may prefer to split long manuscripts into a master or parent document and multiple children.
-The master document, for example, consists of the YAML front matter and includes the children, which are themselves R Markdown documents without a YAML front matter.
-To include a child document, insert an empty chunk and provide the path to the R Markdown document in the chunk option `child`.
-    
-    `r ''````{r child = "introduction.Rmd"}
-    ```
-    `r ''````{r child = "methods.Rmd"}
-    ```
-    `r ''````{r child = "results.Rmd"}
-    ```
-    `r ''````{r child = "discussion.Rmd"}
-    ```
-
+Reporting numerical values frequently requires some formatting, such as rounding or filling with trailing zeros (e.g., 24.10).
+In the section [Numerical values], we provide an overview of `papaja` functions that can be used to easily format simple numbers or results from statistical analyses according to APA guidelines.
