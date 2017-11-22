@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5.10 and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2017-11-19">
+<meta name="date" content="2017-11-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -218,7 +218,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">4.2</span> Results from statistical tests</h2>
 <p>Output from statistical models and tests needs to be properly formatted before it can be included in text. For this purpose, we created the function <code>apa_print()</code>. Simply drop the results from a statistical test (e.g. a <span class="math inline">\(t\)</span> test or an ANOVA) into <code>apa_print()</code>, and you will get an output object (a <code>list</code>) that contains all you need to report the analysis according to APA guidelines. <code>apa_print()</code> currently supports output objects from a variety of statistical models/tests, including <span class="math inline">\(t\)</span> tests, ANOVA, linear regression, and many, many more. For a full list of supported output objects, see Table <a href="reporting.html#tab:supported-s3-methods">4.3</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:formatting-process-diagram"></span>
-<img src="result_formatting_process.png" alt="Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript."  />
+<img src="result_formatting_process.png" alt="Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript." width="272" />
 <p class="caption">
 Figure 4.1: Process diagram illustrating the use of <code>apa_print()</code> methods and <code>apa_table()</code> to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.
 </p>
@@ -229,7 +229,7 @@ Figure 4.1: Process diagram illustrating the use of <code>apa_print()</code> met
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load data: Dataset is obtained via Andy Field.</span>
 <span class="kw">load</span>(<span class="st">&quot;data/cosmetic_surgery.rdata&quot;</span>)
 <span class="co"># compare post-surgery quality of life with pre-surgery quality of life</span>
-t_out &lt;-<span class="st"> </span><span class="kw">t.test</span>(<span class="dt">x =</span> cosmetic_surgery$Post_QoL, <span class="dt">y =</span> cosmetic_surgery$Base_QoL, <span class="dt">paired =</span> <span class="ot">TRUE</span>)
+t_out &lt;-<span class="st"> </span><span class="kw">t.test</span>(<span class="dt">x =</span> cosmetic_surgery<span class="op">$</span>Post_QoL, <span class="dt">y =</span> cosmetic_surgery<span class="op">$</span>Base_QoL, <span class="dt">paired =</span> <span class="ot">TRUE</span>)
 <span class="co"># let&#39;s see what the apa_print() output looks like</span>
 <span class="kw">apa_print</span>(t_out)</code></pre></div>
 <pre><code>## $estimate
@@ -248,11 +248,11 @@ t_out &lt;-<span class="st"> </span><span class="kw">t.test</span>(<span class="
 <div id="lm-linear-regression" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> lm (linear regression)</h3>
 <p>The results of a linear model are stored in an <code>lm</code> object.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lm_out &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Post_QoL ~<span class="st"> </span>Base_QoL +<span class="st"> </span>BDI, <span class="dt">data =</span> cosmetic_surgery)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lm_out &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Post_QoL <span class="op">~</span><span class="st"> </span>Base_QoL <span class="op">+</span><span class="st"> </span>BDI, <span class="dt">data =</span> cosmetic_surgery)
 apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_out)</code></pre></div>
 <p>Again, <code>apa_print</code> returns a four-elements list.</p>
 <p>What is most fun is that you can simply drag the <code>table</code> element into <code>apa_table()</code> to get a full regression table, see Table <a href="reporting.html#tab:lm-table">4.1</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(apa_lm$table, <span class="dt">caption =</span> <span class="st">&quot;A full regression table.&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(apa_lm<span class="op">$</span>table, <span class="dt">caption =</span> <span class="st">&quot;A full regression table.&quot;</span>)</code></pre></div>
 <caption>
 <span id="tab:lm-table">Table 4.1: </span><em>A full regression table.</em>
 </caption>
@@ -302,12 +302,12 @@ apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_out)</
 <h4><span class="header-section-number">4.2.3.1</span> glht, lsmeans, ref.grid (post-hoc tests)</h4>
 <p>The functions <code>apa_print()</code> and <code>apa_table()</code> facilitate reporting results of your analyses. Take a look at the <a href="https://github.com/crsh/papaja/blob/master/example/example.Rmd">.Rmd</a> of the example manuscript in the folder <code>example</code> and the resulting <a href="https://raw.githubusercontent.com/crsh/papaja/master/example/example.pdf">.pdf</a>.</p>
 <p>Drop a supported analysis result, such as an <code>htest</code>- or <code>lm</code>-object, into <code>apa_print()</code> and receive a list of possible character strings that you can use to report the results of your analysis.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_lm &lt;-<span class="st"> </span><span class="kw">lm</span>(Sepal.Width ~<span class="st"> </span>Sepal.Length +<span class="st"> </span>Petal.Width +<span class="st"> </span>Petal.Length, <span class="dt">data =</span> iris)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_lm &lt;-<span class="st"> </span><span class="kw">lm</span>(Sepal.Width <span class="op">~</span><span class="st"> </span>Sepal.Length <span class="op">+</span><span class="st"> </span>Petal.Width <span class="op">+</span><span class="st"> </span>Petal.Length, <span class="dt">data =</span> iris)
 apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(my_lm)</code></pre></div>
 <p>One element of this list is <code>apa_lm$table</code> that, in the case of an <code>lm</code>-object, will contain a complete regression table. Pass <code>apa_lm$table</code> to <code>apa_table()</code> to turn it into a proper table in your PDF or Word document (remember to set the chunk option <code>results = &quot;asis&quot;</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(apa_lm$table, <span class="dt">caption =</span> <span class="st">&quot;Iris regression table.&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(apa_lm<span class="op">$</span>table, <span class="dt">caption =</span> <span class="st">&quot;Iris regression table.&quot;</span>)</code></pre></div>
 <caption>
-<span id="tab:unnamed-chunk-10">Table 4.2: </span><em>Iris regression table.</em>
+<span id="tab:unnamed-chunk-11">Table 4.2: </span><em>Iris regression table.</em>
 </caption>
 <table>
 <thead>
@@ -366,52 +366,60 @@ Table. *Iris regression table.*
 ---
 -->
 <p><code>papaja</code> currently provides methods for the following object classes:</p>
+<pre><code>## Warning in matrix(print_classes, ncol = 4): Datenlänge [26] ist kein Teiler
+## oder Vielfaches der Anzahl der Zeilen [7]</code></pre>
 <table>
 <caption><span id="tab:supported-s3-methods">Table 4.3: </span>Object types that are currently supported by <code>apa_print()</code>.</caption>
 <thead>
 <tr class="header">
-<th align="left">A</th>
-<th align="left">B-A</th>
-<th align="left">G-L</th>
-<th align="left">S</th>
+<th align="left">A-B</th>
+<th align="left">B-H</th>
+<th align="left">L-S</th>
+<th align="left">S-A</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">afex_aov</td>
-<td align="left">BFBayesFactor</td>
-<td align="left">glht</td>
-<td align="left">summary.Anova.mlm</td>
-</tr>
-<tr class="even">
-<td align="left">anova</td>
 <td align="left">BFBayesFactorList</td>
-<td align="left">glm</td>
-<td align="left">summary.aov</td>
-</tr>
-<tr class="odd">
-<td align="left">Anova.mlm</td>
-<td align="left">apa_print,BFBayesFactorList-method</td>
-<td align="left">htest</td>
-<td align="left">summary.aovlist</td>
-</tr>
-<tr class="even">
-<td align="left">apa_print,ANY-method</td>
-<td align="left">apa_print,BFBayesFactor-method</td>
 <td align="left">list</td>
-<td align="left">summary.glht</td>
-</tr>
-<tr class="odd">
-<td align="left">aov</td>
-<td align="left">BFBayesFactorTop</td>
-<td align="left">lm</td>
 <td align="left">summary.lm</td>
 </tr>
 <tr class="even">
-<td align="left">aovlist</td>
-<td align="left">apa_print,BFBayesFactorTop-method</td>
-<td align="left">lsmobj</td>
+<td align="left">anova</td>
+<td align="left">apa_print,BFBayesFactorList-method</td>
+<td align="left">lm</td>
 <td align="left">summary.ref.grid</td>
+</tr>
+<tr class="odd">
+<td align="left">Anova.mlm</td>
+<td align="left">apa_print,BFBayesFactor-method</td>
+<td align="left">lsmobj</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">apa_print,ANY-method</td>
+<td align="left">BFBayesFactorTop</td>
+<td align="left">summary.Anova.mlm</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">aov</td>
+<td align="left">apa_print,BFBayesFactorTop-method</td>
+<td align="left">summary.aov</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">aovlist</td>
+<td align="left">glht</td>
+<td align="left">summary.aovlist</td>
+<td align="left">afex_aov</td>
+</tr>
+<tr class="odd">
+<td align="left">BFBayesFactor</td>
+<td align="left">htest</td>
+<td align="left">summary.glht</td>
+<td align="left">anova</td>
 </tr>
 </tbody>
 </table>
@@ -421,8 +429,8 @@ Table. *Iris regression table.*
 <div id="report-statistical-analyses" class="section level3">
 <h3><span class="header-section-number">4.2.4</span> Report statistical analyses</h3>
 <p><code>apa_print()</code> will help you report the results of your statistical analyses. The function will format the contents of R objects and produce readily reportable text.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">recall_anova &lt;-<span class="st"> </span>afex::<span class="kw">aov_car</span>(
-  Recall ~<span class="st"> </span>(Task *<span class="st"> </span>Valence *<span class="st"> </span>Dosage) +<span class="st"> </span><span class="kw">Error</span>(Subject/(Task *<span class="st"> </span>Valence)) +<span class="st"> </span>Dosage
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">recall_anova &lt;-<span class="st"> </span>afex<span class="op">::</span><span class="kw">aov_car</span>(
+  Recall <span class="op">~</span><span class="st"> </span>(Task <span class="op">*</span><span class="st"> </span>Valence <span class="op">*</span><span class="st"> </span>Dosage) <span class="op">+</span><span class="st"> </span><span class="kw">Error</span>(Subject<span class="op">/</span>(Task <span class="op">*</span><span class="st"> </span>Valence)) <span class="op">+</span><span class="st"> </span>Dosage
   , <span class="dt">data =</span> mixed_data
   , <span class="dt">type =</span> <span class="dv">3</span>
 )
@@ -439,7 +447,7 @@ on recall, <span class="st">`</span><span class="dt">r anova_results$full$Dosage
 -->
 <p>What’s even more fun, you can easily create a complete ANOVA table by passing <code>recall_anova_results$table</code> to <code>apa_table()</code>, see .</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(
-  recall_anova_results$table
+  recall_anova_results<span class="op">$</span>table
   , <span class="dt">align =</span> <span class="kw">c</span>(<span class="st">&quot;l&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;r&quot;</span>)
   , <span class="dt">caption =</span> <span class="st">&quot;ANOVA table for the analyis of the example data set. </span><span class="ch">\\</span><span class="st">label{ref:anova}&quot;</span>
   , <span class="dt">note =</span> <span class="st">&quot;This is a table created using apa</span><span class="ch">\\</span><span class="st">_print() and apa</span><span class="ch">\\</span><span class="st">_table().&quot;</span>
@@ -529,9 +537,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

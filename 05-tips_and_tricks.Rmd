@@ -1,8 +1,19 @@
 # Tips and Tricks
 
+- Spell check functionality in RStudio
+
 ## Useful RStudio Addins
 
+- [wordcount](https://github.com/benmarwick/wordcountaddin): Word counts and readability statistics in R markdown documents
+- [citr](https://github.com/crsh/citr): RStudio Addin to Insert Markdown Citations
+- [gramr](https://github.com/ropenscilabs/gramr): RStudio Addin, function, & shiny app for the write-good linter
+- [remedy](https://github.com/ThinkR-open/remedy): RStudio Addins to Simplify Markdown Writing
+- [splitChunk](https://github.com/LudvigOlsen/splitChunk): RStudio addin for splitting R Markdown code chunks
+
 ## Text references
+
+- Enables Markdown/LaTeX syntax in captions
+- Text references are included in spell checks
 
 ## Author disambiguation
 

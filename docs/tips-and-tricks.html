@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5.10 and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2017-11-19">
+<meta name="date" content="2017-11-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -202,11 +202,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="tips-and-tricks" class="section level1">
 <h1><span class="header-section-number">5</span> Tips and Tricks</h1>
+<ul>
+<li>Spell check functionality in RStudio</li>
+</ul>
 <div id="useful-rstudio-addins" class="section level2">
 <h2><span class="header-section-number">5.1</span> Useful RStudio Addins</h2>
+<ul>
+<li><a href="https://github.com/benmarwick/wordcountaddin">wordcount</a>: Word counts and readability statistics in R markdown documents</li>
+<li><a href="https://github.com/crsh/citr">citr</a>: RStudio Addin to Insert Markdown Citations</li>
+<li><a href="https://github.com/ropenscilabs/gramr">gramr</a>: RStudio Addin, function, &amp; shiny app for the write-good linter</li>
+<li><a href="https://github.com/ThinkR-open/remedy">remedy</a>: RStudio Addins to Simplify Markdown Writing</li>
+<li><a href="https://github.com/LudvigOlsen/splitChunk">splitChunk</a>: RStudio addin for splitting R Markdown code chunks</li>
+</ul>
 </div>
 <div id="text-references" class="section level2">
 <h2><span class="header-section-number">5.2</span> Text references</h2>
+<ul>
+<li>Enables Markdown/LaTeX syntax in captions</li>
+<li>Text references are included in spell checks</li>
+</ul>
 </div>
 <div id="author-disambiguation" class="section level2">
 <h2><span class="header-section-number">5.3</span> Author disambiguation</h2>
@@ -288,9 +302,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

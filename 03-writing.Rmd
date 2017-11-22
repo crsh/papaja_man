@@ -126,6 +126,34 @@ Again, this is not the case in Word documents due to limited pandoc functionalit
 The bottom line is, Word documents will be less polished than PDF.
 The resulting documents should suffice to enable collaboration with Wordy colleagues and prepare a journal submission with limited manual labor.
 
+
+```{r results = "asis", include = FALSE, eval = FALSE}
+employee <- c("$\\alpha$",'$\\alpha$','$\\alpha$')
+salary       <- c(21000, 23400, 26800)
+startdate   <- as.Date(c('2010-11-1','2008-3-25','2007-3-14'))
+dt              <- data.frame(employee, salary, startdate)
+
+apa_table(
+  dt
+  , caption = "Descriptive statistics of correct recall by dosage."
+  , note      = "This table was created with apa\\_table() and here's
+some latex $\\alpha$"
+  , escape = FALSE
+  , format   = "latex"
+)
+```
+
+<!-- 1. To use LaTeX code inside a table you have to set escape = FALSE. Otherwise, elements of the LaTeX syntax (such as backslashes) will be printed as is. -->
+
+<!-- 2. If you set escape = FALSE you need to manually escape symbols that would otherwise be interpreted as LaTeX code, such as underscores (see note). -->
+
+<!-- 3. When you pass backslashes as character strings you need to escape the backslash with one additional backslash because R uses backslashes to denote special characters, such as \t for tab or \n for newline, and will interpret \a as newline, I think. The remaining lpha is meaningless in LaTeX math environments and will cause an error. -->
+
+<!-- 4. If you want to write symbols in any part of the table use $ instead of $$, which is used in text to format equations as distinct equations in new inset paragraphs. -->
+
+<!-- (5. format = "latex" is not required if you use the function inside an R Markdown document)  -->
+
+
 ### Alternatives
 
 Pixidust: https://github.com/nutterb/pixiedust/blob/master/README.md

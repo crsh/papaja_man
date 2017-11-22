@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5.10 and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2017-11-19">
+<meta name="date" content="2017-11-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -212,6 +212,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Citations may mess with RStudios syntax highlighting in the current line. Incorrect highlighting following a citation does not necessarily indicate incorrect syntax.</li>
 <li><p>Printing PDF from RStudio’s PDF viewer can produce weird results. If you want to print your manuscript I suggest you use any other PDF viewer of your choice.</p></li>
 </ul>
+<p>Due to limitations of the limitted formatting options that <code>pandoc</code> offers for Microsoft Word documents, manuscript files created with <code>papaja</code> require some manual work before they fully comply with APA guidelines. We, therefore, provide the following checklist of necessary changes:</p>
+<ol start="4" class="example" style="list-style-type: decimal">
+<li>add a headder line including running head and page number</li>
+<li>add horizontal rules under last table row</li>
+<li>position start of reference section at the top of a new page</li>
+<li>move figures and tables to the end of the manuscript</li>
+<li>add a colon following the figure numbers and italize</li>
+<li>remove bold formatting of manuscript title on page 3</li>
+</ol>
+<p>If necessary,</p>
+<ol start="10" class="example" style="list-style-type: decimal">
+<li>position author note at the bottom of page 1</li>
+<li>position abstract at the top of page 2</li>
+<li>position the beginning of the main text (including the title) at the top of page 3</li>
+<li>add colon to level 3-headings</li>
+<li>add midrules to tables</li>
+</ol>
+<p>Some of these points may be automated in the future.</p>
 
 </div>
 </div>
@@ -287,9 +305,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

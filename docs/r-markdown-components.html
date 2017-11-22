@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5.10 and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2017-11-19">
+<meta name="date" content="2017-11-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -207,46 +207,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">2.1</span> YAML front matter</h2>
 <p><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> is a human-readable and easy to write language to define data structures. You don’t need to familiarize yourself intimately with YAML to use R Markdown or <code>papaja</code> and I suggest you try to just use it. The following is the default YAML front matter.</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">title             :</span> <span class="st">&quot;The title&quot;</span>
-<span class="fu">shorttitle        :</span> <span class="st">&quot;Title&quot;</span>
+<span class="fu">title             :</span><span class="at"> </span><span class="st">&quot;The title&quot;</span>
+<span class="fu">shorttitle        :</span><span class="at"> </span><span class="st">&quot;Title&quot;</span>
 
-<span class="fu">author:</span> 
-  <span class="kw">-</span> <span class="fu">name          :</span> <span class="st">&quot;First Author&quot;</span>
-    <span class="fu">affiliation   :</span> <span class="st">&quot;1&quot;</span>
-    <span class="fu">corresponding :</span> yes    <span class="co"># Define only one corresponding author</span>
-    <span class="fu">address       :</span> <span class="st">&quot;Postal address&quot;</span>
-    <span class="fu">email         :</span> <span class="st">&quot;my@email.com&quot;</span>
-  <span class="kw">-</span> <span class="fu">name          :</span> <span class="st">&quot;Ernst-August Doelle&quot;</span>
-    <span class="fu">affiliation   :</span> <span class="st">&quot;1,2&quot;</span>
+<span class="fu">author:</span><span class="at"> </span>
+  <span class="kw">-</span> <span class="fu">name          :</span><span class="at"> </span><span class="st">&quot;First Author&quot;</span>
+    <span class="fu">affiliation   :</span><span class="at"> </span><span class="st">&quot;1&quot;</span>
+    <span class="fu">corresponding :</span><span class="at"> yes    </span><span class="co"># Define only one corresponding author</span>
+    <span class="fu">address       :</span><span class="at"> </span><span class="st">&quot;Postal address&quot;</span>
+    <span class="fu">email         :</span><span class="at"> </span><span class="st">&quot;my@email.com&quot;</span>
+  <span class="kw">-</span> <span class="fu">name          :</span><span class="at"> </span><span class="st">&quot;Ernst-August Doelle&quot;</span>
+    <span class="fu">affiliation   :</span><span class="at"> </span><span class="st">&quot;1,2&quot;</span>
 
 <span class="fu">affiliation:</span>
-  <span class="kw">-</span> <span class="fu">id            :</span> <span class="st">&quot;1&quot;</span>
-    <span class="fu">institution   :</span> <span class="st">&quot;Wilhelm-Wundt-University&quot;</span>
-  <span class="kw">-</span> <span class="fu">id            :</span> <span class="st">&quot;2&quot;</span>
-    <span class="fu">institution   :</span> <span class="st">&quot;Konstanz Business School&quot;</span>
+  <span class="kw">-</span> <span class="fu">id            :</span><span class="at"> </span><span class="st">&quot;1&quot;</span>
+    <span class="fu">institution   :</span><span class="at"> </span><span class="st">&quot;Wilhelm-Wundt-University&quot;</span>
+  <span class="kw">-</span> <span class="fu">id            :</span><span class="at"> </span><span class="st">&quot;2&quot;</span>
+    <span class="fu">institution   :</span><span class="at"> </span><span class="st">&quot;Konstanz Business School&quot;</span>
 
-<span class="fu">author_note:</span> &gt;
+<span class="fu">author_note:</span><span class="at"> &gt;</span>
   Complete departmental affiliations for each author (note the indentation, if you start a new paragraph).
 
   Enter author note here.
 
-<span class="fu">abstract:</span> &gt;
+<span class="fu">abstract:</span><span class="at"> &gt;</span>
   Enter abstract here (note the indentation, if you start a new paragraph).
   
-<span class="fu">keywords          :</span> <span class="st">&quot;keywords&quot;</span>
-<span class="fu">wordcount         :</span> <span class="st">&quot;X&quot;</span>
+<span class="fu">keywords          :</span><span class="at"> </span><span class="st">&quot;keywords&quot;</span>
+<span class="fu">wordcount         :</span><span class="at"> </span><span class="st">&quot;X&quot;</span>
 
-<span class="fu">bibliography      :</span> <span class="kw">[</span><span class="st">&quot;r-references.bib&quot;</span><span class="kw">]</span>
+<span class="fu">bibliography      :</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;r-references.bib&quot;</span><span class="kw">]</span>
 
-<span class="fu">figsintext        :</span> no
-<span class="fu">figurelist        :</span> no
-<span class="fu">tablelist         :</span> no
-<span class="fu">footnotelist      :</span> no
-<span class="fu">lineno            :</span> yes
+<span class="fu">figsintext        :</span><span class="at"> no</span>
+<span class="fu">figurelist        :</span><span class="at"> no</span>
+<span class="fu">tablelist         :</span><span class="at"> no</span>
+<span class="fu">footnotelist      :</span><span class="at"> no</span>
+<span class="fu">lineno            :</span><span class="at"> yes</span>
 
-<span class="fu">lang              :</span> <span class="st">&quot;english&quot;</span>
-<span class="fu">class             :</span> <span class="st">&quot;man&quot;</span>
-<span class="fu">output            :</span> papaja::apa6_pdf
+<span class="fu">lang              :</span><span class="at"> </span><span class="st">&quot;english&quot;</span>
+<span class="fu">class             :</span><span class="at"> </span><span class="st">&quot;man&quot;</span>
+<span class="fu">output            :</span><span class="at"> papaja::apa6_pdf</span>
 <span class="ot">---</span></code></pre></div>
 <div id="manuscript-meta-data" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Manuscript meta data</h3>
@@ -262,9 +262,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The first set of rendering options breaks with the <a href="introduction.html#guiding-principles">guiding principal</a> <em>is convertible</em>; they have no effect on Word documents. I decided to implement these nonetheless because they are required by some journals and can be used for submissions where (initially) PDF documents are accepted. <code>figsintext</code> indicates whether figures and tables should included at the end of the document—as required by APA guidelines—or rendered in the body of the document. If <code>figurelist</code>, <code>tablelist</code>, or <code>footnotelist</code> are set to <code>yes</code> a list of figure captions, table captions, or footnotes is given following the reference section. <code>lineno</code> indicates whether lines should be continuously numbered through out the manuscript.</p>
 <p>The language of the manuscript is given in <code>lang</code> and affects automatically generated text, such as “Author note” on the title page or “Figure 1.” in figure captions. Currently, <code>english</code> and <code>german</code> are supported. <code>class</code> defines the layout style of the manuscript. Setting <code>class</code> to <code>man</code> produces the default APA manuscript style, <code>doc</code> produces a more typical document (single-spaced, single-column). The latter option is currently not available for Word documents.</p>
 <p>The <code>output</code> field determines the type of document that is created, either <code>papaja::apa6_pdf</code> or <code>papaja::apa6_word</code>. Additional arguments can be passed to these functions, e.g. to delete the TeX source file at the end of the rendering process. See <code>?apa6_pdf</code> for details.</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span> 
-  <span class="fu">papaja:</span>:apa6_pdf:
-    <span class="fu">keep_tex:</span> FALSE</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span><span class="at"> </span>
+  <span class="fu">papaja:</span><span class="at">:apa6_pdf:</span>
+    <span class="fu">keep_tex:</span><span class="at"> FALSE</span></code></pre></div>
 <p>Any additional rendering options supported by <code>rmarkdown::pdf_document()</code> or <code>rmarkdown::word_document()</code> can be added to the YAML front matter. If you, for example, need a different citation style, you can set <code>csl</code> to the path of a <a href="http://citationstyles.org/">CSL</a> style definition file.</p>
 </div>
 </div>
@@ -294,7 +294,7 @@ age_mean &lt;- mean(demographics$age)
 ```</code></pre>
 <p>These chunks are enclosed in <code>```</code> and the first line defines the programming language (<code>r</code>, other lanugages, such as <code>python</code> are possible), the chunk label or name (<code>code_chunk</code>), and additional options (e.g., <code>echo = FALSE</code>). By default, <code>papaja</code> sets the chunk options <code>echo = FALSE</code> and <code>message = FALSE</code> globally for all chunks. <code>echo = FALSE</code> hides the code in each code chunk and <code>message = FALSE</code> hides any messages generated by the R code so that they are not included in the manuscript. Both settings can be overwritten by the user. See the <a href="http://yihui.name/knitr/options/">knitr documentation</a> for further chunk options.</p>
 <p>R code can also be included in a line of regular text by inserting <code>`r ...`</code>, where <code>...</code> is the desired code to be executed. Including R code inline is a convenient way of including the contents of variables as part of the text. For example, imagine you compute the mean and standard deviation of participants’ age and store them variables named <code>age_mean</code> and <code>age_sd</code>. You can report these numbers by printing the variables in inline R code.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Participants mean age was <span class="st">`</span><span class="dt">r age_mean</span><span class="st">`</span> <span class="kw">years</span> ($<span class="dt">SD =</span> <span class="st">`</span><span class="dt">r age_sd</span><span class="st">`</span>$).</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Participants mean age was <span class="st">`</span><span class="dt">r age_mean</span><span class="st">`</span> <span class="kw">years</span> (<span class="op">$</span><span class="dt">SD =</span> <span class="st">`</span><span class="dt">r age_sd</span><span class="st">`</span><span class="op">$</span>).</code></pre></div>
 <p>Reporting numerical values will frequently require some rounding and/or filling with trailing zeros (e.g., “<span class="math inline">\(24.10\)</span>”). In chapter <a href="reporting.html#reporting">4</a>, we introduce papaja functions that are helpful in formatting a multitude of data types (e.g. simple numerics, outputs from statistical tests or models, etc.).</p>
 <p>In R Markdown documents, as in any other R script, code is executed serially (i.e., from top to bottom). Thus, any variables that are called in code chunks or inline R code must be defined above.</p>
 </div>
@@ -392,9 +392,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

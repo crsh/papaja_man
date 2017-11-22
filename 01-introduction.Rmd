@@ -188,6 +188,9 @@ papaja is tailored to the needs of experimental psychologists: we supply conveni
 
 -->
 
+<!-- https://twitter.com/HermanAguinis/status/859843021575245825 -->
+
+
 R Markdown has been suggested as one possible framework for reproducible analyses [@R-rmarkdown].
 `papaja` is a R-package in the making including a [R Markdown](http://rmarkdown.rstudio.com/) template that can be used with (or without) [RStudio](http://www.rstudio.com/) to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition).
 The package uses the \LaTeX document class [apa6](http://www.ctan.org/pkg/apa6) and a .docx-reference file, so you can create PDF documents, or Word documents if you have to.
@@ -354,6 +357,24 @@ sudo apt-get install texlive texlive-publishers texlive-fonts-extra texlive-late
 
 Although not necessary for the use of `papaja`, I recommend that you use a references manager, such as [Zotero](https://www.zotero.org/), to facilitate reference management and [citations][Citations].
 
+
+<!-- Apa6.cls -->
+<!-- etoolbox.sty -->
+<!-- booktabs.sty -->
+<!-- threeparttable.sty -->
+<!-- caption.sty -->
+<!-- fancyhdr.sty -->
+<!-- endfloat.sty -->
+<!-- threeparttablex.sty -->
+<!-- environ.sty -->
+<!-- trimspaces.sty -->
+<!-- url.sty -->
+<!-- csquotes.sty -->
+<!-- upgreek.sty (was) -->
+<!-- lineno.sty -->
+<!-- tikz.sty (pgf) -->
+<!-- everyshi.sty (ms) -->
+<!-- xcolor.sty -->
 
 ### Installing papaja
 Once all that is taken care of, install `papaja` from GitHub.
