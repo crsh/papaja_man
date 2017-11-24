@@ -1,6 +1,16 @@
 # Limitations
 
-## MS word caveat
+As outlined in [Document compilation], `papaja` builds on `pandoc` to render Markdown into PDF and DOCX documents.
+Markdown provides good common basis for these and other document types but finding a common basis necessarily limits the degree of control that can be exerted over the rendered document.
+For example, there is currently no way to generate tables with `pandoc` in which cells span multiple rows or columns.
+Similarly, it is not possible to insert page breaks into a document.
+Both of these limitations have been raised with the developers of `pandoc` (see [here](https://github.com/jgm/pandoc/issues/1024) and [here](https://github.com/jgm/pandoc/issues/1934)), but it may take a while for them to be addressed.
+
+## PDF documents
+It is possible to 
+
+
+## Microsoft Word documents
 - apa_table() etc.
 - Checklist
 

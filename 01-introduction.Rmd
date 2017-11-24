@@ -325,7 +325,7 @@ After all filters have been applied to the AST pandoc converts the document into
 To create DOCX-documents `papaja` provides a reference DOCX-file containing page setup and style definitions that pandoc uses to create the manuscript file.
 That is, pandoc translates the AST directly to the office open XML format.
 To create PDF-documents pandoc in turn relies on LaTeX, that is, pandoc translates the AST to a TeX-file based on a template provided by `papaja`.
-The TeX-file template invokes the `apa6` LaTeX document class [@???] and loads several additional LaTeX packages.
+This template invokes the `apa6` LaTeX document class [@???] and loads several additional LaTeX packages.
 pandoc then generates a system call to LaTeX to render the PDF document.
 During this processing step, that is, following the pandoc system calls, errors are due to failures of LaTeX to compile the TeX-file and usually start with `!`, for example, `! Undefined control sequence.` or `! Missing $ inserted`.
 
