@@ -164,6 +164,18 @@ Output objects from `ezANOVA` are not supported, as they do not contain the nece
 
 *Functionality*.
 
+```{r anova-apa, message = FALSE}
+anova_out <- afex::aov_ez(data = cosmetic_surgery, dv = "Post_QoL", id = "ID", between = c("Clinic", "Gender"), return = "Anova")
+apa_anova <- apa_print(anova_out)
+```
+
+
+```{r anova-table, results = 'asis'}
+apa_table(apa_anova$table, caption = "A really beautiful ANOVA table.", note = "Note that the column names contain beautiful mathematical copy: This is because the table returned by apa_print() has variable labels.")
+```
+
+
+
 #### glht, lsmeans, ref.grid (post-hoc tests)
 
 
