@@ -277,4 +277,4 @@ apa_table(
 
 
 
-## Caching
+## Caching expensive computations

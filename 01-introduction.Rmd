@@ -188,6 +188,9 @@ papaja is tailored to the needs of experimental psychologists: we supply conveni
 
 -->
 
+<!-- https://twitter.com/HermanAguinis/status/859843021575245825 -->
+
+
 R Markdown has been suggested as one possible framework for reproducible analyses [@R-rmarkdown].
 `papaja` is a R-package in the making including a [R Markdown](http://rmarkdown.rstudio.com/) template that can be used with (or without) [RStudio](http://www.rstudio.com/) to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition).
 The package uses the \LaTeX document class [apa6](http://www.ctan.org/pkg/apa6) and a .docx-reference file, so you can create PDF documents, or Word documents if you have to.
@@ -197,6 +200,11 @@ Markdown is a simple formatting syntax that can be used to author HTML, PDF, and
 In the following I will assume you have hopped onto the band wagon and know how to use R Markdown to conduct and comment your analyses.
 If this is not the case, I recommend you get to grips with [R Markdown](http://R Markdown.rstudio.com/) first.
 I use [RStudio](http://www.rstudio.com/) (which makes use of [pandoc](http://johnmacfarlane.net/pandoc/)) to create my documents, but the general process works using any other text editor.
+
+Although LaTeX is widely used to write entire manuscripts (not just equations), it is not commonly used in the field of psychology.
+We suspect that the neglect is largely due to its complexity and shallow learning curve.
+Both appear to outweigh the advantages of the system when it comes to handling citations and cross-references or typesetting large documents, complex tables, and equations.
+Markdown paired with `pandoc` provides a simple interface to harness the power of LaTeX without requiring in-depth knowledge about LaTeX (see [Document compilation]).
 
 
 ## Implementation
@@ -317,7 +325,7 @@ After all filters have been applied to the AST pandoc converts the document into
 To create DOCX-documents `papaja` provides a reference DOCX-file containing page setup and style definitions that pandoc uses to create the manuscript file.
 That is, pandoc translates the AST directly to the office open XML format.
 To create PDF-documents pandoc in turn relies on LaTeX, that is, pandoc translates the AST to a TeX-file based on a template provided by `papaja`.
-The TeX-file template invokes the `apa6` LaTeX document class [@???] and loads several additional LaTeX packages.
+This template invokes the `apa6` LaTeX document class [@???] and loads several additional LaTeX packages.
 pandoc then generates a system call to LaTeX to render the PDF document.
 During this processing step, that is, following the pandoc system calls, errors are due to failures of LaTeX to compile the TeX-file and usually start with `!`, for example, `! Undefined control sequence.` or `! Missing $ inserted`.
 
@@ -354,6 +362,24 @@ sudo apt-get install texlive texlive-publishers texlive-fonts-extra texlive-late
 
 Although not necessary for the use of `papaja`, I recommend that you use a references manager, such as [Zotero](https://www.zotero.org/), to facilitate reference management and [citations][Citations].
 
+
+<!-- Apa6.cls -->
+<!-- etoolbox.sty -->
+<!-- booktabs.sty -->
+<!-- threeparttable.sty -->
+<!-- caption.sty -->
+<!-- fancyhdr.sty -->
+<!-- endfloat.sty -->
+<!-- threeparttablex.sty -->
+<!-- environ.sty -->
+<!-- trimspaces.sty -->
+<!-- url.sty -->
+<!-- csquotes.sty -->
+<!-- upgreek.sty (was) -->
+<!-- lineno.sty -->
+<!-- tikz.sty (pgf) -->
+<!-- everyshi.sty (ms) -->
+<!-- xcolor.sty -->
 
 ### Installing papaja
 Once all that is taken care of, install `papaja` from GitHub.

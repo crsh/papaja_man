@@ -1,6 +1,16 @@
 # Limitations
 
-## MS word caveat
+As outlined in [Document compilation], `papaja` builds on `pandoc` to render Markdown into PDF and DOCX documents.
+Markdown provides good common basis for these and other document types but finding a common basis necessarily limits the degree of control that can be exerted over the rendered document.
+For example, there is currently no way to generate tables with `pandoc` in which cells span multiple rows or columns.
+Similarly, it is not possible to insert page breaks into a document.
+Both of these limitations have been raised with the developers of `pandoc` (see [here](https://github.com/jgm/pandoc/issues/1024) and [here](https://github.com/jgm/pandoc/issues/1934)), but it may take a while for them to be addressed.
+
+## PDF documents
+It is possible to 
+
+
+## Microsoft Word documents
 - apa_table() etc.
 - Checklist
 
@@ -9,3 +19,25 @@
 - In-text citation incorrectly use ampersands instead of "and". This is a current limitation of the [pandoc-citeproc](https://hackage.haskell.org/package/pandoc-citeproc) filter. I'm still looking for ways to fix this.
 - Citations may mess with RStudios syntax highlighting in the current line. Incorrect highlighting following a citation does not necessarily indicate incorrect syntax.
 - Printing PDF from RStudio's PDF viewer can produce weird results. If you want to print your manuscript I suggest you use any other PDF viewer of your choice.
+
+
+Due to limitations of the limitted formatting options that `pandoc` offers for Microsoft Word documents, manuscript files created with `papaja` require some manual work before they fully comply with APA guidelines.
+We, therefore, provide the following checklist of necessary changes:
+
+@. add a headder line including running head and page number
+@. add horizontal rules under last table row
+@. position start of reference section at the top of a new page
+@. move figures and tables to the end of the manuscript
+@. add a colon following the figure numbers and italize
+@. remove bold formatting of manuscript title on page 3
+
+
+If necessary,
+
+@. position author note at the bottom of page 1
+@. position abstract at the top of page 2
+@. position the beginning of the main text (including the title) at the top of page 3
+@. add colon to level 3-headings
+@. add midrules to tables
+
+Some of these points may be automated in the future.
