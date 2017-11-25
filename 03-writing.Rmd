@@ -6,6 +6,7 @@
 - Don't set a working directory
 - Generate graphics from R code
 - Don't edit word documents
+- Relative paths
 
 ### Working with a reference manager
 
@@ -37,7 +38,7 @@ A comprehensive overview of the supported Markdown syntax is provided by [RStudi
 
 <!-- Both cheatsheets are also available at http://rstudio.com/cheatsheets. -->
 
-
+<!-- LaTeX code -->
 
 
 ## Citations
