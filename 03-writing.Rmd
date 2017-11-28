@@ -1,19 +1,6 @@
 # Writing
 
-## Workflow
 
-- Don't edit raw data
-- Don't set a working directory
-- Generate graphics from R code
-- Don't edit word documents
-- Relative paths
-
-### Working with a reference manager
-
-- Bib(La)TeX export of Mendeley
-- Better Bib(La)TeX integration of citr
-
-If you are not already using a reference manager such as Zotero, I strongly suggest you start doing so. Reference managers are like iTunes for your literature; they help you search, download, and organize papers. Most importantly, with a few clicks you can export a collection of references you need for a paper into a .bib-file. Once your references are in a .bib-file that resides in the same folder as your Markdown-file, you can easily add citations to your Markdown document. Each reference has a unique handle, e.g. lewandowsky_computational_2011, which you can use in Markdown. @lewandowsky_computational_2011 creates an in-text citation; [@lewandowsky_computational_2011] creates a citation in parentheses. Everything reference-related, such as in-text citation and the reference section, will be taken cared of automatically.
 
 - RStudio
   - Section overview
@@ -23,17 +10,14 @@ If you are not already using a reference manager such as Zotero, I strongly sugg
 ## Markdown text formatting
 
 <!-- Add examples of most common Markdown syntax -->
-
 <!-- headings, comments, footnotes, images, url -->
 <!-- italics, bold, quotation, en- and em-dash, nbsp -->
+
 
 A comprehensive overview of the supported Markdown syntax is provided by [RStudio's R Markdown documentation](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html).
 
 <!-- Copy paste from R4DS: -->
-<!-- Instead, as you work through this chapter, and use R Markdown in the future, keep these resources close to hand: -->
-
 <!-- - R Markdown Cheat Sheet: Help > Cheatsheets > R Markdown Cheat Sheet, -->
-
 <!-- - R Markdown Reference Guide: Help > Cheatsheets > R Markdown Reference Guide. -->
 
 <!-- Both cheatsheets are also available at http://rstudio.com/cheatsheets. -->
@@ -43,14 +27,42 @@ A comprehensive overview of the supported Markdown syntax is provided by [RStudi
 
 ## Citations
 
-No manuscript is complete without citation.
-In order for citations to work, you need to supply a Bib(La)TeX file to the `bibliography` parameter in the YAML front matter (`bibliography: my.bib`).
-Once this is done, `[e.g., @james_1890; @bem_2011]` produces a regular citation within parentheses [e.g., @james_1890; @bem_2011].
+If you are not already using a reference manager, such as Zotero, I strongly suggest you start doing so.
+Reference managers are like iTunes for your literature; they help you search, download, and organize papers. Most importantly, with a few clicks you can export a collection of references you need for a paper into a `.bib`-file.
+
+By default, citations in R Markdown are formatted by `pandoc-citeproc`, a filter that `pandoc` applies as it renders the final document.
+The advantage of using `pandoc-citeproc` is that it works equally well for both PDF and Microsoft Word documents.
+To start citing, supply a Bib(La)TeX (or for example EndNote, RIS, Medline) file to the `bibliography` parameter in the YAML front matter (`bibliography: my.bib`).
+Once the R Markdown file knows where to look for reference `[@james_1890]` will create a citation within parentheses [@james_1890].
+Multiple citations must be separated by `;` (e.g., `[@james_1890; @bem_2011]`) and are ordered alphabetically as per APA style [@james_1890; @bem_2011].
 To cite a source in text simply omit the brackets; for example, write `@james_1890` to cite @james_1890.
-For other options see the [overview of the R Markdown citation syntax](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html).
+
+Additional information can be added to citations as pre- or postfixes.
+Pre- and postfixes can simply be added to each citation by writing inside the brackets (`[e.g., @bem_2011]`).
+Note that pre- and postfixes are bound to the enclosed citation, not to the set of all citations.
+Hence, a prefix will be reorder together with its citation, which may be undesirable.
+For example, `[e.g., @james_1890; @bem_2011]` yields [e.g., @james_1890; @bem_2011].
+There is no way to prevent this behavior, so mind the alphabetical order of citations.
+
+Further customizations, such as citing only a publications year (`[-@bem_2011]`) are available, see RStudio's [overview of the R Markdown citation syntax](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html).
+If you are not interested in creating Microsoft Word documents it's possible to use NatBib or Bib(La)TeX for reference formatting, which grant a little more flexibility than `pandoc-citeproc`.
+To do so, an additional argument has to be supplied to `apa6_pdf()`:
+
+~~~yaml
+---
+output:
+  papaja::apa6_pdf:
+    citation_package: biblatex
+---
+~~~
+
+
+### Citation styles
 
 The citation style is automatically set to APA style.
-If you need to use a different citation style, you can set in the YAML front matter by adding a `csl` parameter.
+Other styles can be set in the YAML front matter by specifying a CSL, or Citations Style Language, file.
+You can use either one of the large number of [existing CSL files](https://www.zotero.org/styles), [customize](http://citationstyles.org/downloads/primer.html) an existing CSL file, or create a new one entirely.
+To change the citation style, add a `csl: mystyle.csl` to the YAML front matter.
 See the [R Markdown documentation](http://R Markdown.rstudio.com/authoring_bibliographies_and_citations.html) and [Citation Style Language](http://citationstyles.org/) for further details.
 
 
@@ -60,55 +72,76 @@ See the [R Markdown documentation](http://R Markdown.rstudio.com/authoring_bibli
 If you use RStudio, the package supplies an easy-to-use [RStudio add-in](https://rstudio.github.io/rstudioaddins/) that facilitates inserting citations (Figure \@ref(fig:citr-gif)).
 The references for the inserted citations are automatically added to the documents reference section.
 
-
-> Nachdem ich bei Ihnen die erste Übungen mit R unternommen habe, versuche ich mich derzeit in Papaja (unser gesamtes Lehrgebiet eignet sich derzeit Papayja an). Ich habe allerdings noch nicht herausgefunden, wie ich die alphabetische Sortierung ausschalten kann, z.B. für den Fall (Berthold & Meier, 2009; Wright, 2009; but see Alfred & Bert, 2007). Können Sie mir evtl. weiterhelfen?
-
-### Working with a reference manager
-
 ```{r citr-gif, echo = FALSE, fig.align = "center", fig.cap = "Demonstration of the RStudio addin from the `citr` package that inserts R Markdown citations."}
-knitr::include_graphics("https://raw.githubusercontent.com/crsh/citr/master/inst/images/addin_demo.gif")
+knitr::include_graphics("https://github.com/crsh/citr/raw/master/tools/images/addin_demo.gif")
 ```
 
-Once `citr` is installed (`install.packages("citr")`) and you have restarted your R session, the addin appears in the menus and you can define a [keyboard shortcut](https://rstudio.github.io/rstudioaddins/#keyboard-shorcuts) to call the addin.
+Once `citr` is installed (`install.packages("citr")`) and you have restarted your R session, the addin appears in the menus and you can define a [keyboard shortcut](https://rstudio.github.io/rstudioaddins/#keyboard-shorcuts) to call the addin (we suggest <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>).
 
 The addin will automatically look up the Bib(La)TeX-file(s) specified in the YAML front matter.
 If the document does not contain a YAML front matter the addin will attempt to locate a parent document and look up the Bib(La)TeX-file specified therein.
-That is, the addin works its automagic even if you edit R Markdown documents that are included as [children](http://yihui.name/knitr/demo/child/) in another R Markdown document (also see [Splitting an R Markdown document]).
-The expected names of a parent document default to `c("index.Rmd", "master.Rmd")`, it thus works with [`bookdown`](https://bookdown.org/) out of the box, but can be customized (e.g., `options(citr.parent_documents = "my_parent.Rmd")`).
-
+That is, the addin works its automagic even if you edit R Markdown documents that are included in another R Markdown document (see [Splitting an R Markdown document]).
+The expected names of a parent document default to `c("index.Rmd", "master.Rmd")`, but those can be customized (e.g., `options(citr.parent_documents = "my_parent.Rmd")`).
 
 `citr` can also be used without RStudio, albeit it is less convenient.
 The following call searches a Bib(La)TeX-file and creates formatted Markdown citations for the results.
 
 ```{r citr-without-rstudio, eval = FALSE}
 library("citr")
-md_cite("foo 2016", bib_file = "references.bib")
+md_cite("bem", bib_file = "references.bib")
 ```
 
 `md_cite()` searches the author, year, title, and journal fields of your references.
 
-If you are using Zotero or Juris-M `citr` can access your reference database directly.
-For this to work, you need to install the [Better Bib(La)TeX extension](https://github.com/retorquere/zotero-better-bibtex/wiki), which I would recommend anyway.
-Once the extension is installed and your reference manager is running, `citr` will automatically access all your references and keep your Bib(La)Tex-file updated by adding missing references.
-If you dislike this behavior, you can disable it by setting `options(citr.use_betterbiblatex = FALSE)`.
+### Working with a reference manager
+
+If you use Zotero or Juris-M `citr` can access your reference database without previous export.
+For this to work, you need to install the [Better Bib(La)TeX extension](https://github.com/retorquere/zotero-better-bibtex/wiki), which we recommend even if you don't intend to use `citr`.
+Once the extension is installed and the reference manager is running, `citr` will automatically access all your references and keep the Bib(La)Tex-file specified in the current R Markdown file up-to-date.
+If you dislike this behavior, you can disable the automatic access to the reference manager by setting `options(citr.use_betterbiblatex = FALSE)`.
 
 
 ### Referencing R and its packages
 
-I think it is important to credit the software we use.
 A lot of R packages are developed by academics free of charge.
 As citations are the currency of science, it's easy to compensate volunteers for their work by citing the R packages we use.
-I suspect that, among other things, this is rarely done because it is tedious work.
-That's why papaja makes citing R and its packages easy:
+Howerver, citing software is rarely done arguebly because it is tedious work.
+`papaja` therefore supplies two functions that make citing R and its packages easy.
 
 ```{r echo = TRUE}
 r_refs(file = "r-references.bib")
-my_citation <- cite_r(file = "r-references.bib")
+my_citations <- cite_r(file = "r-references.bib")
 ```
 
-`r_refs()` creates a BibTeX file containing citations for R and all currently loaded packages.
+`r_refs()` creates a BibTeX file containing citations for R and packages that are in use at the time the function is executed.
 `cite_r()` takes these citations and turns them into readily reportable text.
-`my_citation` now contains the following text that you can use in your document: `r my_citation`
+`my_citations` now contains the following text that you can use in your document: 
+
+> `r my_citations`
+
+If you prefer to cite only a subset of these packages, package names can be specified either as a blacklist, so they won't be cited (`withhold = TRUE`), or as a whitelist, so only these packages will be cited (`withhold = FALSE`).
+
+```{r echo = TRUE}
+my_citations <- cite_r(
+  file = "r-references.bib"
+  , pkgs = c("afex", "lsmeans", "papaja")
+  , withhold = FALSE
+)
+```
+
+> `r my_citations`
+
+Another option is to cite R in text but move the list of R packges into a footnote.
+
+```{r echo = TRUE}
+my_citations <- cite_r(file = "r-references.bib", footnote = TRUE)
+```
+
+This way you can reference R in the running text using `my_citations$r` and place the footnote syntax including the package list `my_citations$pkgs` in a new paragraph.
+
+> `r my_citations$r`
+
+`r my_citations$pkgs`
 
 
 ## Tables

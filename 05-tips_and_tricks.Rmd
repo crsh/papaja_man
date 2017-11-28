@@ -65,6 +65,15 @@ To include a child document, insert an empty chunk and provide the path to the R
 
 
 
+## Workflow
+
+- Don't edit raw data
+- Don't set a working directory
+- Generate graphics from R code
+- Don't edit word documents
+- Relative paths
+
+
 
 ## Troubleshooting
 

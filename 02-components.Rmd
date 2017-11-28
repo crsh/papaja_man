@@ -120,7 +120,7 @@ These annotations declare portions of text as, for example, title, section headi
 Separation of content and style is useful because it enables swift changes to an entire documents' style or structure and facilitates applying a common style across multiple documents.
 Microsoft Word implements this strategy in their so-called *styles*, which are collections of formatting instructions that can be assigned to portions of the text.
 
-`papaja` uses the [Markdown](http://en.wikipedia.org/wiki/Markdown) syntax [@???] to separate content and style.
+`papaja` uses the [Markdown](http://en.wikipedia.org/wiki/Markdown) syntax to separate content and style.
 Markdown was desigend to be an easy-to-read and -write formatting syntax.
 The key design goal was to create a syntax that is readable as-is.
 The following is an excerpt from the APA example manuscript written in Markdown.

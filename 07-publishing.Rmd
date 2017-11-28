@@ -1,16 +1,21 @@
-# Publishing manuscripts
+# Published manuscripts
 
-## Published papers written using papaja
+```{r echo = FALSE, results = "asis"}
+papaja_readme <- readLines("https://raw.githubusercontent.com/crsh/papaja/devel/README.md")
 
-Although `papaja` is not yet on CRAN and is still undergoing a lot of changes, there are peer-reviewed publications that use it. If you have published a paper that was written with `papaja`, let me know and I will add it to this list.
+reference_start <- which(grepl("Papers written with papaja", papaja_readme))
+reference_end <- which(grepl("Other related R packages", papaja_readme))
 
-Stahl, C., Barth, M., & Haider, H. (2015). Distorted estimates of implicit and explicit learning in applications of the process-dissociation procedure to the SRT task. *Consciousness & Cognition*, 37, 27–43.
-doi: [10.1016/j.concog.2015.08.003](http://dx.doi.org/10.1016/j.concog.2015.08.003)
+papaja_readme <- gsub("###", "##", papaja_readme)
 
-Aust, F., & Edwards, J. D. (2016). Incremental validity of Useful Field of View subtests for the prediction of Instrumental Activities of Daily Living. *Journal of Clinical and Experimental Neuropsychology*, 38, 497-515.
-doi: [10.1080/13803395.2015.1125453](http://dx.doi.org/10.1080/13803395.2015.1125453)
+writeLines(paste(papaja_readme[(reference_start+1):(reference_end-1)], collapse = "\n"), "published_papers.Rmd")
+```
 
-Stahl, C., Haaf, J., & Corneille, O. (2016). Subliminal Evaluative Conditioning? Above-Chance CS Identification May Be Necessary and Insufficient for Attitude Learning. *Journal of Experimental Psychology: General*, 27.
-doi: [10.1037/xge0000191](http://dx.doi.org/10.1037/xge0000191)
+```{r child = "published_papers.Rmd"}
+```
 
-Stahl, C. & Heycke, T. (2016). Evaluative Conditioning with Simultaneous and Sequential Pairings Under Incidental and Intentional Learning Conditions. *Social Cognition*, 34, 382-412. doi: [10.1521/soco.2016.34.5.382](http://dx.doi.org/10.1521/soco.2016.34.5.382)
+```{r include = FALSE}
+file.remove("published_papers.Rmd")
+```
+
+
