@@ -23,6 +23,10 @@ output          :
 ---
 
 ```{r libraries_and_options, echo = FALSE, message = FALSE, warning = FALSE}
+library("rmarkdown")
+library("car")
+library("ez")
+
 library("papaja")
 library("DiagrammeR")
 ```

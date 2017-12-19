@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="published-manuscripts.html">
-<link rel="next" href="future-directions.html">
+<link rel="prev" href="collaborative-writing.html">
+<link rel="next" href="limitations.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -207,34 +207,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="limitations" class="section level1">
-<h1><span class="header-section-number">8</span> Limitations</h1>
-<p>As outlined in <a href="introduction.html#document-compilation">Document compilation</a>, <code>papaja</code> builds on <code>pandoc</code> to render Markdown into PDF and DOCX documents. Markdown provides good common basis for these and other document types but the common basis necessarily limits the degree of control that can be exerted over the rendered document. For example, there is currently no way to generate tables with <code>pandoc</code> in which cells span multiple rows or columns. Similarly, it is not possible to insert page breaks into a document. Both of these limitations have been raised with the developers of <code>pandoc</code> (see <a href="https://github.com/jgm/pandoc/issues/1024">here</a> and <a href="https://github.com/jgm/pandoc/issues/1934">here</a>), but it may take a while for them to be addressed.</p>
-<div id="pdf-documents" class="section level2">
-<h2><span class="header-section-number">8.1</span> PDF documents</h2>
-<p><code>pandoc</code> builds on LaTeX to render PDF documents. As discussed in <a href="writing.html#markdown-text-formatting">Markdown text formatting</a>, when the R Markdown document contains LaTeX code it is kept as-is and can be used to exert greater control over the final result. For example, to create a page break in the rendered document you can use the LaTeX command <code>\pagebreak</code>. Similarly, tables with column spanners can be created by using the corresponding LaTeX code. Hence, the limited control offered by <code>pandoc</code> can be compensated by using LaTeX code and <code>papaja</code> resorts to this approach, for example, in <code>apa_table()</code>.</p>
+<div id="published-manuscripts" class="section level1">
+<h1><span class="header-section-number">7</span> Published manuscripts</h1>
+<hr />
+<p>Although <code>papaja</code> is not yet on CRAN and is still undergoing a lot of changes, there are peer-reviewed publications that use it. If you have published a paper that was written with <code>papaja</code>, let me know and I will add it to this list.</p>
+<div id="journal-publications" class="section level2">
+<h2><span class="header-section-number">7.1</span> Journal publications</h2>
+<p>Stahl, C., Barth, M., &amp; Haider, H. (2015). Distorted estimates of implicit and explicit learning in applications of the process-dissociation procedure to the SRT task. <em>Consciousness &amp; Cognition</em>, 37, 27–43. doi: <a href="http://dx.doi.org/10.1016/j.concog.2015.08.003">10.1016/j.concog.2015.08.003</a></p>
+<p>Aust, F., &amp; Edwards, J. D. (2016). Incremental validity of Useful Field of View subtests for the prediction of Instrumental Activities of Daily Living. <em>Journal of Clinical and Experimental Neuropsychology</em>, 38, 497-515. doi: <a href="http://dx.doi.org/10.1080/13803395.2015.1125453">10.1080/13803395.2015.1125453</a></p>
+<p>Stahl, C., Haaf, J., &amp; Corneille, O. (2016). Subliminal Evaluative Conditioning? Above-Chance CS Identification May Be Necessary and Insufficient for Attitude Learning. <em>Journal of Experimental Psychology: General</em>, 145 (9), 1107-1131. doi: <a href="http://dx.doi.org/10.1037/xge0000191">10.1037/xge0000191</a></p>
+<p>Stahl, C. &amp; Heycke, T. (2016). Evaluative Conditioning with Simultaneous and Sequential Pairings Under Incidental and Intentional Learning Conditions. <em>Social Cognition</em>, 34, 382-412. doi: <a href="http://dx.doi.org/10.1521/soco.2016.34.5.382">10.1521/soco.2016.34.5.382</a></p>
+<p>Papenberg, M., Willing, S. &amp; Musch, J. (2017). Sequentially presented response options prevent the use of testwiseness cues in multiple-choice testing. <em>Psychological Test and Assessment Modeling</em>, 59, 245–266.</p>
+<p>Heycke, T., Aust, F., &amp; Stahl, C. (2017). Subliminal influence on preferences? A test of evaluative conditioning for brief visual conditioned stimuli using auditory unconditioned stimuli. <em>Royal Society Open Science</em>, 4, 160935. doi: <a href="http://dx.doi.org/10.1098/rsos.160935">10.1098/rsos.160935</a> (<a href="https://osf.io/cx5eh/">Data &amp; R Markdown files</a>)</p>
+<p>McHugh, C., McGann, M., Igou, E. R., &amp; Kinsella, E. L. (2017). Searching for Moral Dumbfounding: Identifying Measurable Indicators of Moral Dumbfounding. <em>Collabra: Psychology</em>, 3(1), 23. doi: <a href="http://doi.org/10.1525/collabra.79">10.1525/collabra.79</a> (<a href="https://osf.io/wm6vc/">Data &amp; R Markdown files</a>)</p>
+<p>Sauer, S. (in press). Observation oriented modeling revised from a statistical point of view. <em>Behavior Research Methods</em>. doi: <a href="https://doi.org/10.3758/s13428-017-0949-8">10.3758/s13428-017-0949-8</a> (<a href="https://osf.io/6vhja/">Data &amp; R Markdown files</a>)</p>
 </div>
-<div id="microsoft-word-documents" class="section level2">
-<h2><span class="header-section-number">8.2</span> Microsoft Word documents</h2>
-<p>In contrast, there is no simple way to compensate for the limited control offered by <code>pandoc</code> when rendering Microsoft Word documents. This is the reason why some of <code>papaja</code>’s features are only available if the to-be-rendered document is in PDF format, such as some <a href="r-markdown-components.html#rendering-options">Rendering options</a> and some features of <code>apa_table()</code> (see <a href="writing.html#tables">Tables</a>). More over, rendered documents in DOCX format require some manual work before they fully comply with APA guidelines. We, therefore, provide the following checklist of necessary changes:</p>
-<ol style="list-style-type: decimal">
-<li>add a running head and page number to the header line</li>
-<li>add horizontal rules above the column titles and below the last table row</li>
-<li>position the beginning of the reference section at the top of a new page</li>
-<li>format the references to have hanging indentation (i.e. indentation of all lines but the first one)</li>
-<li>move figures and tables to the end of the manuscript</li>
-<li>in figure captions, add a colon following the figure numbers and italize</li>
-<li>remove bold formatting of manuscript title at the beginning of the introduction</li>
-</ol>
-<p>If necessary,</p>
-<ol style="list-style-type: decimal">
-<li>position author note at the bottom of page 1</li>
-<li>position abstract at the top of page 2</li>
-<li>position the beginning of the main text (including the title) at the top of page 3</li>
-<li>add a colon at the end of level 3-headings</li>
-<li>add midrules to tables</li>
-</ol>
-<p>We hope to automated some of these points in the future as the flexibility of <code>pandoc</code> increases.</p>
+<div id="preprints" class="section level2">
+<h2><span class="header-section-number">7.2</span> Preprints</h2>
+<p>Stahl, C., Henze, L., &amp; Aust, F. (2016). False memory for perceptually similar but conceptually distinct line drawings. <em>PsyArXiv</em>. doi: <a href="http://dx.doi.org/10.17605/OSF.IO/ZR7M8">10.17605/OSF.IO/ZR7M8</a> (<a href="https://osf.io/jxm7z/">Data &amp; R Markdown files</a>)</p>
+<p>Haaf, J. &amp; Rouder, J. N. (2017). Developing Constraint in Bayesian Mixed Models. <em>PsyArXiv</em>. doi: <a href="http://dx.doi.org/10.17605/OSF.IO/KTJNQ">10.17605/OSF.IO/KTJNQ</a> (<a href="https://github.com/PerceptionAndCognitionLab/ctx-indiff">R Markdown files</a>)</p>
+<p>Rouder, J. N., Haaf, J., &amp; Aust, F. (2017). From theories to models to predictions: A Bayesian model comparison approach for communications research. <em>PsyArXiv</em>. doi: <a href="http://dx.doi.org/10.17605/OSF.IO/JT4TH">10.17605/OSF.IO/JT4TH</a></p>
+<p>Buchanan, E. M, &amp; Scofield, J. E. (2017, August 25). Bulletproof Bias? Considering the Type of Data in Common Proportion of Variance Effect Sizes. Preprint retrieved from <a href="https://osf.io/cs4vy/" class="uri">https://osf.io/cs4vy/</a> (<a href="https://osf.io/urd8q/">Data &amp; R Markdown files</a>)</p>
+<p>Urry, H. L., Sifre, E., Song, J., Steinberg, H., Bornstein, M., Kim, J., … Andrews, M. (2017, March 13). Replication of Eskine, K. J., Kacinik, N. A., &amp; Prinz, J. J. (2011) at Tufts University - Spring, 2017. Preprint retrieved from <a href="https://osf.io/fu384/" class="uri">https://osf.io/fu384/</a> (<a href="https://osf.io/ddmkm">Data &amp; R Markdown files</a>)</p>
+<p>Aust, F., Haaf, J. M., &amp; Stahl, C. (2017). A memory-based judgment account of expectancy-liking dissociations in evaluative conditioning. PsyArXiv. doi: <a href="https://dx.doi.org/10.17605/OSF.IO/TKX7B">10.17605/OSF.IO/TKX7B</a> (<a href="https://osf.io/x6ur5/">Data &amp; R Markdown files</a>)</p>
 
 </div>
 </div>
@@ -264,8 +259,8 @@ s.setAttribute('data-timestamp', +new Date());
           </div>
         </div>
       </div>
-<a href="published-manuscripts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="future-directions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="collaborative-writing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="limitations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -294,7 +289,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/crsh/papaja_man/edit/master/08-limitations.Rmd",
+"link": "https://github.com/crsh/papaja_man/edit/master/07-publishing.Rmd",
 "text": "Edit"
 },
 "download": null,
