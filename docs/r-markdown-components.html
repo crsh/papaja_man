@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2017-11-28">
+<meta name="date" content="2017-12-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -214,47 +214,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">2.1</span> YAML front matter</h2>
 <p><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> is a human-readable and easy to write language to define data structures. You don’t need to familiarize yourself intimately with YAML to use R Markdown or <code>papaja</code> and I suggest you try to just use it. The following is the default YAML front matter; it starts and ends with <code>---</code>:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">title             :</span><span class="at"> </span><span class="st">&quot;The title&quot;</span>
-<span class="fu">shorttitle        :</span><span class="at"> </span><span class="st">&quot;Title&quot;</span>
+<span class="fu">title             :</span> <span class="st">&quot;The title&quot;</span>
+<span class="fu">shorttitle        :</span> <span class="st">&quot;Title&quot;</span>
 
-<span class="fu">author:</span><span class="at"> </span>
-  <span class="kw">-</span> <span class="fu">name          :</span><span class="at"> </span><span class="st">&quot;First Author&quot;</span>
-    <span class="fu">affiliation   :</span><span class="at"> </span><span class="st">&quot;1&quot;</span>
-    <span class="fu">corresponding :</span><span class="at"> yes    </span><span class="co"># Define only one corresponding author</span>
-    <span class="fu">address       :</span><span class="at"> </span><span class="st">&quot;Postal address&quot;</span>
-    <span class="fu">email         :</span><span class="at"> </span><span class="st">&quot;my@email.com&quot;</span>
-  <span class="kw">-</span> <span class="fu">name          :</span><span class="at"> </span><span class="st">&quot;Ernst-August Doelle&quot;</span>
-    <span class="fu">affiliation   :</span><span class="at"> </span><span class="st">&quot;1,2&quot;</span>
+<span class="fu">author:</span> 
+  <span class="kw">-</span> <span class="fu">name          :</span> <span class="st">&quot;First Author&quot;</span>
+    <span class="fu">affiliation   :</span> <span class="st">&quot;1&quot;</span>
+    <span class="fu">corresponding :</span> yes    <span class="co"># Define only one corresponding author</span>
+    <span class="fu">address       :</span> <span class="st">&quot;Postal address&quot;</span>
+    <span class="fu">email         :</span> <span class="st">&quot;my@email.com&quot;</span>
+  <span class="kw">-</span> <span class="fu">name          :</span> <span class="st">&quot;Ernst-August Doelle&quot;</span>
+    <span class="fu">affiliation   :</span> <span class="st">&quot;1,2&quot;</span>
 
 <span class="fu">affiliation:</span>
-  <span class="kw">-</span> <span class="fu">id            :</span><span class="at"> </span><span class="st">&quot;1&quot;</span>
-    <span class="fu">institution   :</span><span class="at"> </span><span class="st">&quot;Wilhelm-Wundt-University&quot;</span>
-  <span class="kw">-</span> <span class="fu">id            :</span><span class="at"> </span><span class="st">&quot;2&quot;</span>
-    <span class="fu">institution   :</span><span class="at"> </span><span class="st">&quot;Konstanz Business School&quot;</span>
+  <span class="kw">-</span> <span class="fu">id            :</span> <span class="st">&quot;1&quot;</span>
+    <span class="fu">institution   :</span> <span class="st">&quot;Wilhelm-Wundt-University&quot;</span>
+  <span class="kw">-</span> <span class="fu">id            :</span> <span class="st">&quot;2&quot;</span>
+    <span class="fu">institution   :</span> <span class="st">&quot;Konstanz Business School&quot;</span>
 
-<span class="fu">author_note:</span><span class="at"> &gt;</span>
-  Complete departmental affiliations for each author (note the indentation, if you start a new paragraph).
+<span class="fu">author_note:</span> |
+  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
 
   Enter author note here.
 
-<span class="fu">abstract:</span><span class="at"> &gt;</span>
-  Enter abstract here (note the indentation, if you start a new paragraph).
+<span class="fu">abstract:</span> |
+  Enter abstract here. Each new line herein must be indented, like this line.
   
-<span class="fu">keywords          :</span><span class="at"> </span><span class="st">&quot;keywords&quot;</span>
-<span class="fu">wordcount         :</span><span class="at"> </span><span class="st">&quot;X&quot;</span>
+<span class="fu">keywords          :</span> <span class="st">&quot;keywords&quot;</span>
+<span class="fu">wordcount         :</span> <span class="st">&quot;X&quot;</span>
 
-<span class="fu">bibliography      :</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;r-references.bib&quot;</span><span class="kw">]</span>
+<span class="fu">bibliography      :</span> <span class="kw">[</span><span class="st">&quot;r-references.bib&quot;</span><span class="kw">]</span>
 
-<span class="fu">figsintext        :</span><span class="at"> no</span>
-<span class="fu">figurelist        :</span><span class="at"> no</span>
-<span class="fu">tablelist         :</span><span class="at"> no</span>
-<span class="fu">footnotelist      :</span><span class="at"> no</span>
-<span class="fu">lineno            :</span><span class="at"> yes</span>
-<span class="fu">mask              :</span><span class="at"> no</span>
+<span class="fu">figsintext        :</span> no
+<span class="fu">figurelist        :</span> no
+<span class="fu">tablelist         :</span> no
+<span class="fu">footnotelist      :</span> no
+<span class="fu">lineno            :</span> yes
+<span class="fu">mask              :</span> no
 
-<span class="fu">lang              :</span><span class="at"> </span><span class="st">&quot;english&quot;</span>
-<span class="fu">class             :</span><span class="at"> </span><span class="st">&quot;man&quot;</span>
-<span class="fu">output            :</span><span class="at"> papaja::apa6_pdf</span>
+<span class="fu">class             :</span> <span class="st">&quot;man&quot;</span>
+<span class="fu">output            :</span> papaja::apa6_pdf
 <span class="ot">---</span></code></pre></div>
 <div id="manuscript-metadata" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Manuscript metadata</h3>
@@ -272,9 +271,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><code>figsintext</code> indicates whether figures and tables are to be positioned at the end of the document—as required by APA guidelines—or included in the body of the document. If <code>figurelist</code>, <code>tablelist</code>, or <code>footnotelist</code> are set to <code>yes</code> lists of figure captions, table captions, or footnotes are created and placed after the reference section. <code>lineno</code> indicates whether lines should be continuously numbered throughout the manuscript.</p>
 <p>The remaining rendering options affect both PDF and Microsoft Word documents. <code>mask</code> can be set to <code>yes</code> to prepare the manuscript for double-blind peer review by removing author names, affiliations, and author note from the title page. <!-- The language of the manuscript is given in `lang` and affects automatically generated text, such as "Author note" on the title page or "Figure 1." in figure captions. --> <!-- Currently, `english` and `german` are supported. --> <code>class</code> defines the layout style of the manuscript. Setting <code>class</code> to <code>man</code> produces the default APA manuscript style, <code>doc</code> produces a more typical document (single-spaced, single-column). The latter option is, however, currently not available for Microsoft Word documents.</p>
 <p>The <code>output</code> field determines the type of document that is created and can be either <code>papaja::apa6_pdf</code> or <code>papaja::apa6_word</code>. Additional arguments can be passed to these functions, e.g. to delete the LaTeX source file after the PDF has been rendered (see <code>?apa6_pdf</code> for details):</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span><span class="at"> </span>
-  <span class="fu">papaja:</span><span class="at">:apa6_pdf:</span>
-    <span class="fu">keep_tex:</span><span class="at"> FALSE</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span> 
+  <span class="fu">papaja:</span>:apa6_pdf:
+    <span class="fu">keep_tex:</span> FALSE</code></pre></div>
 <div id="additional-rendering-options" class="section level4">
 <h4><span class="header-section-number">2.1.2.1</span> Additional rendering options</h4>
 <p>Any additional rendering options supported by <code>rmarkdown::pdf_document()</code> or <code>rmarkdown::word_document()</code> can be added to the YAML front matter. For example, a different citation style can be used by setting <code>csl</code> to the location of a <a href="http://citationstyles.org/">CSL</a> style definition file. For an overview refer see the list of <a href="https://pandoc.org/MANUAL.html#variables-set-by-pandoc">default variables</a>, <a href="https://pandoc.org/MANUAL.html#language-variables">language variables</a>, and <a href="https://pandoc.org/MANUAL.html#variables-for-latex">LaTeX variables</a> supported by <code>pandoc</code> and the <a href="https://github.com/jgm/pandoc-citeproc/blob/master/man/pandoc-citeproc.1.md#filter-mode">filter modes</a> supported by <code>pandoc-citeproc</code>.</p>
