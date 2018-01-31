@@ -1,6 +1,10 @@
 # Reporting
 
 Using `papaja`, it is possible to run all your analyses from within an R Markdown document.
+Any output from R is included as you usually would using R Markdown.
+By default the R code will not be displayed in the final documents.
+If you wish to show off your code you need to set `echo = TRUE` in the chunk options.
+
 This section describes how you can include the results of your analyses can be included in text.
 It starts with simple numerical values (like a sample mean) and then continues with more-complex
 output, like the results from statistical models and hypothesis tests.
@@ -31,17 +35,18 @@ which will result in: Participants mean age was `r printnum(age_mean)` years (*S
 so changing the number of digits after the decimal point or the character to be used to indicate the 
 decimal point (e.g., from a point `"."` to a comma `","`) is always possible.
 
-The function `printp()` is a shorthand version of `printnum()` with the correct defaults alread set for printing $p$ values
-(i.e., printing $p < .001$ instead of this horrible $p = .000$ bullshit).
-
-And btw, if you forget to include `printnum` in your inline code, `papaja` is clever
-enough to aumatically call it. Thus, writing
+`papaja` applies `printnum` to any numbers that a printed in inline code chunks.
+Thus, writing
 
 ```{r inline-hook, eval = FALSE, highlight = FALSE}
 Participants mean age was `r age_mean` years (*SD* = `r age_sd`).
 ```
 
 also results in: Participants mean age was `r printnum(age_mean)` years (*SD* = `r printnum(age_sd)`).
+
+The function `printp()` is a shorthand version of `printnum()` with the correct defaults alread set for printing $p$ values
+(i.e., printing $p < .001$ instead of the incorrect $p = .000$).
+
 
 ## Results from statistical tests
 
@@ -52,11 +57,28 @@ Simply drop the results from a statistical test (e.g. a $t$ test or an ANOVA)
 into `apa_print()`, and you will get an output object (a `list`) that contains all you need
 to report the analysis according to APA guidelines.
 `apa_print()` currently supports output objects from a variety of statistical models/tests,
-including $t$ tests, ANOVA, linear regression, and many, many more.
+including $t$ tests, ANOVA, linear regression.
 For a full list of supported output objects, see Table \@ref(tab:supported-s3-methods).
 
 
-
+```{r echo = FALSE, results = "asis"}
+print_classes <- gsub("apa_print\\.", "", as.character(utils::methods("apa_print")))
+print_classes <- print_classes[!grepl(",", print_classes)]
+print_classes <- c(print_classes, rep(NA,  (4 - length(print_classes) %% 4) * (length(print_classes) %% 4 > 0)))
+print_classes <- matrix(print_classes, ncol = 4)
+colnames(print_classes) <- apply(print_classes, 2, function(x) {
+  first_letters <- tolower(substr(x, 1, 1))
+  first_letters <- c(first_letters[1], tail(first_letters, 1))
+  first_letters[is.na(first_letters)] <- "z"
+  col_names <- if(first_letters[1] == first_letters[2]) first_letters[1] else paste(first_letters, collapse = "-")
+  toupper(col_names)
+})
+print_classes[is.na(print_classes)] <- ""
+knitr::kable(
+  print_classes
+  , caption = "Object classes supported by apa_print()."
+)
+```
 
 
 
@@ -111,24 +133,31 @@ For a full list of supported output objects, see Table \@ref(tab:supported-s3-me
 knitr::include_graphics("result_formatting_process.png")
 ```
 
+
 ### htest (*t* tests, correlations, etc.)
 
 The results of a $t$ test (regardless of the exact type of $t$ test) are typically stored in an `htest` object.
 
 ```{r}
-# load data: Dataset is obtained via Andy Field.
+# Cosmetic surgery dataset from
+# Field, A. P., Miles, J., & Field, Z. (2012). Discovering statistics using R. London: Sage.
 load("data/cosmetic_surgery.rdata")
-# compare post-surgery quality of life with pre-surgery quality of life
-t_out <- t.test(x = cosmetic_surgery$Post_QoL, y = cosmetic_surgery$Base_QoL, paired = TRUE)
-# let's see what the apa_print() output looks like
+
+t_out <- t.test(
+  x = cosmetic_surgery$Post_QoL
+  , y = cosmetic_surgery$Base_QoL
+  , paired = TRUE
+)
+
+# Let's see what the apa_print() output looks like
 apa_print(t_out)
 ```
 
 As you can see, `apa_print()` returns a list of four elements:
-List element `estimate` is the sample estimate of mean difference;
-element `statistic` is the result of the NHST with test statistic, *df*s, and *p* value;
-element `full_result` is both information combined.
-The fourth element, `table`, is a table containing test results; while this is `NULL` for a $t$ test,
+List element `estimate` contains the sample estimate of mean difference;
+element `statistic` contains the result of the NHST with test statistic, *df*s, and *p* value;
+element `full_result` contains both information combined.
+The fourth element, `table`, contains a table containing test results; while this is `NULL` for a $t$ test,
 it will be quiet interesting for ANOVA or linear model results, as you will see in the next subsections.
 
 ### lm (linear regression)
@@ -141,140 +170,74 @@ apa_lm <- apa_print(lm_out)
 ```
 
 Again, `apa_print` returns a four-elements list.
-
-What is most fun is that you can simply drag the `table` element into `apa_table()` to get a full regression table, see Table \@ref(tab:lm-table).
+`apa_lm$table` contains a complete regression table that can be passed to `apa_table()` to get a full regression table, see Table \@ref(tab:lm-table; remember to set the chunk option `results = "asis"`).
 
 ```{r lm-table, results = "asis"}
-apa_table(apa_lm$table, caption = "A full regression table.")
+apa_table(
+  apa_lm$table
+  , caption = "A full regression table."
+  , escape = FALSE
+)
 ```
 
 #### anova (model comparisons)
+
+...
 
 ### anova, Anova, Anova.mlm (Analysis of Variance -- ANOVA)
 
 *Foreword -- you can skip this if you are not interested in background*.
 Amongst psychologists, analysis of variance is a still-popular and frequently used technique.
 In base R, however, analysis of variance is not implemented in a way that is too useful
-for psychologists, as the `aov`function in the stats package does not provide the much sought-after
+for psychologists, as the `aov`-function in the stats package does not provide the much sought-after
 Type-$\rm{I\!I\!I}$ sums-of-squares. A variety of R packages has emerged to fill the gap, e.g.
-`car` [@R-car], `ezANOVA` [@R-ez], and `afex` [@R-afex]. The problem is: All ANOVA functions provide
-different output objects (and using `summary` on these objects generates even other objects) that need to be digested by `apa_print()`.
-Even though we spent quiet some work on `apa_print()` taking everything from ANOVA, there are still some shortcomings: 
-Output objects from `ezANOVA` are not supported, as they do not contain the necessary information to be properly digested.
+`car` [@R-car], `ez` [@R-ez], and `afex` [@R-afex].
+Unfortunately, each ANOVA function provides different output objects that need to be digested by `apa_print()`.
+To do so, we rely on the package authors to return standardized result objects (i.e., S3/S4 classes).
+For this reason `apa_print()` does not support results from the popular `ezANOVA()`.
+The object returned by this function has no class to inform us about its contents and, thus, cannot be processed.
+We recommend you try one of the other available packages, e.g. `aov_ez()` from the `afex`-package.
 
 *Functionality*.
 
 ```{r anova-apa, message = FALSE}
-anova_out <- afex::aov_ez(data = cosmetic_surgery, dv = "Post_QoL", id = "ID", between = c("Clinic", "Gender"), return = "Anova")
-apa_anova <- apa_print(anova_out)
+cosmetic_surgery_anova <- afex::aov_ez(
+  data = cosmetic_surgery
+  , dv = "Post_QoL"
+  , id = "ID"
+  , between = c("Clinic", "Gender")
+)
+apa_anova <- apa_print(cosmetic_surgery_anova)
 ```
 
+Now, you can report the results of your analyses like so:
+
+```{r eval = FALSE, echo = TRUE, eval = FALSE}
+Clinic (`r apa_anova$full$Clinic`) and patient gender affected post-surgery quality of life, `r apa_anova$full$Gender`. However, the effect of gender differed by clinic, `r apa_anova$full$Clinic_Gender`.
+```
+
+Which will yield the following text:
+
+> Clinic (`r apa_anova$full$Clinic`) and patient gender affected post-surgery quality of life, `r apa_anova$full$Gender`. However, the effect of gender differed by clinic, `r apa_anova$full$Clinic_Gender`.
+
+Again, you can easily create a complete ANOVA table by passing `recall_anova_results$table` to `apa_table()`, see \autoref{ref:anova}.
 
 ```{r anova-table, results = 'asis'}
-apa_table(apa_anova$table, caption = "A really beautiful ANOVA table.", note = "Note that the column names contain beautiful mathematical copy: This is because the table returned by apa_print() has variable labels.")
+apa_table(
+  apa_anova$table
+  , caption = "A really beautiful ANOVA table."
+  , note = "Note that the column names contain beautiful mathematical copy: This is because the table has variable labels."
+)
 ```
 
 
 
 #### glht, lsmeans, ref.grid (post-hoc tests)
 
-
-
-
-The functions `apa_print()` and `apa_table()` facilitate reporting results of your analyses. Take a look at the [.Rmd](https://github.com/crsh/papaja/blob/master/example/example.Rmd) of the example manuscript in the folder `example` and the resulting [.pdf](https://raw.githubusercontent.com/crsh/papaja/master/example/example.pdf).
-
-Drop a supported analysis result, such as an `htest`- or `lm`-object, into `apa_print()` and receive a list of possible character strings that you can use to report the results of your analysis.
-
-```{r}
-my_lm <- lm(Sepal.Width ~ Sepal.Length + Petal.Width + Petal.Length, data = iris)
-apa_lm <- apa_print(my_lm)
-```
-
-One element of this list is `apa_lm$table` that, in the case of an `lm`-object, will contain a complete regression table. Pass `apa_lm$table` to `apa_table()` to turn it into a proper table in your PDF or Word document (remember to set the chunk option `results = "asis"`).
-
-```{r results = "asis"}
-apa_table(apa_lm$table, caption = "Iris regression table.")
-```
-
-<!-- GitHub markdown doesn't support MathJax
-
----
-
-Table. *Iris regression table.*
-
-| Predictor     | *b*   | 95% CI          | *t(146)*   | *p*       |
-|:--------------|:-----:|:---------------:|:----------:|:---------:|
-| Intercept     | 1.04  |  [0.51, 1.58]   | 3.85       | &lt; .001 |
-| Sepal Length  | 0.61  |  [0.48, 0.73]   | 9.77       | &lt; .001 |
-| Petal Width   | 0.56  |  [0.32, 0.80]   | 4.55       | &lt; .001 |
-| Petal Length  | -0.59 |  [-0.71, -0.46] | -9.43      | &lt; .001 |
-
----
--->
-
-`papaja` currently provides methods for the following object classes:
-
-```{r supported-s3-methods, echo = FALSE, results = "asis"}
-print_classes <- gsub("apa_print\\.", "", as.character(utils::methods("apa_print")))
-print_classes <- c(print_classes, rep(NA,  length(print_classes) %% 4))
-print_classes <- matrix(print_classes, ncol = 4)
-colnames(print_classes) <- apply(print_classes, 2, function(x) {
-  first_letters <- tolower(substr(x, 1, 1))
-  first_letters <- c(first_letters[1], tail(first_letters, 1))
-  first_letters[is.na(first_letters)] <- "z"
-  col_names <- if(first_letters[1] == first_letters[2]) first_letters[1] else paste(first_letters, collapse = "-")
-  toupper(col_names)
-})
-knitr::kable(print_classes, caption = "Object types that are currently supported by `apa_print()`.")
-```
-
-
-
-Any output from R is included as you usually would using R Markdown.
-By default the R code will not be displayed in the final documents.
-If you wish to show off your code you need to set `echo = TRUE` in the chunk options.
-
-
-### Report statistical analyses
-
-`apa_print()` will help you report the results of your statistical analyses.
-The function will format the contents of R objects and produce readily reportable text.
-
-```{r echo = TRUE, eval = FALSE}
-recall_anova <- afex::aov_car(
-  Recall ~ (Task * Valence * Dosage) + Error(Subject/(Task * Valence)) + Dosage
-  , data = mixed_data
-  , type = 3
-)
-recall_anova_results <- apa_print(recall_anova, es = "pes")
-recall_anova_results_p <- apa_print(recall_anova, es = "pes", in_paren = TRUE)
-```
-
-Now, you can report the results of your analyses like so:
-
-```{r eval = FALSE, echo = TRUE, eval = FALSE}
-Item valence (`r anova_results_p$full$Valence`) and the task affected recall
-performance, `r anova_results$full$Task`; the dosage, however, had no effect
-on recall, `r anova_results$full$Dosage`. There was no significant interaction.
-```
-
-<!--
-> Item valence (`r #recall_anova_results_p$full$Valence`) and the task affected recall performance, `r #recall_anova_results$full$Task`;
-> the dosage, however, had no effect on recall, `r #recall_anova_results$full$Dosage`.
-> There was no significant interaction.
--->
-
-What's even more fun, you can easily create a complete ANOVA table by passing `recall_anova_results$table` to `apa_table()`, see \autoref{ref:anova}.
-
-```{r results = "asis", echo = TRUE, eval = FALSE}
-apa_table(
-  recall_anova_results$table
-  , align = c("l", "r", "c", "r", "r", "r")
-  , caption = "ANOVA table for the analyis of the example data set. \\label{ref:anova}"
-  , note = "This is a table created using apa\\_print() and apa\\_table()."
-)
-```
+...
 
 
 
 ## Caching expensive computations
+
+...

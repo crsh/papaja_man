@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2017-12-20">
+<meta name="date" content="2018-01-31">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -153,7 +153,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.2.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
 <li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.2.2</b> lm (linear regression)</a></li>
 <li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.2.3</b> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</a></li>
-<li class="chapter" data-level="4.2.4" data-path="reporting.html"><a href="reporting.html#report-statistical-analyses"><i class="fa fa-check"></i><b>4.2.4</b> Report statistical analyses</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.3</b> Caching expensive computations</a></li>
 </ul></li>
@@ -291,9 +290,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

@@ -23,20 +23,17 @@ This is the reason why some of `papaja`'s features are only available if the to-
 More over, rendered documents in DOCX format require some manual work before they fully comply with APA guidelines.
 We, therefore, provide the following checklist of necessary changes:
 
-1. add a running head and page number to the header line
+1. add a headder line including running head and page number
 2. add horizontal rules above the column titles and below the last table row
-3. position the beginning of the reference section at the top of a new page
-4. format the references to have hanging indentation (i.e. indentation of all lines but the first one)
-5. move figures and tables to the end of the manuscript
+3. position start of reference section at the top of a new page
+4. move figures and tables to the end of the manuscript
 5. in figure captions, add a colon following the figure numbers and italize 
-6. remove bold formatting of manuscript title at the beginning of the introduction
+
 
 If necessary,
 
-1. position author note at the bottom of page 1
-2. position abstract at the top of page 2
-3. position the beginning of the main text (including the title) at the top of page 3
-4. add a colon at the end of level 3-headings
-5. add midrules to tables
+- position author note at the bottom of page 1
+- add colon to level 3-headings
+- add midrules to tables
 
 We hope to automated some of these points in the future as the flexibility of `pandoc` increases.
