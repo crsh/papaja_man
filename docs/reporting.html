@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2017-11-28">
+<meta name="date" content="2018-01-31">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -153,7 +153,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.2.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
 <li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.2.2</b> lm (linear regression)</a></li>
 <li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.2.3</b> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</a></li>
-<li class="chapter" data-level="4.2.4" data-path="reporting.html"><a href="reporting.html#report-statistical-analyses"><i class="fa fa-check"></i><b>4.2.4</b> Report statistical analyses</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.3</b> Caching expensive computations</a></li>
 </ul></li>
@@ -209,23 +208,73 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="reporting" class="section level1">
 <h1><span class="header-section-number">4</span> Reporting</h1>
-<p>Using <code>papaja</code>, it is possible to run all your analyses from within an R Markdown document. This section describes how you can include the results of your analyses can be included in text. It starts with simple numerical values (like a sample mean) and then continues with more-complex output, like the results from statistical models and hypothesis tests. <code>papaja</code> comes with two functions (<code>printnum</code> and <code>apa_print</code>) that do the job of formatting everything according to APA guidelines.</p>
+<p>Using <code>papaja</code>, it is possible to run all your analyses from within an R Markdown document. Any output from R is included as you usually would using R Markdown. By default the R code will not be displayed in the final documents. If you wish to show off your code you need to set <code>echo = TRUE</code> in the chunk options.</p>
+<p>This section describes how you can include the results of your analyses can be included in text. It starts with simple numerical values (like a sample mean) and then continues with more-complex output, like the results from statistical models and hypothesis tests. <code>papaja</code> comes with two functions (<code>printnum</code> and <code>apa_print</code>) that do the job of formatting everything according to APA guidelines.</p>
 <div id="numerical-values" class="section level2">
 <h2><span class="header-section-number">4.1</span> Numerical values</h2>
 <p>Consider a basic example, where you want to include a mean and a standard deviation into text: The function <code>printnum()</code> can be used to include a numeric value into text, with the correct rounding and with or without a leading zero. Just write some inline R code like this:</p>
 <pre class="text"><code>Participants mean age was `r printnum(age_mean)` years (*SD* = `r printnum(age_sd)`).</code></pre>
 <p>which will result in: Participants mean age was 22.84 years (<em>SD</em> = 3.78).</p>
 <p><code>printnum()</code> is quiet flexible and passes its arguments to the underlying base function <code>formatC()</code> (CAVE: We are currently considering to switch to <code>format()</code>.), so changing the number of digits after the decimal point or the character to be used to indicate the decimal point (e.g., from a point <code>&quot;.&quot;</code> to a comma <code>&quot;,&quot;</code>) is always possible.</p>
-<p>The function <code>printp()</code> is a shorthand version of <code>printnum()</code> with the correct defaults alread set for printing <span class="math inline">\(p\)</span> values (i.e., printing <span class="math inline">\(p &lt; .001\)</span> instead of this horrible <span class="math inline">\(p = .000\)</span> bullshit).</p>
-<p>And btw, if you forget to include <code>printnum</code> in your inline code, <code>papaja</code> is clever enough to aumatically call it. Thus, writing</p>
+<p><code>papaja</code> applies <code>printnum</code> to any numbers that a printed in inline code chunks. Thus, writing</p>
 <pre class="text"><code>Participants mean age was `r age_mean` years (*SD* = `r age_sd`).</code></pre>
 <p>also results in: Participants mean age was 22.84 years (<em>SD</em> = 3.78).</p>
+<p>The function <code>printp()</code> is a shorthand version of <code>printnum()</code> with the correct defaults alread set for printing <span class="math inline">\(p\)</span> values (i.e., printing <span class="math inline">\(p &lt; .001\)</span> instead of the incorrect <span class="math inline">\(p = .000\)</span>).</p>
 </div>
 <div id="results-from-statistical-tests" class="section level2">
 <h2><span class="header-section-number">4.2</span> Results from statistical tests</h2>
-<p>Output from statistical models and tests needs to be properly formatted before it can be included in text. For this purpose, we created the function <code>apa_print()</code>. Simply drop the results from a statistical test (e.g. a <span class="math inline">\(t\)</span> test or an ANOVA) into <code>apa_print()</code>, and you will get an output object (a <code>list</code>) that contains all you need to report the analysis according to APA guidelines. <code>apa_print()</code> currently supports output objects from a variety of statistical models/tests, including <span class="math inline">\(t\)</span> tests, ANOVA, linear regression, and many, many more. For a full list of supported output objects, see Table <a href="reporting.html#tab:supported-s3-methods">4.3</a>.</p>
+<p>Output from statistical models and tests needs to be properly formatted before it can be included in text. For this purpose, we created the function <code>apa_print()</code>. Simply drop the results from a statistical test (e.g. a <span class="math inline">\(t\)</span> test or an ANOVA) into <code>apa_print()</code>, and you will get an output object (a <code>list</code>) that contains all you need to report the analysis according to APA guidelines. <code>apa_print()</code> currently supports output objects from a variety of statistical models/tests, including <span class="math inline">\(t\)</span> tests, ANOVA, linear regression. For a full list of supported output objects, see Table <a href="#tab:supported-s3-methods"><strong>??</strong></a>.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-11">Table 4.1: </span>Object classes supported by apa_print().</caption>
+<thead>
+<tr class="header">
+<th align="left">A-B</th>
+<th align="left">B-L</th>
+<th align="left">L-S</th>
+<th align="left">S-Z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">afex_aov</td>
+<td align="left">BFBayesFactorList</td>
+<td align="left">lm</td>
+<td align="left">summary.glm</td>
+</tr>
+<tr class="even">
+<td align="left">anova</td>
+<td align="left">BFBayesFactorTop</td>
+<td align="left">lsmobj</td>
+<td align="left">summary.lm</td>
+</tr>
+<tr class="odd">
+<td align="left">Anova.mlm</td>
+<td align="left">glht</td>
+<td align="left">summary.Anova.mlm</td>
+<td align="left">summary.ref.grid</td>
+</tr>
+<tr class="even">
+<td align="left">aov</td>
+<td align="left">glm</td>
+<td align="left">summary.aov</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">aovlist</td>
+<td align="left">htest</td>
+<td align="left">summary.aovlist</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">BFBayesFactor</td>
+<td align="left">list</td>
+<td align="left">summary.glht</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
 <div class="figure" style="text-align: center"><span id="fig:formatting-process-diagram"></span>
-<img src="result_formatting_process.png" alt="Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript."  />
+<img src="result_formatting_process.png" alt="Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript." width="272" />
 <p class="caption">
 Figure 4.1: Process diagram illustrating the use of <code>apa_print()</code> methods and <code>apa_table()</code> to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.
 </p>
@@ -233,11 +282,17 @@ Figure 4.1: Process diagram illustrating the use of <code>apa_print()</code> met
 <div id="htest-t-tests-correlations-etc." class="section level3">
 <h3><span class="header-section-number">4.2.1</span> htest (<em>t</em> tests, correlations, etc.)</h3>
 <p>The results of a <span class="math inline">\(t\)</span> test (regardless of the exact type of <span class="math inline">\(t\)</span> test) are typically stored in an <code>htest</code> object.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load data: Dataset is obtained via Andy Field.</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cosmetic surgery dataset from</span>
+<span class="co"># Field, A. P., Miles, J., &amp; Field, Z. (2012). Discovering statistics using R. London: Sage.</span>
 <span class="kw">load</span>(<span class="st">&quot;data/cosmetic_surgery.rdata&quot;</span>)
-<span class="co"># compare post-surgery quality of life with pre-surgery quality of life</span>
-t_out &lt;-<span class="st"> </span><span class="kw">t.test</span>(<span class="dt">x =</span> cosmetic_surgery<span class="op">$</span>Post_QoL, <span class="dt">y =</span> cosmetic_surgery<span class="op">$</span>Base_QoL, <span class="dt">paired =</span> <span class="ot">TRUE</span>)
-<span class="co"># let&#39;s see what the apa_print() output looks like</span>
+
+t_out &lt;-<span class="st"> </span><span class="kw">t.test</span>(
+  <span class="dt">x =</span> cosmetic_surgery<span class="op">$</span>Post_QoL
+  , <span class="dt">y =</span> cosmetic_surgery<span class="op">$</span>Base_QoL
+  , <span class="dt">paired =</span> <span class="ot">TRUE</span>
+)
+
+<span class="co"># Let&#39;s see what the apa_print() output looks like</span>
 <span class="kw">apa_print</span>(t_out)</code></pre></div>
 <pre><code>## $estimate
 ## [1] &quot;$M_d = -3.95$, 95\\% CI $[-4.86$, $-3.04]$&quot;
@@ -250,18 +305,24 @@ t_out &lt;-<span class="st"> </span><span class="kw">t.test</span>(<span class="
 ## 
 ## $table
 ## NULL</code></pre>
-<p>As you can see, <code>apa_print()</code> returns a list of four elements: List element <code>estimate</code> is the sample estimate of mean difference; element <code>statistic</code> is the result of the NHST with test statistic, <em>df</em>s, and <em>p</em> value; element <code>full_result</code> is both information combined. The fourth element, <code>table</code>, is a table containing test results; while this is <code>NULL</code> for a <span class="math inline">\(t\)</span> test, it will be quiet interesting for ANOVA or linear model results, as you will see in the next subsections.</p>
+<p>As you can see, <code>apa_print()</code> returns a list of four elements: List element <code>estimate</code> contains the sample estimate of mean difference; element <code>statistic</code> contains the result of the NHST with test statistic, <em>df</em>s, and <em>p</em> value; element <code>full_result</code> contains both information combined. The fourth element, <code>table</code>, contains a table containing test results; while this is <code>NULL</code> for a <span class="math inline">\(t\)</span> test, it will be quiet interesting for ANOVA or linear model results, as you will see in the next subsections.</p>
 </div>
 <div id="lm-linear-regression" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> lm (linear regression)</h3>
 <p>The results of a linear model are stored in an <code>lm</code> object.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lm_out &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Post_QoL <span class="op">~</span><span class="st"> </span>Base_QoL <span class="op">+</span><span class="st"> </span>BDI, <span class="dt">data =</span> cosmetic_surgery)
 apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_out)</code></pre></div>
-<p>Again, <code>apa_print</code> returns a four-elements list.</p>
-<p>What is most fun is that you can simply drag the <code>table</code> element into <code>apa_table()</code> to get a full regression table, see Table <a href="reporting.html#tab:lm-table">4.1</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(apa_lm<span class="op">$</span>table, <span class="dt">caption =</span> <span class="st">&quot;A full regression table.&quot;</span>)</code></pre></div>
+<p>Again, <code>apa_print</code> returns a four-elements list. <code>apa_lm$table</code> contains a complete regression table that can be passed to <code>apa_table()</code> to get a full regression table, see Table @ref(tab:lm-table; remember to set the chunk option <code>results = &quot;asis&quot;</code>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(
+  apa_lm<span class="op">$</span>table
+  , <span class="dt">caption =</span> <span class="st">&quot;A full regression table.&quot;</span>
+  , <span class="dt">escape =</span> <span class="ot">FALSE</span>
+)</code></pre></div>
 <caption>
-<span id="tab:lm-table">Table 4.1: </span><em>A full regression table.</em>
+<span id="tab:lm-table">Table 4.2: </span>
+</caption>
+<caption>
+<em>A full regression table.</em>
 </caption>
 <table>
 <thead>
@@ -299,170 +360,92 @@ apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_out)</
 </table>
 <div id="anova-model-comparisons" class="section level4">
 <h4><span class="header-section-number">4.2.2.1</span> anova (model comparisons)</h4>
+<p>…</p>
 </div>
 </div>
 <div id="anova-anova-anova.mlm-analysis-of-variance-anova" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</h3>
-<p><em>Foreword – you can skip this if you are not interested in background</em>. Amongst psychologists, analysis of variance is a still-popular and frequently used technique. In base R, however, analysis of variance is not implemented in a way that is too useful for psychologists, as the <code>aov</code>function in the stats package does not provide the much sought-after Type-<span class="math inline">\(\rm{I\!I\!I}\)</span> sums-of-squares. A variety of R packages has emerged to fill the gap, e.g. <code>car</code> <span class="citation">(Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>)</span>, <code>ezANOVA</code> <span class="citation">(Lawrence, <a href="#ref-R-ez">2016</a>)</span>, and <code>afex</code> <span class="citation">(Singmann et al., <a href="#ref-R-afex">2016</a>)</span>. The problem is: All ANOVA functions provide different output objects (and using <code>summary</code> on these objects generates even other objects) that need to be digested by <code>apa_print()</code>. Even though we spent quiet some work on <code>apa_print()</code> taking everything from ANOVA, there are still some shortcomings: Output objects from <code>ezANOVA</code> are not supported, as they do not contain the necessary information to be properly digested.</p>
+<p><em>Foreword – you can skip this if you are not interested in background</em>. Amongst psychologists, analysis of variance is a still-popular and frequently used technique. In base R, however, analysis of variance is not implemented in a way that is too useful for psychologists, as the <code>aov</code>-function in the stats package does not provide the much sought-after Type-<span class="math inline">\(\rm{I\!I\!I}\)</span> sums-of-squares. A variety of R packages has emerged to fill the gap, e.g. <code>car</code> <span class="citation">(Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>)</span>, <code>ez</code> <span class="citation">(Lawrence, <a href="#ref-R-ez">2016</a>)</span>, and <code>afex</code> <span class="citation">(Singmann et al., <a href="#ref-R-afex">2016</a>)</span>. Unfortunately, each ANOVA function provides different output objects that need to be digested by <code>apa_print()</code>. To do so, we rely on the package authors to return standardized result objects (i.e., S3/S4 classes). For this reason <code>apa_print()</code> does not support results from the popular <code>ezANOVA()</code>. The object returned by this function has no class to inform us about its contents and, thus, cannot be processed. We recommend you try one of the other available packages, e.g. <code>aov_ez()</code> from the <code>afex</code>-package.</p>
 <p><em>Functionality</em>.</p>
-<div id="glht-lsmeans-ref.grid-post-hoc-tests" class="section level4">
-<h4><span class="header-section-number">4.2.3.1</span> glht, lsmeans, ref.grid (post-hoc tests)</h4>
-<p>The functions <code>apa_print()</code> and <code>apa_table()</code> facilitate reporting results of your analyses. Take a look at the <a href="https://github.com/crsh/papaja/blob/master/example/example.Rmd">.Rmd</a> of the example manuscript in the folder <code>example</code> and the resulting <a href="https://raw.githubusercontent.com/crsh/papaja/master/example/example.pdf">.pdf</a>.</p>
-<p>Drop a supported analysis result, such as an <code>htest</code>- or <code>lm</code>-object, into <code>apa_print()</code> and receive a list of possible character strings that you can use to report the results of your analysis.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_lm &lt;-<span class="st"> </span><span class="kw">lm</span>(Sepal.Width <span class="op">~</span><span class="st"> </span>Sepal.Length <span class="op">+</span><span class="st"> </span>Petal.Width <span class="op">+</span><span class="st"> </span>Petal.Length, <span class="dt">data =</span> iris)
-apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(my_lm)</code></pre></div>
-<p>One element of this list is <code>apa_lm$table</code> that, in the case of an <code>lm</code>-object, will contain a complete regression table. Pass <code>apa_lm$table</code> to <code>apa_table()</code> to turn it into a proper table in your PDF or Word document (remember to set the chunk option <code>results = &quot;asis&quot;</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(apa_lm<span class="op">$</span>table, <span class="dt">caption =</span> <span class="st">&quot;Iris regression table.&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cosmetic_surgery_anova &lt;-<span class="st"> </span>afex<span class="op">::</span><span class="kw">aov_ez</span>(
+  <span class="dt">data =</span> cosmetic_surgery
+  , <span class="dt">dv =</span> <span class="st">&quot;Post_QoL&quot;</span>
+  , <span class="dt">id =</span> <span class="st">&quot;ID&quot;</span>
+  , <span class="dt">between =</span> <span class="kw">c</span>(<span class="st">&quot;Clinic&quot;</span>, <span class="st">&quot;Gender&quot;</span>)
+)
+apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmetic_surgery_anova)</code></pre></div>
+<p>Now, you can report the results of your analyses like so:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Clinic</span> (<span class="st">`</span><span class="dt">r apa_anova$full$Clinic</span><span class="st">`</span>) and patient gender affected post<span class="op">-</span>surgery quality of life, <span class="st">`</span><span class="dt">r apa_anova$full$Gender</span><span class="st">`</span>. However, the effect of gender differed by clinic, <span class="st">`</span><span class="dt">r apa_anova$full$Clinic_Gender</span><span class="st">`</span>.</code></pre></div>
+<p>Which will yield the following text:</p>
+<blockquote>
+<p>Clinic (<span class="math inline">\(F(9, 256) = 19.98\)</span>, <span class="math inline">\(\mathit{MSE} = 47.58\)</span>, <span class="math inline">\(p &lt; .001\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .413\)</span>) and patient gender affected post-surgery quality of life, <span class="math inline">\(F(1, 256) = 15.29\)</span>, <span class="math inline">\(\mathit{MSE} = 47.58\)</span>, <span class="math inline">\(p &lt; .001\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .056\)</span>. However, the effect of gender differed by clinic, <span class="math inline">\(F(9, 256) = 1.97\)</span>, <span class="math inline">\(\mathit{MSE} = 47.58\)</span>, <span class="math inline">\(p = .043\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .065\)</span>.</p>
+</blockquote>
+<p>Again, you can easily create a complete ANOVA table by passing <code>recall_anova_results$table</code> to <code>apa_table()</code>, see .</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(
+  apa_anova<span class="op">$</span>table
+  , <span class="dt">caption =</span> <span class="st">&quot;A really beautiful ANOVA table.&quot;</span>
+  , <span class="dt">note =</span> <span class="st">&quot;Note that the column names contain beautiful mathematical copy: This is because the table has variable labels.&quot;</span>
+)</code></pre></div>
 <caption>
-<span id="tab:unnamed-chunk-14">Table 4.2: </span><em>Iris regression table.</em>
+<span id="tab:anova-table">Table 4.3: </span>
+</caption>
+<caption>
+<em>A really beautiful ANOVA table.</em>
 </caption>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Predictor</th>
-<th align="left"><span class="math inline">\(b\)</span></th>
-<th align="left">95% CI</th>
-<th align="left"><span class="math inline">\(t(146)\)</span></th>
+<th align="left">Effect</th>
+<th align="left"><span class="math inline">\(F\)</span></th>
+<th align="left"><span class="math inline">\(\mathit{df}_1\)</span></th>
+<th align="left"><span class="math inline">\(\mathit{df}_2\)</span></th>
+<th align="left"><span class="math inline">\(\mathit{MSE}\)</span></th>
 <th align="left"><span class="math inline">\(p\)</span></th>
+<th align="left"><span class="math inline">\(\hat{\eta}^2_G\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Intercept</td>
-<td align="left">1.04</td>
-<td align="left"><span class="math inline">\([0.51\)</span>, <span class="math inline">\(1.58]\)</span></td>
-<td align="left">3.85</td>
+<td align="left">Clinic</td>
+<td align="left">19.98</td>
+<td align="left">9</td>
+<td align="left">256</td>
+<td align="left">47.58</td>
 <td align="left">&lt; .001</td>
+<td align="left">.413</td>
 </tr>
 <tr class="even">
-<td align="left">Sepal Length</td>
-<td align="left">0.61</td>
-<td align="left"><span class="math inline">\([0.48\)</span>, <span class="math inline">\(0.73]\)</span></td>
-<td align="left">9.77</td>
+<td align="left">Gender</td>
+<td align="left">15.29</td>
+<td align="left">1</td>
+<td align="left">256</td>
+<td align="left">47.58</td>
 <td align="left">&lt; .001</td>
+<td align="left">.056</td>
 </tr>
 <tr class="odd">
-<td align="left">Petal Width</td>
-<td align="left">0.56</td>
-<td align="left"><span class="math inline">\([0.32\)</span>, <span class="math inline">\(0.80]\)</span></td>
-<td align="left">4.55</td>
-<td align="left">&lt; .001</td>
-</tr>
-<tr class="even">
-<td align="left">Petal Length</td>
-<td align="left">-0.59</td>
-<td align="left"><span class="math inline">\([-0.71\)</span>, <span class="math inline">\(-0.46]\)</span></td>
-<td align="left">-9.43</td>
-<td align="left">&lt; .001</td>
+<td align="left">Clinic $times$ Gender</td>
+<td align="left">1.97</td>
+<td align="left">9</td>
+<td align="left">256</td>
+<td align="left">47.58</td>
+<td align="left">.043</td>
+<td align="left">.065</td>
 </tr>
 </tbody>
 </table>
-<!-- GitHub markdown doesn't support MathJax
-
----
-
-Table. *Iris regression table.*
-
-| Predictor     | *b*   | 95% CI          | *t(146)*   | *p*       |
-|:--------------|:-----:|:---------------:|:----------:|:---------:|
-| Intercept     | 1.04  |  [0.51, 1.58]   | 3.85       | &lt; .001 |
-| Sepal Length  | 0.61  |  [0.48, 0.73]   | 9.77       | &lt; .001 |
-| Petal Width   | 0.56  |  [0.32, 0.80]   | 4.55       | &lt; .001 |
-| Petal Length  | -0.59 |  [-0.71, -0.46] | -9.43      | &lt; .001 |
-
----
--->
-<p><code>papaja</code> currently provides methods for the following object classes:</p>
-<pre><code>## Warning in matrix(print_classes, ncol = 4): Datenlänge [26] ist kein Teiler
-## oder Vielfaches der Anzahl der Zeilen [7]</code></pre>
-<table>
-<caption><span id="tab:supported-s3-methods">Table 4.3: </span>Object types that are currently supported by <code>apa_print()</code>.</caption>
-<thead>
-<tr class="header">
-<th align="left">A</th>
-<th align="left">A-G</th>
-<th align="left">H-S</th>
-<th align="left">S-A</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">apa_print,ANY-method</td>
-<td align="left">aov</td>
-<td align="left">htest</td>
-<td align="left">summary.glht</td>
-</tr>
-<tr class="even">
-<td align="left">apa_print,BFBayesFactor-method</td>
-<td align="left">aovlist</td>
-<td align="left">list</td>
-<td align="left">summary.glm</td>
-</tr>
-<tr class="odd">
-<td align="left">apa_print,BFBayesFactorList-method</td>
-<td align="left">BFBayesFactor</td>
-<td align="left">lm</td>
-<td align="left">summary.lm</td>
-</tr>
-<tr class="even">
-<td align="left">apa_print,BFBayesFactorTop-method</td>
-<td align="left">BFBayesFactorList</td>
-<td align="left">lsmobj</td>
-<td align="left">summary.ref.grid</td>
-</tr>
-<tr class="odd">
-<td align="left">afex_aov</td>
-<td align="left">BFBayesFactorTop</td>
-<td align="left">summary.Anova.mlm</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="left">anova</td>
-<td align="left">glht</td>
-<td align="left">summary.aov</td>
-<td align="left">apa_print,ANY-method</td>
-</tr>
-<tr class="odd">
-<td align="left">Anova.mlm</td>
-<td align="left">glm</td>
-<td align="left">summary.aovlist</td>
-<td align="left">apa_print,BFBayesFactor-method</td>
-</tr>
-</tbody>
-</table>
-<p>Any output from R is included as you usually would using R Markdown. By default the R code will not be displayed in the final documents. If you wish to show off your code you need to set <code>echo = TRUE</code> in the chunk options.</p>
+<center>
+<em>Note.</em> Note that the column names contain beautiful mathematical copy: This is because the table has variable labels.
+</center>
+<div id="glht-lsmeans-ref.grid-post-hoc-tests" class="section level4">
+<h4><span class="header-section-number">4.2.3.1</span> glht, lsmeans, ref.grid (post-hoc tests)</h4>
+<p>…</p>
 </div>
-</div>
-<div id="report-statistical-analyses" class="section level3">
-<h3><span class="header-section-number">4.2.4</span> Report statistical analyses</h3>
-<p><code>apa_print()</code> will help you report the results of your statistical analyses. The function will format the contents of R objects and produce readily reportable text.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">recall_anova &lt;-<span class="st"> </span>afex<span class="op">::</span><span class="kw">aov_car</span>(
-  Recall <span class="op">~</span><span class="st"> </span>(Task <span class="op">*</span><span class="st"> </span>Valence <span class="op">*</span><span class="st"> </span>Dosage) <span class="op">+</span><span class="st"> </span><span class="kw">Error</span>(Subject<span class="op">/</span>(Task <span class="op">*</span><span class="st"> </span>Valence)) <span class="op">+</span><span class="st"> </span>Dosage
-  , <span class="dt">data =</span> mixed_data
-  , <span class="dt">type =</span> <span class="dv">3</span>
-)
-recall_anova_results &lt;-<span class="st"> </span><span class="kw">apa_print</span>(recall_anova, <span class="dt">es =</span> <span class="st">&quot;pes&quot;</span>)
-recall_anova_results_p &lt;-<span class="st"> </span><span class="kw">apa_print</span>(recall_anova, <span class="dt">es =</span> <span class="st">&quot;pes&quot;</span>, <span class="dt">in_paren =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<p>Now, you can report the results of your analyses like so:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Item <span class="kw">valence</span> (<span class="st">`</span><span class="dt">r anova_results_p$full$Valence</span><span class="st">`</span>) and the task affected recall
-performance, <span class="st">`</span><span class="dt">r anova_results$full$Task</span><span class="st">`</span>; the dosage, however, had no effect
-on recall, <span class="st">`</span><span class="dt">r anova_results$full$Dosage</span><span class="st">`</span>. There was no significant interaction.</code></pre></div>
-<!--
-> Item valence () and the task affected recall performance, ;
-> the dosage, however, had no effect on recall, .
-> There was no significant interaction.
--->
-<p>What’s even more fun, you can easily create a complete ANOVA table by passing <code>recall_anova_results$table</code> to <code>apa_table()</code>, see .</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(
-  recall_anova_results<span class="op">$</span>table
-  , <span class="dt">align =</span> <span class="kw">c</span>(<span class="st">&quot;l&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;r&quot;</span>, <span class="st">&quot;r&quot;</span>)
-  , <span class="dt">caption =</span> <span class="st">&quot;ANOVA table for the analyis of the example data set. </span><span class="ch">\\</span><span class="st">label{ref:anova}&quot;</span>
-  , <span class="dt">note =</span> <span class="st">&quot;This is a table created using apa</span><span class="ch">\\</span><span class="st">_print() and apa</span><span class="ch">\\</span><span class="st">_table().&quot;</span>
-)</code></pre></div>
 </div>
 </div>
 <div id="caching-expensive-computations" class="section level2">
 <h2><span class="header-section-number">4.3</span> Caching expensive computations</h2>
+<p>…</p>
 
 </div>
 </div>
@@ -550,9 +533,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
