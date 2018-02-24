@@ -204,7 +204,8 @@ Table. *Iris regression table.*
 
 ```{r supported-s3-methods, echo = FALSE, results = "asis"}
 print_classes <- gsub("apa_print\\.", "", as.character(utils::methods("apa_print")))
-print_classes <- c(print_classes, rep(NA,  length(print_classes) %% 4))
+print_classes <- print_classes[!grepl(",", print_classes)]
+print_classes <- c(print_classes, rep(NA,  (4 - length(print_classes) %% 4) * (length(print_classes) %% 4 > 0)))
 print_classes <- matrix(print_classes, ncol = 4)
 colnames(print_classes) <- apply(print_classes, 2, function(x) {
   first_letters <- tolower(substr(x, 1, 1))
@@ -213,7 +214,8 @@ colnames(print_classes) <- apply(print_classes, 2, function(x) {
   col_names <- if(first_letters[1] == first_letters[2]) first_letters[1] else paste(first_letters, collapse = "-")
   toupper(col_names)
 })
-knitr::kable(print_classes, caption = "Object types that are currently supported by `apa_print()`.")
+print_classes[is.na(print_classes)] <- ""
+knitr::kable(print_classes, caption = "Analysis object types currently supported by `apa_print()`.")
 ```
 
 
