@@ -240,4 +240,6 @@ apa_table(
 
 ## Caching expensive computations
 
+If possible, avoid caching `library()` calls. Subsequent use of functions from these packages in non-cached chunks will throw errors
+
 ...
