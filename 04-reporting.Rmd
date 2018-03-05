@@ -61,7 +61,7 @@ including $t$ tests, ANOVA, linear regression.
 For a full list of supported output objects, see Table \@ref(tab:supported-s3-methods).
 
 
-```{r echo = FALSE, results = "asis"}
+```{r supported-s3-methods, echo = FALSE, results = "asis"}
 print_classes <- gsub("apa_print\\.", "", as.character(utils::methods("apa_print")))
 print_classes <- print_classes[!grepl(",", print_classes)]
 print_classes <- c(print_classes, rep(NA,  (4 - length(print_classes) %% 4) * (length(print_classes) %% 4 > 0)))
@@ -74,12 +74,8 @@ colnames(print_classes) <- apply(print_classes, 2, function(x) {
   toupper(col_names)
 })
 print_classes[is.na(print_classes)] <- ""
-knitr::kable(
-  print_classes
-  , caption = "Object classes supported by apa_print()."
-)
+knitr::kable(print_classes, caption = "Analysis object types currently supported by `apa_print()`.")
 ```
-
 
 
 ```{r formatting-process-diagram, fig.cap = "Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.", fig.align = "center", echo = FALSE}
