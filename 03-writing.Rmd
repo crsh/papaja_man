@@ -283,18 +283,19 @@ A little candy: You can also require within-subjects confidence intervals as des
 If you have more than one observation per participant-factor-level-combination, these observations are aggregated.
 You can specify individual aggregation functions via `fun_aggregate`.
 
-### What is plotted?
-
 For each cell of the submitted data, the following information is plotted:
 
 - A measure of central tendency.
 - A measure of dispersion.
 - The names of dependent variable, factors and factor levels; a legend, if necessary.
 
-The plot functions in `papaja` are build around the `graphics` packages that is part of the base distribution of R.
-A lot of customization can thus be accomplished by calling `par`.
 
-If you are not willing to change these global options, you can pass a lot of parameters to the underlying functions
+### Customization
+
+The plot functions in `papaja` are built around the `graphics` packages that is part of the base distribution of R.
+A lot of customization can thus be accomplished by calling `par()` in the respective code chunk.
+
+If you are not willing to use `par()`, you can pass a lot of parameters to the underlying functions
 by arguments `args_points`, `args_error_bars`, etc. each time you call the plot.
 See the below example for a more customized version of a beeswarm plot (\@ref(fig:customized-plot)).
 
@@ -313,14 +314,42 @@ apa_beeplot(
 )
 ```
 
+#### Customization via `par()`
+
+The plot functions of `papaja` are built on top of the `graphics` package;
+therefore, it is possible to customize your plots by calling `par()`, and setting
+the appropriate options. For example, if you want to use a larger font, you could do this:
+
+```{r eval = FALSE}
+par(cex = 2)
+apa_beeplot(data = mixed_data, id = "Subject", dv = "Recall", factors = c("Task", "Valence"))
+```
+
+This approach (currently still) comes with a caveat:
+`knitr` forgets all settings to `par` when opening a new chunk.
+This implies that you would have to type your call to `par()` each time you open a new chunk with a plot.
+
+However, there is a workaround: You can include the following code lines into the first code chunk of your document.
+They tell `knitr` to execute the specified call to `par` each time a code chunk is executed.
+In this example, I tell `par` that I do not want $y$-axis labels to be rotated (`las = 1`), 
+a regular font for the main title (`font.main = 1`),
+and the font size of the main title to be slightly increased (`cex.main = 1.05`).
+
+```{r eval = FALSE}
+# Set global defaults for plotting ----
+knitr::opts_chunk$set(par = TRUE)
+knitr::knit_hooks$set(par = function(before, options, envir){
+  if (before && options$fig.show!='none') 
+    par(las = 1, font.main = 1, cex.main = 1.05)
+})
+```
+
 A footnote on customization: If you customize the colors in your plots, you *can* use transparency
 (i.e., via defining colors with `rgb()`).
 However, as soon as you do this, your plots will be included in a pixel-based format in your final document,
 even if you knit to pdf (usually, when knitting to pdf, R plots are included in a vector-based format).
 Pixel-based plot graphics are not too bad, but may lead to ugly compression artifacts after you uploaded your manuscript to
 a manuscript submission system. (We already had that problem in our lab.)
-
-<!-- ### Customization -->
 
 If you prefer creating your plots with `ggplot2` try `theme_apa()`.
 
