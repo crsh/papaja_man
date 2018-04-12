@@ -15,6 +15,25 @@ For example, to create a page break in the rendered document you can use the LaT
 Similarly, tables with column spanners can be created by using the corresponding LaTeX code.
 Hence, the limited control offered by `pandoc` can be compensated by using LaTeX code and `papaja` resorts to this approach, for example, in `apa_table()`.
 
+### Customizing the document preamble
+
+You can exert further control over your PDF documents by customizing the LaTeX preamble.
+Consider the following example:
+By default, LaTeX arranges paragraphs and section headings so that they fill the page.
+This can sometimes lead to unwanted vertical spacing, Figure \@ref(fig:vertical-spacing).
+
+```{r vertical-spacing, fig.cap = "An example of large vertical spacing between paragraphs and section headings in a rendered PDF document.", echo = FALSE, fig.align = "center"}
+knitr::include_graphics("vertical_spacing.jpg")
+```
+
+If you prefer white space at the bottom of the page, rather than between paragraphs, you can overwrite this default behavior by including `\raggedbottom` in the document preamble.
+To do so, add the following to the YAML front matter of your document:
+
+~~~yaml
+header-includes:
+  - "\raggedbottom"
+~~~
+
 
 ## Microsoft Word documents
 

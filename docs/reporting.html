@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2018-01-31">
+<meta name="date" content="2018-04-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -141,7 +141,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3.1" data-path="writing.html"><a href="writing.html#alternatives-1"><i class="fa fa-check"></i><b>3.3.1</b> Alternatives</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#figures"><i class="fa fa-check"></i><b>3.4</b> Figures</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="writing.html"><a href="writing.html#what-is-plotted"><i class="fa fa-check"></i><b>3.4.1</b> What is plotted?</a></li>
+<li class="chapter" data-level="3.4.1" data-path="writing.html"><a href="writing.html#customization"><i class="fa fa-check"></i><b>3.4.1</b> Customization</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.5</b> Equations</a></li>
 <li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.6</b> Cross-referencing</a></li>
@@ -176,7 +176,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.2" data-path="published-manuscripts.html"><a href="published-manuscripts.html#preprints"><i class="fa fa-check"></i><b>7.2</b> Preprints</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>8</b> Limitations</a><ul>
-<li class="chapter" data-level="8.1" data-path="limitations.html"><a href="limitations.html#pdf-documents"><i class="fa fa-check"></i><b>8.1</b> PDF documents</a></li>
+<li class="chapter" data-level="8.1" data-path="limitations.html"><a href="limitations.html#pdf-documents"><i class="fa fa-check"></i><b>8.1</b> PDF documents</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="limitations.html"><a href="limitations.html#customizing-the-document-preamble"><i class="fa fa-check"></i><b>8.1.1</b> Customizing the document preamble</a></li>
+</ul></li>
 <li class="chapter" data-level="8.2" data-path="limitations.html"><a href="limitations.html#microsoft-word-documents"><i class="fa fa-check"></i><b>8.2</b> Microsoft Word documents</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>9</b> Future directions</a><ul>
@@ -223,13 +225,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="results-from-statistical-tests" class="section level2">
 <h2><span class="header-section-number">4.2</span> Results from statistical tests</h2>
-<p>Output from statistical models and tests needs to be properly formatted before it can be included in text. For this purpose, we created the function <code>apa_print()</code>. Simply drop the results from a statistical test (e.g. a <span class="math inline">\(t\)</span> test or an ANOVA) into <code>apa_print()</code>, and you will get an output object (a <code>list</code>) that contains all you need to report the analysis according to APA guidelines. <code>apa_print()</code> currently supports output objects from a variety of statistical models/tests, including <span class="math inline">\(t\)</span> tests, ANOVA, linear regression. For a full list of supported output objects, see Table <a href="#tab:supported-s3-methods"><strong>??</strong></a>.</p>
+<p>Output from statistical models and tests needs to be properly formatted before it can be included in text. For this purpose, we created the function <code>apa_print()</code>. Simply drop the results from a statistical test (e.g. a <span class="math inline">\(t\)</span> test or an ANOVA) into <code>apa_print()</code>, and you will get an output object (a <code>list</code>) that contains all you need to report the analysis according to APA guidelines. <code>apa_print()</code> currently supports output objects from a variety of statistical models/tests, including <span class="math inline">\(t\)</span> tests, ANOVA, linear regression. For a full list of supported output objects, see Table <a href="reporting.html#tab:supported-s3-methods">4.1</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-11">Table 4.1: </span>Object classes supported by apa_print().</caption>
+<caption><span id="tab:supported-s3-methods">Table 4.1: </span>Analysis object types currently supported by <code>apa_print()</code>.</caption>
 <thead>
 <tr class="header">
 <th align="left">A-B</th>
-<th align="left">B-L</th>
+<th align="left">B-H</th>
 <th align="left">L-S</th>
 <th align="left">S-Z</th>
 </tr>
@@ -238,37 +240,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="odd">
 <td align="left">afex_aov</td>
 <td align="left">BFBayesFactorList</td>
-<td align="left">lm</td>
-<td align="left">summary.glm</td>
+<td align="left">list</td>
+<td align="left">summary_emm</td>
 </tr>
 <tr class="even">
 <td align="left">anova</td>
 <td align="left">BFBayesFactorTop</td>
-<td align="left">lsmobj</td>
-<td align="left">summary.lm</td>
+<td align="left">lm</td>
+<td align="left">summary.glht</td>
 </tr>
 <tr class="odd">
 <td align="left">Anova.mlm</td>
-<td align="left">glht</td>
-<td align="left">summary.Anova.mlm</td>
-<td align="left">summary.ref.grid</td>
+<td align="left">emmGrid</td>
+<td align="left">lsmobj</td>
+<td align="left">summary.glm</td>
 </tr>
 <tr class="even">
 <td align="left">aov</td>
-<td align="left">glm</td>
-<td align="left">summary.aov</td>
-<td align="left"></td>
+<td align="left">glht</td>
+<td align="left">summary.Anova.mlm</td>
+<td align="left">summary.lm</td>
 </tr>
 <tr class="odd">
 <td align="left">aovlist</td>
-<td align="left">htest</td>
-<td align="left">summary.aovlist</td>
-<td align="left"></td>
+<td align="left">glm</td>
+<td align="left">summary.aov</td>
+<td align="left">summary.ref.grid</td>
 </tr>
 <tr class="even">
 <td align="left">BFBayesFactor</td>
-<td align="left">list</td>
-<td align="left">summary.glht</td>
+<td align="left">htest</td>
+<td align="left">summary.aovlist</td>
 <td align="left"></td>
 </tr>
 </tbody>
@@ -327,11 +329,11 @@ apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_out)</
 <table>
 <thead>
 <tr class="header">
-<th align="left">Predictor</th>
-<th align="left"><span class="math inline">\(b\)</span></th>
-<th align="left">95% CI</th>
-<th align="left"><span class="math inline">\(t(273)\)</span></th>
-<th align="left"><span class="math inline">\(p\)</span></th>
+<th align="left">predictor</th>
+<th align="left">estimate</th>
+<th align="left">ci</th>
+<th align="left">statistic</th>
+<th align="left">p.value</th>
 </tr>
 </thead>
 <tbody>
@@ -396,12 +398,12 @@ apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmet
 <thead>
 <tr class="header">
 <th align="left">Effect</th>
-<th align="left"><span class="math inline">\(F\)</span></th>
-<th align="left"><span class="math inline">\(\mathit{df}_1\)</span></th>
-<th align="left"><span class="math inline">\(\mathit{df}_2\)</span></th>
-<th align="left"><span class="math inline">\(\mathit{MSE}\)</span></th>
-<th align="left"><span class="math inline">\(p\)</span></th>
-<th align="left"><span class="math inline">\(\hat{\eta}^2_G\)</span></th>
+<th align="left">F</th>
+<th align="left">df1</th>
+<th align="left">df2</th>
+<th align="left">MSE</th>
+<th align="left">p</th>
+<th align="left">ges</th>
 </tr>
 </thead>
 <tbody>
@@ -445,6 +447,7 @@ apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmet
 </div>
 <div id="caching-expensive-computations" class="section level2">
 <h2><span class="header-section-number">4.3</span> Caching expensive computations</h2>
+<p>If possible, avoid caching <code>library()</code> calls. Subsequent use of functions from these packages in non-cached chunks will throw errors</p>
 <p>…</p>
 
 </div>
@@ -506,10 +509,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
