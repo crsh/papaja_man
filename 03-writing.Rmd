@@ -253,7 +253,7 @@ apa_beeplot(
 
 Again, as required by the APA guidelines, figures are deferred to the final pages of the document unless you set `figsintext` to `yes`.
 
-`papaja` provides the functions `apa_beeplot`, `apa_lineplot`, and `apa_barplot` to easily plot data from factorial designs (`apa_generic_plot` is the underlying workhorse function).
+`papaja` provides the functions `apa_beeplot`, `apa_lineplot`, and `apa_barplot` to easily plot data from factorial designs (`apa_factorial_plot` is the underlying workhorse function).
 They are intended to provide a convenient way to obtain a publication-ready figure with easy-to-learn, human-readable and *short* syntax;
 while maintaining enough flexibility for a lot of customizing, if you're really into this.
 The basic arguments to these functions are all the same, so you only need to learn one syntax to generate these different types of plots.
