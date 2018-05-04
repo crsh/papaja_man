@@ -144,6 +144,7 @@ This way you can reference R in the running text using `my_citations$r` and plac
 `r my_citations$pkgs`
 
 
+
 ## Equations
 
 If you need to report formulas, you can use the flexible $\LaTeX$ syntax (it will work in Word documents, too).

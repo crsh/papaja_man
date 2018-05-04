@@ -351,9 +351,9 @@ knitr<span class="op">::</span>knit_hooks<span class="op">$</span><span class="k
 This is a figure caption for my figure.</code></pre>
 <p>The text reference can now be inserted in the chunk options (or anywhere else), e.g. <code>fig.cap = &quot;(ref:my-figure-caption)&quot;</code>. The use of text references has several advantages:</p>
 <ol style="list-style-type: decimal">
-<li>The use of Markdown and <span class="math inline">\(\LaTeX\)</span> syntax is not well supported in <code>fig.cap</code>. For example, <code>\</code> and <code>_</code> must be escaped to prevent either R or <span class="math inline">\(\LaTeX\)</span> from erroring and Markdown formatting is not applied at all. Also, it is not possible to use the Markdown citation syntax. None of these limitations apply to text references.</li>
+<li>The use of Markdown and <span class="math inline">\(\LaTeX\)</span> syntax is not well supported in <code>fig.cap</code>. For example, <code>\</code> and <code>_</code> must be escaped to prevent either R or <span class="math inline">\(\LaTeX\)</span> from erroring. Moreover, Markdown formatting and citation syntax is not supported at all. None of these limitations apply to text references.</li>
 <li>Long figure captions can impair the readability of the document when they are added directly to the chunk options.</li>
-<li>Text references are subject to RStudio spell checking.</li>
+<li>Text references are subject to RStudio spell checking, whereas the contents of <code>fig.cap</code> is not.</li>
 <li>Changing text reference does constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.</li>
 <li>Text references can include inline code chunks.</li>
 </ol>
