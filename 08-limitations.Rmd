@@ -31,7 +31,7 @@ To do so, add the following to the YAML front matter of your document:
 
 ~~~yaml
 header-includes:
-  - "\raggedbottom"
+  - \raggedbottom
 ~~~
 
 

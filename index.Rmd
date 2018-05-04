@@ -18,7 +18,7 @@ site            : bookdown::bookdown_site
 output          :
   bookdown::gitbook:
     includes:
-      after_body: disqus.html
+      after_body: footer.html
 
 ---
 
@@ -29,6 +29,8 @@ library("ez")
 
 library("papaja")
 library("DiagrammeR")
+
+knitr::opts_chunk$set(fig.align = "center")
 ```
 
 ```{r cite_r, echo = FALSE}
@@ -56,6 +58,7 @@ If you are interested in reproducible research with R more generally, I recommen
 Furthermore, @stodden_implementing_2014 give an overview of tools, practices, and platforms to implement reproducible research.
 
 This manual is fully reproducible and was written in `r r_citations`.
+Icons are provide royalty
 
 ---
 
