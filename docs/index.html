@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2018-05-04">
+<meta name="date" content="2018-05-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -168,8 +168,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
 <li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
 <li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.8</b> Workflow</a></li>
-<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.9</b> Troubleshooting</a><ul>
-<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.9.1</b> R</a></li>
+<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>5.9</b> Adjusting line spacing</a></li>
+<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.10</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="5.10.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.10.1</b> R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
@@ -213,14 +214,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">papaja: Reproducible APA manuscripts with R Markdown</h1>
 <h4 class="author"><em>Frederik Aust &amp; Marius Barth</em></h4>
-<h4 class="date"><em>2018-05-04</em></h4>
+<h4 class="date"><em>2018-05-10</em></h4>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
 <p>This book will be a manual for the R package <a href="https://github.com/crsh/papaja">papaja</a>. It is currently in the process of being written; I’m publishing new sections of the book as I’m writing them. If you have suggestions for improvements or additional topics you would like to see covered, please let me know by opening an <a href="https://github.com/crsh/papaja_man/issues">issue on GitHub</a> or creating a pull request.</p>
 <p><code>papaja</code> has not yet been submitted to CRAN because it is under active development. Currently, there are still a couple of loose ends we would like to tie up before we release the package to a larger audience. If you would like to contribute to speed up the process, have a look at the chapters <a href="limitations.html#limitations">Limitations</a> and <a href="future-directions.html#future-directions">Future directions</a>.</p>
 <p>If you are interested in reproducible research with R more generally, I recommend the books by <span class="citation">Xie (<a href="#ref-R-knitr">2015</a>)</span> and <span class="citation">Gandrud (<a href="#ref-gandrud_reproducible_2013">2013</a>)</span>. Furthermore, <span class="citation">Stodden, Leisch, &amp; Peng (<a href="#ref-stodden_implementing_2014">2014</a>)</span> give an overview of tools, practices, and platforms to implement reproducible research.</p>
-<p>This manual is fully reproducible and was written in R <span class="citation">(Version 3.4.4; R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.20.1; Singmann, Bolker, Westfall, &amp; Aust, <a href="#ref-R-afex">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Version 0.2; Müller, <a href="#ref-R-bindrcpp">2017</a>)</span>, <em>car</em> <span class="citation">(Version 2.1.6; Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>)</span>, <em>citr</em> <span class="citation">(Version 0.2.0.9055; Aust, <a href="#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 0.9.2; Sveidqvist et al., <a href="#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 0.7.4; Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>ez</em> <span class="citation">(Version 4.4.0; Lawrence, <a href="#ref-R-ez">2016</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.20; Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.15; Bates, Mächler, Bolker, &amp; Walker, <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.27.61; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9709; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 1.9; Allaire et al., <a href="#ref-R-rmarkdown">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.0.5; Chang, Cheng, Allaire, Xie, &amp; McPherson, <a href="#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Version 0.2.0; Marwick, n.d.)</span>. Icons are provide royalty</p>
+<p>This manual is fully reproducible and was written in R <span class="citation">(Version 3.4.4; R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.20.1; Singmann, Bolker, Westfall, &amp; Aust, <a href="#ref-R-afex">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Version 0.2; Müller, <a href="#ref-R-bindrcpp">2017</a>)</span>, <em>car</em> <span class="citation">(Version 2.1.6; Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>)</span>, <em>citr</em> <span class="citation">(Version 0.2.0; Aust, <a href="#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 0.9.2; Sveidqvist et al., <a href="#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 0.7.4; Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>ez</em> <span class="citation">(Version 4.4.0; Lawrence, <a href="#ref-R-ez">2016</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.20; Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.15; Bates, Mächler, Bolker, &amp; Walker, <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.27.61; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9709; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 1.9; Allaire et al., <a href="#ref-R-rmarkdown">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.0.5; Chang, Cheng, Allaire, Xie, &amp; McPherson, <a href="#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Version 0.2.0; Marwick, n.d.)</span>. Icons are provide royalty</p>
 <hr />
 <pre><code>## Session info -------------------------------------------------------------</code></pre>
 <pre><code>##  setting  value                       
@@ -230,7 +231,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##  language en_US:                      
 ##  collate  en_US.UTF-8                 
 ##  tz       Europe/Berlin               
-##  date     2018-05-04</code></pre>
+##  date     2018-05-10</code></pre>
 <pre><code>## Packages -----------------------------------------------------------------</code></pre>
 <pre><code>##  package      * version    date       source                          
 ##  assertthat     0.2.0      2017-04-11 CRAN (R 3.4.2)                  

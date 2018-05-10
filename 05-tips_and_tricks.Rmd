@@ -69,6 +69,35 @@ To include a child document, insert an empty chunk and provide the path to the R
 - Relative paths
 
 
+## Adjusting line spacing
+
+According to the APA guidelines, "Tables may be submitted either single- or double-spaced." [p. 141; @american_psychological_association_publication_2010].
+Adjusting the line spacing of table contents is currently not supported in `papaja`.
+However, as usual it is possible to adjust the spacing in PDF documents by including additional $\LaTeX$ code.
+If you use `apa_able()`, including the following in the YAML front matter will result in single-spaced tables with double-spaced caption and table note:
+
+```{yaml}
+header-includes:
+  - \usepackage{setspace}
+  - \AtBeginEnvironment{tabular}{\singlespacing}
+  - \AtBeginEnvironment{lltable}{\singlespacing}
+  - \AtBeginEnvironment{tablenotes}{\doublespacing}
+  - \captionsetup[table]{font={stretch=1.5}}
+  - \captionsetup[figure]{font={stretch=1.5}}
+```
+
+Similarly, the line spacing of figure captions can be adjusted as follows:
+
+```{yaml}
+header-includes:
+  - \usepackage{setspace}
+  - \AtBeginEnvironment{tabular}{\doublespacing}
+  - \AtBeginEnvironment{lltable}{\doublespacing}
+  - \AtBeginEnvironment{tablenotes}{\doublespacing}
+  - \captionsetup[table]{font={stretch=1.5}}
+  - \captionsetup[figure]{font={stretch=1}}
+```
+
 
 ## Troubleshooting
 
