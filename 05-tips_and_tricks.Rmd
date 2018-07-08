@@ -17,14 +17,69 @@
 - [remedy](https://github.com/ThinkR-open/remedy): RStudio Addins to Simplify Markdown Writing
 - [splitChunk](https://github.com/LudvigOlsen/splitChunk): RStudio addin for splitting R Markdown code chunks
 
-## Text references
+## Author name disambiguation
 
-- Enables Markdown/LaTeX syntax in captions
-- Text references are included in spell checks
+As per APA style, citations in `papaja` documents will be disambiguated if the bibliography file contains multiple authors with the same family but different given names.
+This can be a nuisance if the bibliographic information is not maintained meticulously.
+Entries such as `author = {John Doe}` and `author = {J. Doe}` are taken to be different authors and will be disambiguated (i.e. "John Doe (1986)" and "J. Doe (1986)").
 
-## Author disambiguation
+Disabling author name disambiguation is possible (although it is somewhat beyond the scope of `papaja`).
+The definition of the citation style used in `papaja` is given in a citation style language file (CSL, see [Additional-rendering-options]).
+We have created a variant of the widely available APA CSL file without author name disambiguation.
+To use this variant insert the following into YAML front matter:
 
-[Additional rendering options]
+~~~yaml
+csl: https://tinyurl.com/apa6-no-disambiguation
+~~~
+
+Alternatively, you can download the file and use the location on your hard drive instead of the above URL.
+Note that using this style can create the false impression that two works are authored by the same author when really they were not.
+For example, `author = {John Doe}` and `author = {Jane Doe}` will be displayed as "Doe (1986a)" and "Doe (1986b)".
+
+If you prefer $\LaTeX$ to generate the bibliographic information, we recommend the following approach to disable author name disambiguation:
+
+~~~yaml
+lang              : "en-EN" # Optional, added for clarity
+
+biblio-style      : "apa"
+biblatexoptions   : "uniquename=false"
+header-includes:
+  - \DeclareLanguageMapping{english}{english-apa}
+
+output:
+  papaja::apa6_pdf:
+    citation_package: biblatex
+~~~
+
+Specifying `lang` is optional in this case, because `en-EN` is the default.
+`pandoc` converts `en-EN` to `english` and inserts it into the document preamble.
+Hence, `english` needs to be mapped to `english-apa`.
+Similarly, if you want, say, British english you would have to adapt the above as follows:
+
+~~~yaml
+lang              : "en-GB" # Required
+header-includes:
+  - \DeclareLanguageMapping{british}{british-apa}
+~~~
+
+A general drawback to this approach is that `biblatex` does not operate on any text in the YAML front matter.
+This can be a problem when, for example, the abstract contains citations.
+This problem can be addressed with the [text references](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references) feature in `bookdown`.
+Replace the text of the abstract in the YAML front matter by
+
+~~~yaml
+abstract: (ref:abstract)
+~~~
+
+`(ref:abstract)` is a placeholder for text that you can now define in the body of the R Markdown document (e.g., right after the YAML front matter):
+
+~~~
+(ref:abstract)
+This is the abstract [@doe1986].
+~~~
+
+This text will now be processed and citations will be generated as expected.
+
 
 ## Reproducible software environment
 
@@ -73,6 +128,35 @@ To include a child document, insert an empty chunk and provide the path to the R
 - Don't edit word documents
 - Relative paths
 
+
+## Adjusting line spacing
+
+According to the APA guidelines, "Tables may be submitted either single- or double-spaced." [p. 141; @american_psychological_association_publication_2010].
+Adjusting the line spacing of table contents is currently not supported in `papaja`.
+However, as usual it is possible to adjust the spacing in PDF documents by including additional $\LaTeX$ code.
+If you use `apa_able()`, including the following in the YAML front matter will result in single-spaced tables with double-spaced caption and table note:
+
+```{yaml}
+header-includes:
+  - \usepackage{setspace}
+  - \AtBeginEnvironment{tabular}{\singlespacing}
+  - \AtBeginEnvironment{lltable}{\singlespacing}
+  - \AtBeginEnvironment{tablenotes}{\doublespacing}
+  - \captionsetup[table]{font={stretch=1.5}}
+  - \captionsetup[figure]{font={stretch=1.5}}
+```
+
+Similarly, the line spacing of figure captions can be adjusted as follows:
+
+```{yaml}
+header-includes:
+  - \usepackage{setspace}
+  - \AtBeginEnvironment{tabular}{\doublespacing}
+  - \AtBeginEnvironment{lltable}{\doublespacing}
+  - \AtBeginEnvironment{tablenotes}{\doublespacing}
+  - \captionsetup[table]{font={stretch=1.5}}
+  - \captionsetup[figure]{font={stretch=1}}
+```
 
 
 ## Troubleshooting
