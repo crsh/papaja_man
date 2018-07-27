@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2018-05-28">
+<meta name="date" content="2018-07-27">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -174,10 +174,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
-<li class="chapter" data-level="7" data-path="published-manuscripts.html"><a href="published-manuscripts.html"><i class="fa fa-check"></i><b>7</b> Published manuscripts</a><ul>
-<li class="chapter" data-level="7.1" data-path="published-manuscripts.html"><a href="published-manuscripts.html#journal-publications"><i class="fa fa-check"></i><b>7.1</b> Journal publications</a></li>
-<li class="chapter" data-level="7.2" data-path="published-manuscripts.html"><a href="published-manuscripts.html#preprints"><i class="fa fa-check"></i><b>7.2</b> Preprints</a></li>
-</ul></li>
+<li class="chapter" data-level="7" data-path="published-manuscripts.html"><a href="published-manuscripts.html"><i class="fa fa-check"></i><b>7</b> Published manuscripts</a></li>
 <li class="chapter" data-level="8" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>8</b> Limitations</a><ul>
 <li class="chapter" data-level="8.1" data-path="limitations.html"><a href="limitations.html#pdf-documents"><i class="fa fa-check"></i><b>8.1</b> PDF documents</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="limitations.html"><a href="limitations.html#customizing-the-document-preamble"><i class="fa fa-check"></i><b>8.1.1</b> Customizing the document preamble</a></li>
@@ -418,41 +415,59 @@ Figure 1.1: Process diagram illustrating the compilation of reproducible reports
 <h3><span class="header-section-number">1.4.1</span> Software requirements</h3>
 <p>To use <code>papaja</code> you need to make sure the following software is installed on your computer:</p>
 <ol class="example" style="list-style-type: decimal">
-<li><strong><a href="http://www.r-project.org/">R</a> 2.11.1 or later</strong>.</li>
-<li><strong><a href="http://johnmacfarlane.net/pandoc/">pandoc</a> 1.16 or later</strong>. If you work with <a href="http://www.rstudio.com/">RStudio</a> (0.98.932 or later) pandoc should already be installed, otherwise install pandoc using the <a href="https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md">instructions for your operating system</a></li>
+<li><strong><a href="http://www.r-project.org/">R</a> 2.11.1 or later</strong></li>
+<li><strong><a href="http://johnmacfarlane.net/pandoc/">pandoc</a> 1.19 or later</strong>; if you work with <a href="http://www.rstudio.com/">RStudio</a> (1.1.453 or later) pandoc should already be installed, otherwise install pandoc using the <a href="https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md">instructions for your operating system</a></li>
 </ol>
 <p>If you want to create PDF- in addition to DOCX-files you need</p>
 <ol start="3" class="example" style="list-style-type: decimal">
-<li><strong><a href="http://de.wikipedia.org/wiki/TeX">TeX</a> 2013 or later</strong>. Try <a href="http://miktex.org/">MikTeX</a> for Windows, <a href="https://tug.org/mactex/">MacTeX</a> for Mac, or <a href="http://www.tug.org/texlive/">TeX Live</a> for Linux. Some Linux users may need a few additional TeX packages for the LaTeX document class <code>apa6</code> to work:</li>
+<li><strong><a href="http://de.wikipedia.org/wiki/TeX">TeX</a> 2013 or later</strong>. Try <a href="http://miktex.org/">MikTeX</a> for Windows, <a href="https://tug.org/mactex/">MacTeX</a> for Mac, or <a href="http://www.tug.org/texlive/">TeX Live</a> for Linux.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install texlive texlive-publishers texlive-fonts-extra texlive-latex-extra texlive-humanities lmodern</code></pre></div>
-<p>Although not necessary for the use of <code>papaja</code>, I recommend that you use a references manager, such as <a href="https://www.zotero.org/">Zotero</a>, to facilitate reference management and <a href="writing.html#citations">citations</a>.</p>
-<!-- Apa6.cls -->
-<!-- etoolbox.sty -->
-<!-- booktabs.sty -->
-<!-- threeparttable.sty -->
-<!-- caption.sty -->
-<!-- fancyhdr.sty -->
-<!-- endfloat.sty -->
-<!-- threeparttablex.sty -->
-<!-- environ.sty -->
-<!-- trimspaces.sty -->
-<!-- url.sty -->
-<!-- csquotes.sty -->
-<!-- upgreek.sty (was) -->
-<!-- lineno.sty -->
-<!-- tikz.sty (pgf) -->
-<!-- everyshi.sty (ms) -->
-<!-- xcolor.sty -->
+<p><code>papaja</code> requires <span class="math inline">\(\LaTeX\)</span> packages that are not part of the basic TeX installations.</p>
+<p><details> <summary>Show list of required <span class="math inline">\(\LaTeX\)</span> packages</summary></p>
+<pre><code>apa6
+etoolbox
+booktabs
+threeparttable
+caption
+fancyhdr
+endfloat
+upquote
+microtype
+threeparttablex
+environ
+trimspaces
+url
+csquotes
+was
+lineno
+pgf
+ms
+xcolor
+mptopdf
+txtfonds
+sttools
+fancyvrb
+framed
+parskip</code></pre>
+<p></details></p>
+<p>To address this you can either <a href="https://tex.stackexchange.com/a/105650/11001">install a <em>complete</em></a>—not the basic—TeX distribution, <a href="https://miktex.org/howto/miktex-console">always install missing packages on the fly</a> (only available in MikTeX), or install them <a href="https://docs.miktex.org/manual/pkgmgt.html">manually</a>. If you are comfortable using the command line, it may be convenient to run the following commands to install the packages. MikTeX users can run the following command:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">mpm</span> --install apa6 etoolbox booktabs threeparttable caption fancyhdr endfloat upquote microtype threeparttablex environ trimspaces url csquotes was lineno pgf ms xcolor mptopdf txtfonds sttools fancyvrb framed parskip</code></pre></div>
+<p>TeXLive and MacTeX users can run the following command (you may be required to install <code>tlmgr</code> first):</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">tlmgr</span> install apa6 etoolbox booktabs threeparttable caption fancyhdr endfloat upquote microtype threeparttablex environ trimspaces url csquotes was lineno pgf ms xcolor mptopdf txtfonds sttools fancyvrb framed parskip</code></pre></div>
+<p>Alternatively, Ubuntu users can install the following Ubuntu packages:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install texlive-publishers texlive-fonts-extra texlive-latex-extra texlive-humanities lmodern</code></pre></div>
 </div>
 <div id="installing-papaja" class="section level3">
 <h3><span class="header-section-number">1.4.2</span> Installing papaja</h3>
-<p>Once all that is taken care of, install <code>papaja</code> from GitHub.</p>
+<p><code>papaja</code> is not yet available on CRAN but you can install it from GitHub:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install devtools package if necessary</span>
 <span class="cf">if</span>(<span class="op">!</span><span class="st">&quot;devtools&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
 
-<span class="co"># Install papaja</span>
-devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)</code></pre></div>
+<span class="co"># Install the stable development verions from GitHub</span>
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)
+
+<span class="co"># Install the latest development snapshot from GitHub</span>
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja@devel&quot;</span>)</code></pre></div>
 <p><code>papaja</code> has not yet been submitted to CRAN because it is under active development. Currently, there are still a couple of loose ends we would like to tie up before we release the package to a larger audience. If you would like to contribute to speed up the process, have a look at the chapters <a href="limitations.html#limitations">Limitations</a> and <a href="future-directions.html#future-directions">Future directions</a>.</p>
 </div>
 <div id="creating-a-document" class="section level3">
