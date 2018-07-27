@@ -1,5 +1,7 @@
 # Published manuscripts
 
+If you have published a paper that was written with `papaja`, you can add the reference to the [public Zotero group](https://www.zotero.org/groups/2202906/papaja) yourself or send it to me.
+
 ```{r echo = FALSE, results = "asis"}
 papaja_readme <- readLines("https://raw.githubusercontent.com/crsh/papaja/devel/README.md")
 
