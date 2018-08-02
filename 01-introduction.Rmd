@@ -359,7 +359,8 @@ If you want to create PDF- in addition to DOCX-files you need
 `papaja` requires $\LaTeX$ packages that are not part of the basic TeX installations.
 
 ```{r latex-packages, echo = FALSE}
-latex_packages <- c("apa6", "etoolbox", "booktabs", "threeparttable", "caption", "fancyhdr", "endfloat", "upquote", "microtype", "threeparttablex", "environ", "trimspaces", "url", "csquotes", "was", "lineno", "pgf", "ms", "xcolor", "mptopdf", "txtfonds", "sttools", "fancyvrb", "framed", "parskip")
+latex_packages <- c("apa6", "etoolbox", "booktabs", "threeparttable", "caption", "fancyhdr", "endfloat", "upquote", "microtype", "threeparttablex", "environ", "trimspaces", "url", "csquotes", "was", "lineno", "pgf", "ms", "xcolor", "mptopdf", "txfonts", "sttools", "fancyvrb", "framed", "parskip")
+latex_packages <- latex_packages[order(latex_packages)]
 ```
 
 <details>
