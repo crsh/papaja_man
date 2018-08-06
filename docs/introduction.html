@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2018-08-02">
+<meta name="date" content="2018-08-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -451,7 +451,8 @@ was
 xcolor</code></pre>
 <p></details></p>
 <p>To address this you can either <a href="https://tex.stackexchange.com/a/105650/11001">install a <em>complete</em></a>—not the basic—TeX distribution, <a href="https://miktex.org/howto/miktex-console">always install missing packages on the fly</a> (only available in MikTeX), or install them <a href="https://docs.miktex.org/manual/pkgmgt.html">manually</a>. If you are comfortable using the command line, it may be convenient to run the following commands to install the packages. MikTeX users can run the following command:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">mpm</span> --install apa6 booktabs caption csquotes endfloat environ etoolbox fancyhdr fancyvrb framed lineno microtype mptopdf ms parskip pgf sttools threeparttable threeparttablex trimspaces txfonts upquote url was xcolor</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">mpm</span> --install=apa6,booktabs,caption,csquotes,endfloat,environ,etoolbox,fancyhdr,fancyvrb,framed,lineno,microtype,mptopdf,ms,parskip,pgf,sttools,threeparttable,threeparttablex,trimspaces,txfonts,upquote,url,was,xcolor</code></pre></div>
+<p>It may be necessary to launch MikTeX console as administrator (right-click and <em>Run as administrator</em>) before executing the command.</p>
 <p>TeXLive and MacTeX users can run the following command (you may be required to install <code>tlmgr</code> first):</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">tlmgr</span> install apa6 booktabs caption csquotes endfloat environ etoolbox fancyhdr fancyvrb framed lineno microtype mptopdf ms parskip pgf sttools threeparttable threeparttablex trimspaces txfonts upquote url was xcolor</code></pre></div>
 <p>Alternatively, Ubuntu users can install the following Ubuntu packages:</p>

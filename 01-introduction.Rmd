@@ -376,8 +376,10 @@ If you are comfortable using the command line, it may be convenient to run the f
 MikTeX users can run the following command:
 
 ~~~bash
-mpm --install `r paste0(latex_packages, collapse = " ")`
+mpm --install=`r paste0(latex_packages, collapse = ",")`
 ~~~
+
+It may be necessary to launch MikTeX console as administrator (right-click and *Run as administrator*) before executing the command.
 
 TeXLive and MacTeX users can run the following command (you may be required to install `tlmgr` first):
 
