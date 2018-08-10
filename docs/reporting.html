@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2018-08-06">
+<meta name="date" content="2018-08-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -405,56 +405,111 @@ descriptives[, <span class="op">-</span><span class="dv">1</span>] &lt;-<span cl
 </div>
 <div id="results-from-statistical-tests" class="section level2">
 <h2><span class="header-section-number">4.4</span> Results from statistical tests</h2>
-<p>Output from statistical models and tests needs to be properly formatted before it can be included in text. For this purpose, we created the function <code>apa_print()</code>. Simply drop the results from a statistical test (e.g. a <span class="math inline">\(t\)</span> test or an ANOVA) into <code>apa_print()</code>, and you will get an output object (a <code>list</code>) that contains all you need to report the analysis according to APA guidelines. <code>apa_print()</code> currently supports output objects from a variety of statistical models/tests, including <span class="math inline">\(t\)</span> tests, ANOVA, linear regression. For a full list of supported output objects, see Table <a href="reporting.html#tab:supported-s3-methods">4.1</a>.</p>
+<p>Output from statistical models and tests needs to be properly formatted before it can be included in text. For this purpose, we created the function <code>apa_print()</code>. Simply drop the results from a statistical test (e.g. a <span class="math inline">\(t\)</span> test or an ANOVA) into <code>apa_print()</code>, and you will get an output object (a <code>list</code>) that contains all you need to report the analysis according to APA guidelines. <code>apa_print()</code> currently supports output objects from a variety of statistical models/tests, including <span class="math inline">\(t\)</span> tests, ANOVA, linear regression. For a full list of supported output objects, see Table <a href="#tab:supported-s3-methods"><strong>??</strong></a>.</p>
 <table>
-<caption><span id="tab:supported-s3-methods">Table 4.1: </span>Analysis object types currently supported by <code>apa_print()</code>.</caption>
 <thead>
-<tr class="header">
-<th align="left">A-B</th>
-<th align="left">B-H</th>
-<th align="left">L-S</th>
-<th align="left">S-Z</th>
+<tr>
+<th style="text-align:left;">
+A-B
+</th>
+<th style="text-align:left;">
+B-H
+</th>
+<th style="text-align:left;">
+L-S
+</th>
+<th style="text-align:left;">
+S-Z
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">afex_aov</td>
-<td align="left">BFBayesFactorList</td>
-<td align="left">list</td>
-<td align="left">summary_emm</td>
+<tr>
+<td style="text-align:left;">
+afex_aov
+</td>
+<td style="text-align:left;">
+BFBayesFactorList<sup>*</sup>
+</td>
+<td style="text-align:left;">
+list
+</td>
+<td style="text-align:left;">
+summary_emm<sup>*</sup>
+</td>
 </tr>
-<tr class="even">
-<td align="left">anova</td>
-<td align="left">BFBayesFactorTop</td>
-<td align="left">lm</td>
-<td align="left">summary.glht</td>
+<tr>
+<td style="text-align:left;">
+anova
+</td>
+<td style="text-align:left;">
+BFBayesFactorTop<sup>*</sup>
+</td>
+<td style="text-align:left;">
+lm
+</td>
+<td style="text-align:left;">
+summary.glht<sup>*</sup>
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Anova.mlm</td>
-<td align="left">emmGrid</td>
-<td align="left">lsmobj</td>
-<td align="left">summary.glm</td>
+<tr>
+<td style="text-align:left;">
+Anova.mlm
+</td>
+<td style="text-align:left;">
+emmGrid<sup>*</sup>
+</td>
+<td style="text-align:left;">
+lsmobj<sup>*</sup>
+</td>
+<td style="text-align:left;">
+summary.glm
+</td>
 </tr>
-<tr class="even">
-<td align="left">aov</td>
-<td align="left">glht</td>
-<td align="left">summary.Anova.mlm</td>
-<td align="left">summary.lm</td>
+<tr>
+<td style="text-align:left;">
+aov
+</td>
+<td style="text-align:left;">
+glht<sup>*</sup>
+</td>
+<td style="text-align:left;">
+summary.Anova.mlm
+</td>
+<td style="text-align:left;">
+summary.lm
+</td>
 </tr>
-<tr class="odd">
-<td align="left">aovlist</td>
-<td align="left">glm</td>
-<td align="left">summary.aov</td>
-<td align="left">summary.ref.grid</td>
+<tr>
+<td style="text-align:left;">
+aovlist
+</td>
+<td style="text-align:left;">
+glm
+</td>
+<td style="text-align:left;">
+summary.aov
+</td>
+<td style="text-align:left;">
+summary.ref.grid<sup>*</sup>
+</td>
 </tr>
-<tr class="even">
-<td align="left">BFBayesFactor</td>
-<td align="left">htest</td>
-<td align="left">summary.aovlist</td>
-<td align="left"></td>
+<tr>
+<td style="text-align:left;">
+BFBayesFactor<sup>*</sup>
+</td>
+<td style="text-align:left;">
+htest
+</td>
+<td style="text-align:left;">
+summary.aovlist
+</td>
+<td style="text-align:left;">
+</td>
 </tr>
 </tbody>
 </table>
+<p><span style="font-size:50%;"><sup>*</sup> Not fully tested, don’t trust blindly!</span></p>
 <div class="figure" style="text-align: center"><span id="fig:formatting-process-diagram"></span>
 <img src="result_formatting_process.png" alt="Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript."  />
 <p class="caption">
@@ -501,7 +556,7 @@ apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_out)</
   , <span class="dt">escape =</span> <span class="ot">FALSE</span>
 )</code></pre></div>
 <caption>
-<span id="tab:lm-table">Table 4.2: </span>
+<span id="tab:lm-table">Table 4.1: </span>
 </caption>
 <caption>
 <em>A full regression table.</em>
@@ -569,7 +624,7 @@ apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmet
   , <span class="dt">note =</span> <span class="st">&quot;Note that the column names contain beautiful mathematical copy: This is because the table has variable labels.&quot;</span>
 )</code></pre></div>
 <caption>
-<span id="tab:anova-table">Table 4.3: </span>
+<span id="tab:anova-table">Table 4.2: </span>
 </caption>
 <caption>
 <em>A really beautiful ANOVA table.</em>

@@ -378,8 +378,11 @@ colnames(print_classes) <- apply(print_classes, 2, function(x) {
   toupper(col_names)
 })
 print_classes[is.na(print_classes)] <- ""
-knitr::kable(print_classes, caption = "Analysis object types currently supported by `apa_print()`.")
+print_classes[grepl("lsm|emm|glht|ref\\.grid|BayesFactor", print_classes)] <- paste0(print_classes[grepl("lsm|emm|glht|ref\\.grid|BayesFactor", print_classes)], "<sup>*</sup>")
+knitr::kable(print_classes, format = "html", escape = FALSE)
 ```
+
+<span style="font-size:50%;"><sup>\*</sup> Not fully tested, don't trust blindly!</span>
 
 
 ```{r formatting-process-diagram, fig.cap = "Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.", fig.align = "center", echo = FALSE}
@@ -402,12 +405,12 @@ knitr::kable(print_classes, caption = "Analysis object types currently supported
 #     style = rounded
 #     label = 'Analysis results (S3-objects)'
 #   }
-#   
+# 
 #   # apa_print output
 #   subgraph cluster_1 {
 #     estimate [label = '$estimate']
 #     statistic [label = '$statistic']
-#     full [label = '$full']
+#     full [label = '$full_result']
 # 
 #     style = rounded
 #     label = 'Formatted text'
@@ -425,7 +428,7 @@ knitr::kable(print_classes, caption = "Analysis object types currently supported
 # 
 #   # Transitions
 #   edge [fontname = Helvetica, fontsize = 15, arrowhead = vee]
-#   {htest lm aov anova} -> apa_print -> {estimate statistic full table}
+#   {htest lm aov anova} -> apa_print -> {estimate statistic table}
 #   {table format} -> apa_table -> {l_table p_table}
 # }
 # ")
