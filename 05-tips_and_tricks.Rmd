@@ -1,21 +1,60 @@
 # Tips and Tricks
 
 - Spell check functionality in RStudio
+
+Although often overlooked, RStudio can check your spelling
+
+```{r echo = FALSE}
+knitr::include_graphics("workshop_files/figure-html/spellcheck.png")
+```
+
+
 - New line for each sentence
 
 ## Global chunk options
 
-- figure formats
+It can be useful to set chunk options globally for all (following) chunks to avoid retyping or copy-and-pasting
+
+```{r eval = FALSE}
+# Save all plots as 600 DPI TIFF-files
+knitr::opts_chunk$set(dev = "tiff", dpi = 600)
+
+# Do not evaluate subsequent chunks (debugging or fine-tuning)
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+See the [knitr chunk options and package options](https://yihui.name/knitr/options/) for an overview of settings
 
 ## Meaningful chunk names
 
 ## Useful RStudio Addins
 
-- [wordcount](https://github.com/benmarwick/wordcountaddin): Word counts and readability statistics in R markdown documents
-- [citr](https://github.com/crsh/citr): RStudio Addin to Insert Markdown Citations
-- [gramr](https://github.com/ropenscilabs/gramr): RStudio Addin, function, & shiny app for the write-good linter
-- [remedy](https://github.com/ThinkR-open/remedy): RStudio Addins to Simplify Markdown Writing
-- [splitChunk](https://github.com/LudvigOlsen/splitChunk): RStudio addin for splitting R Markdown code chunks
+- [`citr`](https://github.com/crsh/citr): Insert Markdown Citations
+- [`remedy`](https://github.com/ThinkR-open/remedy): Keyboard shortcuts for Markdown formatting
+- [`splitChunk`](https://github.com/LudvigOlsen/splitChunk): Split R Markdown code chunks
+- [`gramr`](https://github.com/ropenscilabs/gramr): Write-good linter
+- [`wordcount`](https://github.com/benmarwick/wordcountaddin): Word counts and readability statistics
+
+Set up keyboard shortcuts via<br />`Tools > Modify keyboard shortcuts`
+
+
+Suggested keyboard shortcuts
+
+| Package | Addin | Keyboard shortcut |
+|:--------|:------|:------------------|
+| `citr` | Insert citation | <kbd>Shift</kbd> + <kbd>Alt</kbd>+<kbd>R</kbd> |
+| `wordcount` | Word count | <kbd>Shift</kbd> + <kbd>Alt</kbd>+<kbd>C</kbd> |
+| `splitChunk` | Chunk split | <kbd>Shift</kbd> + <kbd>Alt</kbd>+<kbd>S</kbd> |
+| `remedy` | Bold | <kbd>Shift</kbd> + <kbd>Alt</kbd>+<kbd>B</kbd> |
+|          | Italic | <kbd>Shift</kbd> + <kbd>Alt</kbd>+<kbd>I</kbd> |
+|          | Backtick | <kbd>Shift</kbd> + <kbd>Alt</kbd>+<kbd>P</kbd> |
+|          | URL | <kbd>Shift</kbd> + <kbd>Alt</kbd>+<kbd>U</kbd> |
+
+
+
+- [`statcheck`](http://statcheck.io): Extract Statistics from Articles and Recompute p Values
+- [`retractcheck`](https://frederikaust.shinyapps.io/retractcheck_shinyapp/): Check DOIs in a paper for retractions
+
 
 ## Author name disambiguation
 
@@ -92,6 +131,12 @@ This text will now be processed and citations will be generated as expected.
 
 1. Document outline
 
+RStudio provides a handy document outline view
+
+```{r echo = FALSE}
+knitr::include_graphics("workshop_files/figure-html/rstudio-outline.png")
+```
+
 
 <!-- If you discover an error in a data file, never modify it directly, but instead write code to correct the value. Explain why you made the fix. -->
 
@@ -109,14 +154,17 @@ Some authors may prefer to split long manuscripts into a master or parent docume
 The master document, for example, consists of the YAML front matter and includes the children, which are themselves R Markdown documents without a YAML front matter.
 To include a child document, insert an empty chunk and provide the path to the R Markdown document in the chunk option `child`.
     
-    `r ''````{r child = "introduction.Rmd"}
-    ```
-    `r ''````{r child = "methods.Rmd"}
-    ```
-    `r ''````{r child = "results.Rmd"}
-    ```
-    `r ''````{r child = "discussion.Rmd"}
-    ```
+It may be preferable to split long documents into multiple files
+
+<smaller>
+<code class = "markdown hljs remark-code" style = "background: #F2F2F2;">&#96;&#96;&#96;{r child = "introduction.Rmd"}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
+&#96;&#96;&#96;<br /><br />&#96;&#96;&#96;{r child = "method.Rmd"}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
+&#96;&#96;&#96;<br /><br />&#96;&#96;&#96;{r child = "results.Rmd"}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
+&#96;&#96;&#96;<br /><br />&#96;&#96;&#96;{r child = "discussion.Rmd"}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
+&#96;&#96;&#96;</code>
+</smaller>
+
+Search all files with <kbd>Ctrl</kbd> + <kbd>Shift</kbd>+<kbd>F</kbd>
 
 
 
@@ -159,6 +207,45 @@ header-includes:
 ```
 
 
+
+### Comparing documents
+
+In revisions, it can be helpful to highlight all changes
+- for DOCX, use the Microsoft Word combine feature
+- for PDF, use [`latexdiff`](https://3142.nl/latex-diff/) on $\LaTeX$ source documents
+    1. Create $\LaTeX$ file with highlighted changes
+    2. Compile to PDF in RStudio
+
+
+### Counting words
+
+1. `wordcount`
+    - RStudio addin counts words in R Markdown documents
+    - Rough estimate; cannot, for example, count rendered citations
+    - Good for quick use
+2. [`texcount`](http://app.uio.no/ifi/texcount/)
+    - Counts words in TeX documents
+    - More precise and informative
+3. Microsoft Word word count
+
+If you are using `pandoc-citeproc` for references, exclude the reference section before counting words
+
+
+
+## Best practices
+
+1. Load all R packages in the first code chunk
+    - Never include `install.packages()`
+2. Set a seed for random number generators<br />(e.g., `set.seed()`)
+3. Never use `setwd()`!
+4. Use relative paths or load files from a permanent location
+5. Use meaningful chunk names
+6. Keep R code close to the corresponding prose
+7. Document R and R-package versions<br />(e.g., `devtools::session_info()`)
+8. Make sure you can knit without errors before going home
+
+
+
 ## Troubleshooting
 
 ### R
@@ -170,4 +257,13 @@ header-includes:
 
 <!-- Next, brainstorm all the things that might cause the bug. You’ll need to systematically check that they’re the same in your R session and your R markdown session. The easiest way to do that is to set error = TRUE on the chunk causing the problem, then use print() and str() to check that settings are as you expect. -->
 
+
+Fixing bugs in R Markdown documents can be challenging
+
+- The code is run in a new non-interactive R session
+- Try is to recreate the problem in your interactive session
+    1. Restart R (`Session > Restart R` or<br /><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F10</kbd>)
+    2. Run all chunks (<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd>)
+    3. Compare the working directories (e.g., use `getwd()` in a code chunk)
+    
 

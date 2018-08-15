@@ -41,6 +41,22 @@ Hence, `` `r age_mean` `` and `` `r printnum(age_mean)` `` are effectively ident
 
 `papaja` additionally provides a shorthand version of `printnum()`, namely `printp()`, with defaults for correct typesetting of $p$ values (e.g., $p < .001$ instead of $p = 0.000$).
 
+Typeset numerical values for greater control
+- `printnum()`
+- `printp()` as shorthand for *p* values
+
+```{r}
+printnum(c(143234.34557, Inf))
+```
+
+```{r}
+printnum(42L, numerals = FALSE, capitalize = TRUE)
+```
+
+```{r}
+printp(c(1, 0.0008, 0))
+```
+
 
 
 ## Figures
@@ -143,6 +159,29 @@ apa_beeplot(
 ```
 
 
+- Utilize variable labels
+
+These plot functions also utilize variable labels, with some $\LaTeX$ math support (see `?latex2exp::TeX`)
+
+```{r labelled-beeplot, eval = FALSE}
+variable_labels(cosmetic_surgery) <- c(
+  Post_QoL = "Quality of life post surgery ($\\bar{x}_{post}$)"
+)
+
+apa_beeplot(
+  id = "ID"
+  , dv = "Post_QoL"
+  , factors = c("Reason", "Surgery", "Gender")
+  , data = cosmetic_surgery
+  # , ylab = "Quality of life post surgery"
+  , las = 1
+  , args_legend = list(x = 0.25, y = 30)
+  , args_points = list(bg = c("skyblue2", "indianred1"))
+  , args_error_bars = list(length = 0.03)
+)
+```
+
+
 ### Setting global plot options
 
 As noted in the APA guidelines (p. 153) figures in an article should be consistent and in the same style.
@@ -171,21 +210,15 @@ By default, `knitr` resets `par()` for every chunk; `par()` needs to be called a
 
 While there are advantages to this behavior it impedes defining a consistent plot style.
 Although not very convenient, it *is* possible to set global plot options in `knitr` and therefore also in `papaja`.
-To do so, it is necessary to define a custom function as so-called `knit_hook` that calls `par()` and pass it to `knitr`.
 The following example illustrates how to make `knitr` execute a specified call to `par()` before executing code in a given chunk.
 Here we rotate the $y$-axis label (`las = 1`), sets a regular font and increases the size of the main title (`font.main = 1`, `cex.main = 1.05`).
 
 ```{r knitr-par, eval = FALSE}
-# Define a function that sets desired global plot defaults
-my_par <- function(before, options, envir) {
-  if (before && options$fig.show != "none") {
-    par(las = 1, font.main = 1, cex.main = 1.05)
-  }
-}
+# Ensure that par()-settings are retained across chunks
+knitr::opts_knit$set(global.par = TRUE)
 
-# Pass global plot defaults to knitr
-knitr::opts_chunk$set(par = TRUE)
-knitr::knit_hooks$set(par = my_par)
+# Define a function that sets desired global plot defaults
+par(font.main = 1`, `cex.main = 1.05, las = 1)
 ```
 
 The customizations apply to all subsequently generated plots.
@@ -196,13 +229,24 @@ Custom themes can be set as default as usual and are subsequently applied to all
 `papaja` provides a template `theme_apa()` that we feel is well suited to create publication-ready plots.
 The following example demonstrates how to set a default theme.
 
-```{r theme-apa}
-library("ggplot2")
-theme_set(theme_apa())
-
-ggplot(cars, aes(x = speed, y = dist)) +
+```{r ggplot}
+ggplot(
+    cosmetic_surgery
+    , aes(x = Base_QoL, y = Post_QoL, color = Reason)
+  ) +
   geom_point() +
-  labs(x = "Speed [mph]", y = "Stopping distance [ft]")
+  geom_smooth(method = "lm") +
+  labs(
+    x = "Baseline quality of life"
+    , y = "Quality of life post surgery"
+  ) +
+  scale_color_brewer(palette = "Set1") +
+  theme_apa(box = TRUE) +
+  theme(legend.position = c(0.2, 0.8))
+```
+
+```{r eval = FALSE}
+theme_set(theme_apa())
 ```
 
 
@@ -243,6 +287,16 @@ The figure caption defined in `fig.cap` is used for all figures that are created
 If multiple figures are created the caption will be duplicated.
 Unless this behavior is desired, only one figure should be created per chunk.
 ```
+
+
+- Caption is used for every figure in chunk
+- Only one figure per chunk
+- Combine multiple plots into one figure (e.g., `layout()`)
+
+Figures are saved as 300 dpi PDF and PNG
+
+- e.g., `my_manuscript_figures/figure-latex/chunk-name-1.pdf`
+- Change defaults using chunk options (`dev` and `dpi`)
 
 
 ## Tables
@@ -314,6 +368,18 @@ some latex $\\alpha$"
 <!-- 4. If you want to write symbols in any part of the table use $ instead of $$, which is used in text to format equations as distinct equations in new inset paragraphs. -->
 
 <!-- (5. format = "latex" is not required if you use the function inside an R Markdown document)  -->
+
+
+`apa_table()` extends `knitr::kable()`
+
+- Designed to create table designs from the APA manual
+- Does not perform any calculations
+- Can merge multiple `data.frame` of the same structure contained in a `list`
+- Much more powerful in PDF documents<br />(see `apa_table_example.Rmd`)
+- Remember to set chunk option `results = "asis"`!
+
+`kableExtra` is another powerful alternative
+
 
 
 ### Alternatives
@@ -483,6 +549,75 @@ apa_table(
 )
 ```
 
+
+```{r}
+lm_res <- lm(Post_QoL ~ Base_QoL + BDI, data = cosmetic_surgery)
+lm_res_apa <- apa_print(lm_res, observed_predictors = TRUE)
+lm_res_apa$estimate$Intercept
+```
+
+> `r gsub("\\\\", "\\", lm_res_apa$estimate$Intercept)`
+
+--
+
+```{r}
+lm_res_apa$full_result$modelfit$r2
+```
+
+> `r gsub("\\\\", "\\", lm_res_apa$full_result$modelfit$r2)`
+
+Tables produced by `apa_print()` have variable labels
+
+```{r}
+lm_res_apa$table
+```
+
+
+
+Tables produced by `apa_print()` have variable labels
+
+```{r}
+variable_labels(lm_res_apa$table)
+```
+
+
+```{r}
+variable_labels(letters) <- "Alphabet"
+letters[1:15]
+```
+
+```{r}
+variable_labels(cars$speed) <- "Speed [m/h]"
+cars[1:15, "speed"]
+```
+
+
+Variable labels can be added to any `vector` or `data.frame`
+
+```{r}
+variable_labels(cars) <- c(
+  speed = "Speed [m/h]"
+  , dist = "Stopping distance [ft]"
+)
+cars[1:3, ]
+```
+
+Variable labels are attributes of the variables that make up the `data.frame`
+
+
+- Conflicting implementations
+- Ours is, in principle, compatible with `Hmisc`
+
+
+```{r}
+variable_labels(cars$dist)
+```
+
+```{r}
+cars[1:15, "dist"]
+```
+
+
 #### anova (model comparisons)
 
 ...
@@ -543,13 +678,93 @@ apa_table(
 
 ## Caching expensive computations
 
+If R codes take a long time to run, results can be cached
+
+<smaller>
+<code class = "markdown hljs remark-code" style = "background: #F2F2F2;">&#96;&#96;&#96;{r heavy-computation, .highlight[cache = TRUE]}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br /># Imagine computationally expensive R code here<br />
+&#96;&#96;&#96;</code>
+</smaller>
+
+`my_manuscript_cache` directory is created that contains
+- Computed objects
+- List of loaded R packages in `__packages`
+
+
+The next time the chunk is executed
+
+- If unchanged, cached results are loaded
+- If changed, cache is discarded and code is executed anew
+
+--
+
+Packages are not reloaded, which cause problems in subsequent uncached chunks
+
+- Do not include `library()`-calls in cached chunks!
+
+--
+
+Load cache into an interactive R session using `lazyLoad()`
+
+
+
 ```{block2, chached-library-warning, type='rmdcaution'}
 If possible at all, avoid caching `library()`-calls.
 Subsequent use of functions from these packages in non-cached chunks will throw errors!
 ```
 
-...
+To avoid incorrect results due to caching, dependencies should be specified
+
+<smaller>
+<code class = "markdown hljs remark-code" style = "background: #F2F2F2;">&#96;&#96;&#96;{r chunk1, cache = TRUE}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />x <- 5<br />
+&#96;&#96;&#96;</code><br />
+
+<code class = "markdown hljs remark-code" style = "background: #F2F2F2;">&#96;&#96;&#96;{r chunk2, cache = TRUE, .highlight[dependson = "chunk1"]}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />x <- x + 5<br />
+&#96;&#96;&#96;</code>
+</smaller>
+
+If code in `chunk1` changes, `chunk2` is recomputed
+
+
+To avoid incorrect results due to caching, dependencies should be specified
+
+```{r eval = FALSE}
+knitr::opts_chunk$set(autodep = TRUE)
+knitr::dep_auto()
+```
+
+See [knitr cache examples](https://yihui.name/knitr/demo/cache/) for details
 
 
 
+Control when cache is discarded
 
+- Ignore changes to comments
+
+```{r eval = FALSE}
+knitr::opts_chunk$set(cache.comments = FALSE)
+```
+
+- Discard cache when random seed changes
+
+```{r eval = FALSE}
+opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+
+I would recommend to always set these options
+
+- Discard cache if data are modified
+
+```{r eval = FALSE}
+opts_chunk$set(cache.extra = file.info("data.csv")$mtime)
+```
+
+- Discard cache if the R environment changes
+
+```{r eval = FALSE}
+opts_chunk$set(
+  cache.extra = list(R.version, sessionInfo())
+)
+```
+
+
+If time permits, always discard all cached results (i.e., delete `my_manuscript_cache` directory) and reknit the document before submission to ensure that all results are based on the current R code!

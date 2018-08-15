@@ -9,6 +9,87 @@ The second part is the main body that contains R code chunks and prose in Markdo
 ## YAML front matter
 
 [YAML](https://en.wikipedia.org/wiki/YAML) is a human-readable and easy to write language to define data structures.
+
+
+<!-- YAML data structures translate to (named) `list` objects<br />in R -->
+
+<!-- ```{yaml} -->
+<!-- --- -->
+<!-- title: "YAML Example" -->
+<!-- author: "Frederik Aust" -->
+<!-- date: "29 11 2017" -->
+<!-- output: html_document -->
+<!-- --- -->
+<!-- ``` -->
+
+<!-- ```{r echo = FALSE} -->
+<!-- str( -->
+<!--   list( -->
+<!--     title = "YAML Example" -->
+<!--     , author = "Frederik Aust" -->
+<!--     , date = "29 11 2017" -->
+<!--     , output = "html_document" -->
+<!--   ) -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- Indentations denote the structure of nested `list`s -->
+
+<!-- ```{yaml} -->
+<!-- --- -->
+<!-- output: -->
+<!--   html_document: -->
+<!--     toc: yes -->
+<!-- --- -->
+<!-- ``` -->
+
+<!-- ```{r echo = FALSE} -->
+<!-- str( -->
+<!--   list( -->
+<!--     output = list( -->
+<!--       html_document = list( -->
+<!--         toc = TRUE -->
+<!--       ) -->
+<!--     ) -->
+<!--   ) -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- Here, the `toc` is nested in `html_document`<br />(i.e., an argument to that output function) -->
+
+
+<!-- Similarly, it is possible to specify vectors -->
+
+<!-- ```{yaml} -->
+<!-- --- -->
+<!-- bibliography: ["references.bib", "r-package-references.bib"] -->
+<!-- --- -->
+<!-- ``` -->
+
+<!-- ```{r echo = FALSE} -->
+<!-- str( -->
+<!--   list(bibliography = c("references.bib", "r-package-references.bib")) -->
+<!-- ) -->
+<!-- ``` -->
+
+
+<!-- --- -->
+<!-- # `rmarkdown` -->
+
+<!-- ### YAML front matter -->
+
+<!-- Text that spans multiple lines can be declared with `|` -->
+
+<!-- ```{yaml} -->
+<!-- --- -->
+<!-- abstract: | -->
+<!--   This text spanns multiple rows. -->
+
+<!--   New lines are preserved, but note the indentation! -->
+<!-- --- -->
+<!-- ``` -->
+
+
 You don't need to familiarize yourself intimately with YAML to use R Markdown or `papaja` and I suggest you try to just use it.
 The following is the default YAML front matter; it starts and ends with `---`:
 
@@ -35,6 +116,16 @@ cat(
 ### Manuscript metadata
 
 Most of the information contained in the YAML front matter is information about the document.
+
+| YAML field | Metadata |
+|-----------|--------------------------------------|
+| `author`  | list of author information (e.g., `name` and `affiliation`;<br />start each new author with `-`) |
+| `affiliation` | list of institutional information (`id` and `institution`) |
+| `authornote` | automatically contains corresponding author line |
+| `keywords` | article keywords |
+| `wordcount` | article word count |
+| `note` | text to add above author note on the title page<br />(e.g. "Preprint submitted for publication") |
+
 
 `title` is the full name of the manuscript that is printed on the title page and at the beginning of the introduction.
 `shorttitle` is a short variant of the title and is printed in the running head on every page.
@@ -74,6 +165,19 @@ It's contents is printed on title page in between author information and the aut
 The first set of rendering options breaks with the [guiding principal][Guiding principles] that `papaja` *is convertible* because they have no effect on Microsoft Word documents.
 We decided to implement these options nonetheless because they are required by some journals and can be used for submissions where (initially) PDF/LaTeX documents are accepted.
 
+| YAML field | Effect |
+|-----------|--------------------------------------|
+| `mask` | Omit identifying information from the title page |
+| `appendix` | List of R Markdown files to include as appendices |
+| `linenumbers`<sup>\*</sup> | Add line numbers in the margins |
+| `draft`<sup>\*</sup> | Add "DRAFT" watermark across all pages |
+| `floatsintext`<sup>\*</sup>  | Place figures and tables in the text rather than at the end |
+| `figurelist`<sup>\*</sup><br />`tablelist`<sup>\*</sup><br />`footnotelist`<sup>\*</sup> | Create lists of figure captions, table captions, or footnotes |
+| `classoptions`<sup>\*</sup> | control the style of the document<br />(e.g., `man` or `doc`, see [`apa6`](https://mirror.hmc.edu/ctan/macros/latex/contrib/apa6/apa6.pdf) $\LaTeX$ class options) |
+
+<small><sup>\*</sup> Only available for PDF documents</small>
+
+
 `figsintext` indicates whether figures and tables are to be positioned at the end of the document---as required by APA guidelines---or included in the body of the document.
 If `figurelist`, `tablelist`, or `footnotelist` are set to `yes` lists of figure captions, table captions, or footnotes are created and placed after the reference section.
 `lineno` indicates whether lines should be continuously numbered throughout the manuscript.
@@ -94,6 +198,9 @@ output:
   papaja::apa6_pdf:
     keep_tex: FALSE
 ```
+
+- Extend `bookdown::pdf_document2()` and `bookdown::word_document2()`
+    - Options of these functions should also work for `papaja` documents
 
 
 #### Additional rendering options
@@ -116,7 +223,7 @@ The body of R Markdown documents consists of prose written in Markdown intersper
 
 A general principle in typesetting is to separate content and style.
 Separation is commonly achieved through the use of a markup language, which is a system of document annotations.
-These annotations declare portions of text as, for example, title, section headings, or list items but, crucially, they are agnostic to what this means visually (e.g., `<bold>text</bold>` instead of **text**).
+These annotations declare portions of text as, for example, title, section headings, or list items but, crucially, they are agnostic to what this means visually (e.g., `**text**` instead of **text**).
 Separation of content and style is useful because it enables swift changes to an entire documents' style or structure and facilitates applying a common style across multiple documents.
 Microsoft Word implements this strategy in their so-called *styles*, which are collections of formatting instructions that can be assigned to portions of the text.
 
@@ -125,18 +232,21 @@ Markdown was desigend to be an easy-to-read and -write formatting syntax.
 The key design goal was to create a syntax that is readable as-is.
 The following is an excerpt from the APA example manuscript written in Markdown.
 
-```{markdown markdown_example}
+```{markdown}
 # Methods
 ## Participants
-Younger adults (14 women, 10 men, $M_{age} = 19.5$ years, age range: 18–22 years) were
-recruited with flyers posted on the Boston College campus. <!-- TODO: Add flyer to
-appendix! -->
-Older adults (15 women, nine men, $M_{age} = 76.1$ years, age range: 68–84 years) were
-recruited through the Harvard Cooperative on Aging (see Table 1, for demographics and
-test scores).[^p]
+Younger adults (14 women, 10 men, $M_{age} = 19.5$ years, age
+range: 18–22 years) were recruited with flyers posted on the
+Boston College campus. <!–– TODO: Add flyer to appendix! ––>
 
-[^p]: Analyses of covariance were conducted with these covariates, with no resulting
-influences of these variables on the pattern or magnitude of the results.
+Older adults (15 women, nine men, $M_{age} = 76.1$ years, age
+range: 68–84 years) were recruited through the Harvard
+Cooperative on Aging (see Table 1, for demographics and test
+scores).[^p]
+
+[^p]: Analyses of covariance were conducted with these
+covariates,with no resulting influences of these variables on
+the pattern or magnitude of the results.
 ```
 
 Without any prior knowledge of Markdown it should be easy to guess what most of this syntax does:

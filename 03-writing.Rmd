@@ -37,6 +37,13 @@ Once the R Markdown file knows where to look for reference `[@james_1890]` will 
 Multiple citations must be separated by `;` (e.g., `[@james_1890; @bem_2011]`) and are ordered alphabetically as per APA style [@james_1890; @bem_2011].
 To cite a source in text simply omit the brackets; for example, write `@james_1890` to cite @james_1890.
 
+| Citation type | Syntax | Rendered citation |
+|:--------------|:-------|:------------------|
+| Citation within parentheses | `[@james_1890]` | (James, 1890) |
+| Multiple citations | `[@james_1890; @bem_2011]` | (Bem, 2011; James, 1890) |
+| In-text citations | `@james_1890` | James (1890) |
+| Year only | `[-@bem_2011]` | (2011) |
+
 Additional information can be added to citations as pre- or postfixes.
 Pre- and postfixes can simply be added to each citation by writing inside the brackets (`[e.g., @bem_2011]`).
 Note that pre- and postfixes are bound to the enclosed citation, not to the set of all citations.
@@ -64,6 +71,12 @@ Other styles can be set in the YAML front matter by specifying a CSL, or Citatio
 You can use either one of the large number of [existing CSL files](https://www.zotero.org/styles), [customize](http://citationstyles.org/downloads/primer.html) an existing CSL file, or create a new one entirely.
 To change the citation style, add a `csl: mystyle.csl` to the YAML front matter.
 See the [R Markdown documentation](http://R Markdown.rstudio.com/authoring_bibliographies_and_citations.html) and [Citation Style Language](http://citationstyles.org/) for further details.
+
+```{yaml}
+---
+csl: mystyle.csl
+---
+```
 
 
 ### Conveniently inserting citations with `citr`
@@ -160,6 +173,39 @@ $$
 `papaja` builds on the document formats `pdf_document2()` and `word_document2()` from the `bookdown` package.
 This enables the use of `bookdown` cross-referencing syntax including automatically generated table and figure labels as detailed in the [bookdown documentation](https://bookdown.org/yihui/bookdown/cross-references.html).
 
-<!-- Add examples -->
+To cross-reference figures and tables use `\@ref(fig:chunk-label)` or<br /> `\@ref(tab:chunk-label)`
+
+- Only works if chunk labels don't contain `_`
+- Precede by non-breaking spaces, e.g.<br />`Figure\ \@ref(fig:chunk-label)`
 
 ## Appendices
+
+Appendices should be in a separate file<br />(e.g., `appendix.Rmd`)
+
+- One level-1 heading
+- No YAML front matter
+
+```{yaml}
+---
+appendix: "appendix.Rmd"
+---
+```
+
+--
+
+The R code is executed after the main document; all packages and variables from the main document should be available.
+
+
+Multiple appendices are possible
+
+```{yaml}
+---
+appendix:
+  - "appendix_a.Rmd"
+  - "appendix_b.Rmd"
+---
+```
+
+
+
+
