@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2018-08-10">
+<meta name="date" content="2018-08-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -157,7 +157,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.4.2</b> lm (linear regression)</a></li>
 <li class="chapter" data-level="4.4.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.4.3</b> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a></li>
+<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="reporting.html"><a href="reporting.html#inserting-variables-before-they-have-been-computed"><i class="fa fa-check"></i><b>4.5.1</b> Inserting variables before they have been computed</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a><ul>
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#global-chunk-options"><i class="fa fa-check"></i><b>5.1</b> Global chunk options</a></li>
@@ -168,9 +170,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
 <li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
 <li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.8</b> Workflow</a></li>
-<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>5.9</b> Adjusting line spacing</a></li>
-<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.10</b> Troubleshooting</a><ul>
-<li class="chapter" data-level="5.10.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.10.1</b> R</a></li>
+<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>5.9</b> Adjusting line spacing</a><ul>
+<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#comparing-documents"><i class="fa fa-check"></i><b>5.9.1</b> Comparing documents</a></li>
+<li class="chapter" data-level="5.9.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#counting-words"><i class="fa fa-check"></i><b>5.9.2</b> Counting words</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.10</b> Best practices</a></li>
+<li class="chapter" data-level="5.11" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.11</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="5.11.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.11.1</b> R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
@@ -211,6 +217,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="published-manuscripts" class="section level1">
 <h1><span class="header-section-number">7</span> Published manuscripts</h1>
 <p>If you have published a paper that was written with <code>papaja</code>, you can add the reference to the <a href="https://www.zotero.org/groups/2202906/papaja">public Zotero group</a> yourself or send it to me.</p>
+<hr />
 <hr />
 <p>Although <code>papaja</code> is not yet on CRAN and is still undergoing a lot of changes, there are peer-reviewed publications that use it. If you have published a paper that was written with <code>papaja</code>, you can add the reference to the <a href="https://www.zotero.org/groups/2202906/papaja">public Zotero group</a> yourself or send it to me.</p>
 <p>Aust, F., &amp; Edwards, J. D. (2016). Incremental validity of Useful Field of View subtests for the prediction of instrumental activities of daily living. <em>Journal of Clinical and Experimental Neuropsychology</em>, <em>38</em>(5), 497–515. <a href="https://doi.org/10.1080/13803395.2015.1125453" class="uri">https://doi.org/10.1080/13803395.2015.1125453</a></p>

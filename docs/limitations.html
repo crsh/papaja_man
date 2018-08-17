@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2018-08-10">
+<meta name="date" content="2018-08-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -157,7 +157,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.4.2</b> lm (linear regression)</a></li>
 <li class="chapter" data-level="4.4.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.4.3</b> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a></li>
+<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="reporting.html"><a href="reporting.html#inserting-variables-before-they-have-been-computed"><i class="fa fa-check"></i><b>4.5.1</b> Inserting variables before they have been computed</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a><ul>
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#global-chunk-options"><i class="fa fa-check"></i><b>5.1</b> Global chunk options</a></li>
@@ -168,9 +170,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
 <li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
 <li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.8</b> Workflow</a></li>
-<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>5.9</b> Adjusting line spacing</a></li>
-<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.10</b> Troubleshooting</a><ul>
-<li class="chapter" data-level="5.10.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.10.1</b> R</a></li>
+<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>5.9</b> Adjusting line spacing</a><ul>
+<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#comparing-documents"><i class="fa fa-check"></i><b>5.9.1</b> Comparing documents</a></li>
+<li class="chapter" data-level="5.9.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#counting-words"><i class="fa fa-check"></i><b>5.9.2</b> Counting words</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.10</b> Best practices</a></li>
+<li class="chapter" data-level="5.11" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.11</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="5.11.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.11.1</b> R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
@@ -231,19 +237,25 @@ Figure 8.1: An example of large vertical spacing between paragraphs and section 
 <div id="microsoft-word-documents" class="section level2">
 <h2><span class="header-section-number">8.2</span> Microsoft Word documents</h2>
 <p>In contrast, there is no simple way to compensate for the limited control offered by <code>pandoc</code> when rendering Microsoft Word documents. This is the reason why some of <code>papaja</code>’s features are only available if the to-be-rendered document is in PDF format, such as some <a href="r-markdown-components.html#rendering-options">Rendering options</a> and some features of <code>apa_table()</code> (see <a href="reporting.html#tables">Tables</a>). More over, rendered documents in DOCX format require some manual work before they fully comply with APA guidelines. We, therefore, provide the following checklist of necessary changes:</p>
+<p>Always,</p>
 <ol style="list-style-type: decimal">
-<li>add a headder line including running head and page number</li>
-<li>add horizontal rules above the column titles and below the last table row</li>
-<li>position start of reference section at the top of a new page</li>
-<li>move figures and tables to the end of the manuscript</li>
-<li>in figure captions, add a colon following the figure numbers and italize</li>
+<li>add a header line with running head and page number</li>
 </ol>
 <p>If necessary,</p>
-<ul>
+<ol start="2" style="list-style-type: decimal">
 <li>position author note at the bottom of page 1</li>
+<li>move figures and tables to the end of the manuscript</li>
 <li>add colon to level 3-headings</li>
-<li>add midrules to tables</li>
-</ul>
+<li>in figure captions,
+<ul>
+<li>add a colon following the figure numbers and italicize<br />(e.g. “<em>Figure 1</em>. This is a caption.”)</li>
+</ul></li>
+<li>in tables,
+<ul>
+<li>add horizontal rules above the first and below the last row</li>
+<li>add midrules</li>
+</ul></li>
+</ol>
 <p>We hope to automated some of these points in the future as the flexibility of <code>pandoc</code> increases.</p>
 
 </div>

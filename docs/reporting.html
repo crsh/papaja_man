@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2018-08-10">
+<meta name="date" content="2018-08-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -157,7 +157,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.4.2</b> lm (linear regression)</a></li>
 <li class="chapter" data-level="4.4.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.4.3</b> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a></li>
+<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="reporting.html"><a href="reporting.html#inserting-variables-before-they-have-been-computed"><i class="fa fa-check"></i><b>4.5.1</b> Inserting variables before they have been computed</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a><ul>
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#global-chunk-options"><i class="fa fa-check"></i><b>5.1</b> Global chunk options</a></li>
@@ -168,9 +170,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
 <li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
 <li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.8</b> Workflow</a></li>
-<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>5.9</b> Adjusting line spacing</a></li>
-<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.10</b> Troubleshooting</a><ul>
-<li class="chapter" data-level="5.10.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.10.1</b> R</a></li>
+<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>5.9</b> Adjusting line spacing</a><ul>
+<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#comparing-documents"><i class="fa fa-check"></i><b>5.9.1</b> Comparing documents</a></li>
+<li class="chapter" data-level="5.9.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#counting-words"><i class="fa fa-check"></i><b>5.9.2</b> Counting words</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.10</b> Best practices</a></li>
+<li class="chapter" data-level="5.11" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.11</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="5.11.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.11.1</b> R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
@@ -227,6 +233,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 
 <p><code>papaja</code> additionally provides a shorthand version of <code>printnum()</code>, namely <code>printp()</code>, with defaults for correct typesetting of <span class="math inline">\(p\)</span> values (e.g., <span class="math inline">\(p &lt; .001\)</span> instead of <span class="math inline">\(p = 0.000\)</span>).</p>
+<p>Typeset numerical values for greater control - <code>printnum()</code> - <code>printp()</code> as shorthand for <em>p</em> values</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">printnum</span>(<span class="kw">c</span>(<span class="fl">143234.34557</span>, <span class="ot">Inf</span>))</code></pre></div>
+<pre><code>## [1] &quot;143,234.35&quot; &quot;$\\infty$&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">printnum</span>(42L, <span class="dt">numerals =</span> <span class="ot">FALSE</span>, <span class="dt">capitalize =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] &quot;Forty-two&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">printp</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="fl">0.0008</span>, <span class="dv">0</span>))</code></pre></div>
+<pre><code>## [1] &quot;&gt; .999&quot; &quot;.001&quot;   &quot;&lt; .001&quot;</code></pre>
 </div>
 <div id="figures" class="section level2">
 <h2><span class="header-section-number">4.2</span> Figures</h2>
@@ -292,6 +305,25 @@ Figure 4.2: An example beeswarm plot. Small points represent individual observat
 Figure 4.3: A customized beeswarm plot. Note that, by default, the swarm inherits parameters from the args_points argument. Small points represent individual observations, large points represent means, and error bars represent 95% within-subjects confidence intervals.
 </p>
 </div>
+<ul>
+<li>Utilize variable labels</li>
+</ul>
+<p>These plot functions also utilize variable labels, with some <span class="math inline">\(\LaTeX\)</span> math support (see <code>?latex2exp::TeX</code>)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cosmetic_surgery) &lt;-<span class="st"> </span><span class="kw">c</span>(
+  <span class="dt">Post_QoL =</span> <span class="st">&quot;Quality of life post surgery ($</span><span class="ch">\\</span><span class="st">bar{x}_{post}$)&quot;</span>
+)
+
+<span class="kw">apa_beeplot</span>(
+  <span class="dt">id =</span> <span class="st">&quot;ID&quot;</span>
+  , <span class="dt">dv =</span> <span class="st">&quot;Post_QoL&quot;</span>
+  , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Reason&quot;</span>, <span class="st">&quot;Surgery&quot;</span>, <span class="st">&quot;Gender&quot;</span>)
+  , <span class="dt">data =</span> cosmetic_surgery
+  <span class="co"># , ylab = &quot;Quality of life post surgery&quot;</span>
+  , <span class="dt">las =</span> <span class="dv">1</span>
+  , <span class="dt">args_legend =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="fl">0.25</span>, <span class="dt">y =</span> <span class="dv">30</span>)
+  , <span class="dt">args_points =</span> <span class="kw">list</span>(<span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;skyblue2&quot;</span>, <span class="st">&quot;indianred1&quot;</span>))
+  , <span class="dt">args_error_bars =</span> <span class="kw">list</span>(<span class="dt">length =</span> <span class="fl">0.03</span>)
+)</code></pre></div>
 </div>
 </div>
 <div id="setting-global-plot-options" class="section level3">
@@ -317,26 +349,33 @@ Figure 4.4: A variant of the example beeswarm plot with larger labels and symbol
 By default, <code>knitr</code> resets <code>par()</code> for every chunk; <code>par()</code> needs to be called anew in every chunk that creates a plot.
 </div>
 
-<p>While there are advantages to this behavior it impedes defining a consistent plot style. Although not very convenient, it <em>is</em> possible to set global plot options in <code>knitr</code> and therefore also in <code>papaja</code>. To do so, it is necessary to define a custom function as so-called <code>knit_hook</code> that calls <code>par()</code> and pass it to <code>knitr</code>. The following example illustrates how to make <code>knitr</code> execute a specified call to <code>par()</code> before executing code in a given chunk. Here we rotate the <span class="math inline">\(y\)</span>-axis label (<code>las = 1</code>), sets a regular font and increases the size of the main title (<code>font.main = 1</code>, <code>cex.main = 1.05</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define a function that sets desired global plot defaults</span>
-my_par &lt;-<span class="st"> </span><span class="cf">function</span>(before, options, envir) {
-  <span class="cf">if</span> (before <span class="op">&amp;&amp;</span><span class="st"> </span>options<span class="op">$</span>fig.show <span class="op">!=</span><span class="st"> &quot;none&quot;</span>) {
-    <span class="kw">par</span>(<span class="dt">las =</span> <span class="dv">1</span>, <span class="dt">font.main =</span> <span class="dv">1</span>, <span class="dt">cex.main =</span> <span class="fl">1.05</span>)
-  }
-}
+<p>While there are advantages to this behavior it impedes defining a consistent plot style. Although not very convenient, it <em>is</em> possible to set global plot options in <code>knitr</code> and therefore also in <code>papaja</code>. The following example illustrates how to make <code>knitr</code> execute a specified call to <code>par()</code> before executing code in a given chunk. Here we rotate the <span class="math inline">\(y\)</span>-axis label (<code>las = 1</code>), sets a regular font and increases the size of the main title (<code>font.main = 1</code>, <code>cex.main = 1.05</code>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Ensure that par()-settings are retained across chunks</span>
+knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw">set</span>(<span class="dt">global.par =</span> <span class="ot">TRUE</span>)
 
-<span class="co"># Pass global plot defaults to knitr</span>
-knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">par =</span> <span class="ot">TRUE</span>)
-knitr<span class="op">::</span>knit_hooks<span class="op">$</span><span class="kw">set</span>(<span class="dt">par =</span> my_par)</code></pre></div>
+<span class="co"># Define a function that sets desired global plot defaults</span>
+<span class="kw">par</span>(<span class="dt">font.main =</span> <span class="dv">1</span><span class="st">`</span><span class="dt">, </span><span class="st">`</span><span class="dt">cex.main =</span> <span class="fl">1.05</span>, <span class="dt">las =</span> <span class="dv">1</span>)</code></pre></div>
 <p>The customizations apply to all subsequently generated plots. It is, thus, advisable to add this code at the top of the R Markdown document shortly after the YAML front matter.</p>
 <p>These same limitations do not apply to users of <code>ggplot2</code>. Custom themes can be set as default as usual and are subsequently applied to all plots created with <code>ggplot()</code>. <code>papaja</code> provides a template <code>theme_apa()</code> that we feel is well suited to create publication-ready plots. The following example demonstrates how to set a default theme.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>)
-<span class="kw">theme_set</span>(<span class="kw">theme_apa</span>())
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cosmetic surgery dataset from</span>
+<span class="co"># Field, A. P., Miles, J., &amp; Field, Z. (2012). Discovering statistics using R. London: Sage.</span>
+<span class="kw">load</span>(<span class="st">&quot;data/cosmetic_surgery.rdata&quot;</span>)
 
-<span class="kw">ggplot</span>(cars, <span class="kw">aes</span>(<span class="dt">x =</span> speed, <span class="dt">y =</span> dist)) <span class="op">+</span>
+<span class="kw">ggplot</span>(
+    cosmetic_surgery
+    , <span class="kw">aes</span>(<span class="dt">x =</span> Base_QoL, <span class="dt">y =</span> Post_QoL, <span class="dt">color =</span> Reason)
+  ) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Speed [mph]&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Stopping distance [ft]&quot;</span>)</code></pre></div>
-<p><img src="papaja_manual_files/figure-html/theme-apa-1.png" width="672" style="display: block; margin: auto;" /></p>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(
+    <span class="dt">x =</span> <span class="st">&quot;Baseline quality of life&quot;</span>
+    , <span class="dt">y =</span> <span class="st">&quot;Quality of life post surgery&quot;</span>
+  ) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_apa</span>(<span class="dt">box =</span> <span class="ot">TRUE</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</code></pre></div>
+<p><img src="papaja_manual_files/figure-html/ggplot-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">theme_set</span>(<span class="kw">theme_apa</span>())</code></pre></div>
 </div>
 <div id="external-files" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> External files</h3>
@@ -361,6 +400,16 @@ This is a figure caption for my figure.</code></pre>
 The figure caption defined in <code>fig.cap</code> is used for all figures that are created in the respective chunk. If multiple figures are created the caption will be duplicated. Unless this behavior is desired, only one figure should be created per chunk.
 </div>
 
+<ul>
+<li>Caption is used for every figure in chunk</li>
+<li>Only one figure per chunk</li>
+<li>Combine multiple plots into one figure (e.g., <code>layout()</code>)</li>
+</ul>
+<p>Figures are saved as 300 dpi PDF and PNG</p>
+<ul>
+<li>e.g., <code>my_manuscript_figures/figure-latex/chunk-name-1.pdf</code></li>
+<li>Change defaults using chunk options (<code>dev</code> and <code>dpi</code>)</li>
+</ul>
 </div>
 </div>
 <div id="tables" class="section level2">
@@ -391,6 +440,15 @@ descriptives[, <span class="op">-</span><span class="dv">1</span>] &lt;-<span cl
 <!-- 3. When you pass backslashes as character strings you need to escape the backslash with one additional backslash because R uses backslashes to denote special characters, such as \t for tab or \n for newline, and will interpret \a as newline, I think. The remaining lpha is meaningless in LaTeX math environments and will cause an error. -->
 <!-- 4. If you want to write symbols in any part of the table use $ instead of $$, which is used in text to format equations as distinct equations in new inset paragraphs. -->
 <!-- (5. format = "latex" is not required if you use the function inside an R Markdown document)  -->
+<p><code>apa_table()</code> extends <code>knitr::kable()</code></p>
+<ul>
+<li>Designed to create table designs from the APA manual</li>
+<li>Does not perform any calculations</li>
+<li>Can merge multiple <code>data.frame</code> of the same structure contained in a <code>list</code></li>
+<li>Much more powerful in PDF documents<br />(see <code>apa_table_example.Rmd</code>)</li>
+<li>Remember to set chunk option <code>results = &quot;asis&quot;</code>!</li>
+</ul>
+<p><code>kableExtra</code> is another powerful alternative</p>
 <div id="alternatives-1" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Alternatives</h3>
 <p>Pixidust: <a href="https://github.com/nutterb/pixiedust/blob/master/README.md" class="uri">https://github.com/nutterb/pixiedust/blob/master/README.md</a></p>
@@ -595,6 +653,83 @@ apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_out)</
 </tr>
 </tbody>
 </table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lm_res &lt;-<span class="st"> </span><span class="kw">lm</span>(Post_QoL <span class="op">~</span><span class="st"> </span>Base_QoL <span class="op">+</span><span class="st"> </span>BDI, <span class="dt">data =</span> cosmetic_surgery)
+lm_res_apa &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_res, <span class="dt">observed_predictors =</span> <span class="ot">TRUE</span>)
+lm_res_apa<span class="op">$</span>estimate<span class="op">$</span>Intercept</code></pre></div>
+<pre><code>## [1] &quot;$b = 18.50$, 95\\% CI $[13.10$, $23.91]$&quot;</code></pre>
+<blockquote>
+<p><span class="math inline">\(b = 18.50\)</span>, 95% CI <span class="math inline">\([13.10\)</span>, <span class="math inline">\(23.91]\)</span></p>
+</blockquote>
+<p>–</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lm_res_apa<span class="op">$</span>full_result<span class="op">$</span>modelfit<span class="op">$</span>r2</code></pre></div>
+<pre><code>## [1] &quot;$R^2 = .50$, 90\\% CI $[0.42$, $0.57]$, $F(2, 273) = 136.78$, $p &lt; .001$&quot;</code></pre>
+<blockquote>
+<p><span class="math inline">\(R^2 = .50\)</span>, 90% CI <span class="math inline">\([0.42\)</span>, <span class="math inline">\(0.57]\)</span>, <span class="math inline">\(F(2, 273) = 136.78\)</span>, <span class="math inline">\(p &lt; .001\)</span></p>
+</blockquote>
+<p>Tables produced by <code>apa_print()</code> have variable labels</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lm_res_apa<span class="op">$</span>table</code></pre></div>
+<pre><code>## A data.frame with 5 labelled columns:
+## 
+##   predictor estimate                 ci statistic p.value
+## 1 Intercept    18.50 $[13.10$, $23.91]$      6.74  &lt; .001
+## 2  Base QoL     0.59   $[0.50$, $0.67]$     13.23  &lt; .001
+## 3       BDI     0.17   $[0.11$, $0.22]$      6.08  &lt; .001
+## 
+## predictor: Predictor 
+## estimate : $b$ 
+## ci       : 95\% CI 
+## statistic: $t(273)$ 
+## p.value  : $p$</code></pre>
+<p>Tables produced by <code>apa_print()</code> have variable labels</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(lm_res_apa<span class="op">$</span>table)</code></pre></div>
+<pre><code>## $predictor
+## [1] &quot;Predictor&quot;
+## 
+## $estimate
+## [1] &quot;$b$&quot;
+## 
+## $ci
+## [1] &quot;95\\% CI&quot;
+## 
+## $statistic
+## [1] &quot;$t(273)$&quot;
+## 
+## $p.value
+## [1] &quot;$p$&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(letters) &lt;-<span class="st"> &quot;Alphabet&quot;</span>
+letters[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>]</code></pre></div>
+<pre><code>## Variable label     : Alphabet
+##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot;
+## attr(,&quot;class&quot;)
+## [1] &quot;papaja_labelled&quot; &quot;character&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cars<span class="op">$</span>speed) &lt;-<span class="st"> &quot;Speed [m/h]&quot;</span>
+cars[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="st">&quot;speed&quot;</span>]</code></pre></div>
+<pre><code>## Variable label     : Speed [m/h]
+##  [1]  4  4  7  7  8  9 10 10 10 11 11 12 12 12 12
+## attr(,&quot;class&quot;)
+## [1] &quot;papaja_labelled&quot; &quot;numeric&quot;</code></pre>
+<p>Variable labels can be added to any <code>vector</code> or <code>data.frame</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cars) &lt;-<span class="st"> </span><span class="kw">c</span>(
+  <span class="dt">speed =</span> <span class="st">&quot;Speed [m/h]&quot;</span>
+  , <span class="dt">dist =</span> <span class="st">&quot;Stopping distance [ft]&quot;</span>
+)
+cars[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</code></pre></div>
+<pre><code>##   speed dist
+## 1     4    2
+## 2     4   10
+## 3     7    4</code></pre>
+<p>Variable labels are attributes of the variables that make up the <code>data.frame</code></p>
+<ul>
+<li>Conflicting implementations</li>
+<li>Ours is, in principle, compatible with <code>Hmisc</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cars<span class="op">$</span>dist)</code></pre></div>
+<pre><code>## [1] &quot;Stopping distance [ft]&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="st">&quot;dist&quot;</span>]</code></pre></div>
+<pre><code>## Variable label     : Stopping distance [ft]
+##  [1]  2 10  4 22 16 10 18 26 34 17 28 14 20 24 28
+## attr(,&quot;class&quot;)
+## [1] &quot;papaja_labelled&quot; &quot;numeric&quot;</code></pre>
 <div id="anova-model-comparisons" class="section level4">
 <h4><span class="header-section-number">4.4.2.1</span> anova (model comparisons)</h4>
 <p>…</p>
@@ -682,13 +817,76 @@ apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmet
 </div>
 <div id="caching-expensive-computations" class="section level2">
 <h2><span class="header-section-number">4.5</span> Caching expensive computations</h2>
+<p>If R codes take a long time to run, results can be cached</p>
+<p><smaller> <code class = "markdown hljs remark-code" style = "background: #F2F2F2;">```{r heavy-computation, .highlight[cache = TRUE]}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br /># Imagine computationally expensive R code here<br /> ```</code> </smaller></p>
+<p><code>my_manuscript_cache</code> directory is created that contains - Computed objects - List of loaded R packages in <code>__packages</code></p>
+<p>The next time the chunk is executed</p>
+<ul>
+<li>If unchanged, cached results are loaded</li>
+<li>If changed, cache is discarded and code is executed anew</li>
+</ul>
+<p>–</p>
+<p>Packages are not reloaded, which cause problems in subsequent uncached chunks</p>
+<ul>
+<li>Do not include <code>library()</code>-calls in cached chunks!</li>
+</ul>
+<p>–</p>
+<p>Load cache into an interactive R session using <code>lazyLoad()</code></p>
 
 <div class="rmdcaution">
 If possible at all, avoid caching <code>library()</code>-calls. Subsequent use of functions from these packages in non-cached chunks will throw errors!
 </div>
 
-<p>…</p>
+<p>To avoid incorrect results due to caching, dependencies should be specified</p>
+<p><smaller> <code class = "markdown hljs remark-code" style = "background: #F2F2F2;">```{r chunk1, cache = TRUE}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />x &lt;- 5<br /> ```</code><br /></p>
+<p><code class = "markdown hljs remark-code" style = "background: #F2F2F2;">```{r chunk2, cache = TRUE, .highlight[dependson = “chunk1”]}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />x &lt;- x + 5<br /> ```</code> </smaller></p>
+<p>If code in <code>chunk1</code> changes, <code>chunk2</code> is recomputed</p>
+<p>To avoid incorrect results due to caching, dependencies should be specified</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">autodep =</span> <span class="ot">TRUE</span>)
+knitr<span class="op">::</span><span class="kw">dep_auto</span>()</code></pre></div>
+<p>See <a href="https://yihui.name/knitr/demo/cache/">knitr cache examples</a> for details</p>
+<p>Control when cache is discarded</p>
+<ul>
+<li>Ignore changes to comments</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.comments =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<ul>
+<li>Discard cache when random seed changes</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.extra =</span> knitr<span class="op">::</span>rand_seed)</code></pre></div>
+<p>I would recommend to always set these options</p>
+<ul>
+<li>Discard cache if data are modified</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.extra =</span> <span class="kw">file.info</span>(<span class="st">&quot;data.csv&quot;</span>)<span class="op">$</span>mtime)</code></pre></div>
+<ul>
+<li>Discard cache if the R environment changes</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">opts_chunk<span class="op">$</span><span class="kw">set</span>(
+  <span class="dt">cache.extra =</span> <span class="kw">list</span>(R.version, <span class="kw">sessionInfo</span>())
+)</code></pre></div>
+<p>If time permits, always discard all cached results (i.e., delete <code>my_manuscript_cache</code> directory) and reknit the document before submission to ensure that all results are based on the current R code!</p>
+<div id="inserting-variables-before-they-have-been-computed" class="section level3">
+<h3><span class="header-section-number">4.5.1</span> Inserting variables before they have been computed</h3>
+<p>R code in R Markdown documents in executed from top to bottom. Hence, variables are not available before the code chunk in which they are defined has been executed. However, sometimes it may be desireable to report a variable in a document before the corresponding code chunk. A common example is to include the sample size or focal test statistics in the abstract.</p>
+<p>Cached code chunks store their results in a cache database in the subfolder <code>my_document_cache</code> (default). The function <code>knitr::load_cache()</code> can be used to access cache databases and report results of a chunk anywhere in the document. For the following example, we’ll assume that we want to report the sample size in the abstract. The sample size in calculated in the method section:</p>
+<pre><code>```{r, sample-size, cache = TRUE}
+n &lt;- nrow(cosmetic_surgery)
+```</code></pre>
+<p>To report this variable in the abstract we need to use an inline code chunk in the YAML front matter field:</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
+<span class="fu">abstract:</span><span class="at"> |</span>
+  This is the abstract.
+  <span class="fu">Our sample size was n = `r knitr:</span><span class="at">:load_cache(label = &quot;sample-size&quot;, object = &quot;n&quot;)`.</span>
+<span class="ot">---</span></code></pre></div>
+<p>When the document is first rendered the object <code>n</code> in the code chunk <code>sample-size</code> has not been computed and <code>knitr::load_cache()</code> will insert <code>&quot;NOT AVAILABLE&quot;</code> instead. The next time the document is rendered, the cache database is available from the previous rendering and the result of the previous computation will be inserted.</p>
 
+<div class="rmdnote">
+For variables computed later in the document, <code>knitr::load_cache()</code> can only ever display the result of the previous run—if the cached code is changed, the document has to be rendered twice to display the new result.
+</div>
+
+
+</div>
 </div>
 </div>
 <h3>References</h3>

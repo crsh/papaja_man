@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2018-08-10">
+<meta name="date" content="2018-08-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -157,7 +157,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.4.2</b> lm (linear regression)</a></li>
 <li class="chapter" data-level="4.4.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.4.3</b> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a></li>
+<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="reporting.html"><a href="reporting.html#inserting-variables-before-they-have-been-computed"><i class="fa fa-check"></i><b>4.5.1</b> Inserting variables before they have been computed</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a><ul>
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#global-chunk-options"><i class="fa fa-check"></i><b>5.1</b> Global chunk options</a></li>
@@ -168,9 +170,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
 <li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
 <li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.8</b> Workflow</a></li>
-<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>5.9</b> Adjusting line spacing</a></li>
-<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.10</b> Troubleshooting</a><ul>
-<li class="chapter" data-level="5.10.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.10.1</b> R</a></li>
+<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>5.9</b> Adjusting line spacing</a><ul>
+<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#comparing-documents"><i class="fa fa-check"></i><b>5.9.1</b> Comparing documents</a></li>
+<li class="chapter" data-level="5.9.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#counting-words"><i class="fa fa-check"></i><b>5.9.2</b> Counting words</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.10</b> Best practices</a></li>
+<li class="chapter" data-level="5.11" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.11</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="5.11.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.11.1</b> R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
@@ -213,7 +219,69 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Generally, R Markdown files consist of two parts. The first is the YAML front matter that contains the documents meta information and rendering options. It is located at the top of the R Markdown document. The second part is the main body that contains R code chunks and prose in Markdown format.</p>
 <div id="yaml-front-matter" class="section level2">
 <h2><span class="header-section-number">2.1</span> YAML front matter</h2>
-<p><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> is a human-readable and easy to write language to define data structures. You don’t need to familiarize yourself intimately with YAML to use R Markdown or <code>papaja</code> and I suggest you try to just use it. The following is the default YAML front matter; it starts and ends with <code>---</code>:</p>
+<p><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> is a human-readable and easy to write language to define data structures.</p>
+<!-- YAML data structures translate to (named) `list` objects<br />in R -->
+<!-- ```{yaml} -->
+<!-- --- -->
+<!-- title: "YAML Example" -->
+<!-- author: "Frederik Aust" -->
+<!-- date: "29 11 2017" -->
+<!-- output: html_document -->
+<!-- --- -->
+<!-- ``` -->
+<!-- ```{r echo = FALSE} -->
+<!-- str( -->
+<!--   list( -->
+<!--     title = "YAML Example" -->
+<!--     , author = "Frederik Aust" -->
+<!--     , date = "29 11 2017" -->
+<!--     , output = "html_document" -->
+<!--   ) -->
+<!-- ) -->
+<!-- ``` -->
+<!-- Indentations denote the structure of nested `list`s -->
+<!-- ```{yaml} -->
+<!-- --- -->
+<!-- output: -->
+<!--   html_document: -->
+<!--     toc: yes -->
+<!-- --- -->
+<!-- ``` -->
+<!-- ```{r echo = FALSE} -->
+<!-- str( -->
+<!--   list( -->
+<!--     output = list( -->
+<!--       html_document = list( -->
+<!--         toc = TRUE -->
+<!--       ) -->
+<!--     ) -->
+<!--   ) -->
+<!-- ) -->
+<!-- ``` -->
+<!-- Here, the `toc` is nested in `html_document`<br />(i.e., an argument to that output function) -->
+<!-- Similarly, it is possible to specify vectors -->
+<!-- ```{yaml} -->
+<!-- --- -->
+<!-- bibliography: ["references.bib", "r-package-references.bib"] -->
+<!-- --- -->
+<!-- ``` -->
+<!-- ```{r echo = FALSE} -->
+<!-- str( -->
+<!--   list(bibliography = c("references.bib", "r-package-references.bib")) -->
+<!-- ) -->
+<!-- ``` -->
+<!-- --- -->
+<!-- # `rmarkdown` -->
+<!-- ### YAML front matter -->
+<!-- Text that spans multiple lines can be declared with `|` -->
+<!-- ```{yaml} -->
+<!-- --- -->
+<!-- abstract: | -->
+<!--   This text spanns multiple rows. -->
+<!--   New lines are preserved, but note the indentation! -->
+<!-- --- -->
+<!-- ``` -->
+<p>You don’t need to familiarize yourself intimately with YAML to use R Markdown or <code>papaja</code> and I suggest you try to just use it. The following is the default YAML front matter; it starts and ends with <code>---</code>:</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
 <span class="fu">title             :</span><span class="at"> </span><span class="st">&quot;The title&quot;</span>
 <span class="fu">shorttitle        :</span><span class="at"> </span><span class="st">&quot;Title&quot;</span>
@@ -275,6 +343,44 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="manuscript-metadata" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Manuscript metadata</h3>
 <p>Most of the information contained in the YAML front matter is information about the document.</p>
+<table style="width:71%;">
+<colgroup>
+<col width="16%" />
+<col width="54%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>YAML field</th>
+<th>Metadata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>author</code></td>
+<td>list of author information (e.g., <code>name</code> and <code>affiliation</code>;<br />start each new author with <code>-</code>)</td>
+</tr>
+<tr class="even">
+<td><code>affiliation</code></td>
+<td>list of institutional information (<code>id</code> and <code>institution</code>)</td>
+</tr>
+<tr class="odd">
+<td><code>authornote</code></td>
+<td>automatically contains corresponding author line</td>
+</tr>
+<tr class="even">
+<td><code>keywords</code></td>
+<td>article keywords</td>
+</tr>
+<tr class="odd">
+<td><code>wordcount</code></td>
+<td>article word count</td>
+</tr>
+<tr class="even">
+<td><code>note</code></td>
+<td>text to add above author note on the title page<br />(e.g. “Preprint submitted for publication”)</td>
+</tr>
+</tbody>
+</table>
 <p><code>title</code> is the full name of the manuscript that is printed on the title page and at the beginning of the introduction. <code>shorttitle</code> is a short variant of the title and is printed in the running head on every page.</p>
 <p><code>author</code> is a structured list. Each author’s information is given in a separate element that is indented and starts with <code>-</code>. A full <code>name</code> and an <code>affiliation</code> symbol need to be provided for every author. The symbol is printed as superscript following the author’s name on the manuscripts title page and can be a combination of multiple symbols if the author has multiple affiliations (e.g., <code>1,2</code> yields Ernst-August Doelle<sup>1,2</sup>). Exactly one author has to be declared as corresponding author by adding <code>corresponding: yes</code> and the fields <code>address</code> and <code>email</code> to the author’s information. The latter two fields are used to automatically generate the last sentence of the author note that—as required by the APA guidelines—provides the corresponding author’s contact information.</p>
 <p><code>affiliation</code> is another structured list that contains the institutions’ information; again each new element is indented and starts with <code>-</code>. <code>id</code> is printed as superscript in front of the <code>institution</code> name below the author names on the title page (e.g., <code>2</code> yields <sup>2</sup> Konstanz Business School).</p>
@@ -285,12 +391,61 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="rendering-options" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Rendering options</h3>
 <p>The first set of rendering options breaks with the <a href="introduction.html#guiding-principles">guiding principal</a> that <code>papaja</code> <em>is convertible</em> because they have no effect on Microsoft Word documents. We decided to implement these options nonetheless because they are required by some journals and can be used for submissions where (initially) PDF/LaTeX documents are accepted.</p>
+<table style="width:71%;">
+<colgroup>
+<col width="16%" />
+<col width="54%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>YAML field</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mask</code></td>
+<td>Omit identifying information from the title page</td>
+</tr>
+<tr class="even">
+<td><code>appendix</code></td>
+<td>List of R Markdown files to include as appendices</td>
+</tr>
+<tr class="odd">
+<td><code>linenumbers</code><sup>*</sup></td>
+<td>Add line numbers in the margins</td>
+</tr>
+<tr class="even">
+<td><code>draft</code><sup>*</sup></td>
+<td>Add “DRAFT” watermark across all pages</td>
+</tr>
+<tr class="odd">
+<td><code>floatsintext</code><sup>*</sup></td>
+<td>Place figures and tables in the text rather than at the end</td>
+</tr>
+<tr class="even">
+<td><code>figurelist</code><sup>*</sup><br /><code>tablelist</code><sup>*</sup><br /><code>footnotelist</code><sup>*</sup></td>
+<td>Create lists of figure captions, table captions, or footnotes</td>
+</tr>
+<tr class="odd">
+<td><code>classoptions</code><sup>*</sup></td>
+<td>control the style of the document<br />(e.g., <code>man</code> or <code>doc</code>, see <a href="https://mirror.hmc.edu/ctan/macros/latex/contrib/apa6/apa6.pdf"><code>apa6</code></a> <span class="math inline">\(\LaTeX\)</span> class options)</td>
+</tr>
+</tbody>
+</table>
+<p><small><sup>*</sup> Only available for PDF documents</small></p>
 <p><code>figsintext</code> indicates whether figures and tables are to be positioned at the end of the document—as required by APA guidelines—or included in the body of the document. If <code>figurelist</code>, <code>tablelist</code>, or <code>footnotelist</code> are set to <code>yes</code> lists of figure captions, table captions, or footnotes are created and placed after the reference section. <code>lineno</code> indicates whether lines should be continuously numbered throughout the manuscript.</p>
 <p>The remaining rendering options affect both PDF and Microsoft Word documents. <code>mask</code> can be set to <code>yes</code> to prepare the manuscript for double-blind peer review by removing author names, affiliations, and author note from the title page. <!-- The language of the manuscript is given in `lang` and affects automatically generated text, such as "Author note" on the title page or "Figure 1." in figure captions. --> <!-- Currently, `english` and `german` are supported. --> <code>class</code> defines the layout style of the manuscript. Setting <code>class</code> to <code>man</code> produces the default APA manuscript style, <code>doc</code> produces a more typical document (single-spaced, single-column). The latter option is, however, currently not available for Microsoft Word documents.</p>
 <p>The <code>output</code> field determines the type of document that is created and can be either <code>papaja::apa6_pdf</code> or <code>papaja::apa6_word</code>. Additional arguments can be passed to these functions, e.g. to delete the LaTeX source file after the PDF has been rendered (see <code>?apa6_pdf</code> for details):</p>
 <div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span><span class="at"> </span>
   <span class="fu">papaja:</span><span class="at">:apa6_pdf:</span>
     <span class="fu">keep_tex:</span><span class="at"> FALSE</span></code></pre></div>
+<ul>
+<li>Extend <code>bookdown::pdf_document2()</code> and <code>bookdown::word_document2()</code>
+<ul>
+<li>Options of these functions should also work for <code>papaja</code> documents</li>
+</ul></li>
+</ul>
 <div id="additional-rendering-options" class="section level4">
 <h4><span class="header-section-number">2.1.2.1</span> Additional rendering options</h4>
 <p>Any additional rendering options supported by <code>rmarkdown::pdf_document()</code> or <code>rmarkdown::word_document()</code> can be added to the YAML front matter. For example, a different citation style can be used by setting <code>csl</code> to the location of a <a href="http://citationstyles.org/">CSL</a> style definition file. For an overview refer see the list of <a href="https://pandoc.org/MANUAL.html#variables-set-by-pandoc">default variables</a>, <a href="https://pandoc.org/MANUAL.html#language-variables">language variables</a>, and <a href="https://pandoc.org/MANUAL.html#variables-for-latex">LaTeX variables</a> supported by <code>pandoc</code> and the <a href="https://github.com/jgm/pandoc-citeproc/blob/master/man/pandoc-citeproc.1.md#filter-mode">filter modes</a> supported by <code>pandoc-citeproc</code>.</p>
@@ -303,19 +458,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The body of R Markdown documents consists of prose written in Markdown interspersed with R code.</p>
 <div id="markdown" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Markdown</h3>
-<p>A general principle in typesetting is to separate content and style. Separation is commonly achieved through the use of a markup language, which is a system of document annotations. These annotations declare portions of text as, for example, title, section headings, or list items but, crucially, they are agnostic to what this means visually (e.g., <code>&lt;bold&gt;text&lt;/bold&gt;</code> instead of <strong>text</strong>). Separation of content and style is useful because it enables swift changes to an entire documents’ style or structure and facilitates applying a common style across multiple documents. Microsoft Word implements this strategy in their so-called <em>styles</em>, which are collections of formatting instructions that can be assigned to portions of the text.</p>
+<p>A general principle in typesetting is to separate content and style. Separation is commonly achieved through the use of a markup language, which is a system of document annotations. These annotations declare portions of text as, for example, title, section headings, or list items but, crucially, they are agnostic to what this means visually (e.g., <code>**text**</code> instead of <strong>text</strong>). Separation of content and style is useful because it enables swift changes to an entire documents’ style or structure and facilitates applying a common style across multiple documents. Microsoft Word implements this strategy in their so-called <em>styles</em>, which are collections of formatting instructions that can be assigned to portions of the text.</p>
 <p><code>papaja</code> uses the <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to separate content and style. Markdown was desigend to be an easy-to-read and -write formatting syntax. The key design goal was to create a syntax that is readable as-is. The following is an excerpt from the APA example manuscript written in Markdown.</p>
 <div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Methods</span>
 <span class="fu">## Participants</span>
-Younger adults (14 women, 10 men, $M_{age} = 19.5$ years, age range: 18–22 years) were
-recruited with flyers posted on the Boston College campus. &lt;!--<span class="co"> TODO: Add flyer to</span>
-<span class="co">appendix! --&gt;</span>
-Older adults (15 women, nine men, $M_{age} = 76.1$ years, age range: 68–84 years) were
-recruited through the Harvard Cooperative on Aging (see Table 1, for demographics and
-test scores).<span class="ot">[^p]</span>
+Younger adults (14 women, 10 men, $M_{age} = 19.5$ years, age
+range: 18–22 years) were recruited with flyers posted on the
+Boston College campus. &lt;!–– TODO: Add flyer to appendix! ––&gt;
 
-<span class="ot">[^p]</span>: Analyses of covariance were conducted with these covariates, with no resulting
-influences of these variables on the pattern or magnitude of the results.</code></pre></div>
+Older adults (15 women, nine men, $M_{age} = 76.1$ years, age
+range: 68–84 years) were recruited through the Harvard
+Cooperative on Aging (see Table 1, for demographics and test
+scores).<span class="ot">[^p]</span>
+
+<span class="ot">[^p]</span>: Analyses of covariance were conducted with these
+covariates,with no resulting influences of these variables on
+the pattern or magnitude of the results.</code></pre></div>
 <p>Without any prior knowledge of Markdown it should be easy to guess what most of this syntax does: <code>#</code> and <code>##</code> denote first and second order section headings (and so on), <code>&lt;!--</code> and <code>--&gt;</code> surround comments that will not be displayed in the rendered document, and <code>[^p]</code> adds a reference to a footnote that is written out following <code>[^p]:</code>. The equations surrounded by <code>$</code> may be somewhat less intuitive. In R Markdown, equations are written in LaTeX’s powerful <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">mathematics syntax</a> (also see <a href="writing.html#equations">Equations</a>). For an overview of the Markdown syntax see <a href="writing.html#markdown-text-formatting">Markdown text formatting</a>.</p>
 </div>
 <div id="r-code" class="section level3">

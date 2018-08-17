@@ -230,6 +230,10 @@ Custom themes can be set as default as usual and are subsequently applied to all
 The following example demonstrates how to set a default theme.
 
 ```{r ggplot}
+# Cosmetic surgery dataset from
+# Field, A. P., Miles, J., & Field, Z. (2012). Discovering statistics using R. London: Sage.
+load("data/cosmetic_surgery.rdata")
+
 ggplot(
     cosmetic_surgery
     , aes(x = Base_QoL, y = Post_QoL, color = Reason)
@@ -768,3 +772,39 @@ opts_chunk$set(
 
 
 If time permits, always discard all cached results (i.e., delete `my_manuscript_cache` directory) and reknit the document before submission to ensure that all results are based on the current R code!
+
+
+### Inserting variables before they have been computed
+
+R code in R Markdown documents in executed from top to bottom.
+Hence, variables are not available before the code chunk in which they are defined has been executed.
+However, sometimes it may be desireable to report a variable in a document before the corresponding code chunk.
+A common example is to include the sample size or focal test statistics in the abstract.
+
+Cached code chunks store their results in a cache database in the subfolder `my_document_cache` (default).
+The function `knitr::load_cache()` can be used to access cache databases and report results of a chunk anywhere in the document.
+For the following example, we'll assume that we want to report the sample size in the abstract.
+The sample size in calculated in the method section:
+
+
+    `r ''````{r, sample-size, cache = TRUE}
+    n <- nrow(cosmetic_surgery)
+    ```
+
+
+To report this variable in the abstract we need to use an inline code chunk in the YAML front matter field:
+
+```{yaml, eval = FALSE}
+---
+abstract: |
+  This is the abstract.
+  Our sample size was n = `r knitr::load_cache(label = "sample-size", object = "n")`.
+---
+```
+
+When the document is first rendered the object `n` in the code chunk `sample-size` has not been computed and `knitr::load_cache()` will insert `"NOT AVAILABLE"` instead.
+The next time the document is rendered, the cache database is available from the previous rendering and the result of the previous computation will be inserted.
+
+```{block2, knitr-load-cache, type = "rmdnote"}
+For variables computed later in the document, `knitr::load_cache()` can only ever display the result of the previous run---if the cached code is changed, the document has to be rendered twice to display the new result.
+```

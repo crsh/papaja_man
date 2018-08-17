@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2018-08-10">
+<meta name="date" content="2018-08-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -157,7 +157,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.4.2</b> lm (linear regression)</a></li>
 <li class="chapter" data-level="4.4.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.4.3</b> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a></li>
+<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="reporting.html"><a href="reporting.html#inserting-variables-before-they-have-been-computed"><i class="fa fa-check"></i><b>4.5.1</b> Inserting variables before they have been computed</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a><ul>
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#global-chunk-options"><i class="fa fa-check"></i><b>5.1</b> Global chunk options</a></li>
@@ -168,9 +170,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
 <li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
 <li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.8</b> Workflow</a></li>
-<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>5.9</b> Adjusting line spacing</a></li>
-<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.10</b> Troubleshooting</a><ul>
-<li class="chapter" data-level="5.10.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.10.1</b> R</a></li>
+<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>5.9</b> Adjusting line spacing</a><ul>
+<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#comparing-documents"><i class="fa fa-check"></i><b>5.9.1</b> Comparing documents</a></li>
+<li class="chapter" data-level="5.9.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#counting-words"><i class="fa fa-check"></i><b>5.9.2</b> Counting words</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.10</b> Best practices</a></li>
+<li class="chapter" data-level="5.11" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.11</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="5.11.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.11.1</b> R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
@@ -212,13 +218,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">5</span> Tips and Tricks</h1>
 <ul>
 <li>Spell check functionality in RStudio</li>
+</ul>
+<p>Although often overlooked, RStudio can check your spelling</p>
+<p><img src="workshop_files/figure-html/spellcheck.png" style="display: block; margin: auto;" /></p>
+<ul>
 <li>New line for each sentence</li>
 </ul>
 <div id="global-chunk-options" class="section level2">
 <h2><span class="header-section-number">5.1</span> Global chunk options</h2>
-<ul>
-<li>figure formats</li>
-</ul>
+<p>It can be useful to set chunk options globally for all (following) chunks to avoid retyping or copy-and-pasting</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save all plots as 600 DPI TIFF-files</span>
+knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">dev =</span> <span class="st">&quot;tiff&quot;</span>, <span class="dt">dpi =</span> <span class="dv">600</span>)
+
+<span class="co"># Do not evaluate subsequent chunks (debugging or fine-tuning)</span>
+knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">eval =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p>See the <a href="https://yihui.name/knitr/options/">knitr chunk options and package options</a> for an overview of settings</p>
 </div>
 <div id="meaningful-chunk-names" class="section level2">
 <h2><span class="header-section-number">5.2</span> Meaningful chunk names</h2>
@@ -226,11 +240,63 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="useful-rstudio-addins" class="section level2">
 <h2><span class="header-section-number">5.3</span> Useful RStudio Addins</h2>
 <ul>
-<li><a href="https://github.com/benmarwick/wordcountaddin">wordcount</a>: Word counts and readability statistics in R markdown documents</li>
-<li><a href="https://github.com/crsh/citr">citr</a>: RStudio Addin to Insert Markdown Citations</li>
-<li><a href="https://github.com/ropenscilabs/gramr">gramr</a>: RStudio Addin, function, &amp; shiny app for the write-good linter</li>
-<li><a href="https://github.com/ThinkR-open/remedy">remedy</a>: RStudio Addins to Simplify Markdown Writing</li>
-<li><a href="https://github.com/LudvigOlsen/splitChunk">splitChunk</a>: RStudio addin for splitting R Markdown code chunks</li>
+<li><a href="https://github.com/crsh/citr"><code>citr</code></a>: Insert Markdown Citations</li>
+<li><a href="https://github.com/ThinkR-open/remedy"><code>remedy</code></a>: Keyboard shortcuts for Markdown formatting</li>
+<li><a href="https://github.com/LudvigOlsen/splitChunk"><code>splitChunk</code></a>: Split R Markdown code chunks</li>
+<li><a href="https://github.com/ropenscilabs/gramr"><code>gramr</code></a>: Write-good linter</li>
+<li><a href="https://github.com/benmarwick/wordcountaddin"><code>wordcount</code></a>: Word counts and readability statistics</li>
+</ul>
+<p>Set up keyboard shortcuts via<br /><code>Tools &gt; Modify keyboard shortcuts</code></p>
+<p>Suggested keyboard shortcuts</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Package</th>
+<th align="left">Addin</th>
+<th align="left">Keyboard shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>citr</code></td>
+<td align="left">Insert citation</td>
+<td align="left"><kbd>Shift</kbd> + <kbd>Alt</kbd>+<kbd>R</kbd></td>
+</tr>
+<tr class="even">
+<td align="left"><code>wordcount</code></td>
+<td align="left">Word count</td>
+<td align="left"><kbd>Shift</kbd> + <kbd>Alt</kbd>+<kbd>C</kbd></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>splitChunk</code></td>
+<td align="left">Chunk split</td>
+<td align="left"><kbd>Shift</kbd> + <kbd>Alt</kbd>+<kbd>S</kbd></td>
+</tr>
+<tr class="even">
+<td align="left"><code>remedy</code></td>
+<td align="left">Bold</td>
+<td align="left"><kbd>Shift</kbd> + <kbd>Alt</kbd>+<kbd>B</kbd></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Italic</td>
+<td align="left"><kbd>Shift</kbd> + <kbd>Alt</kbd>+<kbd>I</kbd></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Backtick</td>
+<td align="left"><kbd>Shift</kbd> + <kbd>Alt</kbd>+<kbd>P</kbd></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">URL</td>
+<td align="left"><kbd>Shift</kbd> + <kbd>Alt</kbd>+<kbd>U</kbd></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="http://statcheck.io"><code>statcheck</code></a>: Extract Statistics from Articles and Recompute p Values</li>
+<li><a href="https://frederikaust.shinyapps.io/retractcheck_shinyapp/"><code>retractcheck</code></a>: Check DOIs in a paper for retractions</li>
 </ul>
 </div>
 <div id="author-name-disambiguation" class="section level2">
@@ -275,6 +341,8 @@ This is the abstract [@doe1986].</code></pre>
 <ol style="list-style-type: decimal">
 <li>Document outline</li>
 </ol>
+<p>RStudio provides a handy document outline view</p>
+<p><img src="workshop_files/figure-html/rstudio-outline.png" style="display: block; margin: auto;" /></p>
 <!-- If you discover an error in a data file, never modify it directly, but instead write code to correct the value. Explain why you made the fix. -->
 <!-- Before you finish for the day, make sure you can knit the notebook (if you’re using caching, make sure to clear the caches). That will let you fix any problems while the code is still fresh in your mind. -->
 </div>
@@ -282,14 +350,9 @@ This is the abstract [@doe1986].</code></pre>
 <h2><span class="header-section-number">5.7</span> Splitting an R Markdown document</h2>
 <p>Some authors may prefer to split long manuscripts into multiple component files for better clarity. There are two basic strategies to split R Markdown documents that can be combined or used in isolation: sourcing R scripts and splitting the R Markdown document. If the R Markdown document contains a lot of code, it may be helpful to disincorporate parts of the code, such as reading, merging, restructuring, and relabeling data files. The R scripts can then be executed at the respective section of the document using <code>source()</code>.</p>
 <p>Some authors may prefer to split long manuscripts into a master or parent document and multiple children. The master document, for example, consists of the YAML front matter and includes the children, which are themselves R Markdown documents without a YAML front matter. To include a child document, insert an empty chunk and provide the path to the R Markdown document in the chunk option <code>child</code>.</p>
-<pre><code>```{r child = &quot;introduction.Rmd&quot;}
-```
-```{r child = &quot;methods.Rmd&quot;}
-```
-```{r child = &quot;results.Rmd&quot;}
-```
-```{r child = &quot;discussion.Rmd&quot;}
-```</code></pre>
+<p>It may be preferable to split long documents into multiple files</p>
+<p><smaller> <code class = "markdown hljs remark-code" style = "background: #F2F2F2;">```{r child = “introduction.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br /> ```<br /><br />```{r child = “method.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br /> ```<br /><br />```{r child = “results.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br /> ```<br /><br />```{r child = “discussion.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br /> ```</code> </smaller></p>
+<p>Search all files with <kbd>Ctrl</kbd> + <kbd>Shift</kbd>+<kbd>F</kbd></p>
 </div>
 <div id="workflow" class="section level2">
 <h2><span class="header-section-number">5.8</span> Workflow</h2>
@@ -319,15 +382,63 @@ This is the abstract [@doe1986].</code></pre>
   <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tablenotes<span class="kw">}{</span>\doublespacing<span class="kw">}</span>
   <span class="kw">-</span> \captionsetup<span class="kw">[</span>table<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}
   <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1<span class="kw">}</span>}</code></pre></div>
+<div id="comparing-documents" class="section level3">
+<h3><span class="header-section-number">5.9.1</span> Comparing documents</h3>
+<p>In revisions, it can be helpful to highlight all changes - for DOCX, use the Microsoft Word combine feature - for PDF, use <a href="https://3142.nl/latex-diff/"><code>latexdiff</code></a> on <span class="math inline">\(\LaTeX\)</span> source documents 1. Create <span class="math inline">\(\LaTeX\)</span> file with highlighted changes 2. Compile to PDF in RStudio</p>
+</div>
+<div id="counting-words" class="section level3">
+<h3><span class="header-section-number">5.9.2</span> Counting words</h3>
+<ol style="list-style-type: decimal">
+<li><code>wordcount</code>
+<ul>
+<li>RStudio addin counts words in R Markdown documents</li>
+<li>Rough estimate; cannot, for example, count rendered citations</li>
+<li>Good for quick use</li>
+</ul></li>
+<li><a href="http://app.uio.no/ifi/texcount/"><code>texcount</code></a>
+<ul>
+<li>Counts words in TeX documents</li>
+<li>More precise and informative</li>
+</ul></li>
+<li>Microsoft Word word count</li>
+</ol>
+<p>If you are using <code>pandoc-citeproc</code> for references, exclude the reference section before counting words</p>
+</div>
+</div>
+<div id="best-practices" class="section level2">
+<h2><span class="header-section-number">5.10</span> Best practices</h2>
+<ol style="list-style-type: decimal">
+<li>Load all R packages in the first code chunk
+<ul>
+<li>Never include <code>install.packages()</code></li>
+</ul></li>
+<li>Set a seed for random number generators<br />(e.g., <code>set.seed()</code>)</li>
+<li>Never use <code>setwd()</code>!</li>
+<li>Use relative paths or load files from a permanent location</li>
+<li>Use meaningful chunk names</li>
+<li>Keep R code close to the corresponding prose</li>
+<li>Document R and R-package versions<br />(e.g., <code>devtools::session_info()</code>)</li>
+<li>Make sure you can knit without errors before going home</li>
+</ol>
 </div>
 <div id="troubleshooting" class="section level2">
-<h2><span class="header-section-number">5.10</span> Troubleshooting</h2>
+<h2><span class="header-section-number">5.11</span> Troubleshooting</h2>
 <div id="r" class="section level3">
-<h3><span class="header-section-number">5.10.1</span> R</h3>
+<h3><span class="header-section-number">5.11.1</span> R</h3>
 <!-- Copy and paste from R4DS -->
 <!-- Troubleshooting R Markdown documents can be challenging because you are no longer in an interactive R environment, and you will need to learn some new tricks. The first thing you should always try is to recreate the problem in an interactive session. Restart R, then “Run all chunks” (either from Code menu, under Run region), or with the keyboard shortcut Ctrl + Alt + R. If you’re lucky, that will recreate the problem, and you can figure out what’s going on interactively. -->
 <!-- If that doesn’t help, there must be something different between your interactive environment and the R markdown environment. You’re going to need to systematically explore the options. The most common difference is the working directory: the working directory of an R Markdown is the directory in which it lives. Check the working directory is what you expect by including getwd() in a chunk. -->
 <!-- Next, brainstorm all the things that might cause the bug. You’ll need to systematically check that they’re the same in your R session and your R markdown session. The easiest way to do that is to set error = TRUE on the chunk causing the problem, then use print() and str() to check that settings are as you expect. -->
+<p>Fixing bugs in R Markdown documents can be challenging</p>
+<ul>
+<li>The code is run in a new non-interactive R session</li>
+<li>Try is to recreate the problem in your interactive session
+<ol style="list-style-type: decimal">
+<li>Restart R (<code>Session &gt; Restart R</code> or<br /><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F10</kbd>)</li>
+<li>Run all chunks (<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd>)</li>
+<li>Compare the working directories (e.g., use <code>getwd()</code> in a code chunk)</li>
+</ol></li>
+</ul>
 
 </div>
 </div>
