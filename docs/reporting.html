@@ -869,7 +869,7 @@ knitr<span class="op">::</span><span class="kw">dep_auto</span>()</code></pre></
 <div id="inserting-variables-before-they-have-been-computed" class="section level3">
 <h3><span class="header-section-number">4.5.1</span> Inserting variables before they have been computed</h3>
 <p>R code in R Markdown documents in executed from top to bottom. Hence, variables are not available before the code chunk in which they are defined has been executed. However, sometimes it may be desireable to report a variable in a document before the corresponding code chunk. A common example is to include the sample size or focal test statistics in the abstract.</p>
-<p>Cached code chunks store their results in a cache database in the subfolder <code>my_document_cache</code> (default). The function <code>knitr::load_cache()</code> can be used to access cache databases and report results of a chunk anywhere in the document. For the following example, we’ll assume that we want to report the sample size in the abstract. The sample size in calculated in the method section:</p>
+<p>Cached code chunks store their results in a cache database in the subfolder <code>my_document_cache</code> (default). The function <code>knitr::load_cache()</code> can be used to access cache databases and report results of a chunk anywhere in the document. For the following example, we’ll assume that we want to report the sample size in the abstract. The sample size is calculated in the method section:</p>
 <pre><code>```{r, sample-size, cache = TRUE}
 n &lt;- nrow(cosmetic_surgery)
 ```</code></pre>
@@ -879,7 +879,7 @@ n &lt;- nrow(cosmetic_surgery)
   This is the abstract.
   <span class="fu">Our sample size was n = `r knitr:</span><span class="at">:load_cache(label = &quot;sample-size&quot;, object = &quot;n&quot;)`.</span>
 <span class="ot">---</span></code></pre></div>
-<p>When the document is first rendered the object <code>n</code> in the code chunk <code>sample-size</code> has not been computed and <code>knitr::load_cache()</code> will insert <code>&quot;NOT AVAILABLE&quot;</code> instead. The next time the document is rendered, the cache database is available from the previous rendering and the result of the previous computation will be inserted.</p>
+<p>When the document is first rendered the object <code>n</code> in the code chunk <code>sample-size</code> has not yet been computed and <code>knitr::load_cache()</code> will insert <code>&quot;NOT AVAILABLE&quot;</code> instead. The next time the document is rendered, the results of the previous run have been saved as cache database. These results will be loaded and inserted into the abstract.</p>
 
 <div class="rmdnote">
 For variables computed later in the document, <code>knitr::load_cache()</code> can only ever display the result of the previous run—if the cached code is changed, the document has to be rendered twice to display the new result.

@@ -43,13 +43,13 @@ kbd {
 }
 
 .rmdcaution {
-  background-image: url("../images/icons8-error.png");
+  background-image: url("icons8-error.png");
 }
 
 .rmdnote {
-  background-image: url("../images/icons8-info.png");
+  background-image: url("icons8-info.png");
 }
 
 .rmdcustomization {
-  background-image: url("../images/icons8-maintenance.png");
+  background-image: url("icons8-maintenance.png");
 }

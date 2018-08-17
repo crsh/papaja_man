@@ -784,7 +784,7 @@ A common example is to include the sample size or focal test statistics in the a
 Cached code chunks store their results in a cache database in the subfolder `my_document_cache` (default).
 The function `knitr::load_cache()` can be used to access cache databases and report results of a chunk anywhere in the document.
 For the following example, we'll assume that we want to report the sample size in the abstract.
-The sample size in calculated in the method section:
+The sample size is calculated in the method section:
 
 
     `r ''````{r, sample-size, cache = TRUE}
@@ -802,8 +802,9 @@ abstract: |
 ---
 ```
 
-When the document is first rendered the object `n` in the code chunk `sample-size` has not been computed and `knitr::load_cache()` will insert `"NOT AVAILABLE"` instead.
-The next time the document is rendered, the cache database is available from the previous rendering and the result of the previous computation will be inserted.
+When the document is first rendered the object `n` in the code chunk `sample-size` has not yet been computed and `knitr::load_cache()` will insert `"NOT AVAILABLE"` instead.
+The next time the document is rendered, the results of the previous run have been saved as cache database.
+These results will be loaded and inserted into the abstract.
 
 ```{block2, knitr-load-cache, type = "rmdnote"}
 For variables computed later in the document, `knitr::load_cache()` can only ever display the result of the previous run---if the cached code is changed, the document has to be rendered twice to display the new result.
