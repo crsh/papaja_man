@@ -502,33 +502,55 @@ It includes a set of templates for authoring of R related journal and conference
 
 ### Software requirements
 
-To use `papaja` you need to make sure the following software is installed on your computer:
+`papaja` depends on additional software, namely,
 
-@. **[R](http://www.r-project.org/) 2.11.1 or later**
-@. **[pandoc](http://johnmacfarlane.net/pandoc/) 1.19 or later**; if you work with [RStudio](http://www.rstudio.com/) (1.1.453 or later) pandoc should already be installed, otherwise install pandoc using the [instructions for your operating system](https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md)
+@. [R](http://www.r-project.org/) 2.11.1 or later and
+@. [pandoc](http://johnmacfarlane.net/pandoc/) 1.19 or later
 
-If you want to create PDF- in addition to DOCX-files you need
+If you work with [RStudio](http://www.rstudio.com/) (1.1.453 or later) pandoc should already be installed, otherwise refer to the [installation instructions](http://pandoc.org/installing.html) for your operating system.
 
-@. **[TeX](http://de.wikipedia.org/wiki/TeX) 2013 or later**. Try [MikTeX](http://miktex.org/) for Windows, [MacTeX](https://tug.org/mactex/) for Mac, or [TeX Live](http://www.tug.org/texlive/) for Linux.
+#### Setting up a TeX distribution
 
-`papaja` requires $\LaTeX$ packages that are not part of the basic TeX installations.
+If you want to create PDF- in addition to DOCX-documents you additionally need
+
+@. [TeX](http://de.wikipedia.org/wiki/TeX) 2013 or later.
+
+If you have no use for TeX beyond rendering R Markdown documents, I recommend you use [TinyTex](https://yihui.name/tinytex/). Otherwise consider [MikTeX](http://miktex.org/) for Windows, [MacTeX](https://tug.org/mactex/) for Mac, or [TeX Live](http://www.tug.org/texlive/) for Linux.
+TinyTex can be installed from within R as follows.
+
+```{r eval = FALSE}
+if(!"tinytex" %in% rownames(installed.packages())) install.packages("tinytex")
+
+tinytex::install_tinytex()
+```
+
+`papaja` requires additional $\LaTeX$ packages that are not part of the basic TeX installations.
+When using TinyTex, the required packages will be installed automatically when rendering a the first PDF-document.
+Users of other TeX distribution need to take one of the following additional steps.
+MikTeX users may enable the [automatic installation of missing packages](https://miktex.org/howto/miktex-console).
+If you are comfortable using the command line, it may be convenient to run the following command.
+
+~~~bash
+initexmf --set-config-value [MPM]AutoInstall=1
+~~~
 
 ```{r latex-packages, echo = FALSE}
 latex_packages <- c("apa6", "etoolbox", "booktabs", "threeparttable", "caption", "fancyhdr", "endfloat", "upquote", "microtype", "threeparttablex", "environ", "trimspaces", "url", "csquotes", "was", "lineno", "pgf", "ms", "xcolor", "mptopdf", "txfonts", "sttools", "fancyvrb", "framed", "parskip")
 latex_packages <- latex_packages[order(latex_packages)]
 ```
 
-<details>
-<summary>Show list of required $\LaTeX$ packages</summary>
+<!-- <details> -->
+<!-- <summary>Show list of required $\LaTeX$ packages</summary> -->
 
-~~~
-`r paste0(latex_packages, collapse = "\n")`
-~~~
-</details>
+<!-- ~~~ -->
+<!-- `r paste0(latex_packages, collapse = "\n")` -->
+<!-- ~~~ -->
+<!-- </details> -->
 
-To address this you can either [install a *complete*](https://tex.stackexchange.com/a/105650/11001)---not the basic---TeX distribution, [always install missing packages on the fly](https://miktex.org/howto/miktex-console) (only available in MikTeX), or install them [manually](https://docs.miktex.org/manual/pkgmgt.html).
-If you are comfortable using the command line, it may be convenient to run the following commands to install the packages.
-MikTeX users can run the following command:
+This option is not available in MacTeX or TeX Live.
+Alternatively, you can install the additional packages manually.
+Again the installation can be done conveniently from the command line.
+MikTeX users can run the following command.
 
 ~~~bash
 mpm --install=`r paste0(latex_packages, collapse = ",")`
@@ -536,17 +558,20 @@ mpm --install=`r paste0(latex_packages, collapse = ",")`
 
 It may be necessary to launch MikTeX console as administrator (right-click and *Run as administrator*) before executing the command.
 
-TeXLive and MacTeX users can run the following command (you may be required to install `tlmgr` first):
+TeXLive and MacTeX users can run the following command.
 
 ~~~sh
 tlmgr install `r paste0(latex_packages, collapse = " ")`
 ~~~
 
+It may be necessary to first install `tlmgr`.
 Alternatively, Ubuntu users can install the following Ubuntu packages:
-    
+
 ~~~sh
 sudo apt-get install texlive-publishers texlive-fonts-extra texlive-latex-extra texlive-humanities lmodern
 ~~~
+
+Finally, you may [install a *complete*](https://tex.stackexchange.com/a/105650/11001)---not the basic---TeX distribution that comes with all available LaTeX packages but is several gigabytes large.
 
 
 ### Installing papaja
