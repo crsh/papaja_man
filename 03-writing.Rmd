@@ -106,7 +106,7 @@ md_cite("bem", bib_file = "references.bib")
 
 `md_cite()` searches the author, year, title, and journal fields of your references.
 
-### Working with a reference manager
+#### Working with a reference manager
 
 If you use Zotero or Juris-M `citr` can access your reference database without previous export.
 For this to work, you need to install the [Better Bib(La)TeX extension](https://github.com/retorquere/zotero-better-bibtex/wiki), which we recommend even if you don't intend to use `citr`.
@@ -114,52 +114,9 @@ Once the extension is installed and the reference manager is running, `citr` wil
 If you dislike this behavior, you can disable the automatic access to the reference manager by setting `options(citr.use_betterbiblatex = FALSE)`.
 
 
-### Referencing R and its packages
-
-A lot of R packages are developed by academics free of charge.
-As citations are the currency of science, it's easy to compensate volunteers for their work by citing the R packages we use.
-Howerver, citing software is rarely done arguebly because it is tedious work.
-`papaja` therefore supplies two functions that make citing R and its packages easy.
-
-```{r echo = TRUE}
-r_refs(file = "r-references.bib")
-my_citations <- cite_r(file = "r-references.bib")
-```
-
-`r_refs()` creates a BibTeX file containing citations for R and packages that are in use at the time the function is executed.
-`cite_r()` takes these citations and turns them into readily reportable text.
-`my_citations` now contains the following text that you can use in your document: 
-
-> `r my_citations`
-
-If you prefer to cite only a subset of these packages, package names can be specified either as a blacklist, so they won't be cited (`withhold = TRUE`), or as a whitelist, so only these packages will be cited (`withhold = FALSE`).
-
-```{r echo = TRUE}
-my_citations <- cite_r(
-  file = "r-references.bib"
-  , pkgs = c("afex", "lsmeans", "papaja")
-  , withhold = FALSE
-)
-```
-
-> `r my_citations`
-
-Another option is to cite R in text but move the list of R packges into a footnote.
-
-```{r echo = TRUE}
-my_citations <- cite_r(file = "r-references.bib", footnote = TRUE)
-```
-
-This way you can reference R in the running text using `my_citations$r` and place the footnote syntax including the package list `my_citations$pkgs` in a new paragraph.
-
-> `r my_citations$r`
-
-`r my_citations$pkgs`
-
-
 ### Meta-analysis references
 
-When reporting meta-analyses APA guidelines require that studies included in the meta analysis are included in the reference section and preceeded by an asterisk [@apa].
+When reporting meta-analyses APA guidelines require that studies included in the meta analysis are included in the reference section and preceeded by an asterisk [p. 138, @american_psychological_association_publication_2010].
 There are two approaches to mark meta-analysis references.
 
 First, we have created a variant of the widely available APA CSL file that enables adding the required asteriskes.
@@ -241,6 +198,49 @@ The note that explains what an asterisk means can be added at the end of the doc
 \printbibliography[title=References,prenote=asterisk]
 \renewcommand{\printbibliography}{}
 ~~~
+
+
+### Citing R and its packages
+
+A lot of R packages are developed by academics free of charge.
+As citations are the currency of science, it's easy to compensate volunteers for their work by citing the R packages we use.
+Howerver, citing software is rarely done arguebly because it is tedious work.
+`papaja` therefore supplies two functions that make citing R and its packages easy.
+
+```{r echo = TRUE}
+r_refs(file = "r-references.bib")
+my_citations <- cite_r(file = "r-references.bib")
+```
+
+`r_refs()` creates a BibTeX file containing citations for R and packages that are in use at the time the function is executed.
+`cite_r()` takes these citations and turns them into readily reportable text.
+`my_citations` now contains the following text that you can use in your document: 
+
+> `r my_citations`
+
+If you prefer to cite only a subset of these packages, package names can be specified either as a blacklist, so they won't be cited (`withhold = TRUE`), or as a whitelist, so only these packages will be cited (`withhold = FALSE`).
+
+```{r echo = TRUE}
+my_citations <- cite_r(
+  file = "r-references.bib"
+  , pkgs = c("afex", "lsmeans", "papaja")
+  , withhold = FALSE
+)
+```
+
+> `r my_citations`
+
+Another option is to cite R in text but move the list of R packges into a footnote.
+
+```{r echo = TRUE}
+my_citations <- cite_r(file = "r-references.bib", footnote = TRUE)
+```
+
+This way you can reference R in the running text using `my_citations$r` and place the footnote syntax including the package list `my_citations$pkgs` in a new paragraph.
+
+> `r my_citations$r`
+
+`r my_citations$pkgs`
 
 
 ## Equations

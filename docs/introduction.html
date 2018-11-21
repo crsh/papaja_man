@@ -6,26 +6,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="<p>“”</p>">
+  <meta name="description" content="&quot;&quot;">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="<p>“”</p>" />
+  <meta property="og:description" content="&quot;&quot;" />
   <meta name="github-repo" content="crsh/papaja_man" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   
-  <meta name="twitter:description" content="<p>“”</p>" />
+  <meta name="twitter:description" content="&quot;&quot;" />
   
 
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2018-08-17">
+<meta name="date" content="2018-11-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,41 +50,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -134,8 +160,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#citation-styles"><i class="fa fa-check"></i><b>3.2.1</b> Citation styles</a></li>
 <li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.2</b> Conveniently inserting citations with <code>citr</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.2.3</b> Working with a reference manager</a></li>
-<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.4</b> Referencing R and its packages</a></li>
+<li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#meta-analysis-references"><i class="fa fa-check"></i><b>3.2.3</b> Meta-analysis references</a></li>
+<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#citing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.4</b> Citing R and its packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.3</b> Equations</a></li>
 <li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.4</b> Cross-referencing</a></li>
@@ -216,15 +242,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
-<p>papaja is short for ‘preparing APA journal articles’ and is the name of this R package designed to create fully reproducible journal articles that seamlessly fuse statistical analyses, simulations, and prose. A manuscript written with <code>papaja</code> can be thought of as an extensively commented analysis script ready for publication in a scientific journal.</p>
+<p>papaja is short for ‘preparing APA journal articles’ and is the name of this R package designed to create fully reproducible journal articles that seamlessly fuse statistical analyses, simulations, and prose.
+A manuscript written with <code>papaja</code> can be thought of as an extensively commented analysis script ready for publication in a scientific journal.</p>
 <div id="motivation" class="section level2">
 <h2><span class="header-section-number">1.1</span> Motivation</h2>
-<p>APA style is one of the major style regimes in academia concerned with written scientific communication and is defined in the <em>Publication Manual of the American Psychological Association</em> <span class="citation">(APA; American Psychological Association, <a href="#ref-american_psychological_association_publication_2010">2010</a>)</span>. Research in psychology and many fields other, including other social sciences, medicine, and public health is reported in APA style. If you want to publish psychological research, you will have to produce properly formatted APA style manuscripts. While the merits of standardizing scientific reporting are undisputed, mastering the currently 272 pages of Publication Manual’s style definitions puts an undeniable burden on authors. To simplify the writing process researchers have developed strategies to automate the implementation of APA style.</p>
-<p>The dominant approach to writing scientific reports in psychology is the use of common word processors such as Microsoft Word or Libre Office. Available APA style document templates set up page margins, line spacing, fonts, and related aspects of the manuscript. The format of citations and references can be automated by using references managers that integrate with the word processor, such as <a href="https://www.zotero.org/">Zotero</a>.</p>
-<p>Far less common in psychology, is the use of markup systems, such as <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a> or <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>. A key concept of markup systems is to separate style from content by means of document annotations. These annotations declare portions of text for example as title, section headings, or list items but, crucially, they are agnostic to what this means visually (e.g., <code>&lt;emphasize&gt;text&lt;/emphasize&gt;</code> instead of <em>text</em>). There are several advantages to this approach but, crucially for the present purpose, markup systems compile plain text files to produce the final document. Critically, the compilation process is required for fully reproducible scientific reports.</p>
+<p>APA style is one of the major style regimes in academia concerned with written scientific communication and is defined in the <em>Publication Manual of the American Psychological Association</em> <span class="citation">(APA; American Psychological Association, <a href="#ref-american_psychological_association_publication_2010">2010</a>)</span>.
+Research in psychology and many fields other, including other social sciences, medicine, and public health is reported in APA style.
+If you want to publish psychological research, you will have to produce properly formatted APA style manuscripts.
+While the merits of standardizing scientific reporting are undisputed, mastering the currently 272 pages of Publication Manual’s style definitions puts an undeniable burden on authors.
+To simplify the writing process researchers have developed strategies to automate the implementation of APA style.</p>
+<p>The dominant approach to writing scientific reports in psychology is the use of common word processors such as Microsoft Word or Libre Office.
+Available APA style document templates set up page margins, line spacing, fonts, and related aspects of the manuscript.
+The format of citations and references can be automated by using references managers that integrate with the word processor, such as <a href="https://www.zotero.org/">Zotero</a>.</p>
+<p>Far less common in psychology, is the use of markup systems, such as <a href="https://en.wikipedia.org/wiki/LaTeX">LaTeX</a> or <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>.
+A key concept of markup systems is to separate style from content by means of document annotations.
+These annotations declare portions of text for example as title, section headings, or list items but, crucially, they are agnostic to what this means visually (e.g., <code>&lt;emphasize&gt;text&lt;/emphasize&gt;</code> instead of <em>text</em>).
+There are several advantages to this approach but, crucially for the present purpose, markup systems compile plain text files to produce the final document.
+Critically, the compilation process is required for fully reproducible scientific reports.</p>
 <div id="reproducible-scientific-reports" class="section level3">
 <h3><span class="header-section-number">1.1.1</span> Reproducible scientific reports</h3>
-<p>Dynamic scientific reports fuse prose and simulation or analysis scripts <span class="citation">(Gandrud, <a href="#ref-gandrud_reproducible_2013">2013</a>; Xie, <a href="#ref-R-knitr">2015</a>)</span>. Each time a dynamic document is compiled, the scripts are executed anew and the results—statistics, tables, and figures—are recreated and inserted into the document. Thereby dynamic documents allow automated reporting of results, which is currently not possible with the prevalent use of Microsoft Word or Libre Office. Importantly, dynamic documents ensure that the results reported in the manuscript are free of rounding or transcription errors and correspond to the performed analyses. This is the reason why dynamic scientific reports are commonly referred to as reproducible scientific reports or reproducible reports. Thus, the term reproducibility here means that given a dataset and analysis script any analyst obtains the same statistical results <span class="citation">(Asendorpf et al., <a href="#ref-asendorpf_recommendations_2013">2013</a>; Cacioppo, Kaplan, Krosnick, Olds, &amp; Dean, <a href="#ref-cacioppo_social_2015">2015</a>)</span>.</p>
+<p>Dynamic scientific reports fuse prose and simulation or analysis scripts <span class="citation">(Gandrud, <a href="#ref-gandrud_reproducible_2013">2013</a>; Xie, <a href="#ref-R-knitr">2015</a>)</span>.
+Each time a dynamic document is compiled, the scripts are executed anew and the results—statistics, tables, and figures—are recreated and inserted into the document.
+Thereby dynamic documents allow automated reporting of results, which is currently not possible with the prevalent use of Microsoft Word or Libre Office.
+Importantly, dynamic documents ensure that the results reported in the manuscript are free of rounding or transcription errors and correspond to the performed analyses.
+This is the reason why dynamic scientific reports are commonly referred to as reproducible scientific reports or reproducible reports.
+Thus, the term reproducibility here means that given a dataset and analysis script any analyst obtains the same statistical results <span class="citation">(Asendorpf et al., <a href="#ref-asendorpf_recommendations_2013">2013</a>; Cacioppo, Kaplan, Krosnick, Olds, &amp; Dean, <a href="#ref-cacioppo_social_2015">2015</a>)</span>.</p>
 <p>The importance of reproducibility was pinpointed by the U.S. National Science Foundation subcommittee on replicability in science:</p>
 <blockquote>
 <p>Reproducibility is a minimum necessary condition for a finding to be believable and informative. <span class="citation">(p. 4, Cacioppo et al., <a href="#ref-cacioppo_social_2015">2015</a>)</span></p>
@@ -241,8 +283,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><a href="http://www.amstat.org/asa/files/pdfs/EthicalGuidelines.pdf" class="uri">http://www.amstat.org/asa/files/pdfs/EthicalGuidelines.pdf</a></p>
 <p>“an article about a computational result is advertising, not scholarship. The actual scholarship is the full software environment, code and data, that produced the result.” - Buckheit &amp; Donoho, 1995</p>
 <p>(Elsevier executable paper challenge: 10.1016/j.procs.2011.04.064)</p>
-<p>Donoho, D. L., Maleki, A., Rahman, I. U., Shahram, M. &amp; Stodden, V. Reproducible research in computational harmonic analysis. Comput. Sci. Eng. 11, 8–18 (2009). Donoho and fellow researchers have been at the forefront of reproducibility for many years; this a</p>
-<p>org-mode: <a href="http://www.sciencedirect.com/science/article/pii/S0928425711000374?via%3Dihub">http://www.sciencedirect.com/science/article/pii/S0928425711000374?via%3Dihub</a> <a href="http://yuyang0.github.io/static/doc/babel.pdf" class="uri">http://yuyang0.github.io/static/doc/babel.pdf</a></p>
+<p>Donoho, D. L., Maleki, A., Rahman, I. U., Shahram, M. &amp; Stodden, V. Reproducible
+research in computational harmonic analysis. Comput. Sci. Eng. 11, 8–18 (2009).
+Donoho and fellow researchers have been at the forefront of reproducibility for
+many years; this a</p>
+<p>org-mode: <a href="http://www.sciencedirect.com/science/article/pii/S0928425711000374?via%3Dihub" class="uri">http://www.sciencedirect.com/science/article/pii/S0928425711000374?via%3Dihub</a>
+<a href="http://yuyang0.github.io/static/doc/babel.pdf" class="uri">http://yuyang0.github.io/static/doc/babel.pdf</a></p>
 <p>Proprietary software also exists like Inference for R29 – for using R with Microsoft Office – but we do not have any experience with them. Open-source tools like Dexy30 and Sumatra31 are clearly very promising and have capabilities similar to Sweave and org-mode.</p>
 <!-- 1. Generalizability (e.g., Baribault et al., 2017; Brandt et al., 2014) -->
 <!-- 2. Replicability (e.g., Open Science Collaboration, 2015; Simons, 2014) -->
@@ -446,37 +492,83 @@ papaja is tailored to the needs of experimental psychologists: we supply conveni
 
 -->
 <!-- https://twitter.com/HermanAguinis/status/859843021575245825 -->
-<p>R Markdown has been suggested as one possible framework for reproducible analyses <span class="citation">(Allaire et al., <a href="#ref-R-rmarkdown">2017</a>)</span>. <code>papaja</code> is a R-package in the making including a <a href="http://rmarkdown.rstudio.com/">R Markdown</a> template that can be used with (or without) <a href="http://www.rstudio.com/">RStudio</a> to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition). The package uses the document class <a href="http://www.ctan.org/pkg/apa6">apa6</a> and a .docx-reference file, so you can create PDF documents, or Word documents if you have to. Moreover, <code>papaja</code> supplies R-functions that facilitate reporting results of your analyses in accordance with APA guidelines.</p>
-<p>Markdown is a simple formatting syntax that can be used to author HTML, PDF, and MS Word documents (among others). In the following I will assume you have hopped onto the band wagon and know how to use R Markdown to conduct and comment your analyses. If this is not the case, I recommend you get to grips with <a href="http://R%20Markdown.rstudio.com/">R Markdown</a> first. I use <a href="http://www.rstudio.com/">RStudio</a> (which makes use of <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>) to create my documents, but the general process works using any other text editor.</p>
-<p>Although LaTeX is widely used to write entire manuscripts (not just equations), it is not commonly used in the field of psychology. We suspect that the neglect is largely due to its complexity and shallow learning curve. Both appear to outweigh the advantages of the system when it comes to handling citations and cross-references or typesetting large documents, complex tables, and equations. Markdown paired with <code>pandoc</code> provides a simple interface to harness the power of LaTeX without requiring in-depth knowledge about LaTeX (see <a href="introduction.html#document-compilation">Document compilation</a>).</p>
+<p>R Markdown has been suggested as one possible framework for reproducible analyses <span class="citation">(Allaire et al., <a href="#ref-R-rmarkdown">2017</a>)</span>.
+<code>papaja</code> is a R-package in the making including a <a href="http://rmarkdown.rstudio.com/">R Markdown</a> template that can be used with (or without) <a href="http://www.rstudio.com/">RStudio</a> to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition).
+The package uses the document class <a href="http://www.ctan.org/pkg/apa6">apa6</a> and a .docx-reference file, so you can create PDF documents, or Word documents if you have to.
+Moreover, <code>papaja</code> supplies R-functions that facilitate reporting results of your analyses in accordance with APA guidelines.</p>
+<p>Markdown is a simple formatting syntax that can be used to author HTML, PDF, and MS Word documents (among others).
+In the following I will assume you have hopped onto the band wagon and know how to use R Markdown to conduct and comment your analyses.
+If this is not the case, I recommend you get to grips with <a href="http://RMarkdown.rstudio.com/">R Markdown</a> first.
+I use <a href="http://www.rstudio.com/">RStudio</a> (which makes use of <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>) to create my documents, but the general process works using any other text editor.</p>
+<p>Although LaTeX is widely used to write entire manuscripts (not just equations), it is not commonly used in the field of psychology.
+We suspect that the neglect is largely due to its complexity and shallow learning curve.
+Both appear to outweigh the advantages of the system when it comes to handling citations and cross-references or typesetting large documents, complex tables, and equations.
+Markdown paired with <code>pandoc</code> provides a simple interface to harness the power of LaTeX without requiring in-depth knowledge about LaTeX (see <a href="introduction.html#document-compilation">Document compilation</a>).</p>
 </div>
 </div>
 <div id="implementation" class="section level2">
 <h2><span class="header-section-number">1.2</span> Implementation</h2>
-<p><em>In this section we provide a quick overview of the software and the underlying design principles. Unless you are interested in these details it’s safe to skip this section.</em></p>
+<p><em>In this section we provide a quick overview of the software and the underlying design principles.
+Unless you are interested in these details it’s safe to skip this section.</em></p>
 <div id="guiding-principles" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> Guiding principles</h3>
 <p>In our development of this package our design decisions are based on two guiding principles:</p>
 <ol style="list-style-type: decimal">
-<li><p><strong><code>papaja</code> documents are convertible</strong>. A central motivation for the development of the package was the experience that many (if not most) scientific journals in psychology require that the final version of a submitted manuscript be provided as a Microsoft Word or RTF document. We, thus, strive to employ solutions that work for both LaTeX and Word output formats even if it means that some of the functions are less versatile than they could be.</p></li>
-<li><p><strong><code>papaja</code> does not compute</strong>. The package is meant to facilitate writing reports and manuscripts in APA style; it is <em>not</em> meant to analyse data. Functions provided in this package do as little computing as possible to grant authors maximal analytic flexibility. Moreover, limiting the amount of computing done by the package facilitates package maintenance.</p></li>
+<li><p><strong><code>papaja</code> documents are convertible</strong>.
+A central motivation for the development of the package was the experience that many (if not most) scientific journals in psychology require that the final version of a submitted manuscript be provided as a Microsoft Word or RTF document.
+We, thus, strive to employ solutions that work for both LaTeX and Word output formats even if it means that some of the functions are less versatile than they could be.</p></li>
+<li><p><strong><code>papaja</code> does not compute</strong>.
+The package is meant to facilitate writing reports and manuscripts in APA style; it is <em>not</em> meant to analyse data.
+Functions provided in this package do as little computing as possible to grant authors maximal analytic flexibility.
+Moreover, limiting the amount of computing done by the package facilitates package maintenance.</p></li>
 </ol>
-<p>While we are guided by these principles, they are guidelines rather than commandments and we deviate from them if necessary. For example, <code>papaja</code> functions do compute statistics that should be routinely reported according to APA guidelines, such as confidence intervals, if they are not provided in the analysis output objects. We, however, try to enable customization and replacement of these defaults whenever we can.</p>
+<p>While we are guided by these principles, they are guidelines rather than commandments and we deviate from them if necessary.
+For example, <code>papaja</code> functions do compute statistics that should be routinely reported according to APA guidelines, such as confidence intervals, if they are not provided in the analysis output objects.
+We, however, try to enable customization and replacement of these defaults whenever we can.</p>
 </div>
 <div id="document-compilation" class="section level3">
 <h3><span class="header-section-number">1.2.2</span> Document compilation</h3>
-<p>It is important to note that <code>papaja</code> builds on several existing R packages, which in turn build on other software, to compile the final document. This layered software design grants the package its capabilities but it comes at a cost: When compilation of a <code>papaja</code>-document throws an error it may not be immediately obvious to an inexperienced user, which part of the process failed. We, thus, provide an overview of the compilation process and the software involved.</p>
-<p>The compilation process is outlined in Figure <a href="introduction.html#fig:compilation-process-diagram">1.1</a>. As detailed in the <a href="r-markdown-components.html#r-markdown-components">R Markdown components</a> section, an R Markdown document consists of three components: A YAML front matter that contains document meta data, prose written in markdown (and optionally LaTeX) syntax, and R code in so-called <em>code chunks</em>.</p>
-<p>Additionally, the R code contained in an R Markdown document usually accesses data that are either stored in a file on the computers hard drive or a database on the local network or internet. When the document is compiled either by calling <code>rmarkdown::render()</code> or by clicking the Knit-button in RStudio, the YAML front matter is parsed. Errors during this processing step are usually due to erroneous YAML syntax and start with <code>Error in yaml::yaml.load(enc2utf8(string), ...) :</code>. Next, the R code inside the R Markdown document is executed sequentially from top to bottom of the document and the resulting output is inserted into the document in markdown syntax. Any figures that are generated during the execution of the R code are stored to the hard drive and embedded into the markdown document. The R code is executed in a new R session with an empty workspace, no attached packages, and with the working directory set to the path of the R Markdown file. If any portion of the R code throws an error the compilation is aborted. In RStudio the debugger will point to the first line of the R code chunk that threw the error—not the exact line responsible for the error—and report the error message. R error messages usually start with <code>Error:</code>, for example, <code>Error: Object 'experiment_data' not found.</code></p>
+<p>It is important to note that <code>papaja</code> builds on several existing R packages, which in turn build on other software, to compile the final document.
+This layered software design grants the package its capabilities but it comes at a cost:
+When compilation of a <code>papaja</code>-document throws an error it may not be immediately obvious to an inexperienced user, which part of the process failed.
+We, thus, provide an overview of the compilation process and the software involved.</p>
+<p>The compilation process is outlined in Figure <a href="introduction.html#fig:compilation-process-diagram">1.1</a>.
+As detailed in the <a href="r-markdown-components.html#r-markdown-components">R Markdown components</a> section, an R Markdown document consists of three components:
+A YAML front matter that contains document meta data, prose written in markdown (and optionally LaTeX) syntax, and R code in so-called <em>code chunks</em>.</p>
+<p>Additionally, the R code contained in an R Markdown document usually accesses data that are either stored in a file on the computers hard drive or a database on the local network or internet.
+When the document is compiled either by calling <code>rmarkdown::render()</code> or by clicking the Knit-button in RStudio, the YAML front matter is parsed.
+Errors during this processing step are usually due to erroneous YAML syntax and start with <code>Error in yaml::yaml.load(enc2utf8(string), ...) :</code>.
+Next, the R code inside the R Markdown document is executed sequentially from top to bottom of the document and the resulting output is inserted into the document in markdown syntax.
+Any figures that are generated during the execution of the R code are stored to the hard drive and embedded into the markdown document.
+The R code is executed in a new R session with an empty workspace, no attached packages, and with the working directory set to the path of the R Markdown file.
+If any portion of the R code throws an error the compilation is aborted.
+In RStudio the debugger will point to the first line of the R code chunk that threw the error—not the exact line responsible for the error—and report the error message.
+R error messages usually start with <code>Error:</code>, for example, <code>Error: Object 'experiment_data' not found.</code></p>
 <div class="figure" style="text-align: center"><span id="fig:compilation-process-diagram"></span>
 <img src="compilation_process.png" alt="Process diagram illustrating the compilation of reproducible reports written with `papaja`. Boxes represent input files, diamonds represent compiling software, and ovals represent output files. Dashed components are either implicit (components of R Markdown files) or by default deleted after the compilation and, thus, invisible to the user."  />
 <p class="caption">
 Figure 1.1: Process diagram illustrating the compilation of reproducible reports written with <code>papaja</code>. Boxes represent input files, diamonds represent compiling software, and ovals represent output files. Dashed components are either implicit (components of R Markdown files) or by default deleted after the compilation and, thus, invisible to the user.
 </p>
 </div>
-<p>After the R code has been executed the <code>bookdown</code> document format <code>pdf_document2()</code> or <code>word_document2()</code>, respectively, provides functions that enable the cross-referencing syntax <code>\@ref()</code> described in the <a href="writing.html#cross-referencing">Cross-referencing</a> section. Incorrect use of the cross-referencing syntax typically does not interfere with the document compilation but is apparent from missing or incorrect cross-references in the compiled document, e.g. instead of a figure number the document may contain the figure handle such as <code></code>. The result of this processing step is a pure markdown document containing only a YAML header, prose in markdown (and optionally LaTeX) syntax and rendered images in PDF, EPS, PNG, and TIFF formats at 300 dpi as set by <code>apa6_pdf()</code> or <code>apa6_word()</code>, respectively.</p>
-<p>The markdown document, images and an optional BiB(La)TeX file that contains bibliographic information are the input to the next processing step. <code>rmarkdown::render()</code> assembles a system call to pandoc that is supplemented by <code>papaja</code> to include a call to an additional filter and can be further customized by the user. pandoc parses the contents of the markdown file and translates it into an abstract syntax tree (AST). The <code>pandoc-citeproc</code> filter is than applied to the AST to replace the citation markup by the citation text and insert a reference section. As detailed in the <a href="writing.html#citations">Citations</a> section, <code>pandoc-citeproc</code> relies on the <a href="http://citationstyles.org/">citation styles language</a> (CSL), an XML-based specification of citation and bibliography formatting rules. Unfortunately, CSL does not support in-text citations. To overcome this limitation, <code>pandoc-citeproc</code> provides a separate syntax for in-text citations, which is based on the same CSL style. As a result the CSL APA6 style uses ampersands for all citations, including in-text citations, defying the APA citation style. That is why <code>papaja</code> provides an additional R-based filter that is applied to the AST to replace ampersands in in-text citations with the word <em>and</em>.</p>
-<p>After all filters have been applied to the AST pandoc converts the document into the target output format, that is, PDF or DOCX. To create DOCX-documents <code>papaja</code> provides a reference DOCX-file containing page setup and style definitions that pandoc uses to create the manuscript file. That is, pandoc translates the AST directly to the office open XML format. To create PDF-documents pandoc in turn relies on LaTeX, that is, pandoc translates the AST to a TeX-file based on a template provided by <code>papaja</code>. This template invokes the <code>apa6</code> LaTeX document class [@???] and loads several additional LaTeX packages. pandoc then generates a system call to LaTeX to render the PDF document. During this processing step, that is, following the pandoc system calls, errors are due to failures of LaTeX to compile the TeX-file and usually start with <code>!</code>, for example, <code>! Undefined control sequence.</code> or <code>! Missing $ inserted</code>.</p>
+<p>After the R code has been executed the <code>bookdown</code> document format <code>pdf_document2()</code> or <code>word_document2()</code>, respectively, provides functions that enable the cross-referencing syntax <code>\@ref()</code> described in the <a href="writing.html#cross-referencing">Cross-referencing</a> section.
+Incorrect use of the cross-referencing syntax typically does not interfere with the document compilation but is apparent from missing or incorrect cross-references in the compiled document, e.g. instead of a figure number the document may contain the figure handle such as <code></code>.
+The result of this processing step is a pure markdown document containing only a YAML header, prose in markdown (and optionally LaTeX) syntax and rendered images in PDF, EPS, PNG, and TIFF formats at 300 dpi as set by <code>apa6_pdf()</code> or <code>apa6_word()</code>, respectively.</p>
+<p>The markdown document, images and an optional BiB(La)TeX file that contains bibliographic information are the input to the next processing step.
+<code>rmarkdown::render()</code> assembles a system call to pandoc that is supplemented by <code>papaja</code> to include a call to an additional filter and can be further customized by the user.
+pandoc parses the contents of the markdown file and translates it into an abstract syntax tree (AST).
+The <code>pandoc-citeproc</code> filter is than applied to the AST to replace the citation markup by the citation text and insert a reference section.
+As detailed in the <a href="writing.html#citations">Citations</a> section, <code>pandoc-citeproc</code> relies on the <a href="http://citationstyles.org/">citation styles language</a> (CSL), an XML-based specification of citation and bibliography formatting rules.
+Unfortunately, CSL does not support in-text citations.
+To overcome this limitation, <code>pandoc-citeproc</code> provides a separate syntax for in-text citations, which is based on the same CSL style.
+As a result the CSL APA6 style uses ampersands for all citations, including in-text citations, defying the APA citation style.
+That is why <code>papaja</code> provides an additional R-based filter that is applied to the AST to replace ampersands in in-text citations with the word <em>and</em>.</p>
+<p>After all filters have been applied to the AST pandoc converts the document into the target output format, that is, PDF or DOCX.
+To create DOCX-documents <code>papaja</code> provides a reference DOCX-file containing page setup and style definitions that pandoc uses to create the manuscript file.
+That is, pandoc translates the AST directly to the office open XML format.
+To create PDF-documents pandoc in turn relies on LaTeX, that is, pandoc translates the AST to a TeX-file based on a template provided by <code>papaja</code>.
+This template invokes the <code>apa6</code> LaTeX document class [@???] and loads several additional LaTeX packages.
+pandoc then generates a system call to LaTeX to render the PDF document.
+During this processing step, that is, following the pandoc system calls, errors are due to failures of LaTeX to compile the TeX-file and usually start with <code>!</code>, for example, <code>! Undefined control sequence.</code> or <code>! Missing $ inserted</code>.</p>
 <ul>
 <li>YAML front matter is read
 <ul>
@@ -507,7 +599,9 @@ Figure 1.1: Process diagram illustrating the compilation of reproducible reports
 </div>
 <div id="alternatives" class="section level2">
 <h2><span class="header-section-number">1.3</span> Alternatives</h2>
-<p>Needless to say, not all journals require manuscripts to be prepared according to APA guidelines. Other journal templates for the <code>rmarkdown</code> package are available in the <a href="https://github.com/rstudio/rticles"><code>rticles</code></a> package. It includes a set of templates for authoring of R related journal and conference submissions.</p>
+<p>Needless to say, not all journals require manuscripts to be prepared according to APA guidelines.
+Other journal templates for the <code>rmarkdown</code> package are available in the <a href="https://github.com/rstudio/rticles"><code>rticles</code></a> package.
+It includes a set of templates for authoring of R related journal and conference submissions.</p>
 <ul>
 <li>papeR</li>
 <li>reportR &amp; apaStyle</li>
@@ -520,18 +614,33 @@ Figure 1.1: Process diagram illustrating the compilation of reproducible reports
 <h2><span class="header-section-number">1.4</span> Getting started</h2>
 <div id="software-requirements" class="section level3">
 <h3><span class="header-section-number">1.4.1</span> Software requirements</h3>
-<p>To use <code>papaja</code> you need to make sure the following software is installed on your computer:</p>
+<p><code>papaja</code> depends on additional software, namely,</p>
 <ol class="example" style="list-style-type: decimal">
-<li><strong><a href="http://www.r-project.org/">R</a> 2.11.1 or later</strong></li>
-<li><strong><a href="http://johnmacfarlane.net/pandoc/">pandoc</a> 1.19 or later</strong>; if you work with <a href="http://www.rstudio.com/">RStudio</a> (1.1.453 or later) pandoc should already be installed, otherwise install pandoc using the <a href="https://github.com/rstudio/rmarkdown/blob/master/PANDOC.md">instructions for your operating system</a></li>
+<li><a href="http://www.r-project.org/">R</a> 2.11.1 or later and</li>
+<li><a href="http://johnmacfarlane.net/pandoc/">pandoc</a> 1.19 or later</li>
 </ol>
-<p>If you want to create PDF- in addition to DOCX-files you need</p>
+<p>If you work with <a href="http://www.rstudio.com/">RStudio</a> (1.1.453 or later) pandoc should already be installed, otherwise refer to the <a href="http://pandoc.org/installing.html">installation instructions</a> for your operating system.</p>
+<div id="setting-up-a-tex-distribution" class="section level4">
+<h4><span class="header-section-number">1.4.1.1</span> Setting up a TeX distribution</h4>
+<p>If you want to create PDF- in addition to DOCX-documents you additionally need</p>
 <ol start="3" class="example" style="list-style-type: decimal">
-<li><strong><a href="http://de.wikipedia.org/wiki/TeX">TeX</a> 2013 or later</strong>. Try <a href="http://miktex.org/">MikTeX</a> for Windows, <a href="https://tug.org/mactex/">MacTeX</a> for Mac, or <a href="http://www.tug.org/texlive/">TeX Live</a> for Linux.</li>
+<li><a href="http://de.wikipedia.org/wiki/TeX">TeX</a> 2013 or later.</li>
 </ol>
-<p><code>papaja</code> requires <span class="math inline">\(\LaTeX\)</span> packages that are not part of the basic TeX installations.</p>
-<p><details> <summary>Show list of required <span class="math inline">\(\LaTeX\)</span> packages</summary></p>
-<pre><code>apa6
+<p>If you have no use for TeX beyond rendering R Markdown documents, I recommend you use <a href="https://yihui.name/tinytex/">TinyTex</a>. Otherwise consider <a href="http://miktex.org/">MikTeX</a> for Windows, <a href="https://tug.org/mactex/">MacTeX</a> for Mac, or <a href="http://www.tug.org/texlive/">TeX Live</a> for Linux.
+TinyTex can be installed from within R as follows.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="st">&quot;tinytex&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())) <span class="kw">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</a></code></pre></div>
+<p><code>papaja</code> requires additional <span class="math inline">\(\LaTeX\)</span> packages that are not part of the basic TeX installations.
+When using TinyTex, the required packages will be installed automatically when rendering a the first PDF-document.
+Users of other TeX distribution need to take one of the following additional steps.
+MikTeX users may enable the <a href="https://miktex.org/howto/miktex-console">automatic installation of missing packages</a>.
+If you are comfortable using the command line, it may be convenient to run the following command.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="ex">initexmf</span> --set-config-value [MPM]AutoInstall=1</a></code></pre></div>
+<!-- <details> -->
+<!-- <summary>Show list of required $\LaTeX$ packages</summary> -->
+<!-- ~~~ -->
+<!-- apa6
 booktabs
 caption
 csquotes
@@ -555,28 +664,37 @@ txfonts
 upquote
 url
 was
-xcolor</code></pre>
-<p></details></p>
-<p>To address this you can either <a href="https://tex.stackexchange.com/a/105650/11001">install a <em>complete</em></a>—not the basic—TeX distribution, <a href="https://miktex.org/howto/miktex-console">always install missing packages on the fly</a> (only available in MikTeX), or install them <a href="https://docs.miktex.org/manual/pkgmgt.html">manually</a>. If you are comfortable using the command line, it may be convenient to run the following commands to install the packages. MikTeX users can run the following command:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">mpm</span> --install=apa6,booktabs,caption,csquotes,endfloat,environ,etoolbox,fancyhdr,fancyvrb,framed,lineno,microtype,mptopdf,ms,parskip,pgf,sttools,threeparttable,threeparttablex,trimspaces,txfonts,upquote,url,was,xcolor</code></pre></div>
+xcolor -->
+<!-- ~~~ -->
+<!-- </details> -->
+<p>This option is not available in MacTeX or TeX Live.
+Alternatively, you can install the additional packages manually.
+Again the installation can be done conveniently from the command line.
+MikTeX users can run the following command.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="ex">mpm</span> --install=apa6,booktabs,caption,csquotes,endfloat,environ,etoolbox,fancyhdr,fancyvrb,framed,lineno,microtype,mptopdf,ms,parskip,pgf,sttools,threeparttable,threeparttablex,trimspaces,txfonts,upquote,url,was,xcolor</a></code></pre></div>
 <p>It may be necessary to launch MikTeX console as administrator (right-click and <em>Run as administrator</em>) before executing the command.</p>
-<p>TeXLive and MacTeX users can run the following command (you may be required to install <code>tlmgr</code> first):</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">tlmgr</span> install apa6 booktabs caption csquotes endfloat environ etoolbox fancyhdr fancyvrb framed lineno microtype mptopdf ms parskip pgf sttools threeparttable threeparttablex trimspaces txfonts upquote url was xcolor</code></pre></div>
-<p>Alternatively, Ubuntu users can install the following Ubuntu packages:</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install texlive-publishers texlive-fonts-extra texlive-latex-extra texlive-humanities lmodern</code></pre></div>
+<p>TeXLive and MacTeX users can run the following command.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="ex">tlmgr</span> install apa6 booktabs caption csquotes endfloat environ etoolbox fancyhdr fancyvrb framed lineno microtype mptopdf ms parskip pgf sttools threeparttable threeparttablex trimspaces txfonts upquote url was xcolor</a></code></pre></div>
+<p>It may be necessary to first install <code>tlmgr</code>.
+Alternatively, Ubuntu users can install the following Ubuntu packages:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="fu">sudo</span> apt-get install texlive-publishers texlive-fonts-extra texlive-latex-extra texlive-humanities lmodern</a></code></pre></div>
+<p>Finally, you may <a href="https://tex.stackexchange.com/a/105650/11001">install a <em>complete</em></a>—not the basic—TeX distribution that comes with all available LaTeX packages but is several gigabytes large.</p>
+</div>
 </div>
 <div id="installing-papaja" class="section level3">
 <h3><span class="header-section-number">1.4.2</span> Installing papaja</h3>
 <p><code>papaja</code> is not yet available on CRAN but you can install it from GitHub:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install devtools package if necessary</span>
-<span class="cf">if</span>(<span class="op">!</span><span class="st">&quot;devtools&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
-
-<span class="co"># Install the stable development verions from GitHub</span>
-devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)
-
-<span class="co"># Install the latest development snapshot from GitHub</span>
-devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja@devel&quot;</span>)</code></pre></div>
-<p><code>papaja</code> has not yet been submitted to CRAN because it is under active development. Currently, there are still a couple of loose ends we would like to tie up before we release the package to a larger audience. If you would like to contribute to speed up the process, have a look at the chapters <a href="limitations.html#limitations">Limitations</a> and <a href="future-directions.html#future-directions">Future directions</a>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># Install devtools package if necessary</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="cf">if</span>(<span class="op">!</span><span class="st">&quot;devtools&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="co"># Install the stable development verions from GitHub</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="co"># Install the latest development snapshot from GitHub</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja@devel&quot;</span>)</a></code></pre></div>
+<p><code>papaja</code> has not yet been submitted to CRAN because it is under active development.
+Currently, there are still a couple of loose ends we would like to tie up before we release the package to a larger audience.
+If you would like to contribute to speed up the process, have a look at the chapters <a href="limitations.html#limitations">Limitations</a> and <a href="future-directions.html#future-directions">Future directions</a>.</p>
 </div>
 <div id="creating-a-document" class="section level3">
 <h3><span class="header-section-number">1.4.3</span> Creating a document</h3>
@@ -594,18 +712,19 @@ Figure 1.4: papaja’s APA6 template is available through the RStudio menues.
 Figure 1.5: The <em>Knit</em> button in the RStudio.
 </p>
 </div>
-<p>If you don’t use RStudio, you can achieve the same result via the R command line. Use <code>rmarkdown::draft()</code> to create a new R Markdown file and <code>rmarkdown::render()</code> to render the document.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create new R Markdown file</span>
-rmarkdown<span class="op">::</span><span class="kw">draft</span>(
-  <span class="st">&quot;mymanuscript.Rmd&quot;</span>
-  , <span class="st">&quot;apa6&quot;</span>
-  , <span class="dt">package =</span> <span class="st">&quot;papaja&quot;</span>
-  , <span class="dt">create_dir =</span> <span class="ot">FALSE</span>
-  , <span class="dt">edit =</span> <span class="ot">FALSE</span>
-)
-
-<span class="co"># Render manuscript</span>
-rmarkdown<span class="op">::</span><span class="kw">render</span>(<span class="st">&quot;mymanuscript.Rmd&quot;</span>)</code></pre></div>
+<p>If you don’t use RStudio, you can achieve the same result via the R command line.
+Use <code>rmarkdown::draft()</code> to create a new R Markdown file and <code>rmarkdown::render()</code> to render the document.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># Create new R Markdown file</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">rmarkdown<span class="op">::</span><span class="kw">draft</span>(</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="st">&quot;mymanuscript.Rmd&quot;</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  , <span class="st">&quot;apa6&quot;</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">  , <span class="dt">package =</span> <span class="st">&quot;papaja&quot;</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">  , <span class="dt">create_dir =</span> <span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">  , <span class="dt">edit =</span> <span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">)</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="co"># Render manuscript</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">rmarkdown<span class="op">::</span><span class="kw">render</span>(<span class="st">&quot;mymanuscript.Rmd&quot;</span>)</a></code></pre></div>
 <hr />
 <p><code>papaja</code> is a R-package in the making including a <a href="http://rmarkdown.rstudio.com/">R Markdown</a> template that can be used with (or without) <a href="http://www.rstudio.com/">RStudio</a> to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition). The package uses the LaTeX document class <a href="http://www.ctan.org/pkg/apa6">apa6</a> and a .docx-reference file, so you can create PDF documents, or Word documents if you have to. Moreover, <code>papaja</code> supplies R-functions that facilitate reporting results of your analyses in accordance with APA guidelines.</p>
 
@@ -626,16 +745,16 @@ Because <strong>knitr</strong> does not allow duplicate chunk labels in a source
 <p>Gandrud, C. (2013). <em>Reproducible Research with R and Rstudio</em> (Auflage: New.). Boca Raton: Crc Pr Inc.</p>
 </div>
 <div id="ref-R-knitr">
-<p>Xie, Y. (2015). <em>Dynamic documents with R and knitr</em> (2nd ed.). Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a></p>
+<p>Xie, Y. (2015). <em>Dynamic documents with R and knitr</em> (2nd ed.). Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a></p>
 </div>
 <div id="ref-asendorpf_recommendations_2013">
 <p>Asendorpf, J. B., Conner, M., De Fruyt, F., De Houwer, J., Denissen, J. J. A., Fiedler, K., … Wicherts, J. M. (2013). Recommendations for Increasing Replicability in Psychology. <em>European Journal of Personality</em>, <em>27</em>(2), 108–119. doi:<a href="https://doi.org/10.1002/per.1919">10.1002/per.1919</a></p>
 </div>
 <div id="ref-cacioppo_social_2015">
-<p>Cacioppo, J. T., Kaplan, R. M., Krosnick, J. A., Olds, J. L., &amp; Dean, H. (2015). <em>Social, Behavioral, and Economic Sciences Perspectives on Robust and Reliable Science</em> (Report of the Subcommittee on Replicability in Science). Arlington, VA: National Science Foundation. Retrieved from <a href="http://web.stanford.edu/group/bps/cgi-bin/wordpress/wp-content/uploads/2015/09/NSF-Robust-Research-Workshop-Report.pdf" class="uri">http://web.stanford.edu/group/bps/cgi-bin/wordpress/wp-content/uploads/2015/09/NSF-Robust-Research-Workshop-Report.pdf</a></p>
+<p>Cacioppo, J. T., Kaplan, R. M., Krosnick, J. A., Olds, J. L., &amp; Dean, H. (2015). <em>Social, Behavioral, and Economic Sciences Perspectives on Robust and Reliable Science</em> (Report of the Subcommittee on Replicability in Science). Arlington, VA: National Science Foundation. Retrieved from <a href="http://web.stanford.edu/group/bps/cgi-bin/wordpress/wp-content/uploads/2015/09/NSF-Robust-Research-Workshop-Report.pdf">http://web.stanford.edu/group/bps/cgi-bin/wordpress/wp-content/uploads/2015/09/NSF-Robust-Research-Workshop-Report.pdf</a></p>
 </div>
 <div id="ref-R-rmarkdown">
-<p>Allaire, J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., … Chang, W. (2017). <em>Rmarkdown: Dynamic documents for r</em>. Retrieved from <a href="https://CRAN.R-project.org/package=rmarkdown" class="uri">https://CRAN.R-project.org/package=rmarkdown</a></p>
+<p>Allaire, J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., … Chang, W. (2017). <em>Rmarkdown: Dynamic documents for r</em>. Retrieved from <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a></p>
 </div>
 <div id="ref-pfister_schorsch:_2016">
 <p>Pfister, R., &amp; Janczyk, M. (2016). schoRsch: An R package for analyzing and reporting factorial experiments. <em>The Quantitative Methods for Psychology</em>, <em>12</em>(2), 147–151. doi:<a href="https://doi.org/10.20982/tqmp.12.2.p147">10.20982/tqmp.12.2.p147</a></p>
@@ -717,7 +836,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
