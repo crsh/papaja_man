@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="&quot;&quot;">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2018-11-21">
+<meta name="date" content="2019-02-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="introduction.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -171,9 +172,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#numerical-values"><i class="fa fa-check"></i><b>4.1</b> Numerical values</a></li>
 <li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#figures"><i class="fa fa-check"></i><b>4.2</b> Figures</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#r-generated-figures"><i class="fa fa-check"></i><b>4.2.1</b> R-generated figures</a></li>
-<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#setting-global-plot-options"><i class="fa fa-check"></i><b>4.2.2</b> Setting global plot options</a></li>
-<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#external-files"><i class="fa fa-check"></i><b>4.2.3</b> External files</a></li>
-<li class="chapter" data-level="4.2.4" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.4</b> Figure captions</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#external-files"><i class="fa fa-check"></i><b>4.2.2</b> External files</a></li>
+<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.3</b> Figure captions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.1</b> Alternatives</a></li>
@@ -242,8 +242,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">papaja: Reproducible APA manuscripts with R Markdown</h1>
-<h4 class="author"><em>Frederik Aust &amp; Marius Barth</em></h4>
-<h4 class="date"><em>2018-11-21</em></h4>
+<p class="author"><em>Frederik Aust &amp; Marius Barth</em></p>
+<p class="date"><em>2019-02-04</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
@@ -253,160 +253,112 @@ If you have suggestions for improvements or additional topics you would like to 
 <p><code>papaja</code> has not yet been submitted to CRAN because it is under active development.
 Currently, there are still a couple of loose ends we would like to tie up before we release the package to a larger audience.
 If you would like to contribute to speed up the process, have a look at the chapters <a href="limitations.html#limitations">Limitations</a> and <a href="future-directions.html#future-directions">Future directions</a>.</p>
-<p>If you are interested in reproducible research with R more generally, I recommend the books by <span class="citation">Xie (<a href="#ref-R-knitr">2015</a>)</span> and <span class="citation">Gandrud (<a href="#ref-gandrud_reproducible_2013">2013</a>)</span>.
-Furthermore, <span class="citation">Stodden, Leisch, &amp; Peng (<a href="#ref-stodden_implementing_2014">2014</a>)</span> give an overview of tools, practices, and platforms to implement reproducible research.</p>
-<p>This manual is fully reproducible and was written in R <span class="citation">(Version 3.5.1; R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.21.2; Singmann, Bolker, Westfall, &amp; Aust, <a href="#ref-R-afex">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Version 0.2.2; Müller, <a href="#ref-R-bindrcpp">2017</a>)</span>, <em>car</em> <span class="citation">(Version 3.0.0; Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>; Fox, Weisberg, &amp; Price, <a href="#ref-R-carData">2018</a>)</span>, <em>carData</em> <span class="citation">(Version 3.0.1; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>citr</em> <span class="citation">(Version 0.2.0.9055; Aust, <a href="#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 1.0.0; Sveidqvist et al., <a href="#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 0.7.7; Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>ez</em> <span class="citation">(Lawrence, <a href="#ref-R-ez">2016</a>)</span>, <em>ggplot2</em> <span class="citation">(Version 3.0.0; Wickham, <a href="#ref-R-ggplot2">2009</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.20; Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.17; Bates, Mächler, Bolker, &amp; Walker, <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.27.62; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9842; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 1.10; Allaire et al., <a href="#ref-R-rmarkdown">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.2.0; Chang, Cheng, Allaire, Xie, &amp; McPherson, <a href="#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Marwick, n.d.)</span>.
+<p>If you are interested in reproducible research with R more generally, I recommend the books by <span class="citation">Xie (<a href="published-manuscripts.html#ref-R-knitr">2015</a>)</span> and <span class="citation">Gandrud (<a href="published-manuscripts.html#ref-gandrud_reproducible_2013">2013</a>)</span>.
+Furthermore, <span class="citation">Stodden, Leisch, &amp; Peng (<a href="published-manuscripts.html#ref-stodden_implementing_2014">2014</a>)</span> give an overview of tools, practices, and platforms to implement reproducible research.</p>
+<p>This manual is fully reproducible and was written in R <span class="citation">(Version 3.5.1; R Core Team, <a href="published-manuscripts.html#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.21.2; Singmann, Bolker, Westfall, &amp; Aust, <a href="published-manuscripts.html#ref-R-afex">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Version 0.2.2; Müller, <a href="published-manuscripts.html#ref-R-bindrcpp">2017</a>)</span>, <em>car</em> <span class="citation">(Version 3.0.0; Fox &amp; Weisberg, <a href="published-manuscripts.html#ref-R-car">2011</a>; Fox, Weisberg, &amp; Price, <a href="published-manuscripts.html#ref-R-carData">2018</a>)</span>, <em>carData</em> <span class="citation">(Version 3.0.1; Fox et al., <a href="published-manuscripts.html#ref-R-carData">2018</a>)</span>, <em>citr</em> <span class="citation">(Version 0.3.0; Aust, <a href="published-manuscripts.html#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 1.0.0; Sveidqvist et al., <a href="published-manuscripts.html#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 0.7.7; Wickham &amp; Francois, <a href="published-manuscripts.html#ref-R-dplyr">2016</a>)</span>, <em>ez</em> <span class="citation">(Lawrence, <a href="published-manuscripts.html#ref-R-ez">2016</a>)</span>, <em>ggplot2</em> <span class="citation">(Version 3.0.0; Wickham, <a href="published-manuscripts.html#ref-R-ggplot2">2009</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.21; Xie, <a href="published-manuscripts.html#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.17; Bates, Mächler, Bolker, &amp; Walker, <a href="published-manuscripts.html#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="published-manuscripts.html#ref-R-lsmeans">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9842; Aust &amp; Barth, <a href="published-manuscripts.html#ref-R-papaja">2016</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 1.11; Allaire et al., <a href="published-manuscripts.html#ref-R-rmarkdown">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.2.0; Chang, Cheng, Allaire, Xie, &amp; McPherson, <a href="published-manuscripts.html#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Marwick, n.d.)</span>.
 Icons are provide royalty</p>
 <hr />
-<pre><code>## Session info -------------------------------------------------------------</code></pre>
-<pre><code>##  setting  value                       
+<pre><code>## ─ Session info ──────────────────────────────────────────────────────────
+##  setting  value                       
 ##  version  R version 3.5.1 (2018-07-02)
+##  os       macOS Sierra 10.12.6        
 ##  system   x86_64, darwin16.7.0        
 ##  ui       unknown                     
 ##  language (EN)                        
 ##  collate  de_DE.UTF-8                 
+##  ctype    de_DE.UTF-8                 
 ##  tz       Europe/Berlin               
-##  date     2018-11-21</code></pre>
-<pre><code>## Packages -----------------------------------------------------------------</code></pre>
-<pre><code>##  package      * version    date       source                      
-##  abind          1.4-5      2016-07-21 CRAN (R 3.5.1)              
-##  assertthat     0.2.0      2017-04-11 cran (@0.2.0)               
-##  backports      1.1.2      2017-12-13 cran (@1.1.2)               
-##  base         * 3.5.1      2018-07-03 local                       
-##  bindr          0.1.1      2018-03-13 cran (@0.1.1)               
-##  bindrcpp       0.2.2      2018-03-29 cran (@0.2.2)               
-##  bookdown       0.7        2018-02-18 cran (@0.7)                 
-##  brew           1.0-6      2011-04-13 CRAN (R 3.5.1)              
-##  car          * 3.0-0      2018-04-02 CRAN (R 3.5.1)              
-##  carData      * 3.0-1      2018-03-28 CRAN (R 3.5.1)              
-##  cellranger     1.1.0      2016-07-27 CRAN (R 3.5.1)              
-##  colorspace     1.3-2      2016-12-14 CRAN (R 3.5.1)              
-##  compiler       3.5.1      2018-07-03 local                       
-##  crayon         1.3.4      2017-09-16 cran (@1.3.4)               
-##  curl           3.2        2018-03-28 CRAN (R 3.5.1)              
-##  data.table     1.11.4     2018-05-27 CRAN (R 3.5.1)              
-##  datasets     * 3.5.1      2018-07-03 local                       
-##  devtools       1.13.6     2018-06-27 CRAN (R 3.5.1)              
-##  DiagrammeR   * 1.0.0      2018-03-01 CRAN (R 3.5.1)              
-##  digest         0.6.18     2018-10-10 cran (@0.6.18)              
-##  downloader     0.4        2015-07-09 CRAN (R 3.5.1)              
-##  dplyr          0.7.7      2018-10-16 cran (@0.7.7)               
-##  evaluate       0.11       2018-07-17 cran (@0.11)                
-##  forcats        0.3.0      2018-02-19 CRAN (R 3.5.1)              
-##  foreign        0.8-70     2017-11-28 CRAN (R 3.5.1)              
-##  ggplot2      * 3.0.0      2018-07-03 CRAN (R 3.5.1)              
-##  glue           1.3.0      2018-07-17 cran (@1.3.0)               
-##  graphics     * 3.5.1      2018-07-03 local                       
-##  grDevices    * 3.5.1      2018-07-03 local                       
-##  grid           3.5.1      2018-07-03 local                       
-##  gridExtra      2.3        2017-09-09 CRAN (R 3.5.1)              
-##  gtable         0.2.0      2016-02-26 CRAN (R 3.5.1)              
-##  haven          1.1.2      2018-06-27 CRAN (R 3.5.1)              
-##  hms            0.4.2      2018-03-10 CRAN (R 3.5.1)              
-##  htmltools      0.3.6      2017-04-28 cran (@0.3.6)               
-##  htmlwidgets    1.2        2018-04-19 CRAN (R 3.5.1)              
-##  igraph         1.2.2      2018-07-27 CRAN (R 3.5.1)              
-##  influenceR     0.1.0      2015-09-03 CRAN (R 3.5.1)              
-##  jsonlite       1.5        2017-06-01 CRAN (R 3.5.1)              
-##  knitr          1.20       2018-02-20 cran (@1.20)                
-##  lazyeval       0.2.1      2017-10-29 CRAN (R 3.5.1)              
-##  magrittr       1.5        2014-11-22 cran (@1.5)                 
-##  memoise        1.1.0      2017-04-21 CRAN (R 3.5.1)              
-##  methods      * 3.5.1      2018-07-03 local                       
-##  munsell        0.5.0      2018-06-12 CRAN (R 3.5.1)              
-##  openxlsx       4.1.0      2018-05-26 CRAN (R 3.5.1)              
-##  papaja       * 0.1.0.9842 2018-10-22 Github (crsh/papaja@bad6796)
-##  pillar         1.3.0      2018-07-14 cran (@1.3.0)               
-##  pkgconfig      2.0.2      2018-08-16 cran (@2.0.2)               
-##  plyr           1.8.4      2016-06-08 cran (@1.8.4)               
-##  purrr          0.2.5      2018-05-29 cran (@0.2.5)               
-##  R6             2.3.0      2018-10-04 cran (@2.3.0)               
-##  RColorBrewer   1.1-2      2014-12-07 CRAN (R 3.5.1)              
-##  Rcpp           1.0.0      2018-11-07 cran (@1.0.0)               
-##  readr          1.1.1      2017-05-16 CRAN (R 3.5.1)              
-##  readxl         1.1.0      2018-04-20 CRAN (R 3.5.1)              
-##  rgexf          0.15.3     2015-03-24 CRAN (R 3.5.1)              
-##  rio            0.5.10     2018-03-29 CRAN (R 3.5.1)              
-##  rlang          0.3.0.1    2018-10-25 cran (@0.3.0.1)             
-##  rmarkdown    * 1.10       2018-06-11 cran (@1.10)                
-##  Rook           1.1-1      2014-10-20 CRAN (R 3.5.1)              
-##  rprojroot      1.3-2      2018-01-03 cran (@1.3-2)               
-##  rstudioapi     0.8        2018-10-02 cran (@0.8)                 
-##  scales         0.5.0      2017-08-24 CRAN (R 3.5.1)              
-##  stats        * 3.5.1      2018-07-03 local                       
-##  stringi        1.2.4      2018-07-20 cran (@1.2.4)               
-##  stringr        1.3.1      2018-05-10 cran (@1.3.1)               
-##  tibble         1.4.2      2018-01-22 cran (@1.4.2)               
-##  tidyr          0.8.1      2018-05-18 cran (@0.8.1)               
-##  tidyselect     0.2.5      2018-10-11 cran (@0.2.5)               
-##  tools          3.5.1      2018-07-03 local                       
-##  utils        * 3.5.1      2018-07-03 local                       
-##  viridis        0.5.1      2018-03-29 CRAN (R 3.5.1)              
-##  viridisLite    0.3.0      2018-02-01 CRAN (R 3.5.1)              
-##  visNetwork     2.0.4      2018-06-14 CRAN (R 3.5.1)              
-##  withr          2.1.2      2018-03-15 CRAN (R 3.5.1)              
-##  xfun           0.3        2018-07-06 cran (@0.3)                 
-##  XML            3.98-1.16  2018-08-19 CRAN (R 3.5.1)              
-##  yaml           2.2.0      2018-07-25 cran (@2.2.0)               
-##  zip            1.0.0      2017-04-25 CRAN (R 3.5.1)</code></pre>
+##  date     2019-02-04                  
+## 
+## ─ Packages ──────────────────────────────────────────────────────────────
+##  package      * version    date       lib source                        
+##  abind          1.4-5      2016-07-21 [1] CRAN (R 3.5.1)                
+##  assertthat     0.2.0      2017-04-11 [1] CRAN (R 3.5.1)                
+##  backports      1.1.3      2018-12-14 [1] CRAN (R 3.5.1)                
+##  bindr          0.1.1      2018-03-13 [1] CRAN (R 3.5.1)                
+##  bindrcpp       0.2.2      2018-03-29 [1] CRAN (R 3.5.1)                
+##  bookdown       0.9.1      2019-01-30 [1] Github (crsh/bookdown@cb4be08)
+##  brew           1.0-6      2011-04-13 [1] CRAN (R 3.5.1)                
+##  callr          3.1.0      2018-12-10 [1] CRAN (R 3.5.1)                
+##  car          * 3.0-0      2018-04-02 [1] CRAN (R 3.5.1)                
+##  carData      * 3.0-1      2018-03-28 [1] CRAN (R 3.5.1)                
+##  cellranger     1.1.0      2016-07-27 [1] CRAN (R 3.5.1)                
+##  cli            1.0.1      2018-09-25 [1] CRAN (R 3.5.1)                
+##  colorspace     1.3-2      2016-12-14 [1] CRAN (R 3.5.1)                
+##  crayon         1.3.4      2017-09-16 [1] CRAN (R 3.5.1)                
+##  curl           3.2        2018-03-28 [1] CRAN (R 3.5.1)                
+##  data.table     1.11.4     2018-05-27 [1] CRAN (R 3.5.1)                
+##  desc           1.2.0      2018-05-01 [1] CRAN (R 3.5.1)                
+##  devtools       2.0.1      2018-10-26 [1] CRAN (R 3.5.1)                
+##  DiagrammeR   * 1.0.0      2018-03-01 [1] CRAN (R 3.5.1)                
+##  digest         0.6.18     2018-10-10 [1] CRAN (R 3.5.1)                
+##  downloader     0.4        2015-07-09 [1] CRAN (R 3.5.1)                
+##  dplyr          0.7.7      2018-10-16 [1] CRAN (R 3.5.1)                
+##  evaluate       0.12       2018-10-09 [1] CRAN (R 3.5.1)                
+##  forcats        0.3.0      2018-02-19 [1] CRAN (R 3.5.1)                
+##  foreign        0.8-70     2017-11-28 [2] CRAN (R 3.5.1)                
+##  fs             1.2.6      2018-08-23 [1] CRAN (R 3.5.1)                
+##  ggplot2      * 3.0.0      2018-07-03 [1] CRAN (R 3.5.1)                
+##  glue           1.3.0      2018-07-17 [1] CRAN (R 3.5.1)                
+##  gridExtra      2.3        2017-09-09 [1] CRAN (R 3.5.1)                
+##  gtable         0.2.0      2016-02-26 [1] CRAN (R 3.5.1)                
+##  haven          1.1.2      2018-06-27 [1] CRAN (R 3.5.1)                
+##  hms            0.4.2      2018-03-10 [1] CRAN (R 3.5.1)                
+##  htmltools      0.3.6      2017-04-28 [1] CRAN (R 3.5.1)                
+##  htmlwidgets    1.2        2018-04-19 [1] CRAN (R 3.5.1)                
+##  igraph         1.2.2      2018-07-27 [1] CRAN (R 3.5.1)                
+##  influenceR     0.1.0      2015-09-03 [1] CRAN (R 3.5.1)                
+##  jsonlite       1.6        2018-12-07 [1] CRAN (R 3.5.1)                
+##  knitr          1.21       2018-12-10 [1] CRAN (R 3.5.1)                
+##  lazyeval       0.2.1      2017-10-29 [1] CRAN (R 3.5.1)                
+##  magrittr       1.5        2014-11-22 [1] CRAN (R 3.5.1)                
+##  memoise        1.1.0      2017-04-21 [1] CRAN (R 3.5.1)                
+##  munsell        0.5.0      2018-06-12 [1] CRAN (R 3.5.1)                
+##  openxlsx       4.1.0      2018-05-26 [1] CRAN (R 3.5.1)                
+##  papaja       * 0.1.0.9842 2019-02-03 [1] local                         
+##  pillar         1.3.0      2018-07-14 [1] CRAN (R 3.5.1)                
+##  pkgbuild       1.0.2      2018-10-16 [1] CRAN (R 3.5.1)                
+##  pkgconfig      2.0.2      2018-08-16 [1] CRAN (R 3.5.1)                
+##  pkgload        1.0.2      2018-10-29 [1] CRAN (R 3.5.1)                
+##  plyr           1.8.4      2016-06-08 [1] CRAN (R 3.5.1)                
+##  prettyunits    1.0.2      2015-07-13 [1] CRAN (R 3.5.1)                
+##  processx       3.2.1      2018-12-05 [1] CRAN (R 3.5.1)                
+##  ps             1.2.1      2018-11-06 [1] CRAN (R 3.5.1)                
+##  purrr          0.2.5      2018-05-29 [1] CRAN (R 3.5.1)                
+##  R6             2.3.0      2018-10-04 [1] CRAN (R 3.5.1)                
+##  RColorBrewer   1.1-2      2014-12-07 [1] CRAN (R 3.5.1)                
+##  Rcpp           1.0.0      2018-11-07 [1] CRAN (R 3.5.1)                
+##  readr          1.1.1      2017-05-16 [1] CRAN (R 3.5.1)                
+##  readxl         1.1.0      2018-04-20 [1] CRAN (R 3.5.1)                
+##  remotes        2.0.2      2018-10-30 [1] CRAN (R 3.5.1)                
+##  rgexf          0.15.3     2015-03-24 [1] CRAN (R 3.5.1)                
+##  rio            0.5.10     2018-03-29 [1] CRAN (R 3.5.1)                
+##  rlang          0.3.0.1    2018-10-25 [1] CRAN (R 3.5.1)                
+##  rmarkdown    * 1.11       2018-12-08 [1] CRAN (R 3.5.1)                
+##  Rook           1.1-1      2014-10-20 [1] CRAN (R 3.5.1)                
+##  rprojroot      1.3-2      2018-01-03 [1] CRAN (R 3.5.1)                
+##  rstudioapi     0.8        2018-10-02 [1] CRAN (R 3.5.1)                
+##  scales         0.5.0      2017-08-24 [1] CRAN (R 3.5.1)                
+##  sessioninfo    1.1.1      2018-11-05 [1] CRAN (R 3.5.1)                
+##  stringi        1.2.4      2018-07-20 [1] CRAN (R 3.5.1)                
+##  stringr        1.3.1      2018-05-10 [1] CRAN (R 3.5.1)                
+##  testthat       2.0.0      2017-12-13 [1] CRAN (R 3.5.1)                
+##  tibble         1.4.2      2018-01-22 [1] CRAN (R 3.5.1)                
+##  tidyr          0.8.1      2018-05-18 [1] CRAN (R 3.5.1)                
+##  tidyselect     0.2.5      2018-10-11 [1] CRAN (R 3.5.1)                
+##  usethis        1.4.0      2018-08-14 [1] CRAN (R 3.5.1)                
+##  viridis        0.5.1      2018-03-29 [1] CRAN (R 3.5.1)                
+##  viridisLite    0.3.0      2018-02-01 [1] CRAN (R 3.5.1)                
+##  visNetwork     2.0.4      2018-06-14 [1] CRAN (R 3.5.1)                
+##  withr          2.1.2      2018-03-15 [1] CRAN (R 3.5.1)                
+##  xfun           0.4        2018-10-23 [1] CRAN (R 3.5.1)                
+##  XML            3.98-1.16  2018-08-19 [1] CRAN (R 3.5.1)                
+##  yaml           2.2.0      2018-07-25 [1] CRAN (R 3.5.1)                
+##  zip            1.0.0      2017-04-25 [1] CRAN (R 3.5.1)                
+## 
+## [1] /usr/local/lib/R/3.5/site-library
+## [2] /usr/local/Cellar/r/3.5.1/lib/R/library</code></pre>
 
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-R-knitr">
-<p>Xie, Y. (2015). <em>Dynamic documents with R and knitr</em> (2nd ed.). Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a></p>
-</div>
-<div id="ref-gandrud_reproducible_2013">
-<p>Gandrud, C. (2013). <em>Reproducible Research with R and Rstudio</em> (Auflage: New.). Boca Raton: Crc Pr Inc.</p>
-</div>
-<div id="ref-stodden_implementing_2014">
-<p>Stodden, V., Leisch, F., &amp; Peng, R. D. (2014). <em>Implementing Reproducible Research</em>. Boca Raton: Chapman and Hall/CRC. Retrieved from <a href="https://osf.io/s9tya/">https://osf.io/s9tya/</a></p>
-</div>
-<div id="ref-R-base">
-<p>R Core Team. (2016). <em>R: A language and environment for statistical computing</em>. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from <a href="https://www.R-project.org/">https://www.R-project.org/</a></p>
-</div>
-<div id="ref-R-afex">
-<p>Singmann, H., Bolker, B., Westfall, J., &amp; Aust, F. (2016). <em>Afex: Analysis of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=afex">https://CRAN.R-project.org/package=afex</a></p>
-</div>
-<div id="ref-R-bindrcpp">
-<p>Müller, K. (2017). <em>Bindrcpp: An ’rcpp’ interface to active bindings</em>. Retrieved from <a href="https://CRAN.R-project.org/package=bindrcpp">https://CRAN.R-project.org/package=bindrcpp</a></p>
-</div>
-<div id="ref-R-car">
-<p>Fox, J., &amp; Weisberg, S. (2011). <em>An R companion to applied regression</em> (Second.). Thousand Oaks CA: Sage. Retrieved from <a href="http://socserv.socsci.mcmaster.ca/jfox/Books/Companion">http://socserv.socsci.mcmaster.ca/jfox/Books/Companion</a></p>
-</div>
-<div id="ref-R-carData">
-<p>Fox, J., Weisberg, S., &amp; Price, B. (2018). <em>CarData: Companion to applied regression data sets</em>. Retrieved from <a href="https://CRAN.R-project.org/package=carData">https://CRAN.R-project.org/package=carData</a></p>
-</div>
-<div id="ref-R-citr">
-<p>Aust, F. (2016). <em>Citr: ’RStudio’ add-in to insert markdown citations</em>. Retrieved from <a href="https://CRAN.R-project.org/package=citr">https://CRAN.R-project.org/package=citr</a></p>
-</div>
-<div id="ref-R-DiagrammeR">
-<p>Sveidqvist, K., Bostock, M., Pettitt, C., Daines, M., Kashcha, A., &amp; Iannone, R. (2016). <em>DiagrammeR: Create graph diagrams and flowcharts using r</em>. Retrieved from <a href="https://CRAN.R-project.org/package=DiagrammeR">https://CRAN.R-project.org/package=DiagrammeR</a></p>
-</div>
-<div id="ref-R-dplyr">
-<p>Wickham, H., &amp; Francois, R. (2016). <em>Dplyr: A grammar of data manipulation</em>. Retrieved from <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a></p>
-</div>
-<div id="ref-R-ez">
-<p>Lawrence, M. A. (2016). <em>Ez: Easy analysis and visualization of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=ez">https://CRAN.R-project.org/package=ez</a></p>
-</div>
-<div id="ref-R-ggplot2">
-<p>Wickham, H. (2009). <em>Ggplot2: Elegant graphics for data analysis</em>. Springer-Verlag New York. Retrieved from <a href="http://ggplot2.org">http://ggplot2.org</a></p>
-</div>
-<div id="ref-R-lme4">
-<p>Bates, D., Mächler, M., Bolker, B., &amp; Walker, S. (2015). Fitting linear mixed-effects models using lme4. <em>Journal of Statistical Software</em>, <em>67</em>(1), 1–48. doi:<a href="https://doi.org/10.18637/jss.v067.i01">10.18637/jss.v067.i01</a></p>
-</div>
-<div id="ref-R-lsmeans">
-<p>Lenth, R. V. (2016). Least-squares means: The R package lsmeans. <em>Journal of Statistical Software</em>, <em>69</em>(1), 1–33. doi:<a href="https://doi.org/10.18637/jss.v069.i01">10.18637/jss.v069.i01</a></p>
-</div>
-<div id="ref-R-papaja">
-<p>Aust, F., &amp; Barth, M. (2016). <em>Papaja: Create apa manuscripts with rmarkdown</em>. Retrieved from <a href="https://github.com/crsh/papaja">https://github.com/crsh/papaja</a></p>
-</div>
-<div id="ref-R-rmarkdown">
-<p>Allaire, J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., … Chang, W. (2017). <em>Rmarkdown: Dynamic documents for r</em>. Retrieved from <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a></p>
-</div>
-<div id="ref-R-shiny">
-<p>Chang, W., Cheng, J., Allaire, J., Xie, Y., &amp; McPherson, J. (2016). <em>Shiny: Web application framework for r</em>. Retrieved from <a href="http://shiny.rstudio.com">http://shiny.rstudio.com</a></p>
-</div>
 </div>
 <h1>Comments and Questions</h1>
 <div id="disqus_thread"></div>
@@ -458,7 +410,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -470,6 +422,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/crsh/papaja_man/edit/master/index.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": null,
 "toc": {
@@ -485,7 +441,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

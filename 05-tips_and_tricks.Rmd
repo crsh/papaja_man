@@ -119,6 +119,8 @@ This is the abstract [@doe1986].
 
 This text will now be processed and citations will be generated as expected.
 
+<!-- TODO: See Lua filter! -->
+
 
 ## Reproducible software environment
 
@@ -156,13 +158,19 @@ To include a child document, insert an empty chunk and provide the path to the R
     
 It may be preferable to split long documents into multiple files
 
-<smaller>
-<code class = "markdown hljs remark-code" style = "background: #F2F2F2;">&#96;&#96;&#96;{r child = "introduction.Rmd"}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
-&#96;&#96;&#96;<br /><br />&#96;&#96;&#96;{r child = "method.Rmd"}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
-&#96;&#96;&#96;<br /><br />&#96;&#96;&#96;{r child = "results.Rmd"}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
-&#96;&#96;&#96;<br /><br />&#96;&#96;&#96;{r child = "discussion.Rmd"}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
-&#96;&#96;&#96;</code>
-</smaller>
+~~~
+```{r child = "introduction.Rmd"}`r ''`
+```
+
+```{r child = "method.Rmd"}`r ''`
+```
+
+```{r child = "results.Rmd"}`r ''`
+```
+
+```{r child = "discussion.Rmd"}`r ''`
+```
+~~~
 
 Search all files with <kbd>Ctrl</kbd> + <kbd>Shift</kbd>+<kbd>F</kbd>
 
@@ -182,7 +190,7 @@ Search all files with <kbd>Ctrl</kbd> + <kbd>Shift</kbd>+<kbd>F</kbd>
 According to the APA guidelines, "Tables may be submitted either single- or double-spaced." [p. 141; @american_psychological_association_publication_2010].
 Adjusting the line spacing of table contents is currently not supported in `papaja`.
 However, as usual it is possible to adjust the spacing in PDF documents by including additional $\LaTeX$ code.
-If you use `apa_able()`, including the following in the YAML front matter will result in single-spaced tables with double-spaced caption and table note:
+If you use `apa_table()`, including the following in the YAML front matter will result in single-spaced tables with double-spaced caption and table note:
 
 ```{yaml}
 header-includes:

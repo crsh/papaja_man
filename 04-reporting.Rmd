@@ -66,6 +66,10 @@ Figures can either consist of plots generated in R or external files.
 In accordance with APA guidelines, figures are not displayed in place but are deferred to the final pages of the document.
 To change this default behavior set the option `figsintext` in the [YAML front matter] to `yes`.
 
+Figures are saved as 300 dpi PDF and PNG
+
+- e.g., `my_manuscript_figures/figure-latex/chunk-name-1.pdf`
+- Change defaults using chunk options (`dev` and `dpi`)
 
 ### R-generated figures
 
@@ -182,7 +186,7 @@ apa_beeplot(
 ```
 
 
-### Setting global plot options
+#### Setting global plot options
 
 As noted in the APA guidelines (p. 153) figures in an article should be consistent and in the same style.
 Hence, it is desireable to define plot styles once rather than every time a new plot is created.
@@ -297,10 +301,53 @@ Unless this behavior is desired, only one figure should be created per chunk.
 - Only one figure per chunk
 - Combine multiple plots into one figure (e.g., `layout()`)
 
-Figures are saved as 300 dpi PDF and PNG
+If a given figure is tall or the figure caption is extensive, it may flow of the page of a PDF document.
+There are two approaches to accomodate long figure captions or tall figures. You can adjust the line spacing/font size of the caption or use a separate list of figure captions.
 
-- e.g., `my_manuscript_figures/figure-latex/chunk-name-1.pdf`
-- Change defaults using chunk options (`dev` and `dpi`)
+#### Line spacing and font size
+
+As mentioned [Adjusting line spacing], you can adjust the line spacing but also the font size of figure captions.
+For single-spaced script-size figure captions, add the following to the YAML front matter:
+
+~~~yaml
+header-includes:
+  - \usepackage{setspace}
+  - \captionsetup[figure]{font={stretch=1,scriptsize}}
+~~~
+
+For other font size options see the [LaTeX Wikibook](https://en.wikibooks.org/wiki/LaTeX/Fonts#Sizing_text).
+
+
+#### List of figure captions
+
+To add a list of figure captions after the reference section, add the following to the YAML front matter:
+
+~~~yaml
+figurelist: yes
+~~~
+
+Additionally you can suppress the captions below *all* figures by adding LaTeX code to the document preamble:
+
+~~~yaml
+header-includes:
+  - \captionsetup[figure]{textformat=empty}
+~~~
+
+If you would rather suppress figure captions only where necessary you can instead use `knitr` to do this.
+To remove the caption below a figure set `fig.cap = " "` and instead set the figure short caption via the chunk option `fig.scap = "My figure caption"`:
+
+~~~
+(ref:figure-caption) This is a long figure caption!
+
+```{r fig.cap = " ", fig.scap = "(ref:figure-caption)", out.width = "\\textwidth"}`r ''`
+plot(cars)
+```
+~~~
+
+```{block2, fig-scap-caution, type = "rmdcaution"}
+To ensure that `fig.scap` takes effect, `knitr` requires that the chunk specifies `out.width`, `out.height`, or `fig.align`, as explained [here](https://stackoverflow.com/questions/27250635/short-caption-fig-scap-in-knitr-not-working).
+```
+
 
 
 ## Tables

@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>papaja: Reproducible APA manuscripts with R Markdown</title>
+  <title>5 Tips and Tricks | papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="&quot;&quot;">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta property="og:title" content="5 Tips and Tricks | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="crsh/papaja_man" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta name="twitter:title" content="5 Tips and Tricks | papaja: Reproducible APA manuscripts with R Markdown" />
   
   <meta name="twitter:description" content="&quot;&quot;" />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2018-11-21">
+<meta name="date" content="2019-02-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="collaborative-writing.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -171,9 +172,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#numerical-values"><i class="fa fa-check"></i><b>4.1</b> Numerical values</a></li>
 <li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#figures"><i class="fa fa-check"></i><b>4.2</b> Figures</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#r-generated-figures"><i class="fa fa-check"></i><b>4.2.1</b> R-generated figures</a></li>
-<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#setting-global-plot-options"><i class="fa fa-check"></i><b>4.2.2</b> Setting global plot options</a></li>
-<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#external-files"><i class="fa fa-check"></i><b>4.2.3</b> External files</a></li>
-<li class="chapter" data-level="4.2.4" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.4</b> Figure captions</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#external-files"><i class="fa fa-check"></i><b>4.2.2</b> External files</a></li>
+<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.3</b> Figure captions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.1</b> Alternatives</a></li>
@@ -253,11 +253,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="global-chunk-options" class="section level2">
 <h2><span class="header-section-number">5.1</span> Global chunk options</h2>
 <p>It can be useful to set chunk options globally for all (following) chunks to avoid retyping or copy-and-pasting</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="co"># Save all plots as 600 DPI TIFF-files</span></a>
-<a class="sourceLine" id="cb81-2" data-line-number="2">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">dev =</span> <span class="st">&quot;tiff&quot;</span>, <span class="dt">dpi =</span> <span class="dv">600</span>)</a>
-<a class="sourceLine" id="cb81-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb81-4" data-line-number="4"><span class="co"># Do not evaluate subsequent chunks (debugging or fine-tuning)</span></a>
-<a class="sourceLine" id="cb81-5" data-line-number="5">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">eval =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save all plots as 600 DPI TIFF-files</span>
+knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">dev =</span> <span class="st">&quot;tiff&quot;</span>, <span class="dt">dpi =</span> <span class="dv">600</span>)
+
+<span class="co"># Do not evaluate subsequent chunks (debugging or fine-tuning)</span>
+knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">eval =</span> <span class="ot">FALSE</span>)</code></pre>
 <p>See the <a href="https://yihui.name/knitr/options/">knitr chunk options and package options</a> for an overview of settings</p>
 </div>
 <div id="meaningful-chunk-names" class="section level2">
@@ -334,37 +334,38 @@ Entries such as <code>author = {John Doe}</code> and <code>author = {J. Doe}</co
 The definition of the citation style used in <code>papaja</code> is given in a citation style language file (CSL, see [Additional-rendering-options]).
 We have created a variant of the widely available APA CSL file without author name disambiguation.
 To use this variant insert the following into YAML front matter:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="fu">csl:</span><span class="at"> https://tinyurl.com/apa6-no-disambiguation</span></a></code></pre></div>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">csl:</span><span class="at"> https://tinyurl.com/apa6-no-disambiguation</span></code></pre>
 <p>Alternatively, you can download the file and use the location on your hard drive instead of the above URL.
 Note that using this style can create the false impression that two works are authored by the same author when really they were not.
 For example, <code>author = {John Doe}</code> and <code>author = {Jane Doe}</code> will be displayed as “Doe (1986a)” and “Doe (1986b)”.</p>
 <p>If you prefer <span class="math inline">\(\LaTeX\)</span> to generate the bibliographic information, we recommend the following approach to disable author name disambiguation:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="fu">lang              :</span><span class="at"> </span><span class="st">&quot;en-EN&quot;</span><span class="er"> # Optional, added for clarity</span></a>
-<a class="sourceLine" id="cb83-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb83-3" data-line-number="3"><span class="fu">biblio-style      :</span><span class="at"> </span><span class="st">&quot;apa&quot;</span></a>
-<a class="sourceLine" id="cb83-4" data-line-number="4"><span class="fu">biblatexoptions   :</span><span class="at"> </span><span class="st">&quot;uniquename=false&quot;</span></a>
-<a class="sourceLine" id="cb83-5" data-line-number="5"><span class="fu">header-includes:</span></a>
-<a class="sourceLine" id="cb83-6" data-line-number="6">  <span class="kw">-</span> \DeclareLanguageMapping<span class="kw">{</span>english<span class="kw">}{</span>english-apa<span class="kw">}</span></a>
-<a class="sourceLine" id="cb83-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb83-8" data-line-number="8"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb83-9" data-line-number="9">  <span class="fu">papaja:</span><span class="at">:apa6_pdf:</span></a>
-<a class="sourceLine" id="cb83-10" data-line-number="10">    <span class="fu">citation_package:</span><span class="at"> biblatex</span></a></code></pre></div>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">lang              :</span><span class="at"> </span><span class="st">&quot;en-EN&quot;</span><span class="er"> # Optional, added for clarity</span>
+
+<span class="fu">biblio-style      :</span><span class="at"> </span><span class="st">&quot;apa&quot;</span>
+<span class="fu">biblatexoptions   :</span><span class="at"> </span><span class="st">&quot;uniquename=false&quot;</span>
+<span class="fu">header-includes:</span>
+  <span class="kw">-</span> \DeclareLanguageMapping<span class="kw">{</span>english<span class="kw">}{</span>english-apa<span class="kw">}</span>
+
+<span class="fu">output:</span>
+  <span class="fu">papaja:</span><span class="at">:apa6_pdf:</span>
+    <span class="fu">citation_package:</span><span class="at"> biblatex</span></code></pre>
 <p>Specifying <code>lang</code> is optional in this case, because <code>en-EN</code> is the default.
 <code>pandoc</code> converts <code>en-EN</code> to <code>english</code> and inserts it into the document preamble.
 Hence, <code>english</code> needs to be mapped to <code>english-apa</code>.
 Similarly, if you want, say, British english you would have to adapt the above as follows:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="fu">lang              :</span><span class="at"> </span><span class="st">&quot;en-GB&quot;</span><span class="er"> # Required</span></a>
-<a class="sourceLine" id="cb84-2" data-line-number="2"><span class="fu">header-includes:</span></a>
-<a class="sourceLine" id="cb84-3" data-line-number="3">  <span class="kw">-</span> \DeclareLanguageMapping<span class="kw">{</span>british<span class="kw">}{</span>british-apa<span class="kw">}</span></a></code></pre></div>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">lang              :</span><span class="at"> </span><span class="st">&quot;en-GB&quot;</span><span class="er"> # Required</span>
+<span class="fu">header-includes:</span>
+  <span class="kw">-</span> \DeclareLanguageMapping<span class="kw">{</span>british<span class="kw">}{</span>british-apa<span class="kw">}</span></code></pre>
 <p>A general drawback to this approach is that <code>biblatex</code> does not operate on any text in the YAML front matter.
 This can be a problem when, for example, the abstract contains citations.
 This problem can be addressed with the <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references">text references</a> feature in <code>bookdown</code>.
 Replace the text of the abstract in the YAML front matter by</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="fu">abstract:</span><span class="at"> (ref:abstract)</span></a></code></pre></div>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">abstract:</span><span class="at"> (ref:abstract)</span></code></pre>
 <p><code>(ref:abstract)</code> is a placeholder for text that you can now define in the body of the R Markdown document (e.g., right after the YAML front matter):</p>
 <pre><code>(ref:abstract)
 This is the abstract [@doe1986].</code></pre>
 <p>This text will now be processed and citations will be generated as expected.</p>
+<!-- TODO: See Lua filter! -->
 </div>
 <div id="reproducible-software-environment" class="section level2">
 <h2><span class="header-section-number">5.5</span> Reproducible software environment</h2>
@@ -395,13 +396,17 @@ The R scripts can then be executed at the respective section of the document usi
 The master document, for example, consists of the YAML front matter and includes the children, which are themselves R Markdown documents without a YAML front matter.
 To include a child document, insert an empty chunk and provide the path to the R Markdown document in the chunk option <code>child</code>.</p>
 <p>It may be preferable to split long documents into multiple files</p>
-<p><smaller>
-<code class = "markdown hljs remark-code" style = "background: #F2F2F2;">```{r child = “introduction.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
-```<br /><br />```{r child = “method.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
-```<br /><br />```{r child = “results.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
-```<br /><br />```{r child = “discussion.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
-```</code>
-</smaller></p>
+<pre><code>```{r child = &quot;introduction.Rmd&quot;}
+```
+
+```{r child = &quot;method.Rmd&quot;}
+```
+
+```{r child = &quot;results.Rmd&quot;}
+```
+
+```{r child = &quot;discussion.Rmd&quot;}
+```</code></pre>
 <p>Search all files with <kbd>Ctrl</kbd> + <kbd>Shift</kbd>+<kbd>F</kbd></p>
 </div>
 <div id="workflow" class="section level2">
@@ -416,25 +421,25 @@ To include a child document, insert an empty chunk and provide the path to the R
 </div>
 <div id="adjusting-line-spacing" class="section level2">
 <h2><span class="header-section-number">5.9</span> Adjusting line spacing</h2>
-<p>According to the APA guidelines, “Tables may be submitted either single- or double-spaced.” <span class="citation">(p. 141; American Psychological Association, <a href="#ref-american_psychological_association_publication_2010">2010</a>)</span>.
+<p>According to the APA guidelines, “Tables may be submitted either single- or double-spaced.” <span class="citation">(p. 141; American Psychological Association, <a href="published-manuscripts.html#ref-american_psychological_association_publication_2010">2010</a>)</span>.
 Adjusting the line spacing of table contents is currently not supported in <code>papaja</code>.
 However, as usual it is possible to adjust the spacing in PDF documents by including additional <span class="math inline">\(\LaTeX\)</span> code.
-If you use <code>apa_able()</code>, including the following in the YAML front matter will result in single-spaced tables with double-spaced caption and table note:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="fu">header-includes:</span></a>
-<a class="sourceLine" id="cb87-2" data-line-number="2">  <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span></a>
-<a class="sourceLine" id="cb87-3" data-line-number="3">  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tabular<span class="kw">}{</span>\singlespacing<span class="kw">}</span></a>
-<a class="sourceLine" id="cb87-4" data-line-number="4">  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>lltable<span class="kw">}{</span>\singlespacing<span class="kw">}</span></a>
-<a class="sourceLine" id="cb87-5" data-line-number="5">  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tablenotes<span class="kw">}{</span>\doublespacing<span class="kw">}</span></a>
-<a class="sourceLine" id="cb87-6" data-line-number="6">  <span class="kw">-</span> \captionsetup<span class="kw">[</span>table<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}</a>
-<a class="sourceLine" id="cb87-7" data-line-number="7">  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}</a></code></pre></div>
+If you use <code>apa_table()</code>, including the following in the YAML front matter will result in single-spaced tables with double-spaced caption and table note:</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">header-includes:</span>
+  <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span>
+  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tabular<span class="kw">}{</span>\singlespacing<span class="kw">}</span>
+  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>lltable<span class="kw">}{</span>\singlespacing<span class="kw">}</span>
+  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tablenotes<span class="kw">}{</span>\doublespacing<span class="kw">}</span>
+  <span class="kw">-</span> \captionsetup<span class="kw">[</span>table<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}
+  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}</code></pre>
 <p>Similarly, the line spacing of figure captions can be adjusted as follows:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="fu">header-includes:</span></a>
-<a class="sourceLine" id="cb88-2" data-line-number="2">  <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span></a>
-<a class="sourceLine" id="cb88-3" data-line-number="3">  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tabular<span class="kw">}{</span>\doublespacing<span class="kw">}</span></a>
-<a class="sourceLine" id="cb88-4" data-line-number="4">  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>lltable<span class="kw">}{</span>\doublespacing<span class="kw">}</span></a>
-<a class="sourceLine" id="cb88-5" data-line-number="5">  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tablenotes<span class="kw">}{</span>\doublespacing<span class="kw">}</span></a>
-<a class="sourceLine" id="cb88-6" data-line-number="6">  <span class="kw">-</span> \captionsetup<span class="kw">[</span>table<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}</a>
-<a class="sourceLine" id="cb88-7" data-line-number="7">  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1<span class="kw">}</span>}</a></code></pre></div>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">header-includes:</span>
+  <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span>
+  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tabular<span class="kw">}{</span>\doublespacing<span class="kw">}</span>
+  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>lltable<span class="kw">}{</span>\doublespacing<span class="kw">}</span>
+  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tablenotes<span class="kw">}{</span>\doublespacing<span class="kw">}</span>
+  <span class="kw">-</span> \captionsetup<span class="kw">[</span>table<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}
+  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1<span class="kw">}</span>}</code></pre>
 <div id="comparing-documents" class="section level3">
 <h3><span class="header-section-number">5.9.1</span> Comparing documents</h3>
 <p>In revisions, it can be helpful to highlight all changes
@@ -500,12 +505,6 @@ If you use <code>apa_able()</code>, including the following in the YAML front ma
 </div>
 </div>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-american_psychological_association_publication_2010">
-<p>American Psychological Association. (2010). <em>Publication Manual of the American Psychological Association</em> (6th edition.). Washington, DC: American Psychological Association.</p>
-</div>
-</div>
 <h1>Comments and Questions</h1>
 <div id="disqus_thread"></div>
   <script>
@@ -556,7 +555,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -568,6 +567,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/crsh/papaja_man/edit/master/05-tips_and_tricks.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": null,
 "toc": {
@@ -583,7 +586,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;
