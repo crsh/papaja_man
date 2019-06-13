@@ -180,7 +180,7 @@ We decided to implement these options nonetheless because they are required by s
 
 `floatsintext` indicates whether figures and tables are to be positioned at the end of the document---as required by APA guidelines---or included in the body of the document.
 If `figurelist`, `tablelist`, or `footnotelist` are set to `yes` lists of figure captions, table captions, or footnotes are created and placed after the reference section.
-`lineno` indicates whether lines should be continuously numbered throughout the manuscript.
+`linenumbers` indicates whether lines should be continuously numbered throughout the manuscript.
 
 The remaining rendering options affect both PDF and Microsoft Word documents.
 `mask` can be set to `yes` to prepare the manuscript for double-blind peer review by removing author names, affiliations, and author note from the title page.
