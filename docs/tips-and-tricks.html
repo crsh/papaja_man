@@ -161,8 +161,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#citation-styles"><i class="fa fa-check"></i><b>3.2.1</b> Citation styles</a></li>
 <li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#works-in-press"><i class="fa fa-check"></i><b>3.2.2</b> Works ‘in press’</a></li>
 <li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.3</b> Conveniently inserting citations with <code>citr</code></a></li>
-<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.2.4</b> Working with a reference manager</a></li>
-<li class="chapter" data-level="3.2.5" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.5</b> Referencing R and its packages</a></li>
+<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#meta-analysis-references"><i class="fa fa-check"></i><b>3.2.4</b> Meta-analysis references</a></li>
+<li class="chapter" data-level="3.2.5" data-path="writing.html"><a href="writing.html#citing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.5</b> Citing R and its packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.3</b> Equations</a></li>
 <li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.4</b> Cross-referencing</a></li>
@@ -172,9 +172,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#numerical-values"><i class="fa fa-check"></i><b>4.1</b> Numerical values</a></li>
 <li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#figures"><i class="fa fa-check"></i><b>4.2</b> Figures</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#r-generated-figures"><i class="fa fa-check"></i><b>4.2.1</b> R-generated figures</a></li>
-<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#setting-global-plot-options"><i class="fa fa-check"></i><b>4.2.2</b> Setting global plot options</a></li>
-<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#external-files"><i class="fa fa-check"></i><b>4.2.3</b> External files</a></li>
-<li class="chapter" data-level="4.2.4" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.4</b> Figure captions</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#external-files"><i class="fa fa-check"></i><b>4.2.2</b> External files</a></li>
+<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.3</b> Figure captions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.1</b> Alternatives</a></li>
@@ -366,6 +365,7 @@ Replace the text of the abstract in the YAML front matter by</p>
 <pre><code>(ref:abstract)
 This is the abstract [@doe1986].</code></pre>
 <p>This text will now be processed and citations will be generated as expected.</p>
+<!-- TODO: See Lua filter! -->
 </div>
 <div id="reproducible-software-environment" class="section level2">
 <h2><span class="header-section-number">5.5</span> Reproducible software environment</h2>
@@ -396,13 +396,17 @@ The R scripts can then be executed at the respective section of the document usi
 The master document, for example, consists of the YAML front matter and includes the children, which are themselves R Markdown documents without a YAML front matter.
 To include a child document, insert an empty chunk and provide the path to the R Markdown document in the chunk option <code>child</code>.</p>
 <p>It may be preferable to split long documents into multiple files</p>
-<p><smaller>
-<code class = "markdown hljs remark-code" style = "background: #F2F2F2;">```{r child = “introduction.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
-```<br /><br />```{r child = “method.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
-```<br /><br />```{r child = “results.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
-```<br /><br />```{r child = “discussion.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
-```</code>
-</smaller></p>
+<pre><code>```{r child = &quot;introduction.Rmd&quot;}
+```
+
+```{r child = &quot;method.Rmd&quot;}
+```
+
+```{r child = &quot;results.Rmd&quot;}
+```
+
+```{r child = &quot;discussion.Rmd&quot;}
+```</code></pre>
 <p>Search all files with <kbd>Ctrl</kbd> + <kbd>Shift</kbd>+<kbd>F</kbd></p>
 </div>
 <div id="workflow" class="section level2">
@@ -420,7 +424,7 @@ To include a child document, insert an empty chunk and provide the path to the R
 <p>According to the APA guidelines, “Tables may be submitted either single- or double-spaced.” <span class="citation">(p. 141; American Psychological Association, <a href="#ref-american_psychological_association_publication_2010">2010</a>)</span>.
 Adjusting the line spacing of table contents is currently not supported in <code>papaja</code>.
 However, as usual it is possible to adjust the spacing in PDF documents by including additional <span class="math inline">\(\LaTeX\)</span> code.
-If you use <code>apa_able()</code>, including the following in the YAML front matter will result in single-spaced tables with double-spaced caption and table note:</p>
+If you use <code>apa_table()</code>, including the following in the YAML front matter will result in single-spaced tables with double-spaced caption and table note:</p>
 <pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">header-includes:</span>
   <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span>
   <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tabular<span class="kw">}{</span>\singlespacing<span class="kw">}</span>

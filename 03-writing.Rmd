@@ -131,7 +131,7 @@ md_cite("bem", bib_file = "references.bib")
 
 `md_cite()` searches the author, year, title, and journal fields of your references.
 
-### Working with a reference manager
+#### Working with a reference manager
 
 If you use Zotero or Juris-M `citr` can access your reference database without previous export.
 For this to work, you need to install the [Better Bib(La)TeX extension](https://github.com/retorquere/zotero-better-bibtex/wiki), which we recommend even if you don't intend to use `citr`.
@@ -139,7 +139,93 @@ Once the extension is installed and the reference manager is running, `citr` wil
 If you dislike this behavior, you can disable the automatic access to the reference manager by setting `options(citr.use_betterbiblatex = FALSE)`.
 
 
-### Referencing R and its packages
+### Meta-analysis references
+
+When reporting meta-analyses APA guidelines require that studies included in the meta analysis are included in the reference section and preceeded by an asterisk [p. 138, @american_psychological_association_publication_2010].
+There are two approaches to mark meta-analysis references.
+
+First, we have created a variant of the widely available APA CSL file that enables adding the required asteriskes.
+To use this variant insert the following into YAML front matter.
+
+~~~yaml
+csl: https://tinyurl.com/apa6-meta-analysis
+~~~
+
+Alternatively, you can download the file and use the location on your hard drive instead of the above URL.
+Now any refernces that has an `annotation` field will be preceeded by an asterisk.
+
+~~~biblatex
+@article{aust_memory-based_2018,
+  author = {Aust, Frederik and Haaf, Julia M. and Stahl, Christoph},
+  title = {A Memory-Based Judgment Account of Expectancy-Liking Dissociations in Evaluative Conditioning.},
+  date = {2018},
+  journaltitle = {Journal of Experimental Psychology: Learning, Memory, and Cognition},
+  doi = {10.1037/xlm0000600},
+  annotation = {meta-analysis}
+}
+~~~
+
+To include references that are not explicitly cited in the paper, you can use the `nocite` field of the YAML front matter.
+
+~~~yaml
+---
+nocite: @aust_memory-based_2018
+---
+~~~
+
+Finally, the APA guidelines require a note at the start of the reference section that explains what an asterisk means.
+This note can be added at the end of the document as follows.
+
+~~~markdown
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+References marked with an asterisk indicate studies included in the meta-analysis.
+
+<div id = "refs"></div>
+
+\endgroup
+~~~
+
+Second, if you prefer $\LaTeX$ to generate the bibliographic information, we recommend you use `biblatex-apa` by adding the following to the YAML front matter.
+
+~~~yaml
+biblio-style      : "apa"
+
+output:
+  papaja::apa6_pdf:
+    citation_package: biblatex
+~~~
+
+Additionally, you need to define a language mapping and to define a custom $LaTeX$ command that can be used to add meta-analysis references.
+
+~~~yaml
+header-includes:
+  - \DeclareLanguageMapping{english}{english-apa}
+  - \DeclareBibliographyCategory{asterisk}
+  - \renewbibmacro*{begentry}{\ifcategory{asterisk}{\ensuremath{\ast}}{}}
+  - \newcommand*{\nocitemeta}[1]{\nocite{#1}\addtocategory{asterisk}{#1}}
+~~~
+
+In the document you can use this custom command to add meta-analysis references.
+
+~~~latex
+\nocitemeta{aust_memory-based_2018}
+~~~
+
+No entry in the `annotation` field of the reference is required.
+As usual, any non-meta-analysis citation can be added using the `pandoc-citeproc` syntax, e.g. `[@R-papaja]`.
+The note that explains what an asterisk means can be added at the end of the document as follows.
+
+~~~latex
+\defbibnote{asterisk}{References marked with an asterisk indicate studies included in the meta-analysis.}
+\printbibliography[title=References,prenote=asterisk]
+\renewcommand{\printbibliography}{}
+~~~
+
+
+### Citing R and its packages
 
 A lot of R packages are developed by academics free of charge.
 As citations are the currency of science, it's easy to compensate volunteers for their work by citing the R packages we use.
@@ -180,7 +266,6 @@ This way you can reference R in the running text using `my_citations$r` and plac
 > `r my_citations$r`
 
 `r my_citations$pkgs`
-
 
 
 ## Equations

@@ -161,8 +161,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#citation-styles"><i class="fa fa-check"></i><b>3.2.1</b> Citation styles</a></li>
 <li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#works-in-press"><i class="fa fa-check"></i><b>3.2.2</b> Works ‘in press’</a></li>
 <li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.3</b> Conveniently inserting citations with <code>citr</code></a></li>
-<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.2.4</b> Working with a reference manager</a></li>
-<li class="chapter" data-level="3.2.5" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.5</b> Referencing R and its packages</a></li>
+<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#meta-analysis-references"><i class="fa fa-check"></i><b>3.2.4</b> Meta-analysis references</a></li>
+<li class="chapter" data-level="3.2.5" data-path="writing.html"><a href="writing.html#citing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.5</b> Citing R and its packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.3</b> Equations</a></li>
 <li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.4</b> Cross-referencing</a></li>
@@ -172,9 +172,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#numerical-values"><i class="fa fa-check"></i><b>4.1</b> Numerical values</a></li>
 <li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#figures"><i class="fa fa-check"></i><b>4.2</b> Figures</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#r-generated-figures"><i class="fa fa-check"></i><b>4.2.1</b> R-generated figures</a></li>
-<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#setting-global-plot-options"><i class="fa fa-check"></i><b>4.2.2</b> Setting global plot options</a></li>
-<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#external-files"><i class="fa fa-check"></i><b>4.2.3</b> External files</a></li>
-<li class="chapter" data-level="4.2.4" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.4</b> Figure captions</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#external-files"><i class="fa fa-check"></i><b>4.2.2</b> External files</a></li>
+<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.3</b> Figure captions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.1</b> Alternatives</a></li>
@@ -365,16 +364,69 @@ The following call searches a Bib(La)TeX-file and creates formatted Markdown cit
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;citr&quot;</span>)
 <span class="kw">md_cite</span>(<span class="st">&quot;bem&quot;</span>, <span class="dt">bib_file =</span> <span class="st">&quot;references.bib&quot;</span>)</code></pre>
 <p><code>md_cite()</code> searches the author, year, title, and journal fields of your references.</p>
-</div>
-<div id="working-with-a-reference-manager" class="section level3">
-<h3><span class="header-section-number">3.2.4</span> Working with a reference manager</h3>
+<div id="working-with-a-reference-manager" class="section level4">
+<h4><span class="header-section-number">3.2.3.1</span> Working with a reference manager</h4>
 <p>If you use Zotero or Juris-M <code>citr</code> can access your reference database without previous export.
 For this to work, you need to install the <a href="https://github.com/retorquere/zotero-better-bibtex/wiki">Better Bib(La)TeX extension</a>, which we recommend even if you don’t intend to use <code>citr</code>.
 Once the extension is installed and the reference manager is running, <code>citr</code> will automatically access all your references and keep the Bib(La)Tex-file specified in the current R Markdown file up-to-date.
 If you dislike this behavior, you can disable the automatic access to the reference manager by setting <code>options(citr.use_betterbiblatex = FALSE)</code>.</p>
 </div>
-<div id="referencing-r-and-its-packages" class="section level3">
-<h3><span class="header-section-number">3.2.5</span> Referencing R and its packages</h3>
+</div>
+<div id="meta-analysis-references" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Meta-analysis references</h3>
+<p>When reporting meta-analyses APA guidelines require that studies included in the meta analysis are included in the reference section and preceeded by an asterisk <span class="citation">(p. 138, American Psychological Association, <a href="#ref-american_psychological_association_publication_2010">2010</a>)</span>.
+There are two approaches to mark meta-analysis references.</p>
+<p>First, we have created a variant of the widely available APA CSL file that enables adding the required asteriskes.
+To use this variant insert the following into YAML front matter.</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">csl:</span><span class="at"> https://tinyurl.com/apa6-meta-analysis</span></code></pre>
+<p>Alternatively, you can download the file and use the location on your hard drive instead of the above URL.
+Now any refernces that has an <code>annotation</code> field will be preceeded by an asterisk.</p>
+<pre class="biblatex"><code>@article{aust_memory-based_2018,
+  author = {Aust, Frederik and Haaf, Julia M. and Stahl, Christoph},
+  title = {A Memory-Based Judgment Account of Expectancy-Liking Dissociations in Evaluative Conditioning.},
+  date = {2018},
+  journaltitle = {Journal of Experimental Psychology: Learning, Memory, and Cognition},
+  doi = {10.1037/xlm0000600},
+  annotation = {meta-analysis}
+}</code></pre>
+<p>To include references that are not explicitly cited in the paper, you can use the <code>nocite</code> field of the YAML front matter.</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
+<span class="fu">nocite:</span><span class="at"> @aust_memory-based_2018</span>
+<span class="ot">---</span></code></pre>
+<p>Finally, the APA guidelines require a note at the start of the reference section that explains what an asterisk means.
+This note can be added at the end of the document as follows.</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown">\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+References marked with an asterisk indicate studies included in the meta-analysis.
+
+&lt;div id = &quot;refs&quot;&gt;&lt;/div&gt;
+
+\endgroup</code></pre>
+<p>Second, if you prefer <span class="math inline">\(\LaTeX\)</span> to generate the bibliographic information, we recommend you use <code>biblatex-apa</code> by adding the following to the YAML front matter.</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">biblio-style      :</span><span class="at"> </span><span class="st">&quot;apa&quot;</span>
+
+<span class="fu">output:</span>
+  <span class="fu">papaja:</span><span class="at">:apa6_pdf:</span>
+    <span class="fu">citation_package:</span><span class="at"> biblatex</span></code></pre>
+<p>Additionally, you need to define a language mapping and to define a custom <span class="math inline">\(LaTeX\)</span> command that can be used to add meta-analysis references.</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">header-includes:</span>
+  <span class="kw">-</span> \DeclareLanguageMapping<span class="kw">{</span>english<span class="kw">}{</span>english-apa<span class="kw">}</span>
+  <span class="kw">-</span> \DeclareBibliographyCategory<span class="kw">{</span>asterisk<span class="kw">}</span>
+  <span class="kw">-</span> \renewbibmacro*<span class="kw">{</span>begentry<span class="kw">}{</span>\ifcategory{asterisk<span class="kw">}{</span>\ensuremath{\ast<span class="kw">}</span>}<span class="kw">{}</span>}
+  <span class="kw">-</span> \newcommand*<span class="kw">{</span>\nocitemeta<span class="kw">}[</span>1<span class="kw">]{</span>\nocite{<span class="co">#1}\addtocategory{asterisk}{#1}}</span></code></pre>
+<p>In the document you can use this custom command to add meta-analysis references.</p>
+<pre class="sourceCode latex"><code class="sourceCode latex"><span class="fu">\nocitemeta</span>{aust_memory-based_2018}</code></pre>
+<p>No entry in the <code>annotation</code> field of the reference is required.
+As usual, any non-meta-analysis citation can be added using the <code>pandoc-citeproc</code> syntax, e.g. <code>[@R-papaja]</code>.
+The note that explains what an asterisk means can be added at the end of the document as follows.</p>
+<pre class="sourceCode latex"><code class="sourceCode latex"><span class="fu">\defbibnote</span>{asterisk}{References marked with an asterisk indicate studies included in the meta-analysis.}
+<span class="fu">\printbibliography</span>[title=References,prenote=asterisk]
+<span class="fu">\renewcommand</span>{<span class="ex">\printbibliography</span>}{}</code></pre>
+</div>
+<div id="citing-r-and-its-packages" class="section level3">
+<h3><span class="header-section-number">3.2.5</span> Citing R and its packages</h3>
 <p>A lot of R packages are developed by academics free of charge.
 As citations are the currency of science, it’s easy to compensate volunteers for their work by citing the R packages we use.
 Howerver, citing software is rarely done arguebly because it is tedious work.
@@ -448,6 +500,9 @@ This enables the use of <code>bookdown</code> cross-referencing syntax including
 <div id="refs" class="references">
 <div id="ref-R-rmarkdown">
 <p>Allaire, J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., … Chang, W. (2017). <em>Rmarkdown: Dynamic documents for r</em>. Retrieved from <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a></p>
+</div>
+<div id="ref-american_psychological_association_publication_2010">
+<p>American Psychological Association. (2010). <em>Publication Manual of the American Psychological Association</em> (6th edition.). Washington, DC: American Psychological Association.</p>
 </div>
 <div id="ref-R-citr">
 <p>Aust, F. (2016). <em>Citr: ’RStudio’ add-in to insert markdown citations</em>. Retrieved from <a href="https://CRAN.R-project.org/package=citr">https://CRAN.R-project.org/package=citr</a></p>
