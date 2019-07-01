@@ -78,6 +78,31 @@ csl: mystyle.csl
 ---
 ```
 
+### Works 'in press'
+
+Bibliographic entries that are missing the `year` field will be rendered without a date.
+For example, the following entry in the bibliography file will be printed as `Aust & Barth (n.d.)`.
+
+~~~bibtex
+@article{R-papaja,
+  author = {Frederik Aust and Marius Barth},
+  title = {{papaja}: {Create} {APA} manuscripts with {R Markdown}}
+}
+~~~
+
+When refering to works that are missing a date because they are not yet published (e.g., works that are under review or accepted for but awaiting publication), the publication state can be included in the citation and reference via the `pubstate` field:
+
+~~~bibtex
+@article{R-papaja,
+  author = {Frederik Aust and Marius Barth},
+  title = {{papaja}: {Create} {APA} manuscripts with {R Markdown}},
+  pubstate = {in press}
+}
+~~~
+
+Now, this entry will be printed as `Aust & Barth (in press)`.
+  
+
 
 ### Conveniently inserting citations with `citr`
 

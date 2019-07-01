@@ -1,41 +1,41 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Tips and Tricks | papaja: Reproducible APA manuscripts with R Markdown</title>
+  <meta name="description" content="&quot;&quot;" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta property="og:title" content="5 Tips and Tricks | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="<p>“”</p>" />
+  <meta property="og:description" content="&quot;&quot;" />
   <meta name="github-repo" content="crsh/papaja_man" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta name="twitter:title" content="5 Tips and Tricks | papaja: Reproducible APA manuscripts with R Markdown" />
   
-  <meta name="twitter:description" content="<p>“”</p>" />
+  <meta name="twitter:description" content="&quot;&quot;" />
   
 
-<meta name="author" content="Frederik Aust &amp; Marius Barth">
+<meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2018-08-17">
+<meta name="date" content="2019-07-01" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="reporting.html">
 <link rel="next" href="collaborative-writing.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +50,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -133,9 +159,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#markdown-text-formatting"><i class="fa fa-check"></i><b>3.1</b> Markdown text formatting</a></li>
 <li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#citation-styles"><i class="fa fa-check"></i><b>3.2.1</b> Citation styles</a></li>
-<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.2</b> Conveniently inserting citations with <code>citr</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.2.3</b> Working with a reference manager</a></li>
-<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.4</b> Referencing R and its packages</a></li>
+<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#works-in-press"><i class="fa fa-check"></i><b>3.2.2</b> Works ‘in press’</a></li>
+<li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.3</b> Conveniently inserting citations with <code>citr</code></a></li>
+<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.2.4</b> Working with a reference manager</a></li>
+<li class="chapter" data-level="3.2.5" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.5</b> Referencing R and its packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.3</b> Equations</a></li>
 <li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.4</b> Cross-referencing</a></li>
@@ -227,11 +254,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="global-chunk-options" class="section level2">
 <h2><span class="header-section-number">5.1</span> Global chunk options</h2>
 <p>It can be useful to set chunk options globally for all (following) chunks to avoid retyping or copy-and-pasting</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save all plots as 600 DPI TIFF-files</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save all plots as 600 DPI TIFF-files</span>
 knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">dev =</span> <span class="st">&quot;tiff&quot;</span>, <span class="dt">dpi =</span> <span class="dv">600</span>)
 
 <span class="co"># Do not evaluate subsequent chunks (debugging or fine-tuning)</span>
-knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">eval =</span> <span class="ot">FALSE</span>)</code></pre></div>
+knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">eval =</span> <span class="ot">FALSE</span>)</code></pre>
 <p>See the <a href="https://yihui.name/knitr/options/">knitr chunk options and package options</a> for an overview of settings</p>
 </div>
 <div id="meaningful-chunk-names" class="section level2">
@@ -301,12 +328,19 @@ knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="k
 </div>
 <div id="author-name-disambiguation" class="section level2">
 <h2><span class="header-section-number">5.4</span> Author name disambiguation</h2>
-<p>As per APA style, citations in <code>papaja</code> documents will be disambiguated if the bibliography file contains multiple authors with the same family but different given names. This can be a nuisance if the bibliographic information is not maintained meticulously. Entries such as <code>author = {John Doe}</code> and <code>author = {J. Doe}</code> are taken to be different authors and will be disambiguated (i.e. “John Doe (1986)” and “J. Doe (1986)”).</p>
-<p>Disabling author name disambiguation is possible (although it is somewhat beyond the scope of <code>papaja</code>). The definition of the citation style used in <code>papaja</code> is given in a citation style language file (CSL, see [Additional-rendering-options]). We have created a variant of the widely available APA CSL file without author name disambiguation. To use this variant insert the following into YAML front matter:</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">csl:</span><span class="at"> https://tinyurl.com/apa6-no-disambiguation</span></code></pre></div>
-<p>Alternatively, you can download the file and use the location on your hard drive instead of the above URL. Note that using this style can create the false impression that two works are authored by the same author when really they were not. For example, <code>author = {John Doe}</code> and <code>author = {Jane Doe}</code> will be displayed as “Doe (1986a)” and “Doe (1986b)”.</p>
+<p>As per APA style, citations in <code>papaja</code> documents will be disambiguated if the bibliography file contains multiple authors with the same family but different given names.
+This can be a nuisance if the bibliographic information is not maintained meticulously.
+Entries such as <code>author = {John Doe}</code> and <code>author = {J. Doe}</code> are taken to be different authors and will be disambiguated (i.e. “John Doe (1986)” and “J. Doe (1986)”).</p>
+<p>Disabling author name disambiguation is possible (although it is somewhat beyond the scope of <code>papaja</code>).
+The definition of the citation style used in <code>papaja</code> is given in a citation style language file (CSL, see [Additional-rendering-options]).
+We have created a variant of the widely available APA CSL file without author name disambiguation.
+To use this variant insert the following into YAML front matter:</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">csl:</span><span class="at"> https://tinyurl.com/apa6-no-disambiguation</span></code></pre>
+<p>Alternatively, you can download the file and use the location on your hard drive instead of the above URL.
+Note that using this style can create the false impression that two works are authored by the same author when really they were not.
+For example, <code>author = {John Doe}</code> and <code>author = {Jane Doe}</code> will be displayed as “Doe (1986a)” and “Doe (1986b)”.</p>
 <p>If you prefer <span class="math inline">\(\LaTeX\)</span> to generate the bibliographic information, we recommend the following approach to disable author name disambiguation:</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">lang              :</span><span class="at"> </span><span class="st">&quot;en-EN&quot;</span><span class="er"> # Optional, added for clarity</span>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">lang              :</span><span class="at"> </span><span class="st">&quot;en-EN&quot;</span><span class="er"> # Optional, added for clarity</span>
 
 <span class="fu">biblio-style      :</span><span class="at"> </span><span class="st">&quot;apa&quot;</span>
 <span class="fu">biblatexoptions   :</span><span class="at"> </span><span class="st">&quot;uniquename=false&quot;</span>
@@ -315,13 +349,19 @@ knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="k
 
 <span class="fu">output:</span>
   <span class="fu">papaja:</span><span class="at">:apa6_pdf:</span>
-    <span class="fu">citation_package:</span><span class="at"> biblatex</span></code></pre></div>
-<p>Specifying <code>lang</code> is optional in this case, because <code>en-EN</code> is the default. <code>pandoc</code> converts <code>en-EN</code> to <code>english</code> and inserts it into the document preamble. Hence, <code>english</code> needs to be mapped to <code>english-apa</code>. Similarly, if you want, say, British english you would have to adapt the above as follows:</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">lang              :</span><span class="at"> </span><span class="st">&quot;en-GB&quot;</span><span class="er"> # Required</span>
+    <span class="fu">citation_package:</span><span class="at"> biblatex</span></code></pre>
+<p>Specifying <code>lang</code> is optional in this case, because <code>en-EN</code> is the default.
+<code>pandoc</code> converts <code>en-EN</code> to <code>english</code> and inserts it into the document preamble.
+Hence, <code>english</code> needs to be mapped to <code>english-apa</code>.
+Similarly, if you want, say, British english you would have to adapt the above as follows:</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">lang              :</span><span class="at"> </span><span class="st">&quot;en-GB&quot;</span><span class="er"> # Required</span>
 <span class="fu">header-includes:</span>
-  <span class="kw">-</span> \DeclareLanguageMapping<span class="kw">{</span>british<span class="kw">}{</span>british-apa<span class="kw">}</span></code></pre></div>
-<p>A general drawback to this approach is that <code>biblatex</code> does not operate on any text in the YAML front matter. This can be a problem when, for example, the abstract contains citations. This problem can be addressed with the <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references">text references</a> feature in <code>bookdown</code>. Replace the text of the abstract in the YAML front matter by</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">abstract:</span><span class="at"> (ref:abstract)</span></code></pre></div>
+  <span class="kw">-</span> \DeclareLanguageMapping<span class="kw">{</span>british<span class="kw">}{</span>british-apa<span class="kw">}</span></code></pre>
+<p>A general drawback to this approach is that <code>biblatex</code> does not operate on any text in the YAML front matter.
+This can be a problem when, for example, the abstract contains citations.
+This problem can be addressed with the <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references">text references</a> feature in <code>bookdown</code>.
+Replace the text of the abstract in the YAML front matter by</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">abstract:</span><span class="at"> (ref:abstract)</span></code></pre>
 <p><code>(ref:abstract)</code> is a placeholder for text that you can now define in the body of the R Markdown document (e.g., right after the YAML front matter):</p>
 <pre><code>(ref:abstract)
 This is the abstract [@doe1986].</code></pre>
@@ -348,10 +388,21 @@ This is the abstract [@doe1986].</code></pre>
 </div>
 <div id="splitting-an-r-markdown-document" class="section level2">
 <h2><span class="header-section-number">5.7</span> Splitting an R Markdown document</h2>
-<p>Some authors may prefer to split long manuscripts into multiple component files for better clarity. There are two basic strategies to split R Markdown documents that can be combined or used in isolation: sourcing R scripts and splitting the R Markdown document. If the R Markdown document contains a lot of code, it may be helpful to disincorporate parts of the code, such as reading, merging, restructuring, and relabeling data files. The R scripts can then be executed at the respective section of the document using <code>source()</code>.</p>
-<p>Some authors may prefer to split long manuscripts into a master or parent document and multiple children. The master document, for example, consists of the YAML front matter and includes the children, which are themselves R Markdown documents without a YAML front matter. To include a child document, insert an empty chunk and provide the path to the R Markdown document in the chunk option <code>child</code>.</p>
+<p>Some authors may prefer to split long manuscripts into multiple component files for better clarity.
+There are two basic strategies to split R Markdown documents that can be combined or used in isolation: sourcing R scripts and splitting the R Markdown document.
+If the R Markdown document contains a lot of code, it may be helpful to disincorporate parts of the code, such as reading, merging, restructuring, and relabeling data files.
+The R scripts can then be executed at the respective section of the document using <code>source()</code>.</p>
+<p>Some authors may prefer to split long manuscripts into a master or parent document and multiple children.
+The master document, for example, consists of the YAML front matter and includes the children, which are themselves R Markdown documents without a YAML front matter.
+To include a child document, insert an empty chunk and provide the path to the R Markdown document in the chunk option <code>child</code>.</p>
 <p>It may be preferable to split long documents into multiple files</p>
-<p><smaller> <code class = "markdown hljs remark-code" style = "background: #F2F2F2;">```{r child = “introduction.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br /> ```<br /><br />```{r child = “method.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br /> ```<br /><br />```{r child = “results.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br /> ```<br /><br />```{r child = “discussion.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br /> ```</code> </smaller></p>
+<p><smaller>
+<code class = "markdown hljs remark-code" style = "background: #F2F2F2;">```{r child = “introduction.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
+```<br /><br />```{r child = “method.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
+```<br /><br />```{r child = “results.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
+```<br /><br />```{r child = “discussion.Rmd”}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />
+```</code>
+</smaller></p>
 <p>Search all files with <kbd>Ctrl</kbd> + <kbd>Shift</kbd>+<kbd>F</kbd></p>
 </div>
 <div id="workflow" class="section level2">
@@ -366,25 +417,32 @@ This is the abstract [@doe1986].</code></pre>
 </div>
 <div id="adjusting-line-spacing" class="section level2">
 <h2><span class="header-section-number">5.9</span> Adjusting line spacing</h2>
-<p>According to the APA guidelines, “Tables may be submitted either single- or double-spaced.” <span class="citation">(p. 141; American Psychological Association, <a href="#ref-american_psychological_association_publication_2010">2010</a>)</span>. Adjusting the line spacing of table contents is currently not supported in <code>papaja</code>. However, as usual it is possible to adjust the spacing in PDF documents by including additional <span class="math inline">\(\LaTeX\)</span> code. If you use <code>apa_able()</code>, including the following in the YAML front matter will result in single-spaced tables with double-spaced caption and table note:</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">header-includes:</span>
+<p>According to the APA guidelines, “Tables may be submitted either single- or double-spaced.” <span class="citation">(p. 141; American Psychological Association, <a href="published-manuscripts.html#ref-american_psychological_association_publication_2010">2010</a>)</span>.
+Adjusting the line spacing of table contents is currently not supported in <code>papaja</code>.
+However, as usual it is possible to adjust the spacing in PDF documents by including additional <span class="math inline">\(\LaTeX\)</span> code.
+If you use <code>apa_able()</code>, including the following in the YAML front matter will result in single-spaced tables with double-spaced caption and table note:</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">header-includes:</span>
   <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span>
   <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tabular<span class="kw">}{</span>\singlespacing<span class="kw">}</span>
   <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>lltable<span class="kw">}{</span>\singlespacing<span class="kw">}</span>
   <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tablenotes<span class="kw">}{</span>\doublespacing<span class="kw">}</span>
   <span class="kw">-</span> \captionsetup<span class="kw">[</span>table<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}
-  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}</code></pre></div>
+  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}</code></pre>
 <p>Similarly, the line spacing of figure captions can be adjusted as follows:</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">header-includes:</span>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">header-includes:</span>
   <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span>
   <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tabular<span class="kw">}{</span>\doublespacing<span class="kw">}</span>
   <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>lltable<span class="kw">}{</span>\doublespacing<span class="kw">}</span>
   <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tablenotes<span class="kw">}{</span>\doublespacing<span class="kw">}</span>
   <span class="kw">-</span> \captionsetup<span class="kw">[</span>table<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}
-  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1<span class="kw">}</span>}</code></pre></div>
+  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1<span class="kw">}</span>}</code></pre>
 <div id="comparing-documents" class="section level3">
 <h3><span class="header-section-number">5.9.1</span> Comparing documents</h3>
-<p>In revisions, it can be helpful to highlight all changes - for DOCX, use the Microsoft Word combine feature - for PDF, use <a href="https://3142.nl/latex-diff/"><code>latexdiff</code></a> on <span class="math inline">\(\LaTeX\)</span> source documents 1. Create <span class="math inline">\(\LaTeX\)</span> file with highlighted changes 2. Compile to PDF in RStudio</p>
+<p>In revisions, it can be helpful to highlight all changes
+- for DOCX, use the Microsoft Word combine feature
+- for PDF, use <a href="https://3142.nl/latex-diff/"><code>latexdiff</code></a> on <span class="math inline">\(\LaTeX\)</span> source documents
+1. Create <span class="math inline">\(\LaTeX\)</span> file with highlighted changes
+2. Compile to PDF in RStudio</p>
 </div>
 <div id="counting-words" class="section level3">
 <h3><span class="header-section-number">5.9.2</span> Counting words</h3>
@@ -443,12 +501,6 @@ This is the abstract [@doe1986].</code></pre>
 </div>
 </div>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-american_psychological_association_publication_2010">
-<p>American Psychological Association. (2010). <em>Publication Manual of the American Psychological Association</em> (6th edition.). Washington, DC: American Psychological Association.</p>
-</div>
-</div>
 <h1>Comments and Questions</h1>
 <div id="disqus_thread"></div>
   <script>
@@ -499,7 +551,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -511,6 +563,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/crsh/papaja_man/edit/master/05-tips_and_tricks.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": null,
 "toc": {
@@ -525,8 +581,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

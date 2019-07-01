@@ -1,41 +1,41 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="<p>“”</p>">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Reporting | papaja: Reproducible APA manuscripts with R Markdown</title>
+  <meta name="description" content="&quot;&quot;" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta property="og:title" content="4 Reporting | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="<p>“”</p>" />
+  <meta property="og:description" content="&quot;&quot;" />
   <meta name="github-repo" content="crsh/papaja_man" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta name="twitter:title" content="4 Reporting | papaja: Reproducible APA manuscripts with R Markdown" />
   
-  <meta name="twitter:description" content="<p>“”</p>" />
+  <meta name="twitter:description" content="&quot;&quot;" />
   
 
-<meta name="author" content="Frederik Aust &amp; Marius Barth">
+<meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2018-08-17">
+<meta name="date" content="2019-07-01" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="writing.html">
 <link rel="next" href="tips-and-tricks.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +50,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -133,9 +159,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#markdown-text-formatting"><i class="fa fa-check"></i><b>3.1</b> Markdown text formatting</a></li>
 <li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#citation-styles"><i class="fa fa-check"></i><b>3.2.1</b> Citation styles</a></li>
-<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.2</b> Conveniently inserting citations with <code>citr</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.2.3</b> Working with a reference manager</a></li>
-<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.4</b> Referencing R and its packages</a></li>
+<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#works-in-press"><i class="fa fa-check"></i><b>3.2.2</b> Works ‘in press’</a></li>
+<li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.3</b> Conveniently inserting citations with <code>citr</code></a></li>
+<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#working-with-a-reference-manager"><i class="fa fa-check"></i><b>3.2.4</b> Working with a reference manager</a></li>
+<li class="chapter" data-level="3.2.5" data-path="writing.html"><a href="writing.html#referencing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.5</b> Referencing R and its packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.3</b> Equations</a></li>
 <li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.4</b> Cross-referencing</a></li>
@@ -216,76 +243,113 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="reporting" class="section level1">
 <h1><span class="header-section-number">4</span> Reporting</h1>
-<p>Using <code>papaja</code>, it is possible to run all your analyses from within an R Markdown document. Any output from R is included as you usually would using R Markdown. By default the R code will not be displayed in the final documents. If you wish to show off your code you need to set <code>echo = TRUE</code> in the chunk options.</p>
-<p>This section describes how you can include the results of your analyses can be included in text. It starts with simple numerical values (like a sample mean) and then continues with more-complex output, like figures, tables, and the results from statistical models and hypothesis tests.</p>
+<p>Using <code>papaja</code>, it is possible to run all your analyses from within an R Markdown document.
+Any output from R is included as you usually would using R Markdown.
+By default the R code will not be displayed in the final documents.
+If you wish to show off your code you need to set <code>echo = TRUE</code> in the chunk options.</p>
+<p>This section describes how you can include the results of your analyses can be included in text.
+It starts with simple numerical values (like a sample mean) and then continues with more-complex
+output, like figures, tables, and the results from statistical models and hypothesis tests.</p>
 <div id="numerical-values" class="section level2">
 <h2><span class="header-section-number">4.1</span> Numerical values</h2>
-<p>Consider a basic example, where you want to include a mean and a standard deviation into text: <code>printnum()</code> can be used to include numeric values in the text. The function performs the rounding and optionally omits leading zeros in accordance with APA guidelines:</p>
+<p>Consider a basic example, where you want to include a mean and a standard deviation into text:
+<code>printnum()</code> can be used to include numeric values in the text.
+The function performs the rounding and optionally omits leading zeros in accordance with APA guidelines:</p>
 <pre class="text"><code>Participants mean age was `r printnum(age_mean)` years ($SD = `r printnum(age_sd)`$).</code></pre>
 <p>The above line is rendered as follows:</p>
 <blockquote>
 <p>Participants mean age was 22.84 years (<span class="math inline">\(SD = 3.78\)</span>).</p>
 </blockquote>
-<p><code>printnum()</code> is quiet flexible and passes its arguments to the underlying base function <code>formatC()</code> (CAVE: We are currently considering to switch to <code>format()</code>.), so changing the number of digits after the decimal point or the character to be used to indicate the decimal point (e.g., from a point <code>&quot;.&quot;</code> to a comma <code>&quot;,&quot;</code>) is always possible.</p>
+<p><code>printnum()</code> is quiet flexible and passes its arguments to the underlying base function <code>formatC()</code>
+(CAVE: We are currently considering to switch to <code>format()</code>.),
+so changing the number of digits after the decimal point or the character to be used to indicate the
+decimal point (e.g., from a point <code>&quot;.&quot;</code> to a comma <code>&quot;,&quot;</code>) is always possible.</p>
 
 <div class="rmdnote">
-<code>papaja</code> automatically applies <code>printnum()</code> to any numbers that a printed in inline code chunks. Hence, <code>`r age_mean`</code> and <code>`r printnum(age_mean)`</code> are effectively identical and both yield “22.84”.
+<code>papaja</code> automatically applies <code>printnum()</code> to any numbers that a printed in inline code chunks.
+Hence, <code>`r age_mean`</code> and <code>`r printnum(age_mean)`</code> are effectively identical and both yield “22.84”.
 </div>
 
 <p><code>papaja</code> additionally provides a shorthand version of <code>printnum()</code>, namely <code>printp()</code>, with defaults for correct typesetting of <span class="math inline">\(p\)</span> values (e.g., <span class="math inline">\(p &lt; .001\)</span> instead of <span class="math inline">\(p = 0.000\)</span>).</p>
-<p>Typeset numerical values for greater control - <code>printnum()</code> - <code>printp()</code> as shorthand for <em>p</em> values</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">printnum</span>(<span class="kw">c</span>(<span class="fl">143234.34557</span>, <span class="ot">Inf</span>))</code></pre></div>
+<p>Typeset numerical values for greater control
+- <code>printnum()</code>
+- <code>printp()</code> as shorthand for <em>p</em> values</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">printnum</span>(<span class="kw">c</span>(<span class="fl">143234.34557</span>, <span class="ot">Inf</span>))</code></pre>
 <pre><code>## [1] &quot;143,234.35&quot; &quot;$\\infty$&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">printnum</span>(42L, <span class="dt">numerals =</span> <span class="ot">FALSE</span>, <span class="dt">capitalize =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">printnum</span>(42L, <span class="dt">numerals =</span> <span class="ot">FALSE</span>, <span class="dt">capitalize =</span> <span class="ot">TRUE</span>)</code></pre>
 <pre><code>## [1] &quot;Forty-two&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">printp</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="fl">0.0008</span>, <span class="dv">0</span>))</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">printp</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="fl">0.0008</span>, <span class="dv">0</span>))</code></pre>
 <pre><code>## [1] &quot;&gt; .999&quot; &quot;.001&quot;   &quot;&lt; .001&quot;</code></pre>
 </div>
 <div id="figures" class="section level2">
 <h2><span class="header-section-number">4.2</span> Figures</h2>
-<p>As in any R Markdown document, you can include figures in your document. Figures can either consist of plots generated in R or external files. In accordance with APA guidelines, figures are not displayed in place but are deferred to the final pages of the document. To change this default behavior set the option <code>figsintext</code> in the <a href="r-markdown-components.html#yaml-front-matter">YAML front matter</a> to <code>yes</code>.</p>
+<p>As in any R Markdown document, you can include figures in your document.
+Figures can either consist of plots generated in R or external files.
+In accordance with APA guidelines, figures are not displayed in place but are deferred to the final pages of the document.
+To change this default behavior set the option <code>figsintext</code> in the <a href="r-markdown-components.html#yaml-front-matter">YAML front matter</a> to <code>yes</code>.</p>
 <div id="r-generated-figures" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> R-generated figures</h3>
-<p>Any plot that is generated by an R code chunk is automatically included in your document. Hence, a simple call to <code>plot()</code> is sufficient to create a figure:</p>
-
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(cars)</code></pre></div>
+<p>Any plot that is generated by an R code chunk is automatically included in your document.
+Hence, a simple call to <code>plot()</code> is sufficient to create a figure:</p>
+<p>(ref:simple-base-plot)
+A basic scatterplot of the <code>cars</code> dataset.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(cars)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:simple-base-plot"></span>
-<img src="papaja_manual_files/figure-html/simple-base-plot-1.png" alt="A basic scatterplot of the cars dataset." width="672" />
+<img src="papaja_manual_files/figure-html/simple-base-plot-1.png" alt="(ref:simple-base-plot)" width="672" />
 <p class="caption">
-Figure 4.1: A basic scatterplot of the <code>cars</code> dataset.
+Figure 4.1: (ref:simple-base-plot)
 </p>
 </div>
-<p>Figure display size, resolution, file format and many other things can be controlled by setting the corresponding chunk options. Refer to the <a href="https://yihui.name/knitr/options/#plots">plot-related <code>knitr</code> chunk options</a> for an overview of all options. In <code>papaja</code>-documents, by default, all figures as saved as vectorized PDF and pixel-based PNG files at a resolution of 300 DPI, which should in most cases be sufficient for print publication. When the target document format is PDF the vectorized PDF files are included; when the target document format is DOCX the pixel-based PNG files are included. The files can be found in the <code>mydocument_files</code> folder that is generated when <code>mydocument.Rmd</code> is knitted.</p>
-<p>Note, if you define transparent colors in your plots (e.g., when you defining colors using <code>rgb()</code>), the rendered document will always display the pixel-based PNG files, regardless of the target document format. Given the lossless compression in PNG and the decent resolution of 300 DPI this should not be a problem in print.</p>
+<p>Figure display size, resolution, file format and many other things can be controlled by setting the corresponding chunk options.
+Refer to the <a href="https://yihui.name/knitr/options/#plots">plot-related <code>knitr</code> chunk options</a> for an overview of all options.
+In <code>papaja</code>-documents, by default, all figures as saved as vectorized PDF and pixel-based PNG files at a resolution of 300 DPI, which should in most cases be sufficient for print publication.
+When the target document format is PDF the vectorized PDF files are included; when the target document format is DOCX the pixel-based PNG files are included.
+The files can be found in the <code>mydocument_files</code> folder that is generated when <code>mydocument.Rmd</code> is knitted.</p>
+<p>Note, if you define transparent colors in your plots (e.g., when you defining colors using <code>rgb()</code>), the rendered document will always display the pixel-based PNG files, regardless of the target document format.
+Given the lossless compression in PNG and the decent resolution of 300 DPI this should not be a problem in print.</p>
 <div id="papaja-plot-functions" class="section level4">
 <h4><span class="header-section-number">4.2.1.1</span> <code>papaja</code> plot functions</h4>
-<p>Factorial designs are ubiquotous in experimental psychology but notoriously cumbersome to visualize with R base <code>graphics</code>. That is why <code>papaja</code> provides a set of functions to facilitate plotting data from factorial designs.</p>
-<p>The functions <code>apa_beeplot()</code>, <code>apa_lineplot()</code>, <code>apa_barplot()</code>, and the generic <code>apa_factorial_plot()</code> are intended to provide a convenient way to obtain a publication-ready figure while maintaining enough flexibility for customization. The basic arguments to these functions are all the same, so you only need to learn one syntax to generate different types of plots. Moreover, it is easy switch between the different types of plots by changing the name of the called function.</p>
+<p>Factorial designs are ubiquotous in experimental psychology but notoriously cumbersome to visualize with R base <code>graphics</code>.
+That is why <code>papaja</code> provides a set of functions to facilitate plotting data from factorial designs.</p>
+<p>The functions <code>apa_beeplot()</code>, <code>apa_lineplot()</code>, <code>apa_barplot()</code>, and the generic <code>apa_factorial_plot()</code> are intended to provide a convenient way to obtain a publication-ready figure while maintaining enough flexibility for customization.
+The basic arguments to these functions are all the same, so you only need to learn one syntax to generate different types of plots.
+Moreover, it is easy switch between the different types of plots by changing the name of the called function.</p>
 <p>Consider the following example of a so-called beeswarm plot:</p>
-
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_beeplot</span>(
+<p>(ref:beeswarm-caption)
+An example beeswarm plot. Small points represent individual observations, large points represent condition means, and error bars represent 95% confidence intervals.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_beeplot</span>(
   <span class="dt">data =</span> mixed_data
   , <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>
   , <span class="dt">dv =</span> <span class="st">&quot;Recall&quot;</span>
   , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Task&quot;</span>, <span class="st">&quot;Valence&quot;</span>, <span class="st">&quot;Dosage&quot;</span>)
-)</code></pre></div>
+)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:beeswarm2"></span>
-<img src="papaja_manual_files/figure-html/beeswarm2-1.png" alt="An example beeswarm plot. Small points represent individual observations, large points represent condition means, and error bars represent 95% confidence intervals." width="672" />
+<img src="papaja_manual_files/figure-html/beeswarm2-1.png" alt="(ref:beeswarm-caption)" width="672" />
 <p class="caption">
-Figure 4.2: An example beeswarm plot. Small points represent individual observations, large points represent condition means, and error bars represent 95% confidence intervals.
+Figure 4.2: (ref:beeswarm-caption)
 </p>
 </div>
-<p>A <code>data.frame</code> that contains the data in long format is passed to the <code>data</code> argument. The other arguments expect the names of the columns that contain the subject identifier <code>id</code>, the dependent variable <code>dv</code>, and the between- or within-subjects <code>factors</code> of the design. Currently, zero to four factors are supported.</p>
+<p>A <code>data.frame</code> that contains the data in long format is passed to the <code>data</code> argument.
+The other arguments expect the names of the columns that contain the subject identifier <code>id</code>,
+the dependent variable <code>dv</code>, and the between- or within-subjects <code>factors</code> of the design.
+Currently, zero to four factors are supported.</p>
 <p>For each cell of the design, the functions plot</p>
 <ol style="list-style-type: decimal">
 <li>central tendency,</li>
 <li>dispersion, and</li>
 <li>names of dependent variable, factors and levels, and optionally a legend.</li>
 </ol>
-<p>Mesures of central tendency and dispersion default to the mean and 95% confidence intervals. However, the arguments <code>tendency</code> and <code>dispersion</code> can be used to overwrite these defaults and plot other statistics. For example, to plot within-subject rather than between-subject confidence intervals you can set <code>dispersion = within_subjects_conf_int</code>. If the data encompass multiple observations per participant-factor-level-combination, these observations are aggregated. By default, the condition means are computed but you can specify other aggregation functions via the <code>fun_aggregate</code> argument.</p>
-<p>The visual elements of the plots can be customized by passing options to the arguments <code>args_points</code>, <code>args_error_bars</code>, <code>args_legend</code>, and so on. These arugments take named lists of arguments that are passed on to the respective <code>graphics</code> functions, such as <code>points()</code>, <code>arrows()</code>, and <code>legend()</code>. Consider the following code and the resulting Figure <a href="reporting.html#fig:customized-plot">4.3</a> for a customized version of the previous beeswarm plot.</p>
-
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_beeplot</span>(
+<p>Mesures of central tendency and dispersion default to the mean and 95% confidence intervals.
+However, the arguments <code>tendency</code> and <code>dispersion</code> can be used to overwrite these defaults and plot other statistics.
+For example, to plot within-subject rather than between-subject confidence intervals you can set <code>dispersion = within_subjects_conf_int</code>.
+If the data encompass multiple observations per participant-factor-level-combination, these observations are aggregated.
+By default, the condition means are computed but you can specify other aggregation functions via the <code>fun_aggregate</code> argument.</p>
+<p>The visual elements of the plots can be customized by passing options to the arguments <code>args_points</code>, <code>args_error_bars</code>, <code>args_legend</code>, and so on.
+These arugments take named lists of arguments that are passed on to the respective <code>graphics</code> functions, such as <code>points()</code>, <code>arrows()</code>, and <code>legend()</code>.
+Consider the following code and the resulting Figure <a href="reporting.html#fig:customized-plot">4.3</a> for a customized version of the previous beeswarm plot.</p>
+<p>(ref:customized-plot-caption)
+A customized beeswarm plot. Note that, by default, the swarm inherits parameters from the args_points argument. Small points represent individual observations, large points represent means, and error bars represent 95% within-subjects confidence intervals.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_beeplot</span>(
     <span class="dt">data =</span> mixed_data
   , <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>
   , <span class="dt">dv =</span> <span class="st">&quot;Recall&quot;</span>
@@ -298,18 +362,18 @@ Figure 4.2: An example beeswarm plot. Small points represent individual observat
   , <span class="dt">args_error_bars =</span> <span class="kw">list</span>(<span class="dt">length =</span> <span class="fl">0.02</span>, <span class="dt">col =</span> <span class="st">&quot;grey20&quot;</span>)
   , <span class="dt">args_legend =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">inset =</span> <span class="fl">0.05</span>)
   , <span class="dt">args_y_axis =</span> <span class="kw">list</span>(<span class="dt">las =</span> <span class="dv">1</span>)
-)</code></pre></div>
+)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:customized-plot"></span>
-<img src="papaja_manual_files/figure-html/customized-plot-1.png" alt="A customized beeswarm plot. Note that, by default, the swarm inherits parameters from the args_points argument. Small points represent individual observations, large points represent means, and error bars represent 95% within-subjects confidence intervals." width="672" />
+<img src="papaja_manual_files/figure-html/customized-plot-1.png" alt="(ref:customized-plot-caption)" width="672" />
 <p class="caption">
-Figure 4.3: A customized beeswarm plot. Note that, by default, the swarm inherits parameters from the args_points argument. Small points represent individual observations, large points represent means, and error bars represent 95% within-subjects confidence intervals.
+Figure 4.3: (ref:customized-plot-caption)
 </p>
 </div>
 <ul>
 <li>Utilize variable labels</li>
 </ul>
 <p>These plot functions also utilize variable labels, with some <span class="math inline">\(\LaTeX\)</span> math support (see <code>?latex2exp::TeX</code>)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cosmetic_surgery) &lt;-<span class="st"> </span><span class="kw">c</span>(
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cosmetic_surgery) &lt;-<span class="st"> </span><span class="kw">c</span>(
   <span class="dt">Post_QoL =</span> <span class="st">&quot;Quality of life post surgery ($</span><span class="ch">\\</span><span class="st">bar{x}_{post}$)&quot;</span>
 )
 
@@ -323,24 +387,28 @@ Figure 4.3: A customized beeswarm plot. Note that, by default, the swarm inherit
   , <span class="dt">args_legend =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="fl">0.25</span>, <span class="dt">y =</span> <span class="dv">30</span>)
   , <span class="dt">args_points =</span> <span class="kw">list</span>(<span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;skyblue2&quot;</span>, <span class="st">&quot;indianred1&quot;</span>))
   , <span class="dt">args_error_bars =</span> <span class="kw">list</span>(<span class="dt">length =</span> <span class="fl">0.03</span>)
-)</code></pre></div>
+)</code></pre>
 </div>
 </div>
 <div id="setting-global-plot-options" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Setting global plot options</h3>
-<p>As noted in the APA guidelines (p. 153) figures in an article should be consistent and in the same style. Hence, it is desireable to define plot styles once rather than every time a new plot is created. When using <code>graphics</code> plot functions global options can be set using <code>par()</code>. For example, the size of labels and symbols can be controled with <code>cex</code>:</p>
-
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">cex =</span> <span class="fl">1.2</span>)
+<p>As noted in the APA guidelines (p. 153) figures in an article should be consistent and in the same style.
+Hence, it is desireable to define plot styles once rather than every time a new plot is created.
+When using <code>graphics</code> plot functions global options can be set using <code>par()</code>.
+For example, the size of labels and symbols can be controled with <code>cex</code>:</p>
+<p>(ref:par-in-chunk)
+A variant of the example beeswarm plot with larger labels and symbols.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">cex =</span> <span class="fl">1.2</span>)
 <span class="kw">apa_beeplot</span>(
   <span class="dt">data =</span> mixed_data
   , <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>
   , <span class="dt">dv =</span> <span class="st">&quot;Recall&quot;</span>
   , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Task&quot;</span>, <span class="st">&quot;Valence&quot;</span>)
-)</code></pre></div>
+)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:par-in-chunk"></span>
-<img src="papaja_manual_files/figure-html/par-in-chunk-1.png" alt="A variant of the example beeswarm plot with larger labels and symbols." width="672" />
+<img src="papaja_manual_files/figure-html/par-in-chunk-1.png" alt="(ref:par-in-chunk)" width="672" />
 <p class="caption">
-Figure 4.4: A variant of the example beeswarm plot with larger labels and symbols.
+Figure 4.4: (ref:par-in-chunk)
 </p>
 </div>
 <p>However, the use of <code>par()</code> is restricted in <code>knitr</code>.</p>
@@ -349,15 +417,22 @@ Figure 4.4: A variant of the example beeswarm plot with larger labels and symbol
 By default, <code>knitr</code> resets <code>par()</code> for every chunk; <code>par()</code> needs to be called anew in every chunk that creates a plot.
 </div>
 
-<p>While there are advantages to this behavior it impedes defining a consistent plot style. Although not very convenient, it <em>is</em> possible to set global plot options in <code>knitr</code> and therefore also in <code>papaja</code>. The following example illustrates how to make <code>knitr</code> execute a specified call to <code>par()</code> before executing code in a given chunk. Here we rotate the <span class="math inline">\(y\)</span>-axis label (<code>las = 1</code>), sets a regular font and increases the size of the main title (<code>font.main = 1</code>, <code>cex.main = 1.05</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Ensure that par()-settings are retained across chunks</span>
+<p>While there are advantages to this behavior it impedes defining a consistent plot style.
+Although not very convenient, it <em>is</em> possible to set global plot options in <code>knitr</code> and therefore also in <code>papaja</code>.
+The following example illustrates how to make <code>knitr</code> execute a specified call to <code>par()</code> before executing code in a given chunk.
+Here we rotate the <span class="math inline">\(y\)</span>-axis label (<code>las = 1</code>), sets a regular font and increases the size of the main title (<code>font.main = 1</code>, <code>cex.main = 1.05</code>).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Ensure that par()-settings are retained across chunks</span>
 knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw">set</span>(<span class="dt">global.par =</span> <span class="ot">TRUE</span>)
 
 <span class="co"># Define a function that sets desired global plot defaults</span>
-<span class="kw">par</span>(<span class="dt">font.main =</span> <span class="dv">1</span><span class="st">`</span><span class="dt">, </span><span class="st">`</span><span class="dt">cex.main =</span> <span class="fl">1.05</span>, <span class="dt">las =</span> <span class="dv">1</span>)</code></pre></div>
-<p>The customizations apply to all subsequently generated plots. It is, thus, advisable to add this code at the top of the R Markdown document shortly after the YAML front matter.</p>
-<p>These same limitations do not apply to users of <code>ggplot2</code>. Custom themes can be set as default as usual and are subsequently applied to all plots created with <code>ggplot()</code>. <code>papaja</code> provides a template <code>theme_apa()</code> that we feel is well suited to create publication-ready plots. The following example demonstrates how to set a default theme.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cosmetic surgery dataset from</span>
+<span class="kw">par</span>(<span class="dt">font.main =</span> <span class="dv">1</span><span class="st">`</span><span class="dt">, </span><span class="st">`</span><span class="dt">cex.main =</span> <span class="fl">1.05</span>, <span class="dt">las =</span> <span class="dv">1</span>)</code></pre>
+<p>The customizations apply to all subsequently generated plots.
+It is, thus, advisable to add this code at the top of the R Markdown document shortly after the YAML front matter.</p>
+<p>These same limitations do not apply to users of <code>ggplot2</code>.
+Custom themes can be set as default as usual and are subsequently applied to all plots created with <code>ggplot()</code>.
+<code>papaja</code> provides a template <code>theme_apa()</code> that we feel is well suited to create publication-ready plots.
+The following example demonstrates how to set a default theme.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cosmetic surgery dataset from</span>
 <span class="co"># Field, A. P., Miles, J., &amp; Field, Z. (2012). Discovering statistics using R. London: Sage.</span>
 <span class="kw">load</span>(<span class="st">&quot;data/cosmetic_surgery.rdata&quot;</span>)
 
@@ -373,9 +448,9 @@ knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw
   ) <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_apa</span>(<span class="dt">box =</span> <span class="ot">TRUE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</code></pre></div>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</code></pre>
 <p><img src="papaja_manual_files/figure-html/ggplot-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">theme_set</span>(<span class="kw">theme_apa</span>())</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">theme_set</span>(<span class="kw">theme_apa</span>())</code></pre>
 </div>
 <div id="external-files" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> External files</h3>
@@ -383,12 +458,20 @@ knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw
 </div>
 <div id="figure-captions" class="section level3">
 <h3><span class="header-section-number">4.2.4</span> Figure captions</h3>
-<p>The chunk option <code>fig.cap</code> sets a figure caption. In principle, it is possible to define a figure caption simply by passing a character string to <code>fig.cap</code>. However, we strongly recommend that you use <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references">text references</a>—a feature of the <code>bookdown</code> package—instead. A text reference consist of a unique label and the corresponding text that it represents. Text references can be defined as follows:</p>
+<p>The chunk option <code>fig.cap</code> sets a figure caption.
+In principle, it is possible to define a figure caption simply by passing a character string to <code>fig.cap</code>.
+However, we strongly recommend that you use <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references">text references</a>—a feature of the <code>bookdown</code> package—instead.
+A text reference consist of a unique label and the corresponding text that it represents.
+Text references can be defined as follows:</p>
 <pre><code>(ref:my-figure-caption)
 This is a figure caption for my figure.</code></pre>
-<p>The text reference can now be inserted in the chunk options (or anywhere else), e.g. <code>fig.cap = &quot;(ref:my-figure-caption)&quot;</code>. The use of text references has several advantages:</p>
+<p>The text reference can now be inserted in the chunk options (or anywhere else), e.g. <code>fig.cap = &quot;(ref:my-figure-caption)&quot;</code>.
+The use of text references has several advantages:</p>
 <ol style="list-style-type: decimal">
-<li>The use of Markdown and <span class="math inline">\(\LaTeX\)</span> syntax is not well supported in <code>fig.cap</code>. For example, <code>\</code> and <code>_</code> must be escaped to prevent either R or <span class="math inline">\(\LaTeX\)</span> from erroring. Moreover, Markdown formatting and citation syntax is not supported at all. None of these limitations apply to text references.</li>
+<li>The use of Markdown and <span class="math inline">\(\LaTeX\)</span> syntax is not well supported in <code>fig.cap</code>.
+For example, <code>\</code> and <code>_</code> must be escaped to prevent either R or <span class="math inline">\(\LaTeX\)</span> from erroring.
+Moreover, Markdown formatting and citation syntax is not supported at all.
+None of these limitations apply to text references.</li>
 <li>Long figure captions can impair the readability of the document when they are added directly to the chunk options.</li>
 <li>Text references are subject to RStudio spell checking, whereas the contents of <code>fig.cap</code> is not.</li>
 <li>Changing text reference does constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.</li>
@@ -397,7 +480,9 @@ This is a figure caption for my figure.</code></pre>
 <p>We recommend to define the text reference for a figure caption just above the corresponding code chunk.</p>
 
 <div class="rmdcaution">
-The figure caption defined in <code>fig.cap</code> is used for all figures that are created in the respective chunk. If multiple figures are created the caption will be duplicated. Unless this behavior is desired, only one figure should be created per chunk.
+The figure caption defined in <code>fig.cap</code> is used for all figures that are created in the respective chunk.
+If multiple figures are created the caption will be duplicated.
+Unless this behavior is desired, only one figure should be created per chunk.
 </div>
 
 <ul>
@@ -415,9 +500,11 @@ The figure caption defined in <code>fig.cap</code> is used for all figures that 
 <div id="tables" class="section level2">
 <h2><span class="header-section-number">4.3</span> Tables</h2>
 <p>For prettier tables, I suggest you try <code>apa_table()</code>, which builds on <code>knitr</code>’s <code>kable()</code>.</p>
-
-
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">descriptives &lt;-<span class="st"> </span>mixed_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Dosage) <span class="op">%&gt;%</span>
+<p>(ref:mixed-table-caption)
+Descriptive statistics of correct recall by dosage.</p>
+<p>(ref:mixed-table-note)
+This table was created with apa_table().</p>
+<pre class="sourceCode r"><code class="sourceCode r">descriptives &lt;-<span class="st"> </span>mixed_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Dosage) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(
     <span class="dt">Mean =</span> <span class="kw">mean</span>(Recall)
     , <span class="dt">Median =</span> <span class="kw">median</span>(Recall)
@@ -425,16 +512,24 @@ The figure caption defined in <code>fig.cap</code> is used for all figures that 
     , <span class="dt">Min =</span> <span class="kw">min</span>(Recall)
     , <span class="dt">Max =</span> <span class="kw">max</span>(Recall)
   )
-descriptives[, <span class="op">-</span><span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">printnum</span>(descriptives[, <span class="op">-</span><span class="dv">1</span>])
+descriptives[, <span class="dv">-1</span>] &lt;-<span class="st"> </span><span class="kw">printnum</span>(descriptives[, <span class="dv">-1</span>])
 
 <span class="kw">apa_table</span>(
   descriptives
-  , <span class="dt">caption =</span> <span class="st">&quot;Descriptive statistics of correct recall by dosage.&quot;</span>
-  , <span class="dt">note =</span> <span class="st">&quot;This table was created with apa_table().&quot;</span>
+  , <span class="dt">caption =</span> <span class="st">&quot;(ref:mixed-table-caption)&quot;</span>
+  , <span class="dt">note =</span> <span class="st">&quot;(ref:mixed-table-note)&quot;</span>
   , <span class="dt">escape =</span> <span class="ot">TRUE</span>
-)</code></pre></div>
-<p>Of course popular packages like <code>xtable</code><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> or <code>tables</code> can also be used to create tables when knitting PDF documents. These packages, however, cannot be used when you want to create Microsoft Word documents because they rely on <span class="math inline">\(\LaTeX\)</span> for typesetting. <code>apa_table()</code> creates tables that conform to APA guidelines and are correctly rendered in PDF and Word documents. But don’t get too excited. In papaja, table formatting is somewhat limited for Word documents due to missing functionality in pandoc (e.g., it is not possible to have cells or headers span across multiple columns).</p>
-<p>As required by the APA guidelines, tables are deferred to the final pages of the manuscript when creating a PDF. To place tables and figures in your text instead, set the <code>figsintext</code> parameter in the YAML header to <code>yes</code> or <code>true</code>, as I have done in this document. Again, this is not the case in Word documents due to limited pandoc functionality. The bottom line is, Word documents will be less polished than PDF. The resulting documents should suffice to enable collaboration with Wordy colleagues and prepare a journal submission with limited manual labor.</p>
+)</code></pre>
+<p>Of course popular packages like <code>xtable</code><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> or <code>tables</code> can also be used to create tables when knitting PDF documents.
+These packages, however, cannot be used when you want to create Microsoft Word documents because they rely on <span class="math inline">\(\LaTeX\)</span> for typesetting.
+<code>apa_table()</code> creates tables that conform to APA guidelines and are correctly rendered in PDF and Word documents.
+But don’t get too excited.
+In papaja, table formatting is somewhat limited for Word documents due to missing functionality in pandoc (e.g., it is not possible to have cells or headers span across multiple columns).</p>
+<p>As required by the APA guidelines, tables are deferred to the final pages of the manuscript when creating a PDF.
+To place tables and figures in your text instead, set the <code>figsintext</code> parameter in the YAML header to <code>yes</code> or <code>true</code>, as I have done in this document.
+Again, this is not the case in Word documents due to limited pandoc functionality.
+The bottom line is, Word documents will be less polished than PDF.
+The resulting documents should suffice to enable collaboration with Wordy colleagues and prepare a journal submission with limited manual labor.</p>
 <!-- 1. To use LaTeX code inside a table you have to set escape = FALSE. Otherwise, elements of the LaTeX syntax (such as backslashes) will be printed as is. -->
 <!-- 2. If you set escape = FALSE you need to manually escape symbols that would otherwise be interpreted as LaTeX code, such as underscores (see note). -->
 <!-- 3. When you pass backslashes as character strings you need to escape the backslash with one additional backslash because R uses backslashes to denote special characters, such as \t for tab or \n for newline, and will interpret \a as newline, I think. The remaining lpha is meaningless in LaTeX math environments and will cause an error. -->
@@ -463,7 +558,15 @@ descriptives[, <span class="op">-</span><span class="dv">1</span>] &lt;-<span cl
 </div>
 <div id="results-from-statistical-tests" class="section level2">
 <h2><span class="header-section-number">4.4</span> Results from statistical tests</h2>
-<p>Output from statistical models and tests needs to be properly formatted before it can be included in text. For this purpose, we created the function <code>apa_print()</code>. Simply drop the results from a statistical test (e.g. a <span class="math inline">\(t\)</span> test or an ANOVA) into <code>apa_print()</code>, and you will get an output object (a <code>list</code>) that contains all you need to report the analysis according to APA guidelines. <code>apa_print()</code> currently supports output objects from a variety of statistical models/tests, including <span class="math inline">\(t\)</span> tests, ANOVA, linear regression. For a full list of supported output objects, see Table <a href="#tab:supported-s3-methods"><strong>??</strong></a>.</p>
+<p>Output from statistical models and tests needs to be properly formatted before it
+can be included in text.
+For this purpose, we created the function <code>apa_print()</code>.
+Simply drop the results from a statistical test (e.g. a <span class="math inline">\(t\)</span> test or an ANOVA)
+into <code>apa_print()</code>, and you will get an output object (a <code>list</code>) that contains all you need
+to report the analysis according to APA guidelines.
+<code>apa_print()</code> currently supports output objects from a variety of statistical models/tests,
+including <span class="math inline">\(t\)</span> tests, ANOVA, linear regression.
+For a full list of supported output objects, see Table <a href="#tab:supported-s3-methods"><strong>??</strong></a>.</p>
 <table>
 <thead>
 <tr>
@@ -487,24 +590,10 @@ S-Z
 afex_aov
 </td>
 <td style="text-align:left;">
-BFBayesFactorList<sup>*</sup>
-</td>
-<td style="text-align:left;">
-list
-</td>
-<td style="text-align:left;">
-summary_emm<sup>*</sup>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-anova
-</td>
-<td style="text-align:left;">
 BFBayesFactorTop<sup>*</sup>
 </td>
 <td style="text-align:left;">
-lm
+list
 </td>
 <td style="text-align:left;">
 summary.glht<sup>*</sup>
@@ -512,13 +601,13 @@ summary.glht<sup>*</sup>
 </tr>
 <tr>
 <td style="text-align:left;">
-Anova.mlm
+anova
 </td>
 <td style="text-align:left;">
-emmGrid<sup>*</sup>
+bf_bridge
 </td>
 <td style="text-align:left;">
-lsmobj<sup>*</sup>
+lm
 </td>
 <td style="text-align:left;">
 summary.glm
@@ -526,13 +615,13 @@ summary.glm
 </tr>
 <tr>
 <td style="text-align:left;">
-aov
+Anova.mlm
 </td>
 <td style="text-align:left;">
-glht<sup>*</sup>
+bf_bridge_list
 </td>
 <td style="text-align:left;">
-summary.Anova.mlm
+lsmobj<sup>*</sup>
 </td>
 <td style="text-align:left;">
 summary.lm
@@ -540,13 +629,13 @@ summary.lm
 </tr>
 <tr>
 <td style="text-align:left;">
-aovlist
+aov
 </td>
 <td style="text-align:left;">
-glm
+emmGrid<sup>*</sup>
 </td>
 <td style="text-align:left;">
-summary.aov
+summary.Anova.mlm
 </td>
 <td style="text-align:left;">
 summary.ref.grid<sup>*</sup>
@@ -554,13 +643,39 @@ summary.ref.grid<sup>*</sup>
 </tr>
 <tr>
 <td style="text-align:left;">
+aovlist
+</td>
+<td style="text-align:left;">
+glht<sup>*</sup>
+</td>
+<td style="text-align:left;">
+summary.aov
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 BFBayesFactor<sup>*</sup>
+</td>
+<td style="text-align:left;">
+glm
+</td>
+<td style="text-align:left;">
+summary.aovlist
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BFBayesFactorList<sup>*</sup>
 </td>
 <td style="text-align:left;">
 htest
 </td>
 <td style="text-align:left;">
-summary.aovlist
+summary_emm<sup>*</sup>
 </td>
 <td style="text-align:left;">
 </td>
@@ -577,7 +692,7 @@ Figure 4.5: Process diagram illustrating the use of <code>apa_print()</code> met
 <div id="htest-t-tests-correlations-etc." class="section level3">
 <h3><span class="header-section-number">4.4.1</span> htest (<em>t</em> tests, correlations, etc.)</h3>
 <p>The results of a <span class="math inline">\(t\)</span> test (regardless of the exact type of <span class="math inline">\(t\)</span> test) are typically stored in an <code>htest</code> object.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cosmetic surgery dataset from</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cosmetic surgery dataset from</span>
 <span class="co"># Field, A. P., Miles, J., &amp; Field, Z. (2012). Discovering statistics using R. London: Sage.</span>
 <span class="kw">load</span>(<span class="st">&quot;data/cosmetic_surgery.rdata&quot;</span>)
 
@@ -588,7 +703,7 @@ t_out &lt;-<span class="st"> </span><span class="kw">t.test</span>(
 )
 
 <span class="co"># Let&#39;s see what the apa_print() output looks like</span>
-<span class="kw">apa_print</span>(t_out)</code></pre></div>
+<span class="kw">apa_print</span>(t_out)</code></pre>
 <pre><code>## $estimate
 ## [1] &quot;$M_d = -3.95$, 95\\% CI $[-4.86$, $-3.04]$&quot;
 ## 
@@ -600,74 +715,47 @@ t_out &lt;-<span class="st"> </span><span class="kw">t.test</span>(
 ## 
 ## $table
 ## NULL</code></pre>
-<p>As you can see, <code>apa_print()</code> returns a list of four elements: List element <code>estimate</code> contains the sample estimate of mean difference; element <code>statistic</code> contains the result of the NHST with test statistic, <em>df</em>s, and <em>p</em> value; element <code>full_result</code> contains both information combined. The fourth element, <code>table</code>, contains a table containing test results; while this is <code>NULL</code> for a <span class="math inline">\(t\)</span> test, it will be quiet interesting for ANOVA or linear model results, as you will see in the next subsections.</p>
+<p>As you can see, <code>apa_print()</code> returns a list of four elements:
+List element <code>estimate</code> contains the sample estimate of mean difference;
+element <code>statistic</code> contains the result of the NHST with test statistic, <em>df</em>s, and <em>p</em> value;
+element <code>full_result</code> contains both information combined.
+The fourth element, <code>table</code>, contains a table containing test results; while this is <code>NULL</code> for a <span class="math inline">\(t\)</span> test,
+it will be quiet interesting for ANOVA or linear model results, as you will see in the next subsections.</p>
 </div>
 <div id="lm-linear-regression" class="section level3">
 <h3><span class="header-section-number">4.4.2</span> lm (linear regression)</h3>
 <p>The results of a linear model are stored in an <code>lm</code> object.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lm_out &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Post_QoL <span class="op">~</span><span class="st"> </span>Base_QoL <span class="op">+</span><span class="st"> </span>BDI, <span class="dt">data =</span> cosmetic_surgery)
-apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_out)</code></pre></div>
-<p>Again, <code>apa_print</code> returns a four-elements list. <code>apa_lm$table</code> contains a complete regression table that can be passed to <code>apa_table()</code> to get a full regression table, see Table @ref(tab:lm-table; remember to set the chunk option <code>results = &quot;asis&quot;</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(
+<pre class="sourceCode r"><code class="sourceCode r">lm_out &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Post_QoL <span class="op">~</span><span class="st"> </span>Base_QoL <span class="op">+</span><span class="st"> </span>BDI, <span class="dt">data =</span> cosmetic_surgery)
+apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_out)</code></pre>
+<p>Again, <code>apa_print</code> returns a four-elements list.
+<code>apa_lm$table</code> contains a complete regression table that can be passed to <code>apa_table()</code> to get a full regression table, see Table @ref(tab:lm-table; remember to set the chunk option <code>results = &quot;asis&quot;</code>).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(
   apa_lm<span class="op">$</span>table
   , <span class="dt">caption =</span> <span class="st">&quot;A full regression table.&quot;</span>
   , <span class="dt">escape =</span> <span class="ot">FALSE</span>
-)</code></pre></div>
+)</code></pre>
 <caption>
 <span id="tab:lm-table">Table 4.1: </span>
 </caption>
 <caption>
 <em>A full regression table.</em>
 </caption>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Predictor</th>
-<th align="left"><span class="math inline">\(b\)</span></th>
-<th align="left">95% CI</th>
-<th align="left"><span class="math inline">\(t(273)\)</span></th>
-<th align="left"><span class="math inline">\(p\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Intercept</td>
-<td align="left">18.50</td>
-<td align="left"><span class="math inline">\([13.10\)</span>, <span class="math inline">\(23.91]\)</span></td>
-<td align="left">6.74</td>
-<td align="left">&lt; .001</td>
-</tr>
-<tr class="even">
-<td align="left">Base QoL</td>
-<td align="left">0.59</td>
-<td align="left"><span class="math inline">\([0.50\)</span>, <span class="math inline">\(0.67]\)</span></td>
-<td align="left">13.23</td>
-<td align="left">&lt; .001</td>
-</tr>
-<tr class="odd">
-<td align="left">BDI</td>
-<td align="left">0.17</td>
-<td align="left"><span class="math inline">\([0.11\)</span>, <span class="math inline">\(0.22]\)</span></td>
-<td align="left">6.08</td>
-<td align="left">&lt; .001</td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lm_res &lt;-<span class="st"> </span><span class="kw">lm</span>(Post_QoL <span class="op">~</span><span class="st"> </span>Base_QoL <span class="op">+</span><span class="st"> </span>BDI, <span class="dt">data =</span> cosmetic_surgery)
+<p>Predictor <span class="math inline">\(b\)</span> 95% CI <span class="math inline">\(t(273)\)</span> <span class="math inline">\(p\)</span> ———- —— ——————- ——— ——-Intercept 18.50 <span class="math inline">\([13.10\)</span>, <span class="math inline">\(23.91]\)</span> 6.74 &lt; .001 Base QoL 0.59 <span class="math inline">\([0.50\)</span>, <span class="math inline">\(0.67]\)</span> 13.23 &lt; .001 BDI 0.17 <span class="math inline">\([0.11\)</span>, <span class="math inline">\(0.22]\)</span> 6.08 &lt; .001</p>
+<pre class="sourceCode r"><code class="sourceCode r">lm_res &lt;-<span class="st"> </span><span class="kw">lm</span>(Post_QoL <span class="op">~</span><span class="st"> </span>Base_QoL <span class="op">+</span><span class="st"> </span>BDI, <span class="dt">data =</span> cosmetic_surgery)
 lm_res_apa &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_res, <span class="dt">observed_predictors =</span> <span class="ot">TRUE</span>)
-lm_res_apa<span class="op">$</span>estimate<span class="op">$</span>Intercept</code></pre></div>
+lm_res_apa<span class="op">$</span>estimate<span class="op">$</span>Intercept</code></pre>
 <pre><code>## [1] &quot;$b = 18.50$, 95\\% CI $[13.10$, $23.91]$&quot;</code></pre>
 <blockquote>
 <p><span class="math inline">\(b = 18.50\)</span>, 95% CI <span class="math inline">\([13.10\)</span>, <span class="math inline">\(23.91]\)</span></p>
 </blockquote>
 <p>–</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lm_res_apa<span class="op">$</span>full_result<span class="op">$</span>modelfit<span class="op">$</span>r2</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">lm_res_apa<span class="op">$</span>full_result<span class="op">$</span>modelfit<span class="op">$</span>r2</code></pre>
 <pre><code>## [1] &quot;$R^2 = .50$, 90\\% CI $[0.42$, $0.57]$, $F(2, 273) = 136.78$, $p &lt; .001$&quot;</code></pre>
 <blockquote>
 <p><span class="math inline">\(R^2 = .50\)</span>, 90% CI <span class="math inline">\([0.42\)</span>, <span class="math inline">\(0.57]\)</span>, <span class="math inline">\(F(2, 273) = 136.78\)</span>, <span class="math inline">\(p &lt; .001\)</span></p>
 </blockquote>
 <p>Tables produced by <code>apa_print()</code> have variable labels</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lm_res_apa<span class="op">$</span>table</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">lm_res_apa<span class="op">$</span>table</code></pre>
 <pre><code>## A data.frame with 5 labelled columns:
 ## 
 ##   predictor estimate                 ci statistic p.value
@@ -681,7 +769,7 @@ lm_res_apa<span class="op">$</span>estimate<span class="op">$</span>Intercept</c
 ## statistic: $t(273)$ 
 ## p.value  : $p$</code></pre>
 <p>Tables produced by <code>apa_print()</code> have variable labels</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(lm_res_apa<span class="op">$</span>table)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(lm_res_apa<span class="op">$</span>table)</code></pre>
 <pre><code>## $predictor
 ## [1] &quot;Predictor&quot;
 ## 
@@ -696,24 +784,24 @@ lm_res_apa<span class="op">$</span>estimate<span class="op">$</span>Intercept</c
 ## 
 ## $p.value
 ## [1] &quot;$p$&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(letters) &lt;-<span class="st"> &quot;Alphabet&quot;</span>
-letters[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>]</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(letters) &lt;-<span class="st"> &quot;Alphabet&quot;</span>
+letters[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>]</code></pre>
 <pre><code>## Variable label     : Alphabet
 ##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot;
 ## attr(,&quot;class&quot;)
 ## [1] &quot;papaja_labelled&quot; &quot;character&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cars<span class="op">$</span>speed) &lt;-<span class="st"> &quot;Speed [m/h]&quot;</span>
-cars[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="st">&quot;speed&quot;</span>]</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cars<span class="op">$</span>speed) &lt;-<span class="st"> &quot;Speed [m/h]&quot;</span>
+cars[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="st">&quot;speed&quot;</span>]</code></pre>
 <pre><code>## Variable label     : Speed [m/h]
 ##  [1]  4  4  7  7  8  9 10 10 10 11 11 12 12 12 12
 ## attr(,&quot;class&quot;)
 ## [1] &quot;papaja_labelled&quot; &quot;numeric&quot;</code></pre>
 <p>Variable labels can be added to any <code>vector</code> or <code>data.frame</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cars) &lt;-<span class="st"> </span><span class="kw">c</span>(
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cars) &lt;-<span class="st"> </span><span class="kw">c</span>(
   <span class="dt">speed =</span> <span class="st">&quot;Speed [m/h]&quot;</span>
   , <span class="dt">dist =</span> <span class="st">&quot;Stopping distance [ft]&quot;</span>
 )
-cars[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</code></pre></div>
+cars[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</code></pre>
 <pre><code>##   speed dist
 ## 1     4    2
 ## 2     4   10
@@ -723,9 +811,9 @@ cars[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>
 <li>Conflicting implementations</li>
 <li>Ours is, in principle, compatible with <code>Hmisc</code></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cars<span class="op">$</span>dist)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cars<span class="op">$</span>dist)</code></pre>
 <pre><code>## [1] &quot;Stopping distance [ft]&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="st">&quot;dist&quot;</span>]</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">cars[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="st">&quot;dist&quot;</span>]</code></pre>
 <pre><code>## Variable label     : Stopping distance [ft]
 ##  [1]  2 10  4 22 16 10 18 26 34 17 28 14 20 24 28
 ## attr(,&quot;class&quot;)
@@ -737,75 +825,45 @@ cars[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>
 </div>
 <div id="anova-anova-anova.mlm-analysis-of-variance-anova" class="section level3">
 <h3><span class="header-section-number">4.4.3</span> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</h3>
-<p><em>Foreword – you can skip this if you are not interested in background</em>. Amongst psychologists, analysis of variance is a still-popular and frequently used technique. In base R, however, analysis of variance is not implemented in a way that is too useful for psychologists, as the <code>aov</code>-function in the stats package does not provide the much sought-after Type-<span class="math inline">\(\rm{I\!I\!I}\)</span> sums-of-squares. A variety of R packages has emerged to fill the gap, e.g. <code>car</code> <span class="citation">(Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>)</span>, <code>ez</code> <span class="citation">(Lawrence, <a href="#ref-R-ez">2016</a>)</span>, and <code>afex</code> <span class="citation">(Singmann et al., <a href="#ref-R-afex">2016</a>)</span>. Unfortunately, each ANOVA function provides different output objects that need to be digested by <code>apa_print()</code>. To do so, we rely on the package authors to return standardized result objects (i.e., S3/S4 classes). For this reason <code>apa_print()</code> does not support results from the popular <code>ezANOVA()</code>. The object returned by this function has no class to inform us about its contents and, thus, cannot be processed. We recommend you try one of the other available packages, e.g. <code>aov_ez()</code> from the <code>afex</code>-package.</p>
+<p><em>Foreword – you can skip this if you are not interested in background</em>.
+Amongst psychologists, analysis of variance is a still-popular and frequently used technique.
+In base R, however, analysis of variance is not implemented in a way that is too useful
+for psychologists, as the <code>aov</code>-function in the stats package does not provide the much sought-after
+Type-<span class="math inline">\(\rm{I\!I\!I}\)</span> sums-of-squares. A variety of R packages has emerged to fill the gap, e.g.
+<code>car</code> <span class="citation">(Fox &amp; Weisberg, <a href="published-manuscripts.html#ref-R-car">2011</a>)</span>, <code>ez</code> <span class="citation">(Lawrence, <a href="published-manuscripts.html#ref-R-ez">2016</a>)</span>, and <code>afex</code> <span class="citation">(Singmann et al., <a href="published-manuscripts.html#ref-R-afex">2016</a>)</span>.
+Unfortunately, each ANOVA function provides different output objects that need to be digested by <code>apa_print()</code>.
+To do so, we rely on the package authors to return standardized result objects (i.e., S3/S4 classes).
+For this reason <code>apa_print()</code> does not support results from the popular <code>ezANOVA()</code>.
+The object returned by this function has no class to inform us about its contents and, thus, cannot be processed.
+We recommend you try one of the other available packages, e.g. <code>aov_ez()</code> from the <code>afex</code>-package.</p>
 <p><em>Functionality</em>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cosmetic_surgery_anova &lt;-<span class="st"> </span>afex<span class="op">::</span><span class="kw">aov_ez</span>(
+<pre class="sourceCode r"><code class="sourceCode r">cosmetic_surgery_anova &lt;-<span class="st"> </span>afex<span class="op">::</span><span class="kw">aov_ez</span>(
   <span class="dt">data =</span> cosmetic_surgery
   , <span class="dt">dv =</span> <span class="st">&quot;Post_QoL&quot;</span>
   , <span class="dt">id =</span> <span class="st">&quot;ID&quot;</span>
   , <span class="dt">between =</span> <span class="kw">c</span>(<span class="st">&quot;Clinic&quot;</span>, <span class="st">&quot;Gender&quot;</span>)
 )
-apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmetic_surgery_anova)</code></pre></div>
+apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmetic_surgery_anova)</code></pre>
 <p>Now, you can report the results of your analyses like so:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Clinic</span> (<span class="st">`</span><span class="dt">r apa_anova$full$Clinic</span><span class="st">`</span>) and patient gender affected post<span class="op">-</span>surgery quality of life, <span class="st">`</span><span class="dt">r apa_anova$full$Gender</span><span class="st">`</span>. However, the effect of gender differed by clinic, <span class="st">`</span><span class="dt">r apa_anova$full$Clinic_Gender</span><span class="st">`</span>.</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Clinic</span> (<span class="st">`</span><span class="dt">r apa_anova$full$Clinic</span><span class="st">`</span>) and patient gender affected post<span class="op">-</span>surgery quality of life, <span class="st">`</span><span class="dt">r apa_anova$full$Gender</span><span class="st">`</span>. However, the effect of gender differed by clinic, <span class="st">`</span><span class="dt">r apa_anova$full$Clinic_Gender</span><span class="st">`</span>.</code></pre>
 <p>Which will yield the following text:</p>
 <blockquote>
 <p>Clinic (<span class="math inline">\(F(9, 256) = 19.98\)</span>, <span class="math inline">\(\mathit{MSE} = 47.58\)</span>, <span class="math inline">\(p &lt; .001\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .413\)</span>) and patient gender affected post-surgery quality of life, <span class="math inline">\(F(1, 256) = 15.29\)</span>, <span class="math inline">\(\mathit{MSE} = 47.58\)</span>, <span class="math inline">\(p &lt; .001\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .056\)</span>. However, the effect of gender differed by clinic, <span class="math inline">\(F(9, 256) = 1.97\)</span>, <span class="math inline">\(\mathit{MSE} = 47.58\)</span>, <span class="math inline">\(p = .043\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .065\)</span>.</p>
 </blockquote>
 <p>Again, you can easily create a complete ANOVA table by passing <code>recall_anova_results$table</code> to <code>apa_table()</code>, see .</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(
   apa_anova<span class="op">$</span>table
   , <span class="dt">caption =</span> <span class="st">&quot;A really beautiful ANOVA table.&quot;</span>
   , <span class="dt">note =</span> <span class="st">&quot;Note that the column names contain beautiful mathematical copy: This is because the table has variable labels.&quot;</span>
-)</code></pre></div>
+)</code></pre>
 <caption>
 <span id="tab:anova-table">Table 4.2: </span>
 </caption>
 <caption>
 <em>A really beautiful ANOVA table.</em>
 </caption>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Effect</th>
-<th align="left"><span class="math inline">\(F\)</span></th>
-<th align="left"><span class="math inline">\(\mathit{df}_1\)</span></th>
-<th align="left"><span class="math inline">\(\mathit{df}_2\)</span></th>
-<th align="left"><span class="math inline">\(\mathit{MSE}\)</span></th>
-<th align="left"><span class="math inline">\(p\)</span></th>
-<th align="left"><span class="math inline">\(\hat{\eta}^2_G\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Clinic</td>
-<td align="left">19.98</td>
-<td align="left">9</td>
-<td align="left">256</td>
-<td align="left">47.58</td>
-<td align="left">&lt; .001</td>
-<td align="left">.413</td>
-</tr>
-<tr class="even">
-<td align="left">Gender</td>
-<td align="left">15.29</td>
-<td align="left">1</td>
-<td align="left">256</td>
-<td align="left">47.58</td>
-<td align="left">&lt; .001</td>
-<td align="left">.056</td>
-</tr>
-<tr class="odd">
-<td align="left">Clinic <span class="math inline">\(\times\)</span> Gender</td>
-<td align="left">1.97</td>
-<td align="left">9</td>
-<td align="left">256</td>
-<td align="left">47.58</td>
-<td align="left">.043</td>
-<td align="left">.065</td>
-</tr>
-</tbody>
-</table>
+Effect <span class="math inline">\(F\)</span> <span class="math inline">\(\mathit{df}_1\)</span> <span class="math inline">\(\mathit{df}_2\)</span> <span class="math inline">\(\mathit{MSE}\)</span> <span class="math inline">\(p\)</span> <span class="math inline">\(\hat{\eta}^2_G\)</span> ———————– —— —————- —————- ————— ——- —————–Clinic 19.98 9 256 47.58 &lt; .001 .413 Gender 15.29 1 256 47.58 &lt; .001 .056 Clinic <span class="math inline">\(\times\)</span> Gender 1.97 9 256 47.58 .043 .065<br />
+
 <center>
 <em>Note.</em> Note that the column names contain beautiful mathematical copy: This is because the table has variable labels.
 </center>
@@ -818,8 +876,13 @@ apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmet
 <div id="caching-expensive-computations" class="section level2">
 <h2><span class="header-section-number">4.5</span> Caching expensive computations</h2>
 <p>If R codes take a long time to run, results can be cached</p>
-<p><smaller> <code class = "markdown hljs remark-code" style = "background: #F2F2F2;">```{r heavy-computation, .highlight[cache = TRUE]}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br /># Imagine computationally expensive R code here<br /> ```</code> </smaller></p>
-<p><code>my_manuscript_cache</code> directory is created that contains - Computed objects - List of loaded R packages in <code>__packages</code></p>
+<p><smaller>
+<code class = "markdown hljs remark-code" style = "background: #F2F2F2;">```{r heavy-computation, .highlight[cache = TRUE]}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br /># Imagine computationally expensive R code here<br />
+```</code>
+</smaller></p>
+<p><code>my_manuscript_cache</code> directory is created that contains
+- Computed objects
+- List of loaded R packages in <code>__packages</code></p>
 <p>The next time the chunk is executed</p>
 <ul>
 <li>If unchanged, cached results are loaded</li>
@@ -834,52 +897,63 @@ apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmet
 <p>Load cache into an interactive R session using <code>lazyLoad()</code></p>
 
 <div class="rmdcaution">
-If possible at all, avoid caching <code>library()</code>-calls. Subsequent use of functions from these packages in non-cached chunks will throw errors!
+If possible at all, avoid caching <code>library()</code>-calls.
+Subsequent use of functions from these packages in non-cached chunks will throw errors!
 </div>
 
 <p>To avoid incorrect results due to caching, dependencies should be specified</p>
-<p><smaller> <code class = "markdown hljs remark-code" style = "background: #F2F2F2;">```{r chunk1, cache = TRUE}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />x &lt;- 5<br /> ```</code><br /></p>
-<p><code class = "markdown hljs remark-code" style = "background: #F2F2F2;">```{r chunk2, cache = TRUE, .highlight[dependson = “chunk1”]}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />x &lt;- x + 5<br /> ```</code> </smaller></p>
+<p><smaller>
+<code class = "markdown hljs remark-code" style = "background: #F2F2F2;">```{r chunk1, cache = TRUE}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />x &lt;- 5<br />
+```</code><br /></p>
+<p><code class = "markdown hljs remark-code" style = "background: #F2F2F2;">```{r chunk2, cache = TRUE, .highlight[dependson = “chunk1”]}<img src="workshop_files/figure-html/chunk_buttons.png" style = "float:right;" /><br />x &lt;- x + 5<br />
+```</code>
+</smaller></p>
 <p>If code in <code>chunk1</code> changes, <code>chunk2</code> is recomputed</p>
 <p>To avoid incorrect results due to caching, dependencies should be specified</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">autodep =</span> <span class="ot">TRUE</span>)
-knitr<span class="op">::</span><span class="kw">dep_auto</span>()</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">autodep =</span> <span class="ot">TRUE</span>)
+knitr<span class="op">::</span><span class="kw">dep_auto</span>()</code></pre>
 <p>See <a href="https://yihui.name/knitr/demo/cache/">knitr cache examples</a> for details</p>
 <p>Control when cache is discarded</p>
 <ul>
 <li>Ignore changes to comments</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.comments =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.comments =</span> <span class="ot">FALSE</span>)</code></pre>
 <ul>
 <li>Discard cache when random seed changes</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.extra =</span> knitr<span class="op">::</span>rand_seed)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.extra =</span> knitr<span class="op">::</span>rand_seed)</code></pre>
 <p>I would recommend to always set these options</p>
 <ul>
 <li>Discard cache if data are modified</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.extra =</span> <span class="kw">file.info</span>(<span class="st">&quot;data.csv&quot;</span>)<span class="op">$</span>mtime)</code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.extra =</span> <span class="kw">file.info</span>(<span class="st">&quot;data.csv&quot;</span>)<span class="op">$</span>mtime)</code></pre>
 <ul>
 <li>Discard cache if the R environment changes</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">opts_chunk<span class="op">$</span><span class="kw">set</span>(
+<pre class="sourceCode r"><code class="sourceCode r">opts_chunk<span class="op">$</span><span class="kw">set</span>(
   <span class="dt">cache.extra =</span> <span class="kw">list</span>(R.version, <span class="kw">sessionInfo</span>())
-)</code></pre></div>
+)</code></pre>
 <p>If time permits, always discard all cached results (i.e., delete <code>my_manuscript_cache</code> directory) and reknit the document before submission to ensure that all results are based on the current R code!</p>
 <div id="inserting-variables-before-they-have-been-computed" class="section level3">
 <h3><span class="header-section-number">4.5.1</span> Inserting variables before they have been computed</h3>
-<p>R code in R Markdown documents in executed from top to bottom. Hence, variables are not available before the code chunk in which they are defined has been executed. However, sometimes it may be desireable to report a variable in a document before the corresponding code chunk. A common example is to include the sample size or focal test statistics in the abstract.</p>
-<p>Cached code chunks store their results in a cache database in the subfolder <code>my_document_cache</code> (default). The function <code>knitr::load_cache()</code> can be used to access cache databases and report results of a chunk anywhere in the document. For the following example, we’ll assume that we want to report the sample size in the abstract. The sample size is calculated in the method section:</p>
-<pre><code>```{r, sample-size, cache = TRUE}
-n &lt;- nrow(cosmetic_surgery)
-```</code></pre>
+<p>R code in R Markdown documents in executed from top to bottom.
+Hence, variables are not available before the code chunk in which they are defined has been executed.
+However, sometimes it may be desireable to report a variable in a document before the corresponding code chunk.
+A common example is to include the sample size or focal test statistics in the abstract.</p>
+<p>Cached code chunks store their results in a cache database in the subfolder <code>my_document_cache</code> (default).
+The function <code>knitr::load_cache()</code> can be used to access cache databases and report results of a chunk anywhere in the document.
+For the following example, we’ll assume that we want to report the sample size in the abstract.
+The sample size is calculated in the method section:</p>
+<p><code>{r, sample-size, cache = TRUE}     n &lt;- nrow(cosmetic_surgery)</code></p>
 <p>To report this variable in the abstract we need to use an inline code chunk in the YAML front matter field:</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
 <span class="fu">abstract:</span><span class="at"> |</span>
   This is the abstract.
   <span class="fu">Our sample size was n = `r knitr:</span><span class="at">:load_cache(label = &quot;sample-size&quot;, object = &quot;n&quot;)`.</span>
-<span class="ot">---</span></code></pre></div>
-<p>When the document is first rendered the object <code>n</code> in the code chunk <code>sample-size</code> has not yet been computed and <code>knitr::load_cache()</code> will insert <code>&quot;NOT AVAILABLE&quot;</code> instead. The next time the document is rendered, the results of the previous run have been saved as cache database. These results will be loaded and inserted into the abstract.</p>
+<span class="ot">---</span></code></pre>
+<p>When the document is first rendered the object <code>n</code> in the code chunk <code>sample-size</code> has not yet been computed and <code>knitr::load_cache()</code> will insert <code>&quot;NOT AVAILABLE&quot;</code> instead.
+The next time the document is rendered, the results of the previous run have been saved as cache database.
+These results will be loaded and inserted into the abstract.</p>
 
 <div class="rmdnote">
 For variables computed later in the document, <code>knitr::load_cache()</code> can only ever display the result of the previous run—if the cached code is changed, the document has to be rendered twice to display the new result.
@@ -889,22 +963,10 @@ For variables computed later in the document, <code>knitr::load_cache()</code> c
 </div>
 </div>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-R-car">
-<p>Fox, J., &amp; Weisberg, S. (2011). <em>An R companion to applied regression</em> (Second.). Thousand Oaks CA: Sage. Retrieved from <a href="http://socserv.socsci.mcmaster.ca/jfox/Books/Companion" class="uri">http://socserv.socsci.mcmaster.ca/jfox/Books/Companion</a></p>
-</div>
-<div id="ref-R-ez">
-<p>Lawrence, M. A. (2016). <em>Ez: Easy analysis and visualization of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=ez" class="uri">https://CRAN.R-project.org/package=ez</a></p>
-</div>
-<div id="ref-R-afex">
-<p>Singmann, H., Bolker, B., Westfall, J., &amp; Aust, F. (2016). <em>Afex: Analysis of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=afex" class="uri">https://CRAN.R-project.org/package=afex</a></p>
-</div>
-</div>
 <div class="footnotes">
 <hr />
 <ol start="3">
-<li id="fn3"><p>When you use <code>xtable()</code>, table captions are <a href="http://tex.stackexchange.com/questions/42209/centering-tables-in-document-class-apa6">set to the left page margin</a>.<a href="reporting.html#fnref3">↩</a></p></li>
+<li id="fn3"><p>When you use <code>xtable()</code>, table captions are <a href="http://tex.stackexchange.com/questions/42209/centering-tables-in-document-class-apa6">set to the left page margin</a>.<a href="reporting.html#fnref3" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
 <h1>Comments and Questions</h1>
@@ -957,7 +1019,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -969,6 +1031,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/crsh/papaja_man/edit/master/04-reporting.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": null,
 "toc": {
@@ -983,8 +1049,8 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;
