@@ -830,7 +830,7 @@ Amongst psychologists, analysis of variance is a still-popular and frequently us
 In base R, however, analysis of variance is not implemented in a way that is too useful
 for psychologists, as the <code>aov</code>-function in the stats package does not provide the much sought-after
 Type-<span class="math inline">\(\rm{I\!I\!I}\)</span> sums-of-squares. A variety of R packages has emerged to fill the gap, e.g.
-<code>car</code> <span class="citation">(Fox &amp; Weisberg, <a href="published-manuscripts.html#ref-R-car">2011</a>)</span>, <code>ez</code> <span class="citation">(Lawrence, <a href="published-manuscripts.html#ref-R-ez">2016</a>)</span>, and <code>afex</code> <span class="citation">(Singmann et al., <a href="published-manuscripts.html#ref-R-afex">2016</a>)</span>.
+<code>car</code> <span class="citation">(Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>)</span>, <code>ez</code> <span class="citation">(Lawrence, <a href="#ref-R-ez">2016</a>)</span>, and <code>afex</code> <span class="citation">(Singmann et al., <a href="#ref-R-afex">2016</a>)</span>.
 Unfortunately, each ANOVA function provides different output objects that need to be digested by <code>apa_print()</code>.
 To do so, we rely on the package authors to return standardized result objects (i.e., S3/S4 classes).
 For this reason <code>apa_print()</code> does not support results from the popular <code>ezANOVA()</code>.
@@ -961,6 +961,18 @@ For variables computed later in the document, <code>knitr::load_cache()</code> c
 
 
 </div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-car">
+<p>Fox, J., &amp; Weisberg, S. (2011). <em>An R companion to applied regression</em> (Second.). Thousand Oaks CA: Sage. Retrieved from <a href="http://socserv.socsci.mcmaster.ca/jfox/Books/Companion">http://socserv.socsci.mcmaster.ca/jfox/Books/Companion</a></p>
+</div>
+<div id="ref-R-ez">
+<p>Lawrence, M. A. (2016). <em>Ez: Easy analysis and visualization of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=ez">https://CRAN.R-project.org/package=ez</a></p>
+</div>
+<div id="ref-R-afex">
+<p>Singmann, H., Bolker, B., Westfall, J., &amp; Aust, F. (2016). <em>Afex: Analysis of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=afex">https://CRAN.R-project.org/package=afex</a></p>
 </div>
 </div>
 <div class="footnotes">

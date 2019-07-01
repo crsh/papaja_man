@@ -247,7 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 A manuscript written with <code>papaja</code> can be thought of as an extensively commented analysis script ready for publication in a scientific journal.</p>
 <div id="motivation" class="section level2">
 <h2><span class="header-section-number">1.1</span> Motivation</h2>
-<p>APA style is one of the major style regimes in academia concerned with written scientific communication and is defined in the <em>Publication Manual of the American Psychological Association</em> <span class="citation">(APA; American Psychological Association, <a href="published-manuscripts.html#ref-american_psychological_association_publication_2010">2010</a>)</span>.
+<p>APA style is one of the major style regimes in academia concerned with written scientific communication and is defined in the <em>Publication Manual of the American Psychological Association</em> <span class="citation">(APA; American Psychological Association, <a href="#ref-american_psychological_association_publication_2010">2010</a>)</span>.
 Research in psychology and many fields other, including other social sciences, medicine, and public health is reported in APA style.
 If you want to publish psychological research, you will have to produce properly formatted APA style manuscripts.
 While the merits of standardizing scientific reporting are undisputed, mastering the currently 272 pages of Publication Manual’s style definitions puts an undeniable burden on authors.
@@ -262,15 +262,15 @@ There are several advantages to this approach but, crucially for the present pur
 Critically, the compilation process is required for fully reproducible scientific reports.</p>
 <div id="reproducible-scientific-reports" class="section level3">
 <h3><span class="header-section-number">1.1.1</span> Reproducible scientific reports</h3>
-<p>Dynamic scientific reports fuse prose and simulation or analysis scripts <span class="citation">(Gandrud, <a href="published-manuscripts.html#ref-gandrud_reproducible_2013">2013</a>; Xie, <a href="published-manuscripts.html#ref-R-knitr">2015</a>)</span>.
+<p>Dynamic scientific reports fuse prose and simulation or analysis scripts <span class="citation">(Gandrud, <a href="#ref-gandrud_reproducible_2013">2013</a>; Xie, <a href="#ref-R-knitr">2015</a>)</span>.
 Each time a dynamic document is compiled, the scripts are executed anew and the results—statistics, tables, and figures—are recreated and inserted into the document.
 Thereby dynamic documents allow automated reporting of results, which is currently not possible with the prevalent use of Microsoft Word or Libre Office.
 Importantly, dynamic documents ensure that the results reported in the manuscript are free of rounding or transcription errors and correspond to the performed analyses.
 This is the reason why dynamic scientific reports are commonly referred to as reproducible scientific reports or reproducible reports.
-Thus, the term reproducibility here means that given a dataset and analysis script any analyst obtains the same statistical results <span class="citation">(Asendorpf et al., <a href="published-manuscripts.html#ref-asendorpf_recommendations_2013">2013</a>; Cacioppo, Kaplan, Krosnick, Olds, &amp; Dean, <a href="published-manuscripts.html#ref-cacioppo_social_2015">2015</a>)</span>.</p>
+Thus, the term reproducibility here means that given a dataset and analysis script any analyst obtains the same statistical results <span class="citation">(Asendorpf et al., <a href="#ref-asendorpf_recommendations_2013">2013</a>; Cacioppo, Kaplan, Krosnick, Olds, &amp; Dean, <a href="#ref-cacioppo_social_2015">2015</a>)</span>.</p>
 <p>The importance of reproducibility was pinpointed by the U.S. National Science Foundation subcommittee on replicability in science:</p>
 <blockquote>
-<p>Reproducibility is a minimum necessary condition for a finding to be believable and informative. <span class="citation">(p. 4, Cacioppo et al., <a href="published-manuscripts.html#ref-cacioppo_social_2015">2015</a>)</span></p>
+<p>Reproducibility is a minimum necessary condition for a finding to be believable and informative. <span class="citation">(p. 4, Cacioppo et al., <a href="#ref-cacioppo_social_2015">2015</a>)</span></p>
 </blockquote>
 <blockquote>
 <p>Good statistical practice is fundamentally based on transparent assumptions, repro-ducible results, and valid interpretations.</p>
@@ -493,7 +493,7 @@ papaja is tailored to the needs of experimental psychologists: we supply conveni
 
 -->
 <!-- https://twitter.com/HermanAguinis/status/859843021575245825 -->
-<p>R Markdown has been suggested as one possible framework for reproducible analyses <span class="citation">(Allaire et al., <a href="published-manuscripts.html#ref-R-rmarkdown">2017</a>)</span>.
+<p>R Markdown has been suggested as one possible framework for reproducible analyses <span class="citation">(Allaire et al., <a href="#ref-R-rmarkdown">2017</a>)</span>.
 <code>papaja</code> is a R-package in the making including a <a href="http://rmarkdown.rstudio.com/">R Markdown</a> template that can be used with (or without) <a href="http://www.rstudio.com/">RStudio</a> to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition).
 The package uses the document class <a href="http://www.ctan.org/pkg/apa6">apa6</a> and a .docx-reference file, so you can create PDF documents, or Word documents if you have to.
 Moreover, <code>papaja</code> supplies R-functions that facilitate reporting results of your analyses in accordance with APA guidelines.</p>
@@ -607,7 +607,7 @@ It includes a set of templates for authoring of R related journal and conference
 <li>papeR</li>
 <li>reportR &amp; apaStyle</li>
 <li>Sweave</li>
-<li>schoRsch <span class="citation">(Pfister &amp; Janczyk, <a href="published-manuscripts.html#ref-pfister_schorsch:_2016">2016</a>)</span></li>
+<li>schoRsch <span class="citation">(Pfister &amp; Janczyk, <a href="#ref-pfister_schorsch:_2016">2016</a>)</span></li>
 <li>sigr</li>
 </ul>
 </div>
@@ -716,6 +716,30 @@ Because <strong>knitr</strong> does not allow duplicate chunk labels in a source
 
 
 </div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-rmarkdown">
+<p>Allaire, J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., … Chang, W. (2017). <em>Rmarkdown: Dynamic documents for r</em>. Retrieved from <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a></p>
+</div>
+<div id="ref-american_psychological_association_publication_2010">
+<p>American Psychological Association. (2010). <em>Publication Manual of the American Psychological Association</em> (6th edition.). Washington, DC: American Psychological Association.</p>
+</div>
+<div id="ref-asendorpf_recommendations_2013">
+<p>Asendorpf, J. B., Conner, M., De Fruyt, F., De Houwer, J., Denissen, J. J. A., Fiedler, K., … Wicherts, J. M. (2013). Recommendations for Increasing Replicability in Psychology. <em>European Journal of Personality</em>, <em>27</em>(2), 108–119. doi:<a href="https://doi.org/10.1002/per.1919">10.1002/per.1919</a></p>
+</div>
+<div id="ref-cacioppo_social_2015">
+<p>Cacioppo, J. T., Kaplan, R. M., Krosnick, J. A., Olds, J. L., &amp; Dean, H. (2015). <em>Social, Behavioral, and Economic Sciences Perspectives on Robust and Reliable Science</em> (Report of the Subcommittee on Replicability in Science). Arlington, VA: National Science Foundation. Retrieved from <a href="http://web.stanford.edu/group/bps/cgi-bin/wordpress/wp-content/uploads/2015/09/NSF-Robust-Research-Workshop-Report.pdf">http://web.stanford.edu/group/bps/cgi-bin/wordpress/wp-content/uploads/2015/09/NSF-Robust-Research-Workshop-Report.pdf</a></p>
+</div>
+<div id="ref-gandrud_reproducible_2013">
+<p>Gandrud, C. (2013). <em>Reproducible Research with R and Rstudio</em> (Auflage: New.). Boca Raton: Crc Pr Inc.</p>
+</div>
+<div id="ref-pfister_schorsch:_2016">
+<p>Pfister, R., &amp; Janczyk, M. (2016). schoRsch: An R package for analyzing and reporting factorial experiments. <em>The Quantitative Methods for Psychology</em>, <em>12</em>(2), 147–151. doi:<a href="https://doi.org/10.20982/tqmp.12.2.p147">10.20982/tqmp.12.2.p147</a></p>
+</div>
+<div id="ref-R-knitr">
+<p>Xie, Y. (2015). <em>Dynamic documents with R and knitr</em> (2nd ed.). Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a></p>
 </div>
 </div>
 <h1>Comments and Questions</h1>

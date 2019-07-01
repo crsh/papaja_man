@@ -1,24 +1,28 @@
 # Published manuscripts
 
-If you have published a paper that was written with `papaja`, you can add the reference to the [public Zotero group](https://www.zotero.org/groups/2202906/papaja) yourself or send it to me.
+<!-- If you have published a paper that was written with `papaja`, you can add the reference to the [public Zotero group](https://www.zotero.org/groups/2202906/papaja) yourself or send it to me. -->
 
----
+<!-- --- -->
 
 ```{r echo = FALSE, results = "asis"}
 papaja_readme <- readLines("https://raw.githubusercontent.com/crsh/papaja/devel/README.md")
 
 reference_start <- which(grepl("Papers written with papaja", papaja_readme))
 reference_end <- which(grepl("Other related R packages", papaja_readme))
+papaja_readme <- papaja_readme[(reference_start+1):(reference_end-1)]
 
+papaja_readme <- gsub("<div.+", "", papaja_readme)
+papaja_readme <- gsub("<\\/div>", "\n\n", papaja_readme)
+papaja_readme <- gsub("(Aust, F\\., & Edwards, J\\. D\\. \\(2016\\))", "\n\n---\n\n\\1", papaja_readme)
 papaja_readme <- gsub("###", "##", papaja_readme)
 
-writeLines(paste(papaja_readme[(reference_start+1):(reference_end-1)], collapse = "\n"), "published_papers.Rmd")
+cat(papaja_readme)
 ```
 
-```{r child = "published_papers.Rmd"}
+```{r child = "published_papers.Rmd", eval = FALSE}
 ```
 
-```{r include = FALSE}
+```{r include = FALSE, eval = FALSE}
 file.remove("published_papers.Rmd")
 ```
 
