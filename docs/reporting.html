@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html >
+
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Reporting | papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="&quot;&quot;" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>papaja: Reproducible APA manuscripts with R Markdown</title>
+  <meta name="description" content="&quot;&quot;">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="4 Reporting | papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
   
   
@@ -16,26 +17,25 @@
   <meta name="github-repo" content="crsh/papaja_man" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Reporting | papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta name="twitter:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   
   <meta name="twitter:description" content="&quot;&quot;" />
   
 
-<meta name="author" content="Frederik Aust &amp; Marius Barth" />
+<meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2019-07-01" />
+<meta name="date" content="2019-07-07">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
 <link rel="prev" href="writing.html">
 <link rel="next" href="tips-and-tricks.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -52,7 +52,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -65,11 +65,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -176,7 +178,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.3</b> Figure captions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.1</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.4</b> Results from statistical tests</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.4.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
@@ -273,11 +276,11 @@ Hence, <code>`r age_mean`</code> and <code>`r printnum(age_mean)`</code> are eff
 <p>Typeset numerical values for greater control
 - <code>printnum()</code>
 - <code>printp()</code> as shorthand for <em>p</em> values</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">printnum</span>(<span class="kw">c</span>(<span class="fl">143234.34557</span>, <span class="ot">Inf</span>))</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="kw">printnum</span>(<span class="kw">c</span>(<span class="fl">143234.34557</span>, <span class="ot">Inf</span>))</a></code></pre></div>
 <pre><code>## [1] &quot;143,234.35&quot; &quot;$\\infty$&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">printnum</span>(42L, <span class="dt">numerals =</span> <span class="ot">FALSE</span>, <span class="dt">capitalize =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">printnum</span>(42L, <span class="dt">numerals =</span> <span class="ot">FALSE</span>, <span class="dt">capitalize =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Forty-two&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">printp</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="fl">0.0008</span>, <span class="dv">0</span>))</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">printp</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="fl">0.0008</span>, <span class="dv">0</span>))</a></code></pre></div>
 <pre><code>## [1] &quot;&gt; .999&quot; &quot;.001&quot;   &quot;&lt; .001&quot;</code></pre>
 </div>
 <div id="figures" class="section level2">
@@ -297,7 +300,7 @@ To change this default behavior set the option <code>figsintext</code> in the <a
 Hence, a simple call to <code>plot()</code> is sufficient to create a figure:</p>
 <p>(ref:simple-base-plot)
 A basic scatterplot of the <code>cars</code> dataset.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(cars)</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">plot</span>(cars)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:simple-base-plot"></span>
 <img src="papaja_manual_files/figure-html/simple-base-plot-1.png" alt="(ref:simple-base-plot)" width="672" />
 <p class="caption">
@@ -321,12 +324,12 @@ Moreover, it is easy switch between the different types of plots by changing the
 <p>Consider the following example of a so-called beeswarm plot:</p>
 <p>(ref:beeswarm-caption)
 An example beeswarm plot. Small points represent individual observations, large points represent condition means, and error bars represent 95% confidence intervals.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_beeplot</span>(
-  <span class="dt">data =</span> mixed_data
-  , <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>
-  , <span class="dt">dv =</span> <span class="st">&quot;Recall&quot;</span>
-  , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Task&quot;</span>, <span class="st">&quot;Valence&quot;</span>, <span class="st">&quot;Dosage&quot;</span>)
-)</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="kw">apa_beeplot</span>(</a>
+<a class="sourceLine" id="cb40-2" data-line-number="2">  <span class="dt">data =</span> mixed_data</a>
+<a class="sourceLine" id="cb40-3" data-line-number="3">  , <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span></a>
+<a class="sourceLine" id="cb40-4" data-line-number="4">  , <span class="dt">dv =</span> <span class="st">&quot;Recall&quot;</span></a>
+<a class="sourceLine" id="cb40-5" data-line-number="5">  , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Task&quot;</span>, <span class="st">&quot;Valence&quot;</span>, <span class="st">&quot;Dosage&quot;</span>)</a>
+<a class="sourceLine" id="cb40-6" data-line-number="6">)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:beeswarm2"></span>
 <img src="papaja_manual_files/figure-html/beeswarm2-1.png" alt="(ref:beeswarm-caption)" width="672" />
 <p class="caption">
@@ -353,20 +356,20 @@ These arugments take named lists of arguments that are passed on to the respecti
 Consider the following code and the resulting Figure <a href="reporting.html#fig:customized-plot">4.3</a> for a customized version of the previous beeswarm plot.</p>
 <p>(ref:customized-plot-caption)
 A customized beeswarm plot. Note that, by default, the swarm inherits parameters from the args_points argument. Small points represent individual observations, large points represent means, and error bars represent 95% within-subjects confidence intervals.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_beeplot</span>(
-    <span class="dt">data =</span> mixed_data
-  , <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>
-  , <span class="dt">dv =</span> <span class="st">&quot;Recall&quot;</span>
-  , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Task&quot;</span>, <span class="st">&quot;Valence&quot;</span>, <span class="st">&quot;Dosage&quot;</span>)
-  , <span class="dt">dispersion =</span> within_subjects_conf_int
-  , <span class="dt">main =</span> <span class="kw">c</span>(<span class="kw">expression</span>(<span class="kw">italic</span>(A)<span class="op">~</span><span class="st">&quot;dosage&quot;</span>), <span class="kw">expression</span>(<span class="kw">italic</span>(B)<span class="op">~</span><span class="st">&quot;dosage&quot;</span>), <span class="kw">expression</span>(<span class="kw">italic</span>(C)<span class="op">~</span><span class="st">&quot;dosage&quot;</span>))
-  , <span class="dt">ylab =</span> <span class="st">&quot;Number of correctly recalled words&quot;</span>
-  , <span class="dt">args_points =</span> <span class="kw">list</span>(<span class="dt">cex =</span> <span class="dv">2</span>, <span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;skyblue4&quot;</span>, <span class="st">&quot;indianred3&quot;</span>, <span class="st">&quot;seagreen4&quot;</span>), <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>)
-  , <span class="dt">args_swarm =</span> <span class="kw">list</span>(<span class="dt">cex =</span> <span class="fl">1.2</span>)
-  , <span class="dt">args_error_bars =</span> <span class="kw">list</span>(<span class="dt">length =</span> <span class="fl">0.02</span>, <span class="dt">col =</span> <span class="st">&quot;grey20&quot;</span>)
-  , <span class="dt">args_legend =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">inset =</span> <span class="fl">0.05</span>)
-  , <span class="dt">args_y_axis =</span> <span class="kw">list</span>(<span class="dt">las =</span> <span class="dv">1</span>)
-)</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="kw">apa_beeplot</span>(</a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">    <span class="dt">data =</span> mixed_data</a>
+<a class="sourceLine" id="cb41-3" data-line-number="3">  , <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span></a>
+<a class="sourceLine" id="cb41-4" data-line-number="4">  , <span class="dt">dv =</span> <span class="st">&quot;Recall&quot;</span></a>
+<a class="sourceLine" id="cb41-5" data-line-number="5">  , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Task&quot;</span>, <span class="st">&quot;Valence&quot;</span>, <span class="st">&quot;Dosage&quot;</span>)</a>
+<a class="sourceLine" id="cb41-6" data-line-number="6">  , <span class="dt">dispersion =</span> within_subjects_conf_int</a>
+<a class="sourceLine" id="cb41-7" data-line-number="7">  , <span class="dt">main =</span> <span class="kw">c</span>(<span class="kw">expression</span>(<span class="kw">italic</span>(A)<span class="op">~</span><span class="st">&quot;dosage&quot;</span>), <span class="kw">expression</span>(<span class="kw">italic</span>(B)<span class="op">~</span><span class="st">&quot;dosage&quot;</span>), <span class="kw">expression</span>(<span class="kw">italic</span>(C)<span class="op">~</span><span class="st">&quot;dosage&quot;</span>))</a>
+<a class="sourceLine" id="cb41-8" data-line-number="8">  , <span class="dt">ylab =</span> <span class="st">&quot;Number of correctly recalled words&quot;</span></a>
+<a class="sourceLine" id="cb41-9" data-line-number="9">  , <span class="dt">args_points =</span> <span class="kw">list</span>(<span class="dt">cex =</span> <span class="dv">2</span>, <span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;skyblue4&quot;</span>, <span class="st">&quot;indianred3&quot;</span>, <span class="st">&quot;seagreen4&quot;</span>), <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>)</a>
+<a class="sourceLine" id="cb41-10" data-line-number="10">  , <span class="dt">args_swarm =</span> <span class="kw">list</span>(<span class="dt">cex =</span> <span class="fl">1.2</span>)</a>
+<a class="sourceLine" id="cb41-11" data-line-number="11">  , <span class="dt">args_error_bars =</span> <span class="kw">list</span>(<span class="dt">length =</span> <span class="fl">0.02</span>, <span class="dt">col =</span> <span class="st">&quot;grey20&quot;</span>)</a>
+<a class="sourceLine" id="cb41-12" data-line-number="12">  , <span class="dt">args_legend =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">inset =</span> <span class="fl">0.05</span>)</a>
+<a class="sourceLine" id="cb41-13" data-line-number="13">  , <span class="dt">args_y_axis =</span> <span class="kw">list</span>(<span class="dt">las =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb41-14" data-line-number="14">)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:customized-plot"></span>
 <img src="papaja_manual_files/figure-html/customized-plot-1.png" alt="(ref:customized-plot-caption)" width="672" />
 <p class="caption">
@@ -377,21 +380,21 @@ Figure 4.3: (ref:customized-plot-caption)
 <li>Utilize variable labels</li>
 </ul>
 <p>These plot functions also utilize variable labels, with some <span class="math inline">\(\LaTeX\)</span> math support (see <code>?latex2exp::TeX</code>)</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cosmetic_surgery) &lt;-<span class="st"> </span><span class="kw">c</span>(
-  <span class="dt">Post_QoL =</span> <span class="st">&quot;Quality of life post surgery ($</span><span class="ch">\\</span><span class="st">bar{x}_{post}$)&quot;</span>
-)
-
-<span class="kw">apa_beeplot</span>(
-  <span class="dt">id =</span> <span class="st">&quot;ID&quot;</span>
-  , <span class="dt">dv =</span> <span class="st">&quot;Post_QoL&quot;</span>
-  , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Reason&quot;</span>, <span class="st">&quot;Surgery&quot;</span>, <span class="st">&quot;Gender&quot;</span>)
-  , <span class="dt">data =</span> cosmetic_surgery
-  <span class="co"># , ylab = &quot;Quality of life post surgery&quot;</span>
-  , <span class="dt">las =</span> <span class="dv">1</span>
-  , <span class="dt">args_legend =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="fl">0.25</span>, <span class="dt">y =</span> <span class="dv">30</span>)
-  , <span class="dt">args_points =</span> <span class="kw">list</span>(<span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;skyblue2&quot;</span>, <span class="st">&quot;indianred1&quot;</span>))
-  , <span class="dt">args_error_bars =</span> <span class="kw">list</span>(<span class="dt">length =</span> <span class="fl">0.03</span>)
-)</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw">variable_labels</span>(cosmetic_surgery) &lt;-<span class="st"> </span><span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb42-2" data-line-number="2">  <span class="dt">Post_QoL =</span> <span class="st">&quot;Quality of life post surgery ($</span><span class="ch">\\</span><span class="st">bar{x}_{post}$)&quot;</span></a>
+<a class="sourceLine" id="cb42-3" data-line-number="3">)</a>
+<a class="sourceLine" id="cb42-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb42-5" data-line-number="5"><span class="kw">apa_beeplot</span>(</a>
+<a class="sourceLine" id="cb42-6" data-line-number="6">  <span class="dt">id =</span> <span class="st">&quot;ID&quot;</span></a>
+<a class="sourceLine" id="cb42-7" data-line-number="7">  , <span class="dt">dv =</span> <span class="st">&quot;Post_QoL&quot;</span></a>
+<a class="sourceLine" id="cb42-8" data-line-number="8">  , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Reason&quot;</span>, <span class="st">&quot;Surgery&quot;</span>, <span class="st">&quot;Gender&quot;</span>)</a>
+<a class="sourceLine" id="cb42-9" data-line-number="9">  , <span class="dt">data =</span> cosmetic_surgery</a>
+<a class="sourceLine" id="cb42-10" data-line-number="10">  <span class="co"># , ylab = &quot;Quality of life post surgery&quot;</span></a>
+<a class="sourceLine" id="cb42-11" data-line-number="11">  , <span class="dt">las =</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb42-12" data-line-number="12">  , <span class="dt">args_legend =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="fl">0.25</span>, <span class="dt">y =</span> <span class="dv">30</span>)</a>
+<a class="sourceLine" id="cb42-13" data-line-number="13">  , <span class="dt">args_points =</span> <span class="kw">list</span>(<span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;skyblue2&quot;</span>, <span class="st">&quot;indianred1&quot;</span>))</a>
+<a class="sourceLine" id="cb42-14" data-line-number="14">  , <span class="dt">args_error_bars =</span> <span class="kw">list</span>(<span class="dt">length =</span> <span class="fl">0.03</span>)</a>
+<a class="sourceLine" id="cb42-15" data-line-number="15">)</a></code></pre></div>
 </div>
 <div id="setting-global-plot-options" class="section level4">
 <h4><span class="header-section-number">4.2.1.2</span> Setting global plot options</h4>
@@ -401,13 +404,13 @@ When using <code>graphics</code> plot functions global options can be set using 
 For example, the size of labels and symbols can be controled with <code>cex</code>:</p>
 <p>(ref:par-in-chunk)
 A variant of the example beeswarm plot with larger labels and symbols.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">cex =</span> <span class="fl">1.2</span>)
-<span class="kw">apa_beeplot</span>(
-  <span class="dt">data =</span> mixed_data
-  , <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span>
-  , <span class="dt">dv =</span> <span class="st">&quot;Recall&quot;</span>
-  , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Task&quot;</span>, <span class="st">&quot;Valence&quot;</span>)
-)</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">cex =</span> <span class="fl">1.2</span>)</a>
+<a class="sourceLine" id="cb43-2" data-line-number="2"><span class="kw">apa_beeplot</span>(</a>
+<a class="sourceLine" id="cb43-3" data-line-number="3">  <span class="dt">data =</span> mixed_data</a>
+<a class="sourceLine" id="cb43-4" data-line-number="4">  , <span class="dt">id =</span> <span class="st">&quot;Subject&quot;</span></a>
+<a class="sourceLine" id="cb43-5" data-line-number="5">  , <span class="dt">dv =</span> <span class="st">&quot;Recall&quot;</span></a>
+<a class="sourceLine" id="cb43-6" data-line-number="6">  , <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Task&quot;</span>, <span class="st">&quot;Valence&quot;</span>)</a>
+<a class="sourceLine" id="cb43-7" data-line-number="7">)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:par-in-chunk"></span>
 <img src="papaja_manual_files/figure-html/par-in-chunk-1.png" alt="(ref:par-in-chunk)" width="672" />
 <p class="caption">
@@ -424,36 +427,36 @@ By default, <code>knitr</code> resets <code>par()</code> for every chunk; <code>
 Although not very convenient, it <em>is</em> possible to set global plot options in <code>knitr</code> and therefore also in <code>papaja</code>.
 The following example illustrates how to make <code>knitr</code> execute a specified call to <code>par()</code> before executing code in a given chunk.
 Here we rotate the <span class="math inline">\(y\)</span>-axis label (<code>las = 1</code>), sets a regular font and increases the size of the main title (<code>font.main = 1</code>, <code>cex.main = 1.05</code>).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Ensure that par()-settings are retained across chunks</span>
-knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw">set</span>(<span class="dt">global.par =</span> <span class="ot">TRUE</span>)
-
-<span class="co"># Define a function that sets desired global plot defaults</span>
-<span class="kw">par</span>(<span class="dt">font.main =</span> <span class="dv">1</span><span class="st">`</span><span class="dt">, </span><span class="st">`</span><span class="dt">cex.main =</span> <span class="fl">1.05</span>, <span class="dt">las =</span> <span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="co"># Ensure that par()-settings are retained across chunks</span></a>
+<a class="sourceLine" id="cb44-2" data-line-number="2">knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw">set</span>(<span class="dt">global.par =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb44-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb44-4" data-line-number="4"><span class="co"># Define a function that sets desired global plot defaults</span></a>
+<a class="sourceLine" id="cb44-5" data-line-number="5"><span class="kw">par</span>(<span class="dt">font.main =</span> <span class="dv">1</span><span class="st">`</span><span class="dt">, </span><span class="st">`</span><span class="dt">cex.main =</span> <span class="fl">1.05</span>, <span class="dt">las =</span> <span class="dv">1</span>)</a></code></pre></div>
 <p>The customizations apply to all subsequently generated plots.
 It is, thus, advisable to add this code at the top of the R Markdown document shortly after the YAML front matter.</p>
 <p>These same limitations do not apply to users of <code>ggplot2</code>.
 Custom themes can be set as default as usual and are subsequently applied to all plots created with <code>ggplot()</code>.
 <code>papaja</code> provides a template <code>theme_apa()</code> that we feel is well suited to create publication-ready plots.
 The following example demonstrates how to set a default theme.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cosmetic surgery dataset from</span>
-<span class="co"># Field, A. P., Miles, J., &amp; Field, Z. (2012). Discovering statistics using R. London: Sage.</span>
-<span class="kw">load</span>(<span class="st">&quot;data/cosmetic_surgery.rdata&quot;</span>)
-
-<span class="kw">ggplot</span>(
-    cosmetic_surgery
-    , <span class="kw">aes</span>(<span class="dt">x =</span> Base_QoL, <span class="dt">y =</span> Post_QoL, <span class="dt">color =</span> Reason)
-  ) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(
-    <span class="dt">x =</span> <span class="st">&quot;Baseline quality of life&quot;</span>
-    , <span class="dt">y =</span> <span class="st">&quot;Quality of life post surgery&quot;</span>
-  ) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_apa</span>(<span class="dt">box =</span> <span class="ot">TRUE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="co"># Cosmetic surgery dataset from</span></a>
+<a class="sourceLine" id="cb45-2" data-line-number="2"><span class="co"># Field, A. P., Miles, J., &amp; Field, Z. (2012). Discovering statistics using R. London: Sage.</span></a>
+<a class="sourceLine" id="cb45-3" data-line-number="3"><span class="kw">load</span>(<span class="st">&quot;data/cosmetic_surgery.rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb45-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb45-5" data-line-number="5"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb45-6" data-line-number="6">    cosmetic_surgery</a>
+<a class="sourceLine" id="cb45-7" data-line-number="7">    , <span class="kw">aes</span>(<span class="dt">x =</span> Base_QoL, <span class="dt">y =</span> Post_QoL, <span class="dt">color =</span> Reason)</a>
+<a class="sourceLine" id="cb45-8" data-line-number="8">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-11" data-line-number="11"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb45-12" data-line-number="12">    <span class="dt">x =</span> <span class="st">&quot;Baseline quality of life&quot;</span></a>
+<a class="sourceLine" id="cb45-13" data-line-number="13">    , <span class="dt">y =</span> <span class="st">&quot;Quality of life post surgery&quot;</span></a>
+<a class="sourceLine" id="cb45-14" data-line-number="14">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-15" data-line-number="15"><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-16" data-line-number="16"><span class="st">  </span><span class="kw">theme_apa</span>(<span class="dt">box =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-17" data-line-number="17"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>))</a></code></pre></div>
 <p><img src="papaja_manual_files/figure-html/ggplot-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">theme_set</span>(<span class="kw">theme_apa</span>())</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="kw">theme_set</span>(<span class="kw">theme_apa</span>())</a></code></pre></div>
 </div>
 </div>
 <div id="external-files" class="section level3">
@@ -500,18 +503,18 @@ There are two approaches to accomodate long figure captions or tall figures. You
 <h4><span class="header-section-number">4.2.3.1</span> Line spacing and font size</h4>
 <p>As mentioned <a href="tips-and-tricks.html#adjusting-line-spacing">Adjusting line spacing</a>, you can adjust the line spacing but also the font size of figure captions.
 For single-spaced script-size figure captions, add the following to the YAML front matter:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">header-includes:</span>
-  <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span>
-  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1,scriptsize<span class="kw">}</span>}</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="fu">header-includes:</span></a>
+<a class="sourceLine" id="cb48-2" data-line-number="2">  <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span></a>
+<a class="sourceLine" id="cb48-3" data-line-number="3">  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1,scriptsize<span class="kw">}</span>}</a></code></pre></div>
 <p>For other font size options see the <a href="https://en.wikibooks.org/wiki/LaTeX/Fonts#Sizing_text">LaTeX Wikibook</a>.</p>
 </div>
 <div id="list-of-figure-captions" class="section level4">
 <h4><span class="header-section-number">4.2.3.2</span> List of figure captions</h4>
 <p>To add a list of figure captions after the reference section, add the following to the YAML front matter:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">figurelist:</span><span class="at"> yes</span></code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="fu">figurelist:</span><span class="at"> yes</span></a></code></pre></div>
 <p>Additionally you can suppress the captions below <em>all</em> figures by adding LaTeX code to the document preamble:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">header-includes:</span>
-  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>textformat=empty<span class="kw">}</span></code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="fu">header-includes:</span></a>
+<a class="sourceLine" id="cb50-2" data-line-number="2">  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>textformat=empty<span class="kw">}</span></a></code></pre></div>
 <p>If you would rather suppress figure captions only where necessary you can instead use <code>knitr</code> to do this.
 To remove the caption below a figure set <code>fig.cap = &quot; &quot;</code> and instead set the figure short caption via the chunk option <code>fig.scap = &quot;My figure caption&quot;</code>:</p>
 <pre><code>(ref:figure-caption) This is a long figure caption!
@@ -530,26 +533,72 @@ To ensure that <code>fig.scap</code> takes effect, <code>knitr</code> requires t
 <div id="tables" class="section level2">
 <h2><span class="header-section-number">4.3</span> Tables</h2>
 <p>For prettier tables, I suggest you try <code>apa_table()</code>, which builds on <code>knitr</code>’s <code>kable()</code>.</p>
-<p>(ref:mixed-table-caption)
-Descriptive statistics of correct recall by dosage.</p>
-<p>(ref:mixed-table-note)
-This table was created with apa_table().</p>
-<pre class="sourceCode r"><code class="sourceCode r">descriptives &lt;-<span class="st"> </span>mixed_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Dosage) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarize</span>(
-    <span class="dt">Mean =</span> <span class="kw">mean</span>(Recall)
-    , <span class="dt">Median =</span> <span class="kw">median</span>(Recall)
-    , <span class="dt">SD =</span> <span class="kw">sd</span>(Recall)
-    , <span class="dt">Min =</span> <span class="kw">min</span>(Recall)
-    , <span class="dt">Max =</span> <span class="kw">max</span>(Recall)
-  )
-descriptives[, <span class="dv">-1</span>] &lt;-<span class="st"> </span><span class="kw">printnum</span>(descriptives[, <span class="dv">-1</span>])
 
-<span class="kw">apa_table</span>(
-  descriptives
-  , <span class="dt">caption =</span> <span class="st">&quot;(ref:mixed-table-caption)&quot;</span>
-  , <span class="dt">note =</span> <span class="st">&quot;(ref:mixed-table-note)&quot;</span>
-  , <span class="dt">escape =</span> <span class="ot">TRUE</span>
-)</code></pre>
+
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">library</span>(dplyr) <span class="co"># this was not previously loaded but here is probably not the best place in the manual</span></a>
+<a class="sourceLine" id="cb52-2" data-line-number="2">descriptives &lt;-<span class="st"> </span>mixed_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Dosage) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(</a>
+<a class="sourceLine" id="cb52-4" data-line-number="4">    <span class="dt">Mean =</span> <span class="kw">mean</span>(Recall)</a>
+<a class="sourceLine" id="cb52-5" data-line-number="5">    , <span class="dt">Median =</span> <span class="kw">median</span>(Recall)</a>
+<a class="sourceLine" id="cb52-6" data-line-number="6">    , <span class="dt">SD =</span> <span class="kw">sd</span>(Recall)</a>
+<a class="sourceLine" id="cb52-7" data-line-number="7">    , <span class="dt">Min =</span> <span class="kw">min</span>(Recall)</a>
+<a class="sourceLine" id="cb52-8" data-line-number="8">    , <span class="dt">Max =</span> <span class="kw">max</span>(Recall)</a>
+<a class="sourceLine" id="cb52-9" data-line-number="9">  )</a>
+<a class="sourceLine" id="cb52-10" data-line-number="10">descriptives[, <span class="dv">-1</span>] &lt;-<span class="st"> </span><span class="kw">printnum</span>(descriptives[, <span class="dv">-1</span>])</a>
+<a class="sourceLine" id="cb52-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb52-12" data-line-number="12"><span class="kw">apa_table</span>(</a>
+<a class="sourceLine" id="cb52-13" data-line-number="13">  descriptives</a>
+<a class="sourceLine" id="cb52-14" data-line-number="14">  , <span class="dt">caption =</span> <span class="st">&quot;Descriptive statistics of correct recall by dosage.&quot;</span></a>
+<a class="sourceLine" id="cb52-15" data-line-number="15">  , <span class="dt">note =</span> <span class="st">&quot;This table was created with apa_table().&quot;</span></a>
+<a class="sourceLine" id="cb52-16" data-line-number="16">  , <span class="dt">escape =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb52-17" data-line-number="17">)</a></code></pre></div>
+<caption>
+<span id="tab:unnamed-chunk-17">Table 4.1: </span>
+</caption>
+<caption>
+<em>Descriptive statistics of correct recall by dosage.</em>
+</caption>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Dosage</th>
+<th align="left">Mean</th>
+<th align="left">Median</th>
+<th align="left">SD</th>
+<th align="left">Min</th>
+<th align="left">Max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left">14.19</td>
+<td align="left">14.00</td>
+<td align="left">4.45</td>
+<td align="left">5</td>
+<td align="left">25</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="left">13.50</td>
+<td align="left">14.00</td>
+<td align="left">5.15</td>
+<td align="left">4</td>
+<td align="left">22</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="left">19.19</td>
+<td align="left">19.00</td>
+<td align="left">3.52</td>
+<td align="left">13</td>
+<td align="left">25</td>
+</tr>
+</tbody>
+</table>
+<center>
+<em>Note.</em> This table was created with apa_table().
+</center>
 <p>Of course popular packages like <code>xtable</code><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> or <code>tables</code> can also be used to create tables when knitting PDF documents.
 These packages, however, cannot be used when you want to create Microsoft Word documents because they rely on <span class="math inline">\(\LaTeX\)</span> for typesetting.
 <code>apa_table()</code> creates tables that conform to APA guidelines and are correctly rendered in PDF and Word documents.
@@ -574,8 +623,31 @@ The resulting documents should suffice to enable collaboration with Wordy collea
 <li>Remember to set chunk option <code>results = &quot;asis&quot;</code>!</li>
 </ul>
 <p><code>kableExtra</code> is another powerful alternative</p>
+<div id="table-captions" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Table captions</h3>
+<p>Table captions can by passing a character string to <code>caption =</code> argument within apa_table function (e.g. <code>apa_table(descriptives, caption = &quot;My table caption&quot;)</code>). However, as with figures we strongly recommend that you use <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references">text references</a>—a feature of the <code>bookdown</code> package—instead.
+A text reference consists of a unique label and the corresponding text that it represents.
+Text references can be defined as follows:</p>
+<pre><code>(ref:my-table-caption) This is a caption for my table.</code></pre>
+<p>The text reference can now be inserted in the chunk options (or anywhere else), e.g. <code>apa_table(descriptives, caption = &quot;my-table-caption&quot;)</code>.
+The use of text references has several advantages:</p>
+<ol style="list-style-type: decimal">
+<li>The use of Markdown and <span class="math inline">\(\LaTeX\)</span> syntax is not well supported in <code>caption =</code>.
+For example, <code>\</code> and <code>_</code> must be escaped to prevent either R or <span class="math inline">\(\LaTeX\)</span> from erroring.
+Moreover, Markdown formatting and citation syntax is not supported at all.
+None of these limitations apply to text references.</li>
+<li>Long table captions can impair the readability of the document when they are added directly apa_table() call.</li>
+<li>Changing text reference does constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.</li>
+<li>Text references can include inline code chunks.</li>
+</ol>
+<p>We recommend you define the text reference for a table caption just above the corresponding code chunk. This should not occur within a code chunk and the reference and caption should be on the sample line. That is</p>
+<pre><code>(ref:my-table-caption) This is a caption for my table.</code></pre>
+<p>Rather than</p>
+<pre><code>(ref:my-table-caption) 
+This is a caption for my table.</code></pre>
+</div>
 <div id="alternatives-1" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> Alternatives</h3>
+<h3><span class="header-section-number">4.3.2</span> Alternatives</h3>
 <p>Pixidust: <a href="https://github.com/nutterb/pixiedust/blob/master/README.md" class="uri">https://github.com/nutterb/pixiedust/blob/master/README.md</a></p>
 <p>xtable: <a href="https://cran.r-project.org/web/packages/xtable/xtable.pdf" class="uri">https://cran.r-project.org/web/packages/xtable/xtable.pdf</a></p>
 <p>tables: <a href="https://cran.r-project.org/web/packages/tables/vignettes/tables.pdf" class="uri">https://cran.r-project.org/web/packages/tables/vignettes/tables.pdf</a></p>
@@ -620,13 +692,13 @@ S-Z
 afex_aov
 </td>
 <td style="text-align:left;">
-BFBayesFactorTop<sup>*</sup>
+BFBayesFactorList<sup>*</sup>
 </td>
 <td style="text-align:left;">
 list
 </td>
 <td style="text-align:left;">
-summary.glht<sup>*</sup>
+summary.aovlist
 </td>
 </tr>
 <tr>
@@ -634,13 +706,13 @@ summary.glht<sup>*</sup>
 anova
 </td>
 <td style="text-align:left;">
-bf_bridge
+BFBayesFactorTop<sup>*</sup>
 </td>
 <td style="text-align:left;">
 lm
 </td>
 <td style="text-align:left;">
-summary.glm
+summary.glht<sup>*</sup>
 </td>
 </tr>
 <tr>
@@ -648,13 +720,13 @@ summary.glm
 Anova.mlm
 </td>
 <td style="text-align:left;">
-bf_bridge_list
+emmGrid<sup>*</sup>
 </td>
 <td style="text-align:left;">
 lsmobj<sup>*</sup>
 </td>
 <td style="text-align:left;">
-summary.lm
+summary.glm
 </td>
 </tr>
 <tr>
@@ -662,7 +734,21 @@ summary.lm
 aov
 </td>
 <td style="text-align:left;">
-emmGrid<sup>*</sup>
+glht<sup>*</sup>
+</td>
+<td style="text-align:left;">
+summary_emm<sup>*</sup>
+</td>
+<td style="text-align:left;">
+summary.lm
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aovlist
+</td>
+<td style="text-align:left;">
+glm
 </td>
 <td style="text-align:left;">
 summary.Anova.mlm
@@ -673,39 +759,13 @@ summary.ref.grid<sup>*</sup>
 </tr>
 <tr>
 <td style="text-align:left;">
-aovlist
-</td>
-<td style="text-align:left;">
-glht<sup>*</sup>
-</td>
-<td style="text-align:left;">
-summary.aov
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 BFBayesFactor<sup>*</sup>
-</td>
-<td style="text-align:left;">
-glm
-</td>
-<td style="text-align:left;">
-summary.aovlist
-</td>
-<td style="text-align:left;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-BFBayesFactorList<sup>*</sup>
 </td>
 <td style="text-align:left;">
 htest
 </td>
 <td style="text-align:left;">
-summary_emm<sup>*</sup>
+summary.aov
 </td>
 <td style="text-align:left;">
 </td>
@@ -722,18 +782,18 @@ Figure 4.5: Process diagram illustrating the use of <code>apa_print()</code> met
 <div id="htest-t-tests-correlations-etc." class="section level3">
 <h3><span class="header-section-number">4.4.1</span> htest (<em>t</em> tests, correlations, etc.)</h3>
 <p>The results of a <span class="math inline">\(t\)</span> test (regardless of the exact type of <span class="math inline">\(t\)</span> test) are typically stored in an <code>htest</code> object.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cosmetic surgery dataset from</span>
-<span class="co"># Field, A. P., Miles, J., &amp; Field, Z. (2012). Discovering statistics using R. London: Sage.</span>
-<span class="kw">load</span>(<span class="st">&quot;data/cosmetic_surgery.rdata&quot;</span>)
-
-t_out &lt;-<span class="st"> </span><span class="kw">t.test</span>(
-  <span class="dt">x =</span> cosmetic_surgery<span class="op">$</span>Post_QoL
-  , <span class="dt">y =</span> cosmetic_surgery<span class="op">$</span>Base_QoL
-  , <span class="dt">paired =</span> <span class="ot">TRUE</span>
-)
-
-<span class="co"># Let&#39;s see what the apa_print() output looks like</span>
-<span class="kw">apa_print</span>(t_out)</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="co"># Cosmetic surgery dataset from</span></a>
+<a class="sourceLine" id="cb56-2" data-line-number="2"><span class="co"># Field, A. P., Miles, J., &amp; Field, Z. (2012). Discovering statistics using R. London: Sage.</span></a>
+<a class="sourceLine" id="cb56-3" data-line-number="3"><span class="kw">load</span>(<span class="st">&quot;data/cosmetic_surgery.rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb56-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb56-5" data-line-number="5">t_out &lt;-<span class="st"> </span><span class="kw">t.test</span>(</a>
+<a class="sourceLine" id="cb56-6" data-line-number="6">  <span class="dt">x =</span> cosmetic_surgery<span class="op">$</span>Post_QoL</a>
+<a class="sourceLine" id="cb56-7" data-line-number="7">  , <span class="dt">y =</span> cosmetic_surgery<span class="op">$</span>Base_QoL</a>
+<a class="sourceLine" id="cb56-8" data-line-number="8">  , <span class="dt">paired =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb56-9" data-line-number="9">)</a>
+<a class="sourceLine" id="cb56-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb56-11" data-line-number="11"><span class="co"># Let&#39;s see what the apa_print() output looks like</span></a>
+<a class="sourceLine" id="cb56-12" data-line-number="12"><span class="kw">apa_print</span>(t_out)</a></code></pre></div>
 <pre><code>## $estimate
 ## [1] &quot;$M_d = -3.95$, 95\\% CI $[-4.86$, $-3.04]$&quot;
 ## 
@@ -755,37 +815,70 @@ it will be quiet interesting for ANOVA or linear model results, as you will see 
 <div id="lm-linear-regression" class="section level3">
 <h3><span class="header-section-number">4.4.2</span> lm (linear regression)</h3>
 <p>The results of a linear model are stored in an <code>lm</code> object.</p>
-<pre class="sourceCode r"><code class="sourceCode r">lm_out &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Post_QoL <span class="op">~</span><span class="st"> </span>Base_QoL <span class="op">+</span><span class="st"> </span>BDI, <span class="dt">data =</span> cosmetic_surgery)
-apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_out)</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1">lm_out &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Post_QoL <span class="op">~</span><span class="st"> </span>Base_QoL <span class="op">+</span><span class="st"> </span>BDI, <span class="dt">data =</span> cosmetic_surgery)</a>
+<a class="sourceLine" id="cb58-2" data-line-number="2">apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_out)</a></code></pre></div>
 <p>Again, <code>apa_print</code> returns a four-elements list.
 <code>apa_lm$table</code> contains a complete regression table that can be passed to <code>apa_table()</code> to get a full regression table, see Table @ref(tab:lm-table; remember to set the chunk option <code>results = &quot;asis&quot;</code>).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(
-  apa_lm<span class="op">$</span>table
-  , <span class="dt">caption =</span> <span class="st">&quot;A full regression table.&quot;</span>
-  , <span class="dt">escape =</span> <span class="ot">FALSE</span>
-)</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="kw">apa_table</span>(</a>
+<a class="sourceLine" id="cb59-2" data-line-number="2">  apa_lm<span class="op">$</span>table</a>
+<a class="sourceLine" id="cb59-3" data-line-number="3">  , <span class="dt">caption =</span> <span class="st">&quot;A full regression table.&quot;</span></a>
+<a class="sourceLine" id="cb59-4" data-line-number="4">  , <span class="dt">escape =</span> <span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb59-5" data-line-number="5">)</a></code></pre></div>
 <caption>
-<span id="tab:lm-table">Table 4.1: </span>
+<span id="tab:lm-table">Table 4.2: </span>
 </caption>
 <caption>
 <em>A full regression table.</em>
 </caption>
-<p>Predictor <span class="math inline">\(b\)</span> 95% CI <span class="math inline">\(t(273)\)</span> <span class="math inline">\(p\)</span> ———- —— ——————- ——— ——-Intercept 18.50 <span class="math inline">\([13.10\)</span>, <span class="math inline">\(23.91]\)</span> 6.74 &lt; .001 Base QoL 0.59 <span class="math inline">\([0.50\)</span>, <span class="math inline">\(0.67]\)</span> 13.23 &lt; .001 BDI 0.17 <span class="math inline">\([0.11\)</span>, <span class="math inline">\(0.22]\)</span> 6.08 &lt; .001</p>
-<pre class="sourceCode r"><code class="sourceCode r">lm_res &lt;-<span class="st"> </span><span class="kw">lm</span>(Post_QoL <span class="op">~</span><span class="st"> </span>Base_QoL <span class="op">+</span><span class="st"> </span>BDI, <span class="dt">data =</span> cosmetic_surgery)
-lm_res_apa &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_res, <span class="dt">observed_predictors =</span> <span class="ot">TRUE</span>)
-lm_res_apa<span class="op">$</span>estimate<span class="op">$</span>Intercept</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Predictor</th>
+<th align="left"><span class="math inline">\(b\)</span></th>
+<th align="left">95% CI</th>
+<th align="left"><span class="math inline">\(t(273)\)</span></th>
+<th align="left"><span class="math inline">\(p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Intercept</td>
+<td align="left">18.50</td>
+<td align="left"><span class="math inline">\([13.10\)</span>, <span class="math inline">\(23.91]\)</span></td>
+<td align="left">6.74</td>
+<td align="left">&lt; .001</td>
+</tr>
+<tr class="even">
+<td align="left">Base QoL</td>
+<td align="left">0.59</td>
+<td align="left"><span class="math inline">\([0.50\)</span>, <span class="math inline">\(0.67]\)</span></td>
+<td align="left">13.23</td>
+<td align="left">&lt; .001</td>
+</tr>
+<tr class="odd">
+<td align="left">BDI</td>
+<td align="left">0.17</td>
+<td align="left"><span class="math inline">\([0.11\)</span>, <span class="math inline">\(0.22]\)</span></td>
+<td align="left">6.08</td>
+<td align="left">&lt; .001</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1">lm_res &lt;-<span class="st"> </span><span class="kw">lm</span>(Post_QoL <span class="op">~</span><span class="st"> </span>Base_QoL <span class="op">+</span><span class="st"> </span>BDI, <span class="dt">data =</span> cosmetic_surgery)</a>
+<a class="sourceLine" id="cb60-2" data-line-number="2">lm_res_apa &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_res, <span class="dt">observed_predictors =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb60-3" data-line-number="3">lm_res_apa<span class="op">$</span>estimate<span class="op">$</span>Intercept</a></code></pre></div>
 <pre><code>## [1] &quot;$b = 18.50$, 95\\% CI $[13.10$, $23.91]$&quot;</code></pre>
 <blockquote>
 <p><span class="math inline">\(b = 18.50\)</span>, 95% CI <span class="math inline">\([13.10\)</span>, <span class="math inline">\(23.91]\)</span></p>
 </blockquote>
 <p>–</p>
-<pre class="sourceCode r"><code class="sourceCode r">lm_res_apa<span class="op">$</span>full_result<span class="op">$</span>modelfit<span class="op">$</span>r2</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">lm_res_apa<span class="op">$</span>full_result<span class="op">$</span>modelfit<span class="op">$</span>r2</a></code></pre></div>
 <pre><code>## [1] &quot;$R^2 = .50$, 90\\% CI $[0.42$, $0.57]$, $F(2, 273) = 136.78$, $p &lt; .001$&quot;</code></pre>
 <blockquote>
 <p><span class="math inline">\(R^2 = .50\)</span>, 90% CI <span class="math inline">\([0.42\)</span>, <span class="math inline">\(0.57]\)</span>, <span class="math inline">\(F(2, 273) = 136.78\)</span>, <span class="math inline">\(p &lt; .001\)</span></p>
 </blockquote>
 <p>Tables produced by <code>apa_print()</code> have variable labels</p>
-<pre class="sourceCode r"><code class="sourceCode r">lm_res_apa<span class="op">$</span>table</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1">lm_res_apa<span class="op">$</span>table</a></code></pre></div>
 <pre><code>## A data.frame with 5 labelled columns:
 ## 
 ##   predictor estimate                 ci statistic p.value
@@ -799,7 +892,7 @@ lm_res_apa<span class="op">$</span>estimate<span class="op">$</span>Intercept</c
 ## statistic: $t(273)$ 
 ## p.value  : $p$</code></pre>
 <p>Tables produced by <code>apa_print()</code> have variable labels</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(lm_res_apa<span class="op">$</span>table)</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="kw">variable_labels</span>(lm_res_apa<span class="op">$</span>table)</a></code></pre></div>
 <pre><code>## $predictor
 ## [1] &quot;Predictor&quot;
 ## 
@@ -814,24 +907,24 @@ lm_res_apa<span class="op">$</span>estimate<span class="op">$</span>Intercept</c
 ## 
 ## $p.value
 ## [1] &quot;$p$&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(letters) &lt;-<span class="st"> &quot;Alphabet&quot;</span>
-letters[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>]</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="kw">variable_labels</span>(letters) &lt;-<span class="st"> &quot;Alphabet&quot;</span></a>
+<a class="sourceLine" id="cb68-2" data-line-number="2">letters[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>]</a></code></pre></div>
 <pre><code>## Variable label     : Alphabet
 ##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot;
 ## attr(,&quot;class&quot;)
 ## [1] &quot;papaja_labelled&quot; &quot;character&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cars<span class="op">$</span>speed) &lt;-<span class="st"> &quot;Speed [m/h]&quot;</span>
-cars[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="st">&quot;speed&quot;</span>]</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1"><span class="kw">variable_labels</span>(cars<span class="op">$</span>speed) &lt;-<span class="st"> &quot;Speed [m/h]&quot;</span></a>
+<a class="sourceLine" id="cb70-2" data-line-number="2">cars[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="st">&quot;speed&quot;</span>]</a></code></pre></div>
 <pre><code>## Variable label     : Speed [m/h]
 ##  [1]  4  4  7  7  8  9 10 10 10 11 11 12 12 12 12
 ## attr(,&quot;class&quot;)
 ## [1] &quot;papaja_labelled&quot; &quot;numeric&quot;</code></pre>
 <p>Variable labels can be added to any <code>vector</code> or <code>data.frame</code></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cars) &lt;-<span class="st"> </span><span class="kw">c</span>(
-  <span class="dt">speed =</span> <span class="st">&quot;Speed [m/h]&quot;</span>
-  , <span class="dt">dist =</span> <span class="st">&quot;Stopping distance [ft]&quot;</span>
-)
-cars[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="kw">variable_labels</span>(cars) &lt;-<span class="st"> </span><span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb72-2" data-line-number="2">  <span class="dt">speed =</span> <span class="st">&quot;Speed [m/h]&quot;</span></a>
+<a class="sourceLine" id="cb72-3" data-line-number="3">  , <span class="dt">dist =</span> <span class="st">&quot;Stopping distance [ft]&quot;</span></a>
+<a class="sourceLine" id="cb72-4" data-line-number="4">)</a>
+<a class="sourceLine" id="cb72-5" data-line-number="5">cars[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, ]</a></code></pre></div>
 <pre><code>##   speed dist
 ## 1     4    2
 ## 2     4   10
@@ -841,9 +934,9 @@ cars[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>
 <li>Conflicting implementations</li>
 <li>Ours is, in principle, compatible with <code>Hmisc</code></li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">variable_labels</span>(cars<span class="op">$</span>dist)</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="kw">variable_labels</span>(cars<span class="op">$</span>dist)</a></code></pre></div>
 <pre><code>## [1] &quot;Stopping distance [ft]&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">cars[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="st">&quot;dist&quot;</span>]</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1">cars[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="st">&quot;dist&quot;</span>]</a></code></pre></div>
 <pre><code>## Variable label     : Stopping distance [ft]
 ##  [1]  2 10  4 22 16 10 18 26 34 17 28 14 20 24 28
 ## attr(,&quot;class&quot;)
@@ -867,33 +960,73 @@ For this reason <code>apa_print()</code> does not support results from the popul
 The object returned by this function has no class to inform us about its contents and, thus, cannot be processed.
 We recommend you try one of the other available packages, e.g. <code>aov_ez()</code> from the <code>afex</code>-package.</p>
 <p><em>Functionality</em>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">cosmetic_surgery_anova &lt;-<span class="st"> </span>afex<span class="op">::</span><span class="kw">aov_ez</span>(
-  <span class="dt">data =</span> cosmetic_surgery
-  , <span class="dt">dv =</span> <span class="st">&quot;Post_QoL&quot;</span>
-  , <span class="dt">id =</span> <span class="st">&quot;ID&quot;</span>
-  , <span class="dt">between =</span> <span class="kw">c</span>(<span class="st">&quot;Clinic&quot;</span>, <span class="st">&quot;Gender&quot;</span>)
-)
-apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmetic_surgery_anova)</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1">cosmetic_surgery_anova &lt;-<span class="st"> </span>afex<span class="op">::</span><span class="kw">aov_ez</span>(</a>
+<a class="sourceLine" id="cb78-2" data-line-number="2">  <span class="dt">data =</span> cosmetic_surgery</a>
+<a class="sourceLine" id="cb78-3" data-line-number="3">  , <span class="dt">dv =</span> <span class="st">&quot;Post_QoL&quot;</span></a>
+<a class="sourceLine" id="cb78-4" data-line-number="4">  , <span class="dt">id =</span> <span class="st">&quot;ID&quot;</span></a>
+<a class="sourceLine" id="cb78-5" data-line-number="5">  , <span class="dt">between =</span> <span class="kw">c</span>(<span class="st">&quot;Clinic&quot;</span>, <span class="st">&quot;Gender&quot;</span>)</a>
+<a class="sourceLine" id="cb78-6" data-line-number="6">)</a>
+<a class="sourceLine" id="cb78-7" data-line-number="7">apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmetic_surgery_anova)</a></code></pre></div>
 <p>Now, you can report the results of your analyses like so:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Clinic</span> (<span class="st">`</span><span class="dt">r apa_anova$full$Clinic</span><span class="st">`</span>) and patient gender affected post<span class="op">-</span>surgery quality of life, <span class="st">`</span><span class="dt">r apa_anova$full$Gender</span><span class="st">`</span>. However, the effect of gender differed by clinic, <span class="st">`</span><span class="dt">r apa_anova$full$Clinic_Gender</span><span class="st">`</span>.</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="kw">Clinic</span> (<span class="st">`</span><span class="dt">r apa_anova$full$Clinic</span><span class="st">`</span>) and patient gender affected post<span class="op">-</span>surgery quality of life, <span class="st">`</span><span class="dt">r apa_anova$full$Gender</span><span class="st">`</span>. However, the effect of gender differed by clinic, <span class="st">`</span><span class="dt">r apa_anova$full$Clinic_Gender</span><span class="st">`</span>.</a></code></pre></div>
 <p>Which will yield the following text:</p>
 <blockquote>
 <p>Clinic (<span class="math inline">\(F(9, 256) = 19.98\)</span>, <span class="math inline">\(\mathit{MSE} = 47.58\)</span>, <span class="math inline">\(p &lt; .001\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .413\)</span>) and patient gender affected post-surgery quality of life, <span class="math inline">\(F(1, 256) = 15.29\)</span>, <span class="math inline">\(\mathit{MSE} = 47.58\)</span>, <span class="math inline">\(p &lt; .001\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .056\)</span>. However, the effect of gender differed by clinic, <span class="math inline">\(F(9, 256) = 1.97\)</span>, <span class="math inline">\(\mathit{MSE} = 47.58\)</span>, <span class="math inline">\(p = .043\)</span>, <span class="math inline">\(\hat{\eta}^2_G = .065\)</span>.</p>
 </blockquote>
 <p>Again, you can easily create a complete ANOVA table by passing <code>recall_anova_results$table</code> to <code>apa_table()</code>, see .</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apa_table</span>(
-  apa_anova<span class="op">$</span>table
-  , <span class="dt">caption =</span> <span class="st">&quot;A really beautiful ANOVA table.&quot;</span>
-  , <span class="dt">note =</span> <span class="st">&quot;Note that the column names contain beautiful mathematical copy: This is because the table has variable labels.&quot;</span>
-)</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="kw">apa_table</span>(</a>
+<a class="sourceLine" id="cb80-2" data-line-number="2">  apa_anova<span class="op">$</span>table</a>
+<a class="sourceLine" id="cb80-3" data-line-number="3">  , <span class="dt">caption =</span> <span class="st">&quot;A really beautiful ANOVA table.&quot;</span></a>
+<a class="sourceLine" id="cb80-4" data-line-number="4">  , <span class="dt">note =</span> <span class="st">&quot;Note that the column names contain beautiful mathematical copy: This is because the table has variable labels.&quot;</span></a>
+<a class="sourceLine" id="cb80-5" data-line-number="5">)</a></code></pre></div>
 <caption>
-<span id="tab:anova-table">Table 4.2: </span>
+<span id="tab:anova-table">Table 4.3: </span>
 </caption>
 <caption>
 <em>A really beautiful ANOVA table.</em>
 </caption>
-Effect <span class="math inline">\(F\)</span> <span class="math inline">\(\mathit{df}_1\)</span> <span class="math inline">\(\mathit{df}_2\)</span> <span class="math inline">\(\mathit{MSE}\)</span> <span class="math inline">\(p\)</span> <span class="math inline">\(\hat{\eta}^2_G\)</span> ———————– —— —————- —————- ————— ——- —————–Clinic 19.98 9 256 47.58 &lt; .001 .413 Gender 15.29 1 256 47.58 &lt; .001 .056 Clinic <span class="math inline">\(\times\)</span> Gender 1.97 9 256 47.58 .043 .065<br />
-
+<table>
+<thead>
+<tr class="header">
+<th align="left">Effect</th>
+<th align="left"><span class="math inline">\(F\)</span></th>
+<th align="left"><span class="math inline">\(\mathit{df}_1\)</span></th>
+<th align="left"><span class="math inline">\(\mathit{df}_2\)</span></th>
+<th align="left"><span class="math inline">\(\mathit{MSE}\)</span></th>
+<th align="left"><span class="math inline">\(p\)</span></th>
+<th align="left"><span class="math inline">\(\hat{\eta}^2_G\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Clinic</td>
+<td align="left">19.98</td>
+<td align="left">9</td>
+<td align="left">256</td>
+<td align="left">47.58</td>
+<td align="left">&lt; .001</td>
+<td align="left">.413</td>
+</tr>
+<tr class="even">
+<td align="left">Gender</td>
+<td align="left">15.29</td>
+<td align="left">1</td>
+<td align="left">256</td>
+<td align="left">47.58</td>
+<td align="left">&lt; .001</td>
+<td align="left">.056</td>
+</tr>
+<tr class="odd">
+<td align="left">Clinic <span class="math inline">\(\times\)</span> Gender</td>
+<td align="left">1.97</td>
+<td align="left">9</td>
+<td align="left">256</td>
+<td align="left">47.58</td>
+<td align="left">.043</td>
+<td align="left">.065</td>
+</tr>
+</tbody>
+</table>
 <center>
 <em>Note.</em> Note that the column names contain beautiful mathematical copy: This is because the table has variable labels.
 </center>
@@ -940,29 +1073,29 @@ Subsequent use of functions from these packages in non-cached chunks will throw 
 </smaller></p>
 <p>If code in <code>chunk1</code> changes, <code>chunk2</code> is recomputed</p>
 <p>To avoid incorrect results due to caching, dependencies should be specified</p>
-<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">autodep =</span> <span class="ot">TRUE</span>)
-knitr<span class="op">::</span><span class="kw">dep_auto</span>()</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">autodep =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb81-2" data-line-number="2">knitr<span class="op">::</span><span class="kw">dep_auto</span>()</a></code></pre></div>
 <p>See <a href="https://yihui.name/knitr/demo/cache/">knitr cache examples</a> for details</p>
 <p>Control when cache is discarded</p>
 <ul>
 <li>Ignore changes to comments</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.comments =</span> <span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.comments =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <ul>
 <li>Discard cache when random seed changes</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.extra =</span> knitr<span class="op">::</span>rand_seed)</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1">opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.extra =</span> knitr<span class="op">::</span>rand_seed)</a></code></pre></div>
 <p>I would recommend to always set these options</p>
 <ul>
 <li>Discard cache if data are modified</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.extra =</span> <span class="kw">file.info</span>(<span class="st">&quot;data.csv&quot;</span>)<span class="op">$</span>mtime)</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1">opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">cache.extra =</span> <span class="kw">file.info</span>(<span class="st">&quot;data.csv&quot;</span>)<span class="op">$</span>mtime)</a></code></pre></div>
 <ul>
 <li>Discard cache if the R environment changes</li>
 </ul>
-<pre class="sourceCode r"><code class="sourceCode r">opts_chunk<span class="op">$</span><span class="kw">set</span>(
-  <span class="dt">cache.extra =</span> <span class="kw">list</span>(R.version, <span class="kw">sessionInfo</span>())
-)</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">opts_chunk<span class="op">$</span><span class="kw">set</span>(</a>
+<a class="sourceLine" id="cb85-2" data-line-number="2">  <span class="dt">cache.extra =</span> <span class="kw">list</span>(R.version, <span class="kw">sessionInfo</span>())</a>
+<a class="sourceLine" id="cb85-3" data-line-number="3">)</a></code></pre></div>
 <p>If time permits, always discard all cached results (i.e., delete <code>my_manuscript_cache</code> directory) and reknit the document before submission to ensure that all results are based on the current R code!</p>
 <div id="inserting-variables-before-they-have-been-computed" class="section level3">
 <h3><span class="header-section-number">4.5.1</span> Inserting variables before they have been computed</h3>
@@ -976,11 +1109,11 @@ For the following example, we’ll assume that we want to report the sample size
 The sample size is calculated in the method section:</p>
 <p><code>{r, sample-size, cache = TRUE}     n &lt;- nrow(cosmetic_surgery)</code></p>
 <p>To report this variable in the abstract we need to use an inline code chunk in the YAML front matter field:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">abstract:</span><span class="at"> |</span>
-  This is the abstract.
-  <span class="fu">Our sample size was n = `r knitr:</span><span class="at">:load_cache(label = &quot;sample-size&quot;, object = &quot;n&quot;)`.</span>
-<span class="ot">---</span></code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb86-2" data-line-number="2"><span class="fu">abstract:</span><span class="at"> |</span></a>
+<a class="sourceLine" id="cb86-3" data-line-number="3">  This is the abstract.</a>
+<a class="sourceLine" id="cb86-4" data-line-number="4">  <span class="fu">Our sample size was n = `r knitr:</span><span class="at">:load_cache(label = &quot;sample-size&quot;, object = &quot;n&quot;)`.</span></a>
+<a class="sourceLine" id="cb86-5" data-line-number="5"><span class="ot">---</span></a></code></pre></div>
 <p>When the document is first rendered the object <code>n</code> in the code chunk <code>sample-size</code> has not yet been computed and <code>knitr::load_cache()</code> will insert <code>&quot;NOT AVAILABLE&quot;</code> instead.
 The next time the document is rendered, the results of the previous run have been saved as cache database.
 These results will be loaded and inserted into the abstract.</p>
@@ -996,13 +1129,13 @@ For variables computed later in the document, <code>knitr::load_cache()</code> c
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-R-car">
-<p>Fox, J., &amp; Weisberg, S. (2011). <em>An R companion to applied regression</em> (Second.). Thousand Oaks CA: Sage. Retrieved from <a href="http://socserv.socsci.mcmaster.ca/jfox/Books/Companion">http://socserv.socsci.mcmaster.ca/jfox/Books/Companion</a></p>
+<p>Fox, J., &amp; Weisberg, S. (2011). <em>An R companion to applied regression</em> (Second.). Thousand Oaks CA: Sage. Retrieved from <a href="http://socserv.socsci.mcmaster.ca/jfox/Books/Companion" class="uri">http://socserv.socsci.mcmaster.ca/jfox/Books/Companion</a></p>
 </div>
 <div id="ref-R-ez">
-<p>Lawrence, M. A. (2016). <em>Ez: Easy analysis and visualization of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=ez">https://CRAN.R-project.org/package=ez</a></p>
+<p>Lawrence, M. A. (2016). <em>Ez: Easy analysis and visualization of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=ez" class="uri">https://CRAN.R-project.org/package=ez</a></p>
 </div>
 <div id="ref-R-afex">
-<p>Singmann, H., Bolker, B., Westfall, J., &amp; Aust, F. (2016). <em>Afex: Analysis of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=afex">https://CRAN.R-project.org/package=afex</a></p>
+<p>Singmann, H., Bolker, B., Westfall, J., &amp; Aust, F. (2016). <em>Afex: Analysis of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=afex" class="uri">https://CRAN.R-project.org/package=afex</a></p>
 </div>
 </div>
 <div class="footnotes">
@@ -1061,7 +1194,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapaper": false,
+"instapper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -1073,10 +1206,6 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/crsh/papaja_man/edit/master/04-reporting.Rmd",
 "text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
 },
 "download": null,
 "toc": {
@@ -1092,7 +1221,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;
