@@ -359,7 +359,7 @@ For prettier tables, I suggest you try `apa_table()`, which builds on `knitr`'s 
 (ref:mixed-table-note) This table was created with apa_table().
 
 ```{r results = 'asis', echo = TRUE, eval = TRUE, message = FALSE}
-library(dplyr) # this was not previously loaded but here is probably not the best place in the manual
+library(dplyr)
 descriptives <- mixed_data %>% group_by(Dosage) %>%
   summarize(
     Mean = mean(Recall)
