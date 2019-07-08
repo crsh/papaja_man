@@ -440,7 +440,7 @@ Text references can be defined as follows:
 (ref:my-table-caption) This is a caption for my table.
 ```
 
-The text reference can now be inserted in the chunk options (or anywhere else), e.g. `apa_table(descriptives, caption = "my-table-caption")`.
+The text reference can now be inserted in the chunk options (or anywhere else), e.g. `apa_table(descriptives, caption = "(ref:my-table-caption)")`.
 The use of text references has several advantages:
 
 1. The use of Markdown and $\LaTeX$ syntax is not well supported in `caption = `.
