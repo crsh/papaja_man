@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html >
+
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 R Markdown components | papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="&quot;&quot;" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>papaja: Reproducible APA manuscripts with R Markdown</title>
+  <meta name="description" content="&quot;&quot;">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="2 R Markdown components | papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
   
   
@@ -16,26 +17,25 @@
   <meta name="github-repo" content="crsh/papaja_man" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 R Markdown components | papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta name="twitter:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
   
   <meta name="twitter:description" content="&quot;&quot;" />
   
 
-<meta name="author" content="Frederik Aust &amp; Marius Barth" />
+<meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2019-07-01" />
+<meta name="date" content="2019-07-07">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
 <link rel="prev" href="introduction.html">
 <link rel="next" href="writing.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -52,7 +52,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -65,11 +65,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -176,7 +178,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.3</b> Figure captions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.1</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.4</b> Results from statistical tests</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.4.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
@@ -312,64 +315,64 @@ The second part is the main body that contains R code chunks and prose in Markdo
 <!-- ``` -->
 <p>You don’t need to familiarize yourself intimately with YAML to use R Markdown or <code>papaja</code> and I suggest you try to just use it.
 The following is the default YAML front matter; it starts and ends with <code>---</code>:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">title             :</span><span class="at"> </span><span class="st">&quot;The title&quot;</span>
-<span class="fu">shorttitle        :</span><span class="at"> </span><span class="st">&quot;Title&quot;</span>
-
-<span class="fu">author:</span><span class="at"> </span>
-  <span class="kw">-</span> <span class="fu">name          :</span><span class="at"> </span><span class="st">&quot;First Author&quot;</span>
-    <span class="fu">affiliation   :</span><span class="at"> </span><span class="st">&quot;1&quot;</span>
-    <span class="fu">corresponding :</span><span class="at"> yes    </span><span class="co"># Define only one corresponding author</span>
-    <span class="fu">address       :</span><span class="at"> </span><span class="st">&quot;Postal address&quot;</span>
-    <span class="fu">email         :</span><span class="at"> </span><span class="st">&quot;my@email.com&quot;</span>
-  <span class="kw">-</span> <span class="fu">name          :</span><span class="at"> </span><span class="st">&quot;Ernst-August Doelle&quot;</span>
-    <span class="fu">affiliation   :</span><span class="at"> </span><span class="st">&quot;1,2&quot;</span>
-
-<span class="fu">affiliation:</span>
-  <span class="kw">-</span> <span class="fu">id            :</span><span class="at"> </span><span class="st">&quot;1&quot;</span>
-    <span class="fu">institution   :</span><span class="at"> </span><span class="st">&quot;Wilhelm-Wundt-University&quot;</span>
-  <span class="kw">-</span> <span class="fu">id            :</span><span class="at"> </span><span class="st">&quot;2&quot;</span>
-    <span class="fu">institution   :</span><span class="at"> </span><span class="st">&quot;Konstanz Business School&quot;</span>
-
-<span class="fu">authornote:</span><span class="at"> |</span>
-  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
-
-  Enter author note here.
-
-<span class="fu">abstract:</span><span class="at"> |</span>
-  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
-  
-  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
-  
-  One sentence clearly stating the **general problem** being addressed by  this particular study.
-  
-  One sentence summarizing the main result (with the words <span class="st">&quot;**here we show**&quot;</span> or their equivalent).
-  
-  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
-  
-  One or two sentences to put the results into a more **general context**.
-  
-  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
-  
-  <span class="fu">&lt;!-- https:</span><span class="at">//tinyurl.com/ybremelq --&gt;</span>
-  
-<span class="fu">keywords          :</span><span class="at"> </span><span class="st">&quot;keywords&quot;</span>
-<span class="fu">wordcount         :</span><span class="at"> </span><span class="st">&quot;X&quot;</span>
-
-<span class="fu">bibliography      :</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;r-references.bib&quot;</span><span class="kw">]</span>
-
-<span class="fu">floatsintext      :</span><span class="at"> no</span>
-<span class="fu">figurelist        :</span><span class="at"> no</span>
-<span class="fu">tablelist         :</span><span class="at"> no</span>
-<span class="fu">footnotelist      :</span><span class="at"> no</span>
-<span class="fu">linenumbers       :</span><span class="at"> yes</span>
-<span class="fu">mask              :</span><span class="at"> no</span>
-<span class="fu">draft             :</span><span class="at"> no</span>
-
-<span class="fu">documentclass     :</span><span class="at"> </span><span class="st">&quot;apa6&quot;</span>
-<span class="fu">classoption       :</span><span class="at"> </span><span class="st">&quot;man&quot;</span>
-<span class="fu">output            :</span><span class="at"> papaja::apa6_pdf</span>
-<span class="ot">---</span></code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="fu">title             :</span><span class="at"> </span><span class="st">&quot;The title&quot;</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="fu">shorttitle        :</span><span class="at"> </span><span class="st">&quot;Title&quot;</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="fu">author:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">  <span class="kw">-</span> <span class="fu">name          :</span><span class="at"> </span><span class="st">&quot;First Author&quot;</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">    <span class="fu">affiliation   :</span><span class="at"> </span><span class="st">&quot;1&quot;</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">    <span class="fu">corresponding :</span><span class="at"> yes    </span><span class="co"># Define only one corresponding author</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">    <span class="fu">address       :</span><span class="at"> </span><span class="st">&quot;Postal address&quot;</span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">    <span class="fu">email         :</span><span class="at"> </span><span class="st">&quot;my@email.com&quot;</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">  <span class="kw">-</span> <span class="fu">name          :</span><span class="at"> </span><span class="st">&quot;Ernst-August Doelle&quot;</span></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12">    <span class="fu">affiliation   :</span><span class="at"> </span><span class="st">&quot;1,2&quot;</span></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb9-14" data-line-number="14"><span class="fu">affiliation:</span></a>
+<a class="sourceLine" id="cb9-15" data-line-number="15">  <span class="kw">-</span> <span class="fu">id            :</span><span class="at"> </span><span class="st">&quot;1&quot;</span></a>
+<a class="sourceLine" id="cb9-16" data-line-number="16">    <span class="fu">institution   :</span><span class="at"> </span><span class="st">&quot;Wilhelm-Wundt-University&quot;</span></a>
+<a class="sourceLine" id="cb9-17" data-line-number="17">  <span class="kw">-</span> <span class="fu">id            :</span><span class="at"> </span><span class="st">&quot;2&quot;</span></a>
+<a class="sourceLine" id="cb9-18" data-line-number="18">    <span class="fu">institution   :</span><span class="at"> </span><span class="st">&quot;Konstanz Business School&quot;</span></a>
+<a class="sourceLine" id="cb9-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb9-20" data-line-number="20"><span class="fu">authornote:</span><span class="at"> |</span></a>
+<a class="sourceLine" id="cb9-21" data-line-number="21">  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.</a>
+<a class="sourceLine" id="cb9-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb9-23" data-line-number="23">  Enter author note here.</a>
+<a class="sourceLine" id="cb9-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb9-25" data-line-number="25"><span class="fu">abstract:</span><span class="at"> |</span></a>
+<a class="sourceLine" id="cb9-26" data-line-number="26">  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.</a>
+<a class="sourceLine" id="cb9-27" data-line-number="27">  </a>
+<a class="sourceLine" id="cb9-28" data-line-number="28">  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.</a>
+<a class="sourceLine" id="cb9-29" data-line-number="29">  </a>
+<a class="sourceLine" id="cb9-30" data-line-number="30">  One sentence clearly stating the **general problem** being addressed by  this particular study.</a>
+<a class="sourceLine" id="cb9-31" data-line-number="31">  </a>
+<a class="sourceLine" id="cb9-32" data-line-number="32">  One sentence summarizing the main result (with the words <span class="st">&quot;**here we show**&quot;</span> or their equivalent).</a>
+<a class="sourceLine" id="cb9-33" data-line-number="33">  </a>
+<a class="sourceLine" id="cb9-34" data-line-number="34">  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.</a>
+<a class="sourceLine" id="cb9-35" data-line-number="35">  </a>
+<a class="sourceLine" id="cb9-36" data-line-number="36">  One or two sentences to put the results into a more **general context**.</a>
+<a class="sourceLine" id="cb9-37" data-line-number="37">  </a>
+<a class="sourceLine" id="cb9-38" data-line-number="38">  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.</a>
+<a class="sourceLine" id="cb9-39" data-line-number="39">  </a>
+<a class="sourceLine" id="cb9-40" data-line-number="40">  <span class="fu">&lt;!-- https:</span><span class="at">//tinyurl.com/ybremelq --&gt;</span></a>
+<a class="sourceLine" id="cb9-41" data-line-number="41">  </a>
+<a class="sourceLine" id="cb9-42" data-line-number="42"><span class="fu">keywords          :</span><span class="at"> </span><span class="st">&quot;keywords&quot;</span></a>
+<a class="sourceLine" id="cb9-43" data-line-number="43"><span class="fu">wordcount         :</span><span class="at"> </span><span class="st">&quot;X&quot;</span></a>
+<a class="sourceLine" id="cb9-44" data-line-number="44"></a>
+<a class="sourceLine" id="cb9-45" data-line-number="45"><span class="fu">bibliography      :</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;r-references.bib&quot;</span><span class="kw">]</span></a>
+<a class="sourceLine" id="cb9-46" data-line-number="46"></a>
+<a class="sourceLine" id="cb9-47" data-line-number="47"><span class="fu">floatsintext      :</span><span class="at"> no</span></a>
+<a class="sourceLine" id="cb9-48" data-line-number="48"><span class="fu">figurelist        :</span><span class="at"> no</span></a>
+<a class="sourceLine" id="cb9-49" data-line-number="49"><span class="fu">tablelist         :</span><span class="at"> no</span></a>
+<a class="sourceLine" id="cb9-50" data-line-number="50"><span class="fu">footnotelist      :</span><span class="at"> no</span></a>
+<a class="sourceLine" id="cb9-51" data-line-number="51"><span class="fu">linenumbers       :</span><span class="at"> yes</span></a>
+<a class="sourceLine" id="cb9-52" data-line-number="52"><span class="fu">mask              :</span><span class="at"> no</span></a>
+<a class="sourceLine" id="cb9-53" data-line-number="53"><span class="fu">draft             :</span><span class="at"> no</span></a>
+<a class="sourceLine" id="cb9-54" data-line-number="54"></a>
+<a class="sourceLine" id="cb9-55" data-line-number="55"><span class="fu">documentclass     :</span><span class="at"> </span><span class="st">&quot;apa6&quot;</span></a>
+<a class="sourceLine" id="cb9-56" data-line-number="56"><span class="fu">classoption       :</span><span class="at"> </span><span class="st">&quot;man&quot;</span></a>
+<a class="sourceLine" id="cb9-57" data-line-number="57"><span class="fu">output            :</span><span class="at"> papaja::apa6_pdf</span></a>
+<a class="sourceLine" id="cb9-58" data-line-number="58"><span class="ot">---</span></a></code></pre></div>
 <div id="manuscript-metadata" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Manuscript metadata</h3>
 <p>Most of the information contained in the YAML front matter is information about the document.</p>
@@ -491,9 +494,9 @@ Setting <code>class</code> to <code>man</code> produces the default APA manuscri
 The latter option is, however, currently not available for Microsoft Word documents.</p>
 <p>The <code>output</code> field determines the type of document that is created and can be either <code>papaja::apa6_pdf</code> or <code>papaja::apa6_word</code>.
 Additional arguments can be passed to these functions, e.g. to delete the LaTeX source file after the PDF has been rendered (see <code>?apa6_pdf</code> for details):</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">output:</span><span class="at"> </span>
-  <span class="fu">papaja:</span><span class="at">:apa6_pdf:</span>
-    <span class="fu">keep_tex:</span><span class="at"> FALSE</span></code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="fu">output:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="fu">papaja:</span><span class="at">:apa6_pdf:</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">    <span class="fu">keep_tex:</span><span class="at"> FALSE</span></a></code></pre></div>
 <ul>
 <li>Extend <code>bookdown::pdf_document2()</code> and <code>bookdown::word_document2()</code>
 <ul>
@@ -526,20 +529,20 @@ Microsoft Word implements this strategy in their so-called <em>styles</em>, whic
 Markdown was desigend to be an easy-to-read and -write formatting syntax.
 The key design goal was to create a syntax that is readable as-is.
 The following is an excerpt from the APA example manuscript written in Markdown.</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Methods</span>
-<span class="fu">## Participants</span>
-Younger adults (14 women, 10 men, $M_{age} = 19.5$ years, age
-range: 18–22 years) were recruited with flyers posted on the
-Boston College campus. &lt;!–– TODO: Add flyer to appendix! ––&gt;
-
-Older adults (15 women, nine men, $M_{age} = 76.1$ years, age
-range: 68–84 years) were recruited through the Harvard
-Cooperative on Aging (see Table 1, for demographics and test
-scores).<span class="ot">[^p]</span>
-
-<span class="ot">[^p]</span>: Analyses of covariance were conducted with these
-covariates,with no resulting influences of these variables on
-the pattern or magnitude of the results.</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="fu"># Methods</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="fu">## Participants</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">Younger adults (14 women, 10 men, $M_{age} = 19.5$ years, age</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">range: 18–22 years) were recruited with flyers posted on the</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">Boston College campus. &lt;!–– TODO: Add flyer to appendix! ––&gt;</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">Older adults (15 women, nine men, $M_{age} = 76.1$ years, age</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">range: 68–84 years) were recruited through the Harvard</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">Cooperative on Aging (see Table 1, for demographics and test</a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">scores).<span class="ot">[^p]</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="ot">[^p]</span>: Analyses of covariance were conducted with these</a>
+<a class="sourceLine" id="cb11-13" data-line-number="13">covariates,with no resulting influences of these variables on</a>
+<a class="sourceLine" id="cb11-14" data-line-number="14">the pattern or magnitude of the results.</a></code></pre></div>
 <p>Without any prior knowledge of Markdown it should be easy to guess what most of this syntax does:
 <code>#</code> and <code>##</code> denote first and second order section headings (and so on), <code>&lt;!--</code> and <code>--&gt;</code> surround comments that will not be displayed in the rendered document, and <code>[^p]</code> adds a reference to a footnote that is written out following <code>[^p]:</code>.
 The equations surrounded by <code>$</code> may be somewhat less intuitive.
@@ -572,7 +575,7 @@ See the <a href="https://yihui.name/knitr/options/">knitr chunk options and pack
 Writing R code inline is a convenient way of reporting results of computations in the running text.
 For example, the mean and standard deviation of participants’ age are stored in variables named <code>age_mean</code> and <code>age_sd</code>.
 These numbers can be reported by printing the variables in inline R code.</p>
-<pre class="sourceCode markdown"><code class="sourceCode markdown">Participants mean age was <span class="bn">`r age_mean`</span> years ($SD = <span class="bn">`r age_sd`</span>$).</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb13-1" data-line-number="1">Participants mean age was <span class="bn">`r age_mean`</span> years ($SD = <span class="bn">`r age_sd`</span>$).</a></code></pre></div>
 <p>As in any other R script, R code is executed from top to bottom.
 Thus, any variables that are called in code chunks or inline R code must be defined above.</p>
 <p>Reporting numerical values frequently requires some formatting, such as rounding or filling with trailing zeros (e.g., 24.10).
@@ -640,7 +643,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapaper": false,
+"instapper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -652,10 +655,6 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/crsh/papaja_man/edit/master/02-components.Rmd",
 "text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
 },
 "download": null,
 "toc": {
@@ -671,7 +670,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

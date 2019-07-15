@@ -354,13 +354,12 @@ To ensure that `fig.scap` takes effect, `knitr` requires that the chunk specifie
 
 For prettier tables, I suggest you try `apa_table()`, which builds on `knitr`'s `kable()`.
 
-(ref:mixed-table-caption)
-Descriptive statistics of correct recall by dosage.
+(ref:mixed-table-caption) Descriptive statistics of correct recall by dosage.
 
-(ref:mixed-table-note)
-This table was created with apa_table().
+(ref:mixed-table-note) This table was created with apa_table().
 
-```{r results = 'asis', echo = TRUE, eval = FALSE}
+```{r results = 'asis', echo = TRUE, eval = TRUE, message = FALSE}
+library(dplyr)
 descriptives <- mixed_data %>% group_by(Dosage) %>%
   summarize(
     Mean = mean(Recall)
@@ -430,6 +429,40 @@ some latex $\\alpha$"
 - Remember to set chunk option `results = "asis"`!
 
 `kableExtra` is another powerful alternative
+
+### Table captions
+
+Table captions can by passing a character string to `caption = ` argument within apa_table function (e.g. `apa_table(descriptives, caption = "My table caption")`). However, as with figures we strongly recommend that you use [text references](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references)---a feature of the `bookdown` package---instead.
+A text reference consists of a unique label and the corresponding text that it represents.
+Text references can be defined as follows:
+
+```
+(ref:my-table-caption) This is a caption for my table.
+```
+
+The text reference can now be inserted in the chunk options (or anywhere else), e.g. `apa_table(descriptives, caption = "(ref:my-table-caption)")`.
+The use of text references has several advantages:
+
+1. The use of Markdown and $\LaTeX$ syntax is not well supported in `caption = `.
+For example, `\` and `_` must be escaped to prevent either R or $\LaTeX$ from erroring.
+Moreover, Markdown formatting and citation syntax is not supported at all.
+None of these limitations apply to text references.
+1. Long table captions can impair the readability of the document when they are added directly apa_table() call.
+1. Changing text reference does constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.
+1. Text references can include inline code chunks.
+
+We recommend you define the text reference for a table caption just above the corresponding code chunk. This should not occur within a code chunk and the reference and caption should be on the same line. That is
+
+```
+(ref:my-table-caption) This is a caption for my table.
+```
+
+Rather than
+
+```
+(ref:my-table-caption) 
+This is a caption for my table.
+```
 
 
 
