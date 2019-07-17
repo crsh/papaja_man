@@ -272,8 +272,7 @@ A text reference consist of a unique label and the corresponding text that it re
 Text references can be defined as follows:
 
 ```
-(ref:my-figure-caption)
-This is a figure caption for my figure.
+(ref:my-figure-caption) This is a figure caption for my figure.
 ```
 
 The text reference can now be inserted in the chunk options (or anywhere else), e.g. `fig.cap = "(ref:my-figure-caption)"`.
