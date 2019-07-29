@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="&quot;&quot;">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Introduction | papaja: Reproducible APA manuscripts with R Markdown</title>
+  <meta name="description" content="&quot;&quot;" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta property="og:title" content="1 Introduction | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
   
   
@@ -17,25 +16,26 @@
   <meta name="github-repo" content="crsh/papaja_man" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta name="twitter:title" content="1 Introduction | papaja: Reproducible APA manuscripts with R Markdown" />
   
   <meta name="twitter:description" content="&quot;&quot;" />
   
 
-<meta name="author" content="Frederik Aust &amp; Marius Barth">
+<meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2019-07-07">
+<meta name="date" content="2019-07-29" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="index.html">
 <link rel="next" href="r-markdown-components.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -52,7 +52,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -65,13 +65,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -290,7 +288,7 @@ Thus, the term reproducibility here means that given a dataset and analysis scri
 research in computational harmonic analysis. Comput. Sci. Eng. 11, 8–18 (2009).
 Donoho and fellow researchers have been at the forefront of reproducibility for
 many years; this a</p>
-<p>org-mode: <a href="http://www.sciencedirect.com/science/article/pii/S0928425711000374?via%3Dihub">http://www.sciencedirect.com/science/article/pii/S0928425711000374?via%3Dihub</a>
+<p>org-mode: <a href="http://www.sciencedirect.com/science/article/pii/S0928425711000374?via%3Dihub" class="uri">http://www.sciencedirect.com/science/article/pii/S0928425711000374?via%3Dihub</a>
 <a href="http://yuyang0.github.io/static/doc/babel.pdf" class="uri">http://yuyang0.github.io/static/doc/babel.pdf</a></p>
 <p>Proprietary software also exists like Inference for R29 – for using R with Microsoft Office – but we do not have any experience with them. Open-source tools like Dexy30 and Sumatra31 are clearly very promising and have capabilities similar to Sweave and org-mode.</p>
 <!-- 1. Generalizability (e.g., Baribault et al., 2017; Brandt et al., 2014) -->
@@ -632,15 +630,15 @@ It includes a set of templates for authoring of R related journal and conference
 <p>If you have no use for TeX beyond rendering R Markdown documents, I recommend you use <a href="https://yihui.name/tinytex/">TinyTex</a>.
 Otherwise consider <a href="http://miktex.org/">MikTeX</a> for Windows, <a href="https://tug.org/mactex/">MacTeX</a> for Mac, or <a href="http://www.tug.org/texlive/">TeX Live</a> for Linux.
 TinyTex can be installed from within R as follows.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="st">&quot;tinytex&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())) <span class="kw">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="st">&quot;tinytex&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())) <span class="kw">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)
+
+tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</code></pre>
 <p><code>papaja</code> requires additional <span class="math inline">\(\LaTeX\)</span> packages that are not part of the basic TeX installations.
 When using TinyTex, the required packages will be installed automatically when rendering a the first PDF-document.
 Users of other TeX distribution need to take one of the following additional steps.
 MikTeX users may enable the <a href="https://miktex.org/howto/miktex-console">automatic installation of missing packages</a>.
 If you are comfortable using the command line, it may be convenient to run the following command.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="ex">initexmf</span> --set-config-value [MPM]AutoInstall=1</a></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">initexmf</span> --set-config-value [MPM]AutoInstall=1</code></pre>
 <!-- <details> -->
 <!-- <summary>Show list of required $\LaTeX$ packages</summary> -->
 <!-- ~~~ -->
@@ -675,27 +673,27 @@ xcolor -->
 Alternatively, you can install the additional packages manually.
 Again the installation can be done conveniently from the command line.
 MikTeX users can run the following command.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="ex">mpm</span> --install=apa6,booktabs,caption,csquotes,endfloat,environ,etoolbox,fancyhdr,fancyvrb,framed,lineno,microtype,mptopdf,ms,parskip,pgf,sttools,threeparttable,threeparttablex,trimspaces,txfonts,upquote,url,was,xcolor</a></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">mpm</span> --install=apa6,booktabs,caption,csquotes,endfloat,environ,etoolbox,fancyhdr,fancyvrb,framed,lineno,microtype,mptopdf,ms,parskip,pgf,sttools,threeparttable,threeparttablex,trimspaces,txfonts,upquote,url,was,xcolor</code></pre>
 <p>It may be necessary to launch MikTeX console as administrator (right-click and <em>Run as administrator</em>) before executing the command.</p>
 <p>TeXLive and MacTeX users can run the following command.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="ex">tlmgr</span> install apa6 booktabs caption csquotes endfloat environ etoolbox fancyhdr fancyvrb framed lineno microtype mptopdf ms parskip pgf sttools threeparttable threeparttablex trimspaces txfonts upquote url was xcolor</a></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">tlmgr</span> install apa6 booktabs caption csquotes endfloat environ etoolbox fancyhdr fancyvrb framed lineno microtype mptopdf ms parskip pgf sttools threeparttable threeparttablex trimspaces txfonts upquote url was xcolor</code></pre>
 <p>It may be necessary to first install <code>tlmgr</code>.
 Alternatively, Ubuntu users can install the following Ubuntu packages:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="fu">sudo</span> apt-get install texlive-publishers texlive-fonts-extra texlive-latex-extra texlive-humanities lmodern</a></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install texlive-publishers texlive-fonts-extra texlive-latex-extra texlive-humanities lmodern</code></pre>
 <p>Finally, you may <a href="https://tex.stackexchange.com/a/105650/11001">install a <em>complete</em></a>—not the basic—TeX distribution that comes with all available LaTeX packages but is several gigabytes large.</p>
 </div>
 </div>
 <div id="installing-papaja" class="section level3">
 <h3><span class="header-section-number">1.4.2</span> Installing papaja</h3>
 <p><code>papaja</code> is not yet available on CRAN but you can install it from GitHub:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># Install devtools package if necessary</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="cf">if</span>(<span class="op">!</span><span class="st">&quot;devtools&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co"># Install the stable development verions from GitHub</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co"># Install the latest development snapshot from GitHub</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja@devel&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install devtools package if necessary</span>
+<span class="cf">if</span>(<span class="op">!</span><span class="st">&quot;devtools&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())) <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+
+<span class="co"># Install the stable development verions from GitHub</span>
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja&quot;</span>)
+
+<span class="co"># Install the latest development snapshot from GitHub</span>
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;crsh/papaja@devel&quot;</span>)</code></pre>
 <p><code>papaja</code> has not yet been submitted to CRAN because it is under active development.
 Currently, there are still a couple of loose ends we would like to tie up before we release the package to a larger audience.
 If you would like to contribute to speed up the process, have a look at the chapters <a href="limitations.html#limitations">Limitations</a> and <a href="future-directions.html#future-directions">Future directions</a>.</p>
@@ -718,17 +716,17 @@ Figure 1.5: The <em>Knit</em> button in the RStudio.
 </div>
 <p>If you don’t use RStudio, you can achieve the same result via the R command line.
 Use <code>rmarkdown::draft()</code> to create a new R Markdown file and <code>rmarkdown::render()</code> to render the document.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># Create new R Markdown file</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">rmarkdown<span class="op">::</span><span class="kw">draft</span>(</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">  <span class="st">&quot;mymanuscript.Rmd&quot;</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">  , <span class="st">&quot;apa6&quot;</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">  , <span class="dt">package =</span> <span class="st">&quot;papaja&quot;</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">  , <span class="dt">create_dir =</span> <span class="ot">FALSE</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">  , <span class="dt">edit =</span> <span class="ot">FALSE</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8">)</a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co"># Render manuscript</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11">rmarkdown<span class="op">::</span><span class="kw">render</span>(<span class="st">&quot;mymanuscript.Rmd&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create new R Markdown file</span>
+rmarkdown<span class="op">::</span><span class="kw">draft</span>(
+  <span class="st">&quot;mymanuscript.Rmd&quot;</span>
+  , <span class="st">&quot;apa6&quot;</span>
+  , <span class="dt">package =</span> <span class="st">&quot;papaja&quot;</span>
+  , <span class="dt">create_dir =</span> <span class="ot">FALSE</span>
+  , <span class="dt">edit =</span> <span class="ot">FALSE</span>
+)
+
+<span class="co"># Render manuscript</span>
+rmarkdown<span class="op">::</span><span class="kw">render</span>(<span class="st">&quot;mymanuscript.Rmd&quot;</span>)</code></pre>
 <hr />
 <p><code>papaja</code> is a R-package in the making including a <a href="http://rmarkdown.rstudio.com/">R Markdown</a> template that can be used with (or without) <a href="http://www.rstudio.com/">RStudio</a> to produce documents, which conform to the American Psychological Association (APA) manuscript guidelines (6th Edition). The package uses the LaTeX document class <a href="http://www.ctan.org/pkg/apa6">apa6</a> and a .docx-reference file, so you can create PDF documents, or Word documents if you have to. Moreover, <code>papaja</code> supplies R-functions that facilitate reporting results of your analyses in accordance with APA guidelines.</p>
 
@@ -742,26 +740,26 @@ Because <strong>knitr</strong> does not allow duplicate chunk labels in a source
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
+<div id="ref-R-rmarkdown">
+<p>Allaire, J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., … Chang, W. (2017). <em>Rmarkdown: Dynamic documents for r</em>. Retrieved from <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a></p>
+</div>
 <div id="ref-american_psychological_association_publication_2010">
 <p>American Psychological Association. (2010). <em>Publication Manual of the American Psychological Association</em> (6th edition.). Washington, DC: American Psychological Association.</p>
-</div>
-<div id="ref-gandrud_reproducible_2013">
-<p>Gandrud, C. (2013). <em>Reproducible Research with R and Rstudio</em> (Auflage: New.). Boca Raton: Crc Pr Inc.</p>
-</div>
-<div id="ref-R-knitr">
-<p>Xie, Y. (2015). <em>Dynamic documents with R and knitr</em> (2nd ed.). Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a></p>
 </div>
 <div id="ref-asendorpf_recommendations_2013">
 <p>Asendorpf, J. B., Conner, M., De Fruyt, F., De Houwer, J., Denissen, J. J. A., Fiedler, K., … Wicherts, J. M. (2013). Recommendations for Increasing Replicability in Psychology. <em>European Journal of Personality</em>, <em>27</em>(2), 108–119. doi:<a href="https://doi.org/10.1002/per.1919">10.1002/per.1919</a></p>
 </div>
 <div id="ref-cacioppo_social_2015">
-<p>Cacioppo, J. T., Kaplan, R. M., Krosnick, J. A., Olds, J. L., &amp; Dean, H. (2015). <em>Social, Behavioral, and Economic Sciences Perspectives on Robust and Reliable Science</em> (Report of the Subcommittee on Replicability in Science). Arlington, VA: National Science Foundation. Retrieved from <a href="http://web.stanford.edu/group/bps/cgi-bin/wordpress/wp-content/uploads/2015/09/NSF-Robust-Research-Workshop-Report.pdf" class="uri">http://web.stanford.edu/group/bps/cgi-bin/wordpress/wp-content/uploads/2015/09/NSF-Robust-Research-Workshop-Report.pdf</a></p>
+<p>Cacioppo, J. T., Kaplan, R. M., Krosnick, J. A., Olds, J. L., &amp; Dean, H. (2015). <em>Social, Behavioral, and Economic Sciences Perspectives on Robust and Reliable Science</em> (Report of the Subcommittee on Replicability in Science). Arlington, VA: National Science Foundation. Retrieved from <a href="http://web.stanford.edu/group/bps/cgi-bin/wordpress/wp-content/uploads/2015/09/NSF-Robust-Research-Workshop-Report.pdf">http://web.stanford.edu/group/bps/cgi-bin/wordpress/wp-content/uploads/2015/09/NSF-Robust-Research-Workshop-Report.pdf</a></p>
 </div>
-<div id="ref-R-rmarkdown">
-<p>Allaire, J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., … Chang, W. (2017). <em>Rmarkdown: Dynamic documents for r</em>. Retrieved from <a href="https://CRAN.R-project.org/package=rmarkdown" class="uri">https://CRAN.R-project.org/package=rmarkdown</a></p>
+<div id="ref-gandrud_reproducible_2013">
+<p>Gandrud, C. (2013). <em>Reproducible Research with R and Rstudio</em> (Auflage: New.). Boca Raton: Crc Pr Inc.</p>
 </div>
 <div id="ref-pfister_schorsch:_2016">
 <p>Pfister, R., &amp; Janczyk, M. (2016). schoRsch: An R package for analyzing and reporting factorial experiments. <em>The Quantitative Methods for Psychology</em>, <em>12</em>(2), 147–151. doi:<a href="https://doi.org/10.20982/tqmp.12.2.p147">10.20982/tqmp.12.2.p147</a></p>
+</div>
+<div id="ref-R-knitr">
+<p>Xie, Y. (2015). <em>Dynamic documents with R and knitr</em> (2nd ed.). Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a></p>
 </div>
 </div>
 <h1>Comments and Questions</h1>
@@ -814,7 +812,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -826,6 +824,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/crsh/papaja_man/edit/master/01-introduction.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": null,
 "toc": {
@@ -841,7 +843,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

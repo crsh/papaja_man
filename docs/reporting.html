@@ -24,7 +24,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2019-07-15" />
+<meta name="date" content="2019-07-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -468,8 +468,7 @@ In principle, it is possible to define a figure caption simply by passing a char
 However, we strongly recommend that you use <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references">text references</a>—a feature of the <code>bookdown</code> package—instead.
 A text reference consist of a unique label and the corresponding text that it represents.
 Text references can be defined as follows:</p>
-<pre><code>(ref:my-figure-caption)
-This is a figure caption for my figure.</code></pre>
+<pre><code>(ref:my-figure-caption) This is a figure caption for my figure.</code></pre>
 <p>The text reference can now be inserted in the chunk options (or anywhere else), e.g. <code>fig.cap = &quot;(ref:my-figure-caption)&quot;</code>.
 The use of text references has several advantages:</p>
 <ol style="list-style-type: decimal">
@@ -778,7 +777,10 @@ t_out &lt;-<span class="st"> </span><span class="kw">t.test</span>(
 ## [1] &quot;$M_d = -3.95$, 95\\% CI $[-4.86$, $-3.04]$, $t(275) = -8.52$, $p &lt; .001$&quot;
 ## 
 ## $table
-## NULL</code></pre>
+## NULL
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;apa_results&quot; &quot;list&quot;</code></pre>
 <p>As you can see, <code>apa_print()</code> returns a list of four elements:
 List element <code>estimate</code> contains the sample estimate of mean difference;
 element <code>statistic</code> contains the result of the NHST with test statistic, <em>df</em>s, and <em>p</em> value;
