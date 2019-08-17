@@ -260,7 +260,14 @@ theme_set(theme_apa())
 
 ### External files
 
-...
+External graphics are best included by using `knitr::include_graphics()`, e.g.
+
+(ref:poppers-swanes) Only from observing many white swanes, you cannot conclude that all swanes are white. 
+
+```{r poppers-swanes, echo = TRUE, fig.cap = "(ref:poppers-swanes)"}
+knitr::include_graphics("images/swane.png")
+```
+  
 
 
 ### Figure captions
