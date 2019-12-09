@@ -648,8 +648,6 @@ lm_res_apa$estimate$Intercept
 
 > `r gsub("\\\\", "\\", lm_res_apa$estimate$Intercept)`
 
---
-
 ```{r}
 lm_res_apa$full_result$modelfit$r2
 ```
@@ -785,16 +783,11 @@ The next time the chunk is executed
 - If unchanged, cached results are loaded
 - If changed, cache is discarded and code is executed anew
 
---
-
 Packages are not reloaded, which cause problems in subsequent uncached chunks
 
 - Do not include `library()`-calls in cached chunks!
 
---
-
 Load cache into an interactive R session using `lazyLoad()`
-
 
 
 ```{block2, chached-library-warning, type='rmdcaution'}

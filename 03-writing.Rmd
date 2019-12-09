@@ -301,8 +301,6 @@ appendix: "appendix.Rmd"
 ---
 ```
 
---
-
 The R code is executed after the main document; all packages and variables from the main document should be available.
 
 
