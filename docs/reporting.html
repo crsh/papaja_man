@@ -462,7 +462,15 @@ The following example demonstrates how to set a default theme.</p>
 </div>
 <div id="external-files" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> External files</h3>
-<p>…</p>
+<p>External graphics are best included by using <code>knitr::include_graphics()</code>, e.g.</p>
+
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;images/swane.png&quot;</span>)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:poppers-swanes"></span>
+<img src="images/swane.png" alt="Only from observing many white swanes, you cannot conclude that all swanes are white." width="380" />
+<p class="caption">
+Figure 4.5: Only from observing many white swanes, you cannot conclude that all swanes are white.
+</p>
+</div>
 </div>
 <div id="figure-captions" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> Figure captions</h3>
@@ -790,7 +798,7 @@ summary.aovlist
 <div class="figure" style="text-align: center"><span id="fig:formatting-process-diagram"></span>
 <img src="result_formatting_process.png" alt="Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript."  />
 <p class="caption">
-Figure 4.5: Process diagram illustrating the use of <code>apa_print()</code> methods and <code>apa_table()</code> to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.
+Figure 4.6: Process diagram illustrating the use of <code>apa_print()</code> methods and <code>apa_table()</code> to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.
 </p>
 </div>
 <div id="htest-t-tests-correlations-etc." class="section level3">
