@@ -284,7 +284,7 @@ Moreover, Markdown formatting and citation syntax is not supported at all.
 None of these limitations apply to text references.
 2. Long figure captions can impair the readability of the document when they are added directly to the chunk options.
 3. Text references are subject to RStudio spell checking, whereas the contents of `fig.cap` is not.
-4. Changing text reference does constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.
+4. Changing text reference does not constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.
 5. Text references can include inline code chunks.
 
 We recommend to define the text reference for a figure caption just above the corresponding code chunk.
@@ -447,7 +447,7 @@ For example, `\` and `_` must be escaped to prevent either R or $\LaTeX$ from er
 Moreover, Markdown formatting and citation syntax is not supported at all.
 None of these limitations apply to text references.
 1. Long table captions can impair the readability of the document when they are added directly apa_table() call.
-1. Changing text reference does constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.
+1. Changing text reference does not constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.
 1. Text references can include inline code chunks.
 
 We recommend you define the text reference for a table caption just above the corresponding code chunk. This should not occur within a code chunk and the reference and caption should be on the same line. That is

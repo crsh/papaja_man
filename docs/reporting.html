@@ -24,7 +24,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2019-07-29" />
+<meta name="date" content="2019-12-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -481,7 +481,7 @@ Moreover, Markdown formatting and citation syntax is not supported at all.
 None of these limitations apply to text references.</li>
 <li>Long figure captions can impair the readability of the document when they are added directly to the chunk options.</li>
 <li>Text references are subject to RStudio spell checking, whereas the contents of <code>fig.cap</code> is not.</li>
-<li>Changing text reference does constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.</li>
+<li>Changing text reference does not constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.</li>
 <li>Text references can include inline code chunks.</li>
 </ol>
 <p>We recommend to define the text reference for a figure caption just above the corresponding code chunk.</p>
@@ -558,8 +558,44 @@ descriptives[, <span class="dv">-1</span>] &lt;-<span class="st"> </span><span c
 <caption>
 <em>Descriptive statistics of correct recall by dosage.</em>
 </caption>
-Dosage Mean Median SD Min Max ——- —— ——- —– —- —-A 14.19 14.00 4.45 5 25 B 13.50 14.00 5.15 4 22 C 19.19 19.00 3.52 13 25<br />
-
+<table>
+<thead>
+<tr class="header">
+<th align="left">Dosage</th>
+<th align="left">Mean</th>
+<th align="left">Median</th>
+<th align="left">SD</th>
+<th align="left">Min</th>
+<th align="left">Max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left">14.19</td>
+<td align="left">14.00</td>
+<td align="left">4.45</td>
+<td align="left">5</td>
+<td align="left">25</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="left">13.50</td>
+<td align="left">14.00</td>
+<td align="left">5.15</td>
+<td align="left">4</td>
+<td align="left">22</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="left">19.19</td>
+<td align="left">19.00</td>
+<td align="left">3.52</td>
+<td align="left">13</td>
+<td align="left">25</td>
+</tr>
+</tbody>
+</table>
 <center>
 <em>Note.</em> This table was created with apa_table().
 </center>
@@ -601,7 +637,7 @@ For example, <code>\</code> and <code>_</code> must be escaped to prevent either
 Moreover, Markdown formatting and citation syntax is not supported at all.
 None of these limitations apply to text references.</li>
 <li>Long table captions can impair the readability of the document when they are added directly apa_table() call.</li>
-<li>Changing text reference does constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.</li>
+<li>Changing text reference does not constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.</li>
 <li>Text references can include inline code chunks.</li>
 </ol>
 <p>We recommend you define the text reference for a table caption just above the corresponding code chunk. This should not occur within a code chunk and the reference and caption should be on the same line. That is</p>
@@ -662,7 +698,7 @@ BFBayesFactorTop<sup>*</sup>
 list
 </td>
 <td style="text-align:left;">
-summary.glht<sup>*</sup>
+summary_emm<sup>*</sup>
 </td>
 </tr>
 <tr>
@@ -676,7 +712,7 @@ bf_bridge
 lm
 </td>
 <td style="text-align:left;">
-summary.glm
+summary.glht<sup>*</sup>
 </td>
 </tr>
 <tr>
@@ -690,7 +726,7 @@ bf_bridge_list
 lsmobj<sup>*</sup>
 </td>
 <td style="text-align:left;">
-summary.lm
+summary.glm
 </td>
 </tr>
 <tr>
@@ -701,10 +737,10 @@ aov
 emmGrid<sup>*</sup>
 </td>
 <td style="text-align:left;">
-summary.Anova.mlm
+manova
 </td>
 <td style="text-align:left;">
-summary.ref.grid<sup>*</sup>
+summary.lm
 </td>
 </tr>
 <tr>
@@ -715,9 +751,10 @@ aovlist
 glht<sup>*</sup>
 </td>
 <td style="text-align:left;">
-summary.aov
+summary.Anova.mlm
 </td>
 <td style="text-align:left;">
+summary.manova
 </td>
 </tr>
 <tr>
@@ -728,9 +765,10 @@ BFBayesFactor<sup>*</sup>
 glm
 </td>
 <td style="text-align:left;">
-summary.aovlist
+summary.aov
 </td>
 <td style="text-align:left;">
+summary.ref.grid<sup>*</sup>
 </td>
 </tr>
 <tr>
@@ -741,7 +779,7 @@ BFBayesFactorList<sup>*</sup>
 htest
 </td>
 <td style="text-align:left;">
-summary_emm<sup>*</sup>
+summary.aovlist
 </td>
 <td style="text-align:left;">
 </td>
@@ -809,7 +847,40 @@ apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_out)</
 <caption>
 <em>A full regression table.</em>
 </caption>
-<p>Predictor <span class="math inline">\(b\)</span> 95% CI <span class="math inline">\(t(273)\)</span> <span class="math inline">\(p\)</span> ———- —— ——————- ——— ——-Intercept 18.50 <span class="math inline">\([13.10\)</span>, <span class="math inline">\(23.91]\)</span> 6.74 &lt; .001 Base QoL 0.59 <span class="math inline">\([0.50\)</span>, <span class="math inline">\(0.67]\)</span> 13.23 &lt; .001 BDI 0.17 <span class="math inline">\([0.11\)</span>, <span class="math inline">\(0.22]\)</span> 6.08 &lt; .001</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Predictor</th>
+<th align="left"><span class="math inline">\(b\)</span></th>
+<th align="left">95% CI</th>
+<th align="left"><span class="math inline">\(t(273)\)</span></th>
+<th align="left"><span class="math inline">\(p\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Intercept</td>
+<td align="left">18.50</td>
+<td align="left"><span class="math inline">\([13.10\)</span>, <span class="math inline">\(23.91]\)</span></td>
+<td align="left">6.74</td>
+<td align="left">&lt; .001</td>
+</tr>
+<tr class="even">
+<td align="left">Base QoL</td>
+<td align="left">0.59</td>
+<td align="left"><span class="math inline">\([0.50\)</span>, <span class="math inline">\(0.67]\)</span></td>
+<td align="left">13.23</td>
+<td align="left">&lt; .001</td>
+</tr>
+<tr class="odd">
+<td align="left">BDI</td>
+<td align="left">0.17</td>
+<td align="left"><span class="math inline">\([0.11\)</span>, <span class="math inline">\(0.22]\)</span></td>
+<td align="left">6.08</td>
+<td align="left">&lt; .001</td>
+</tr>
+</tbody>
+</table>
 <pre class="sourceCode r"><code class="sourceCode r">lm_res &lt;-<span class="st"> </span><span class="kw">lm</span>(Post_QoL <span class="op">~</span><span class="st"> </span>Base_QoL <span class="op">+</span><span class="st"> </span>BDI, <span class="dt">data =</span> cosmetic_surgery)
 lm_res_apa &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_res, <span class="dt">observed_predictors =</span> <span class="ot">TRUE</span>)
 lm_res_apa<span class="op">$</span>estimate<span class="op">$</span>Intercept</code></pre>
@@ -931,8 +1002,48 @@ apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmet
 <caption>
 <em>A really beautiful ANOVA table.</em>
 </caption>
-Effect <span class="math inline">\(F\)</span> <span class="math inline">\(\mathit{df}_1\)</span> <span class="math inline">\(\mathit{df}_2\)</span> <span class="math inline">\(\mathit{MSE}\)</span> <span class="math inline">\(p\)</span> <span class="math inline">\(\hat{\eta}^2_G\)</span> ———————– —— —————- —————- ————— ——- —————–Clinic 19.98 9 256 47.58 &lt; .001 .413 Gender 15.29 1 256 47.58 &lt; .001 .056 Clinic <span class="math inline">\(\times\)</span> Gender 1.97 9 256 47.58 .043 .065<br />
-
+<table>
+<thead>
+<tr class="header">
+<th align="left">Effect</th>
+<th align="left"><span class="math inline">\(F\)</span></th>
+<th align="left"><span class="math inline">\(\mathit{df}_1\)</span></th>
+<th align="left"><span class="math inline">\(\mathit{df}_2\)</span></th>
+<th align="left"><span class="math inline">\(\mathit{MSE}\)</span></th>
+<th align="left"><span class="math inline">\(p\)</span></th>
+<th align="left"><span class="math inline">\(\hat{\eta}^2_G\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Clinic</td>
+<td align="left">19.98</td>
+<td align="left">9</td>
+<td align="left">256</td>
+<td align="left">47.58</td>
+<td align="left">&lt; .001</td>
+<td align="left">.413</td>
+</tr>
+<tr class="even">
+<td align="left">Gender</td>
+<td align="left">15.29</td>
+<td align="left">1</td>
+<td align="left">256</td>
+<td align="left">47.58</td>
+<td align="left">&lt; .001</td>
+<td align="left">.056</td>
+</tr>
+<tr class="odd">
+<td align="left">Clinic <span class="math inline">\(\times\)</span> Gender</td>
+<td align="left">1.97</td>
+<td align="left">9</td>
+<td align="left">256</td>
+<td align="left">47.58</td>
+<td align="left">.043</td>
+<td align="left">.065</td>
+</tr>
+</tbody>
+</table>
 <center>
 <em>Note.</em> Note that the column names contain beautiful mathematical copy: This is because the table has variable labels.
 </center>
