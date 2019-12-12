@@ -121,7 +121,7 @@ Most of the information contained in the YAML front matter is information about 
 |-----------|--------------------------------------|
 | `author`  | list of author information (e.g., `name` and `affiliation`;<br />start each new author with `-`) |
 | `affiliation` | list of institutional information (`id` and `institution`) |
-| `authornote` | automatically contains corresponding author line |
+| `authornote` | aka. acknowledgements; automatically contains corresponding author line |
 | `keywords` | article keywords |
 | `wordcount` | article word count |
 | `note` | text to add above author note on the title page<br />(e.g. "Preprint submitted for publication") |
@@ -140,9 +140,9 @@ The latter two fields are used to automatically generate the last sentence of th
 `affiliation` is another structured list that contains the institutions' information; again each new element is indented and starts with `-`.
 `id` is printed as superscript in front of the `institution` name below the author names on the title page (e.g., `2` yields ^2^ Konstanz Business School).
 
-`author_note` and `abstract` contain the text for the corresponding sections of the manuscript.
+`authornote` and `abstract` contain the text for the corresponding sections of the manuscript.
 The `|` indicate that all following *indented* lines, including line breaks and new paragraphs, belong to this field.
-Thus, `abstract` and `author_note` can be structured into multiple paragraphs as shown above.
+Thus, `abstract` and `authornote` can be structured into multiple paragraphs as shown above.
 `keywords` and `wordcount`[^word_count] are self-explanatory and the corresponding information is printed below the abstract on the second page of the manuscript.
 
 [^word_count]:
