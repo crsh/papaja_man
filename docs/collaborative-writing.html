@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Collaborative writing | papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="&quot;&quot;">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="&quot;&quot;" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Collaborative writing | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -22,14 +21,14 @@
   <meta name="twitter:description" content="&quot;&quot;" />
   
 
-<meta name="author" content="Frederik Aust &amp; Marius Barth">
+<meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2019-02-04">
+<meta name="date" content="2019-07-29" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="tips-and-tricks.html">
@@ -160,9 +159,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#markdown-text-formatting"><i class="fa fa-check"></i><b>3.1</b> Markdown text formatting</a></li>
 <li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#citation-styles"><i class="fa fa-check"></i><b>3.2.1</b> Citation styles</a></li>
-<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.2</b> Conveniently inserting citations with <code>citr</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#meta-analysis-references"><i class="fa fa-check"></i><b>3.2.3</b> Meta-analysis references</a></li>
-<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#citing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.4</b> Citing R and its packages</a></li>
+<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#works-in-press"><i class="fa fa-check"></i><b>3.2.2</b> Works ‘in press’</a></li>
+<li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.3</b> Conveniently inserting citations with <code>citr</code></a></li>
+<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#meta-analysis-references"><i class="fa fa-check"></i><b>3.2.4</b> Meta-analysis references</a></li>
+<li class="chapter" data-level="3.2.5" data-path="writing.html"><a href="writing.html#citing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.5</b> Citing R and its packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.3</b> Equations</a></li>
 <li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.4</b> Cross-referencing</a></li>
@@ -176,7 +176,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.3</b> Figure captions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.1</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.4</b> Results from statistical tests</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.4.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
@@ -191,18 +192,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#global-chunk-options"><i class="fa fa-check"></i><b>5.1</b> Global chunk options</a></li>
 <li class="chapter" data-level="5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#meaningful-chunk-names"><i class="fa fa-check"></i><b>5.2</b> Meaningful chunk names</a></li>
 <li class="chapter" data-level="5.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#useful-rstudio-addins"><i class="fa fa-check"></i><b>5.3</b> Useful RStudio Addins</a></li>
-<li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#author-name-disambiguation"><i class="fa fa-check"></i><b>5.4</b> Author name disambiguation</a></li>
-<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environment"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environment</a></li>
-<li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
-<li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
-<li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.8</b> Workflow</a></li>
-<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>5.9</b> Adjusting line spacing</a><ul>
-<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#comparing-documents"><i class="fa fa-check"></i><b>5.9.1</b> Comparing documents</a></li>
-<li class="chapter" data-level="5.9.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#counting-words"><i class="fa fa-check"></i><b>5.9.2</b> Counting words</a></li>
+<li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environment"><i class="fa fa-check"></i><b>5.4</b> Reproducible software environment</a></li>
+<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.5</b> RStudio</a></li>
+<li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.6</b> Splitting an R Markdown document</a></li>
+<li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.7</b> Workflow</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#comparing-documents"><i class="fa fa-check"></i><b>5.7.1</b> Comparing documents</a></li>
+<li class="chapter" data-level="5.7.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#counting-words"><i class="fa fa-check"></i><b>5.7.2</b> Counting words</a></li>
 </ul></li>
-<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.10</b> Best practices</a></li>
-<li class="chapter" data-level="5.11" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.11</b> Troubleshooting</a><ul>
-<li class="chapter" data-level="5.11.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.11.1</b> R</a></li>
+<li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.8</b> Best practices</a></li>
+<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.9</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.9.1</b> R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
@@ -213,9 +212,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="limitations.html"><a href="limitations.html#microsoft-word-documents"><i class="fa fa-check"></i><b>8.2</b> Microsoft Word documents</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>9</b> Future directions</a><ul>
-<li class="chapter" data-level="9.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>9.1</b> Contributions</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>9.1.1</b> Workflow</a></li>
+<li class="chapter" data-level="9" data-path="customizations.html"><a href="customizations.html"><i class="fa fa-check"></i><b>9</b> Customizations</a><ul>
+<li class="chapter" data-level="9.1" data-path="customizations.html"><a href="customizations.html#author-name-disambiguation"><i class="fa fa-check"></i><b>9.1</b> Author name disambiguation</a></li>
+<li class="chapter" data-level="9.2" data-path="customizations.html"><a href="customizations.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>9.2</b> Adjusting line spacing</a></li>
+<li class="chapter" data-level="9.3" data-path="customizations.html"><a href="customizations.html#writing-dissertations"><i class="fa fa-check"></i><b>9.3</b> Writing dissertations</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a><ul>
+<li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>

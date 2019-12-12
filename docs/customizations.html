@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Limitations | papaja: Reproducible APA manuscripts with R Markdown</title>
+  <title>9 Customizations | papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="&quot;&quot;" />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Limitations | papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta property="og:title" content="9 Customizations | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="crsh/papaja_man" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Limitations | papaja: Reproducible APA manuscripts with R Markdown" />
+  <meta name="twitter:title" content="9 Customizations | papaja: Reproducible APA manuscripts with R Markdown" />
   
   <meta name="twitter:description" content="&quot;&quot;" />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2019-07-29" />
+<meta name="date" content="2019-12-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="published-manuscripts.html">
-<link rel="next" href="customizations.html">
+<link rel="prev" href="limitations.html">
+<link rel="next" href="future-directions.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -244,65 +244,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="limitations" class="section level1">
-<h1><span class="header-section-number">8</span> Limitations</h1>
-<p>As outlined in <a href="introduction.html#document-compilation">Document compilation</a>, <code>papaja</code> builds on <code>pandoc</code> to render Markdown into PDF and DOCX documents.
-Markdown provides good common basis for these and other document types but the common basis necessarily limits the degree of control that can be exerted over the rendered document.
-For example, there is currently no way to generate tables with <code>pandoc</code> in which cells span multiple rows or columns.
-Similarly, it is not possible to insert page breaks into a document.
-Both of these limitations have been raised with the developers of <code>pandoc</code> (see <a href="https://github.com/jgm/pandoc/issues/1024">here</a> and <a href="https://github.com/jgm/pandoc/issues/1934">here</a>), but it may take a while for them to be addressed.</p>
-<div id="pdf-documents" class="section level2">
-<h2><span class="header-section-number">8.1</span> PDF documents</h2>
-<p><code>pandoc</code> builds on LaTeX to render PDF documents.
-As discussed in <a href="writing.html#markdown-text-formatting">Markdown text formatting</a>, when the R Markdown document contains LaTeX code it is kept as-is and can be used to exert greater control over the final result.
-For example, to create a page break in the rendered document you can use the LaTeX command <code>\pagebreak</code>.
-Similarly, tables with column spanners can be created by using the corresponding LaTeX code.
-Hence, the limited control offered by <code>pandoc</code> can be compensated by using LaTeX code and <code>papaja</code> resorts to this approach, for example, in <code>apa_table()</code>.</p>
-<div id="customizing-the-document-preamble" class="section level3">
-<h3><span class="header-section-number">8.1.1</span> Customizing the document preamble</h3>
-<p>You can exert further control over your PDF documents by customizing the LaTeX preamble.
-Consider the following example:
-By default, LaTeX arranges paragraphs and section headings so that they fill the page.
-This can sometimes lead to unwanted vertical spacing, Figure <a href="limitations.html#fig:vertical-spacing">8.1</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:vertical-spacing"></span>
-<img src="vertical_spacing.jpg" alt="An example of large vertical spacing between paragraphs and section headings in a rendered PDF document kindly provided by John Sakaluk."  />
-<p class="caption">
-Figure 8.1: An example of large vertical spacing between paragraphs and section headings in a rendered PDF document kindly provided by John Sakaluk.
-</p>
-</div>
-<p>If you prefer white space at the bottom of the page, rather than between paragraphs, you can overwrite this default behavior by including <code>\raggedbottom</code> in the document preamble.
-To do so, add the following to the YAML front matter of your document:</p>
-<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">header-includes:</span>
-  <span class="kw">-</span> \raggedbottom</code></pre>
-</div>
-</div>
-<div id="microsoft-word-documents" class="section level2">
-<h2><span class="header-section-number">8.2</span> Microsoft Word documents</h2>
-<p>In contrast, there is no simple way to compensate for the limited control offered by <code>pandoc</code> when rendering Microsoft Word documents.
-This is the reason why some of <code>papaja</code>’s features are only available if the to-be-rendered document is in PDF format, such as some <a href="r-markdown-components.html#rendering-options">Rendering options</a> and some features of <code>apa_table()</code> (see <a href="reporting.html#tables">Tables</a>).
-More over, rendered documents in DOCX format require some manual work before they fully comply with APA guidelines.
-We, therefore, provide the following checklist of necessary changes:</p>
-<p>Always,</p>
-<ol style="list-style-type: decimal">
-<li>add a header line with running head and page number</li>
-</ol>
-<p>If necessary,</p>
-<ol start="2" style="list-style-type: decimal">
-<li>position author note at the bottom of page 1</li>
-<li>move figures and tables to the end of the manuscript</li>
-<li>add colon to level 3-headings</li>
-<li>in figure captions,
-<ul>
-<li>add a colon following the figure numbers and italicize<br />(e.g. “<em>Figure 1</em>. This is a caption.”)</li>
-</ul></li>
-<li>in tables,
-<ul>
-<li>add horizontal rules above the first and below the last row</li>
-<li>add midrules</li>
-</ul></li>
-</ol>
-<p>We hope to automated some of these points in the future as the flexibility of <code>pandoc</code> increases.</p>
+<div id="customizations" class="section level1">
+<h1><span class="header-section-number">9</span> Customizations</h1>
+<div id="author-name-disambiguation" class="section level2">
+<h2><span class="header-section-number">9.1</span> Author name disambiguation</h2>
+<p>As per APA style, citations in <code>papaja</code> documents will be disambiguated if the bibliography file contains multiple authors with the same family but different given names.
+This can be a nuisance if the bibliographic information is not maintained meticulously.
+Entries such as <code>author = {John Doe}</code> and <code>author = {J. Doe}</code> are taken to be different authors and will be disambiguated (i.e. “John Doe (1986)” and “J. Doe (1986)”).</p>
+<p>Disabling author name disambiguation is possible (although it is somewhat beyond the scope of <code>papaja</code>).
+The definition of the citation style used in <code>papaja</code> is given in a citation style language file (CSL, see [Additional-rendering-options]).
+We have created a variant of the widely available APA CSL file without author name disambiguation.
+To use this variant insert the following into YAML front matter:</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">csl:</span><span class="at"> https://tinyurl.com/apa6-no-disambiguation</span></code></pre>
+<p>Alternatively, you can download the file and use the location on your hard drive instead of the above URL.
+Note that using this style can create the false impression that two works are authored by the same author when really they were not.
+For example, <code>author = {John Doe}</code> and <code>author = {Jane Doe}</code> will be displayed as “Doe (1986a)” and “Doe (1986b)”.</p>
+<p>If you prefer <span class="math inline">\(\LaTeX\)</span> to generate the bibliographic information, we recommend the following approach to disable author name disambiguation:</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">lang              :</span><span class="at"> </span><span class="st">&quot;en-EN&quot;</span><span class="er"> # Optional, added for clarity</span>
 
+<span class="fu">biblio-style      :</span><span class="at"> </span><span class="st">&quot;apa&quot;</span>
+<span class="fu">biblatexoptions   :</span><span class="at"> </span><span class="st">&quot;uniquename=false&quot;</span>
+<span class="fu">header-includes:</span>
+  <span class="kw">-</span> \DeclareLanguageMapping<span class="kw">{</span>english<span class="kw">}{</span>english-apa<span class="kw">}</span>
+
+<span class="fu">output:</span>
+  <span class="fu">papaja:</span><span class="at">:apa6_pdf:</span>
+    <span class="fu">citation_package:</span><span class="at"> biblatex</span></code></pre>
+<p>Specifying <code>lang</code> is optional in this case, because <code>en-EN</code> is the default.
+<code>pandoc</code> converts <code>en-EN</code> to <code>english</code> and inserts it into the document preamble.
+Hence, <code>english</code> needs to be mapped to <code>english-apa</code>.
+Similarly, if you want, say, British english you would have to adapt the above as follows:</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">lang              :</span><span class="at"> </span><span class="st">&quot;en-GB&quot;</span><span class="er"> # Required</span>
+<span class="fu">header-includes:</span>
+  <span class="kw">-</span> \DeclareLanguageMapping<span class="kw">{</span>british<span class="kw">}{</span>british-apa<span class="kw">}</span></code></pre>
+<p>A general drawback to this approach is that <code>biblatex</code> does not operate on any text in the YAML front matter.
+This can be a problem when, for example, the abstract contains citations.
+This problem can be addressed with the <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references">text references</a> feature in <code>bookdown</code>.
+Replace the text of the abstract in the YAML front matter by</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">abstract:</span><span class="at"> (ref:abstract)</span></code></pre>
+<p><code>(ref:abstract)</code> is a placeholder for text that you can now define in the body of the R Markdown document (e.g., right after the YAML front matter):</p>
+<pre><code>(ref:abstract)
+This is the abstract [@doe1986].</code></pre>
+<p>This text will now be processed and citations will be generated as expected.</p>
+<!-- TODO: See Lua filter! -->
+</div>
+<div id="adjusting-line-spacing" class="section level2">
+<h2><span class="header-section-number">9.2</span> Adjusting line spacing</h2>
+<p>According to the APA guidelines, “Tables may be submitted either single- or double-spaced.” <span class="citation">(p. 141; American Psychological Association, <a href="#ref-american_psychological_association_publication_2010">2010</a>)</span>.
+Adjusting the line spacing of table contents is currently not supported in <code>papaja</code>.
+However, as usual it is possible to adjust the spacing in PDF documents by including additional <span class="math inline">\(\LaTeX\)</span> code.
+If you use <code>apa_table()</code>, including the following in the YAML front matter will result in single-spaced tables with double-spaced caption and table note:</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">header-includes:</span>
+  <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span>
+  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tabular<span class="kw">}{</span>\singlespacing<span class="kw">}</span>
+  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>lltable<span class="kw">}{</span>\singlespacing<span class="kw">}</span>
+  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tablenotes<span class="kw">}{</span>\doublespacing<span class="kw">}</span>
+  <span class="kw">-</span> \captionsetup<span class="kw">[</span>table<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}
+  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}</code></pre>
+<p>Similarly, the line spacing of figure captions can be adjusted as follows:</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">header-includes:</span>
+  <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span>
+  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tabular<span class="kw">}{</span>\doublespacing<span class="kw">}</span>
+  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>lltable<span class="kw">}{</span>\doublespacing<span class="kw">}</span>
+  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tablenotes<span class="kw">}{</span>\doublespacing<span class="kw">}</span>
+  <span class="kw">-</span> \captionsetup<span class="kw">[</span>table<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}
+  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1<span class="kw">}</span>}</code></pre>
+</div>
+<div id="writing-dissertations" class="section level2">
+<h2><span class="header-section-number">9.3</span> Writing dissertations</h2>
+<p>While <code>papaja</code> is primarily intended for preparing journal articles and preprints, it is possible to create entire dissertations using it.
+This is particularly useful for cummulative dissertation formats that include individual papers as separate chapters.
+If the individual papers were written with <code>papaja</code>, it is straight forward to include them in the dissertation document.
+The first dissertation written using <code>papaja</code> that I’m aware of is <em>Contingency Awareness in Evaluative Conditioning: Investigations Using Subliminal Stimulus Presentations</em> by <span class="citation">Heycke (<a href="#ref-heycke_contingency_2018">2018</a>)</span>.
+Tobias provides a <a href="http://rpubs.com/theycke/380678">brief tutorial</a> on how he used <code>papaja</code>.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-american_psychological_association_publication_2010">
+<p>American Psychological Association. (2010). <em>Publication Manual of the American Psychological Association</em> (6th edition.). Washington, DC: American Psychological Association.</p>
+</div>
+<div id="ref-heycke_contingency_2018">
+<p>Heycke, T. (2018, July). <em>Contingency awareness in evaluative conditioning: Investigations using subliminal stimulus presentations</em> (Doctoral dissertation). University of Cologne. Retrieved from <a href="http://www.uni-koeln.de/">http://www.uni-koeln.de/</a></p>
 </div>
 </div>
 <h1>Comments and Questions</h1>
@@ -334,8 +358,8 @@ s.setAttribute('data-timestamp', +new Date());
           </div>
         </div>
       </div>
-<a href="published-manuscripts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="customizations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="limitations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="future-directions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -365,7 +389,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/crsh/papaja_man/edit/master/08-limitations.Rmd",
+"link": "https://github.com/crsh/papaja_man/edit/master/09-customizations.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Reporting | papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="&quot;&quot;">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="&quot;&quot;" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Reporting | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -22,14 +21,14 @@
   <meta name="twitter:description" content="&quot;&quot;" />
   
 
-<meta name="author" content="Frederik Aust &amp; Marius Barth">
+<meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2019-02-04">
+<meta name="date" content="2019-12-09" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="writing.html">
@@ -160,9 +159,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#markdown-text-formatting"><i class="fa fa-check"></i><b>3.1</b> Markdown text formatting</a></li>
 <li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#citation-styles"><i class="fa fa-check"></i><b>3.2.1</b> Citation styles</a></li>
-<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.2</b> Conveniently inserting citations with <code>citr</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#meta-analysis-references"><i class="fa fa-check"></i><b>3.2.3</b> Meta-analysis references</a></li>
-<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#citing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.4</b> Citing R and its packages</a></li>
+<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#works-in-press"><i class="fa fa-check"></i><b>3.2.2</b> Works ‘in press’</a></li>
+<li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.3</b> Conveniently inserting citations with <code>citr</code></a></li>
+<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#meta-analysis-references"><i class="fa fa-check"></i><b>3.2.4</b> Meta-analysis references</a></li>
+<li class="chapter" data-level="3.2.5" data-path="writing.html"><a href="writing.html#citing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.5</b> Citing R and its packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.3</b> Equations</a></li>
 <li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.4</b> Cross-referencing</a></li>
@@ -176,7 +176,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.3</b> Figure captions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.1</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.4</b> Results from statistical tests</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.4.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
@@ -191,18 +192,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#global-chunk-options"><i class="fa fa-check"></i><b>5.1</b> Global chunk options</a></li>
 <li class="chapter" data-level="5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#meaningful-chunk-names"><i class="fa fa-check"></i><b>5.2</b> Meaningful chunk names</a></li>
 <li class="chapter" data-level="5.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#useful-rstudio-addins"><i class="fa fa-check"></i><b>5.3</b> Useful RStudio Addins</a></li>
-<li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#author-name-disambiguation"><i class="fa fa-check"></i><b>5.4</b> Author name disambiguation</a></li>
-<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environment"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environment</a></li>
-<li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
-<li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
-<li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.8</b> Workflow</a></li>
-<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>5.9</b> Adjusting line spacing</a><ul>
-<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#comparing-documents"><i class="fa fa-check"></i><b>5.9.1</b> Comparing documents</a></li>
-<li class="chapter" data-level="5.9.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#counting-words"><i class="fa fa-check"></i><b>5.9.2</b> Counting words</a></li>
+<li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environment"><i class="fa fa-check"></i><b>5.4</b> Reproducible software environment</a></li>
+<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.5</b> RStudio</a></li>
+<li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.6</b> Splitting an R Markdown document</a></li>
+<li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.7</b> Workflow</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#comparing-documents"><i class="fa fa-check"></i><b>5.7.1</b> Comparing documents</a></li>
+<li class="chapter" data-level="5.7.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#counting-words"><i class="fa fa-check"></i><b>5.7.2</b> Counting words</a></li>
 </ul></li>
-<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.10</b> Best practices</a></li>
-<li class="chapter" data-level="5.11" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.11</b> Troubleshooting</a><ul>
-<li class="chapter" data-level="5.11.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.11.1</b> R</a></li>
+<li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.8</b> Best practices</a></li>
+<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.9</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.9.1</b> R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
@@ -213,9 +212,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="limitations.html"><a href="limitations.html#microsoft-word-documents"><i class="fa fa-check"></i><b>8.2</b> Microsoft Word documents</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>9</b> Future directions</a><ul>
-<li class="chapter" data-level="9.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>9.1</b> Contributions</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>9.1.1</b> Workflow</a></li>
+<li class="chapter" data-level="9" data-path="customizations.html"><a href="customizations.html"><i class="fa fa-check"></i><b>9</b> Customizations</a><ul>
+<li class="chapter" data-level="9.1" data-path="customizations.html"><a href="customizations.html#author-name-disambiguation"><i class="fa fa-check"></i><b>9.1</b> Author name disambiguation</a></li>
+<li class="chapter" data-level="9.2" data-path="customizations.html"><a href="customizations.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>9.2</b> Adjusting line spacing</a></li>
+<li class="chapter" data-level="9.3" data-path="customizations.html"><a href="customizations.html#writing-dissertations"><i class="fa fa-check"></i><b>9.3</b> Writing dissertations</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a><ul>
+<li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -458,7 +462,15 @@ The following example demonstrates how to set a default theme.</p>
 </div>
 <div id="external-files" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> External files</h3>
-<p>…</p>
+<p>External graphics are best included by using <code>knitr::include_graphics()</code>, e.g.</p>
+
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;images/swane.png&quot;</span>)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:poppers-swanes"></span>
+<img src="images/swane.png" alt="Only from observing many white swanes, you cannot conclude that all swanes are white." width="380" />
+<p class="caption">
+Figure 4.5: Only from observing many white swanes, you cannot conclude that all swanes are white.
+</p>
+</div>
 </div>
 <div id="figure-captions" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> Figure captions</h3>
@@ -467,8 +479,7 @@ In principle, it is possible to define a figure caption simply by passing a char
 However, we strongly recommend that you use <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references">text references</a>—a feature of the <code>bookdown</code> package—instead.
 A text reference consist of a unique label and the corresponding text that it represents.
 Text references can be defined as follows:</p>
-<pre><code>(ref:my-figure-caption)
-This is a figure caption for my figure.</code></pre>
+<pre><code>(ref:my-figure-caption) This is a figure caption for my figure.</code></pre>
 <p>The text reference can now be inserted in the chunk options (or anywhere else), e.g. <code>fig.cap = &quot;(ref:my-figure-caption)&quot;</code>.
 The use of text references has several advantages:</p>
 <ol style="list-style-type: decimal">
@@ -478,7 +489,7 @@ Moreover, Markdown formatting and citation syntax is not supported at all.
 None of these limitations apply to text references.</li>
 <li>Long figure captions can impair the readability of the document when they are added directly to the chunk options.</li>
 <li>Text references are subject to RStudio spell checking, whereas the contents of <code>fig.cap</code> is not.</li>
-<li>Changing text reference does constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.</li>
+<li>Changing text reference does not constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.</li>
 <li>Text references can include inline code chunks.</li>
 </ol>
 <p>We recommend to define the text reference for a figure caption just above the corresponding code chunk.</p>
@@ -498,7 +509,7 @@ Unless this behavior is desired, only one figure should be created per chunk.
 There are two approaches to accomodate long figure captions or tall figures. You can adjust the line spacing/font size of the caption or use a separate list of figure captions.</p>
 <div id="line-spacing-and-font-size" class="section level4">
 <h4><span class="header-section-number">4.2.3.1</span> Line spacing and font size</h4>
-<p>As mentioned <a href="tips-and-tricks.html#adjusting-line-spacing">Adjusting line spacing</a>, you can adjust the line spacing but also the font size of figure captions.
+<p>As mentioned <a href="customizations.html#adjusting-line-spacing">Adjusting line spacing</a>, you can adjust the line spacing but also the font size of figure captions.
 For single-spaced script-size figure captions, add the following to the YAML front matter:</p>
 <pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">header-includes:</span>
   <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span>
@@ -530,11 +541,10 @@ To ensure that <code>fig.scap</code> takes effect, <code>knitr</code> requires t
 <div id="tables" class="section level2">
 <h2><span class="header-section-number">4.3</span> Tables</h2>
 <p>For prettier tables, I suggest you try <code>apa_table()</code>, which builds on <code>knitr</code>’s <code>kable()</code>.</p>
-<p>(ref:mixed-table-caption)
-Descriptive statistics of correct recall by dosage.</p>
-<p>(ref:mixed-table-note)
-This table was created with apa_table().</p>
-<pre class="sourceCode r"><code class="sourceCode r">descriptives &lt;-<span class="st"> </span>mixed_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Dosage) <span class="op">%&gt;%</span>
+
+
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+descriptives &lt;-<span class="st"> </span>mixed_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Dosage) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(
     <span class="dt">Mean =</span> <span class="kw">mean</span>(Recall)
     , <span class="dt">Median =</span> <span class="kw">median</span>(Recall)
@@ -546,10 +556,57 @@ descriptives[, <span class="dv">-1</span>] &lt;-<span class="st"> </span><span c
 
 <span class="kw">apa_table</span>(
   descriptives
-  , <span class="dt">caption =</span> <span class="st">&quot;(ref:mixed-table-caption)&quot;</span>
-  , <span class="dt">note =</span> <span class="st">&quot;(ref:mixed-table-note)&quot;</span>
+  , <span class="dt">caption =</span> <span class="st">&quot;Descriptive statistics of correct recall by dosage.&quot;</span>
+  , <span class="dt">note =</span> <span class="st">&quot;This table was created with apa_table().&quot;</span>
   , <span class="dt">escape =</span> <span class="ot">TRUE</span>
 )</code></pre>
+<caption>
+<span id="tab:unnamed-chunk-17">Table 4.1: </span>
+</caption>
+<caption>
+<em>Descriptive statistics of correct recall by dosage.</em>
+</caption>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Dosage</th>
+<th align="left">Mean</th>
+<th align="left">Median</th>
+<th align="left">SD</th>
+<th align="left">Min</th>
+<th align="left">Max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left">14.19</td>
+<td align="left">14.00</td>
+<td align="left">4.45</td>
+<td align="left">5</td>
+<td align="left">25</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="left">13.50</td>
+<td align="left">14.00</td>
+<td align="left">5.15</td>
+<td align="left">4</td>
+<td align="left">22</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="left">19.19</td>
+<td align="left">19.00</td>
+<td align="left">3.52</td>
+<td align="left">13</td>
+<td align="left">25</td>
+</tr>
+</tbody>
+</table>
+<center>
+<em>Note.</em> This table was created with apa_table().
+</center>
 <p>Of course popular packages like <code>xtable</code><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> or <code>tables</code> can also be used to create tables when knitting PDF documents.
 These packages, however, cannot be used when you want to create Microsoft Word documents because they rely on <span class="math inline">\(\LaTeX\)</span> for typesetting.
 <code>apa_table()</code> creates tables that conform to APA guidelines and are correctly rendered in PDF and Word documents.
@@ -574,8 +631,31 @@ The resulting documents should suffice to enable collaboration with Wordy collea
 <li>Remember to set chunk option <code>results = &quot;asis&quot;</code>!</li>
 </ul>
 <p><code>kableExtra</code> is another powerful alternative</p>
+<div id="table-captions" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Table captions</h3>
+<p>Table captions can by passing a character string to <code>caption =</code> argument within apa_table function (e.g. <code>apa_table(descriptives, caption = &quot;My table caption&quot;)</code>). However, as with figures we strongly recommend that you use <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references">text references</a>—a feature of the <code>bookdown</code> package—instead.
+A text reference consists of a unique label and the corresponding text that it represents.
+Text references can be defined as follows:</p>
+<pre><code>(ref:my-table-caption) This is a caption for my table.</code></pre>
+<p>The text reference can now be inserted in the chunk options (or anywhere else), e.g. <code>apa_table(descriptives, caption = &quot;(ref:my-table-caption)&quot;)</code>.
+The use of text references has several advantages:</p>
+<ol style="list-style-type: decimal">
+<li>The use of Markdown and <span class="math inline">\(\LaTeX\)</span> syntax is not well supported in <code>caption =</code>.
+For example, <code>\</code> and <code>_</code> must be escaped to prevent either R or <span class="math inline">\(\LaTeX\)</span> from erroring.
+Moreover, Markdown formatting and citation syntax is not supported at all.
+None of these limitations apply to text references.</li>
+<li>Long table captions can impair the readability of the document when they are added directly apa_table() call.</li>
+<li>Changing text reference does not constitute a change to the code chunk and hence does not cause the cache of a chunk to be discarded.</li>
+<li>Text references can include inline code chunks.</li>
+</ol>
+<p>We recommend you define the text reference for a table caption just above the corresponding code chunk. This should not occur within a code chunk and the reference and caption should be on the same line. That is</p>
+<pre><code>(ref:my-table-caption) This is a caption for my table.</code></pre>
+<p>Rather than</p>
+<pre><code>(ref:my-table-caption) 
+This is a caption for my table.</code></pre>
+</div>
 <div id="alternatives-1" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> Alternatives</h3>
+<h3><span class="header-section-number">4.3.2</span> Alternatives</h3>
 <p>Pixidust: <a href="https://github.com/nutterb/pixiedust/blob/master/README.md" class="uri">https://github.com/nutterb/pixiedust/blob/master/README.md</a></p>
 <p>xtable: <a href="https://cran.r-project.org/web/packages/xtable/xtable.pdf" class="uri">https://cran.r-project.org/web/packages/xtable/xtable.pdf</a></p>
 <p>tables: <a href="https://cran.r-project.org/web/packages/tables/vignettes/tables.pdf" class="uri">https://cran.r-project.org/web/packages/tables/vignettes/tables.pdf</a></p>
@@ -620,13 +700,13 @@ S-Z
 afex_aov
 </td>
 <td style="text-align:left;">
-BFBayesFactorList<sup>*</sup>
+BFBayesFactorTop<sup>*</sup>
 </td>
 <td style="text-align:left;">
 list
 </td>
 <td style="text-align:left;">
-summary.aovlist
+summary_emm<sup>*</sup>
 </td>
 </tr>
 <tr>
@@ -634,7 +714,7 @@ summary.aovlist
 anova
 </td>
 <td style="text-align:left;">
-BFBayesFactorTop<sup>*</sup>
+bf_bridge
 </td>
 <td style="text-align:left;">
 lm
@@ -648,7 +728,7 @@ summary.glht<sup>*</sup>
 Anova.mlm
 </td>
 <td style="text-align:left;">
-emmGrid<sup>*</sup>
+bf_bridge_list
 </td>
 <td style="text-align:left;">
 lsmobj<sup>*</sup>
@@ -662,10 +742,10 @@ summary.glm
 aov
 </td>
 <td style="text-align:left;">
-glht<sup>*</sup>
+emmGrid<sup>*</sup>
 </td>
 <td style="text-align:left;">
-summary_emm<sup>*</sup>
+manova
 </td>
 <td style="text-align:left;">
 summary.lm
@@ -676,13 +756,13 @@ summary.lm
 aovlist
 </td>
 <td style="text-align:left;">
-glm
+glht<sup>*</sup>
 </td>
 <td style="text-align:left;">
 summary.Anova.mlm
 </td>
 <td style="text-align:left;">
-summary.ref.grid<sup>*</sup>
+summary.manova
 </td>
 </tr>
 <tr>
@@ -690,10 +770,24 @@ summary.ref.grid<sup>*</sup>
 BFBayesFactor<sup>*</sup>
 </td>
 <td style="text-align:left;">
-htest
+glm
 </td>
 <td style="text-align:left;">
 summary.aov
+</td>
+<td style="text-align:left;">
+summary.ref.grid<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BFBayesFactorList<sup>*</sup>
+</td>
+<td style="text-align:left;">
+htest
+</td>
+<td style="text-align:left;">
+summary.aovlist
 </td>
 <td style="text-align:left;">
 </td>
@@ -704,7 +798,7 @@ summary.aov
 <div class="figure" style="text-align: center"><span id="fig:formatting-process-diagram"></span>
 <img src="result_formatting_process.png" alt="Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript."  />
 <p class="caption">
-Figure 4.5: Process diagram illustrating the use of <code>apa_print()</code> methods and <code>apa_table()</code> to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.
+Figure 4.6: Process diagram illustrating the use of <code>apa_print()</code> methods and <code>apa_table()</code> to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.
 </p>
 </div>
 <div id="htest-t-tests-correlations-etc." class="section level3">
@@ -732,7 +826,10 @@ t_out &lt;-<span class="st"> </span><span class="kw">t.test</span>(
 ## [1] &quot;$M_d = -3.95$, 95\\% CI $[-4.86$, $-3.04]$, $t(275) = -8.52$, $p &lt; .001$&quot;
 ## 
 ## $table
-## NULL</code></pre>
+## NULL
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;apa_results&quot; &quot;list&quot;</code></pre>
 <p>As you can see, <code>apa_print()</code> returns a list of four elements:
 List element <code>estimate</code> contains the sample estimate of mean difference;
 element <code>statistic</code> contains the result of the NHST with test statistic, <em>df</em>s, and <em>p</em> value;
@@ -753,7 +850,7 @@ apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_out)</
   , <span class="dt">escape =</span> <span class="ot">FALSE</span>
 )</code></pre>
 <caption>
-<span id="tab:lm-table">Table 4.1: </span>
+<span id="tab:lm-table">Table 4.2: </span>
 </caption>
 <caption>
 <em>A full regression table.</em>
@@ -881,7 +978,7 @@ Amongst psychologists, analysis of variance is a still-popular and frequently us
 In base R, however, analysis of variance is not implemented in a way that is too useful
 for psychologists, as the <code>aov</code>-function in the stats package does not provide the much sought-after
 Type-<span class="math inline">\(\rm{I\!I\!I}\)</span> sums-of-squares. A variety of R packages has emerged to fill the gap, e.g.
-<code>car</code> <span class="citation">(Fox &amp; Weisberg, <a href="published-manuscripts.html#ref-R-car">2011</a>)</span>, <code>ez</code> <span class="citation">(Lawrence, <a href="published-manuscripts.html#ref-R-ez">2016</a>)</span>, and <code>afex</code> <span class="citation">(Singmann et al., <a href="published-manuscripts.html#ref-R-afex">2016</a>)</span>.
+<code>car</code> <span class="citation">(Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>)</span>, <code>ez</code> <span class="citation">(Lawrence, <a href="#ref-R-ez">2016</a>)</span>, and <code>afex</code> <span class="citation">(Singmann et al., <a href="#ref-R-afex">2016</a>)</span>.
 Unfortunately, each ANOVA function provides different output objects that need to be digested by <code>apa_print()</code>.
 To do so, we rely on the package authors to return standardized result objects (i.e., S3/S4 classes).
 For this reason <code>apa_print()</code> does not support results from the popular <code>ezANOVA()</code>.
@@ -908,7 +1005,7 @@ apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmet
   , <span class="dt">note =</span> <span class="st">&quot;Note that the column names contain beautiful mathematical copy: This is because the table has variable labels.&quot;</span>
 )</code></pre>
 <caption>
-<span id="tab:anova-table">Table 4.2: </span>
+<span id="tab:anova-table">Table 4.3: </span>
 </caption>
 <caption>
 <em>A really beautiful ANOVA table.</em>
@@ -1052,6 +1149,18 @@ For variables computed later in the document, <code>knitr::load_cache()</code> c
 
 
 </div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-car">
+<p>Fox, J., &amp; Weisberg, S. (2011). <em>An R companion to applied regression</em> (Second.). Thousand Oaks CA: Sage. Retrieved from <a href="http://socserv.socsci.mcmaster.ca/jfox/Books/Companion">http://socserv.socsci.mcmaster.ca/jfox/Books/Companion</a></p>
+</div>
+<div id="ref-R-ez">
+<p>Lawrence, M. A. (2016). <em>Ez: Easy analysis and visualization of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=ez">https://CRAN.R-project.org/package=ez</a></p>
+</div>
+<div id="ref-R-afex">
+<p>Singmann, H., Bolker, B., Westfall, J., &amp; Aust, F. (2016). <em>Afex: Analysis of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=afex">https://CRAN.R-project.org/package=afex</a></p>
 </div>
 </div>
 <div class="footnotes">

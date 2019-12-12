@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Writing | papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="&quot;&quot;">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="&quot;&quot;" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Writing | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -22,14 +21,14 @@
   <meta name="twitter:description" content="&quot;&quot;" />
   
 
-<meta name="author" content="Frederik Aust &amp; Marius Barth">
+<meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2019-02-04">
+<meta name="date" content="2019-12-09" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="r-markdown-components.html">
@@ -160,9 +159,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#markdown-text-formatting"><i class="fa fa-check"></i><b>3.1</b> Markdown text formatting</a></li>
 <li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#citation-styles"><i class="fa fa-check"></i><b>3.2.1</b> Citation styles</a></li>
-<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.2</b> Conveniently inserting citations with <code>citr</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#meta-analysis-references"><i class="fa fa-check"></i><b>3.2.3</b> Meta-analysis references</a></li>
-<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#citing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.4</b> Citing R and its packages</a></li>
+<li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#works-in-press"><i class="fa fa-check"></i><b>3.2.2</b> Works ‘in press’</a></li>
+<li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.3</b> Conveniently inserting citations with <code>citr</code></a></li>
+<li class="chapter" data-level="3.2.4" data-path="writing.html"><a href="writing.html#meta-analysis-references"><i class="fa fa-check"></i><b>3.2.4</b> Meta-analysis references</a></li>
+<li class="chapter" data-level="3.2.5" data-path="writing.html"><a href="writing.html#citing-r-and-its-packages"><i class="fa fa-check"></i><b>3.2.5</b> Citing R and its packages</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.3</b> Equations</a></li>
 <li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.4</b> Cross-referencing</a></li>
@@ -176,7 +176,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.3</b> Figure captions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.1</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.4</b> Results from statistical tests</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.4.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
@@ -191,18 +192,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#global-chunk-options"><i class="fa fa-check"></i><b>5.1</b> Global chunk options</a></li>
 <li class="chapter" data-level="5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#meaningful-chunk-names"><i class="fa fa-check"></i><b>5.2</b> Meaningful chunk names</a></li>
 <li class="chapter" data-level="5.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#useful-rstudio-addins"><i class="fa fa-check"></i><b>5.3</b> Useful RStudio Addins</a></li>
-<li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#author-name-disambiguation"><i class="fa fa-check"></i><b>5.4</b> Author name disambiguation</a></li>
-<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environment"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environment</a></li>
-<li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
-<li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
-<li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.8</b> Workflow</a></li>
-<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>5.9</b> Adjusting line spacing</a><ul>
-<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#comparing-documents"><i class="fa fa-check"></i><b>5.9.1</b> Comparing documents</a></li>
-<li class="chapter" data-level="5.9.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#counting-words"><i class="fa fa-check"></i><b>5.9.2</b> Counting words</a></li>
+<li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environment"><i class="fa fa-check"></i><b>5.4</b> Reproducible software environment</a></li>
+<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.5</b> RStudio</a></li>
+<li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.6</b> Splitting an R Markdown document</a></li>
+<li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.7</b> Workflow</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#comparing-documents"><i class="fa fa-check"></i><b>5.7.1</b> Comparing documents</a></li>
+<li class="chapter" data-level="5.7.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#counting-words"><i class="fa fa-check"></i><b>5.7.2</b> Counting words</a></li>
 </ul></li>
-<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.10</b> Best practices</a></li>
-<li class="chapter" data-level="5.11" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.11</b> Troubleshooting</a><ul>
-<li class="chapter" data-level="5.11.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.11.1</b> R</a></li>
+<li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.8</b> Best practices</a></li>
+<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.9</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.9.1</b> R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
@@ -213,9 +212,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="limitations.html"><a href="limitations.html#microsoft-word-documents"><i class="fa fa-check"></i><b>8.2</b> Microsoft Word documents</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>9</b> Future directions</a><ul>
-<li class="chapter" data-level="9.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>9.1</b> Contributions</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>9.1.1</b> Workflow</a></li>
+<li class="chapter" data-level="9" data-path="customizations.html"><a href="customizations.html"><i class="fa fa-check"></i><b>9</b> Customizations</a><ul>
+<li class="chapter" data-level="9.1" data-path="customizations.html"><a href="customizations.html#author-name-disambiguation"><i class="fa fa-check"></i><b>9.1</b> Author name disambiguation</a></li>
+<li class="chapter" data-level="9.2" data-path="customizations.html"><a href="customizations.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>9.2</b> Adjusting line spacing</a></li>
+<li class="chapter" data-level="9.3" data-path="customizations.html"><a href="customizations.html#writing-dissertations"><i class="fa fa-check"></i><b>9.3</b> Writing dissertations</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a><ul>
+<li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -268,9 +272,9 @@ Reference managers are like iTunes for your literature; they help you search, do
 <p>By default, citations in R Markdown are formatted by <code>pandoc-citeproc</code>, a filter that <code>pandoc</code> applies as it renders the final document.
 The advantage of using <code>pandoc-citeproc</code> is that it works equally well for both PDF and Microsoft Word documents.
 To start citing, supply a Bib(La)TeX (or for example EndNote, RIS, Medline) file to the <code>bibliography</code> parameter in the YAML front matter (<code>bibliography: my.bib</code>).
-Once the R Markdown file knows where to look for reference <code>[@james_1890]</code> will create a citation within parentheses <span class="citation">(James, <a href="published-manuscripts.html#ref-james_1890">1890</a>)</span>.
-Multiple citations must be separated by <code>;</code> (e.g., <code>[@james_1890; @bem_2011]</code>) and are ordered alphabetically as per APA style <span class="citation">(Bem, <a href="published-manuscripts.html#ref-bem_2011">2011</a>; James, <a href="published-manuscripts.html#ref-james_1890">1890</a>)</span>.
-To cite a source in text simply omit the brackets; for example, write <code>@james_1890</code> to cite <span class="citation">James (<a href="published-manuscripts.html#ref-james_1890">1890</a>)</span>.</p>
+Once the R Markdown file knows where to look for reference <code>[@james_1890]</code> will create a citation within parentheses <span class="citation">(James, <a href="#ref-james_1890">1890</a>)</span>.
+Multiple citations must be separated by <code>;</code> (e.g., <code>[@james_1890; @bem_2011]</code>) and are ordered alphabetically as per APA style <span class="citation">(Bem, <a href="#ref-bem_2011">2011</a>; James, <a href="#ref-james_1890">1890</a>)</span>.
+To cite a source in text simply omit the brackets; for example, write <code>@james_1890</code> to cite <span class="citation">James (<a href="#ref-james_1890">1890</a>)</span>.</p>
 <table>
 <thead>
 <tr class="header">
@@ -306,7 +310,7 @@ To cite a source in text simply omit the brackets; for example, write <code>@jam
 Pre- and postfixes can simply be added to each citation by writing inside the brackets (<code>[e.g., @bem_2011]</code>).
 Note that pre- and postfixes are bound to the enclosed citation, not to the set of all citations.
 Hence, a prefix will be reorder together with its citation, which may be undesirable.
-For example, <code>[e.g., @james_1890; @bem_2011]</code> yields <span class="citation">(e.g., James, <a href="published-manuscripts.html#ref-james_1890">1890</a>; Bem, <a href="published-manuscripts.html#ref-bem_2011">2011</a>)</span>.
+For example, <code>[e.g., @james_1890; @bem_2011]</code> yields <span class="citation">(e.g., James, <a href="#ref-james_1890">1890</a>; Bem, <a href="#ref-bem_2011">2011</a>)</span>.
 There is no way to prevent this behavior, so mind the alphabetical order of citations.</p>
 <p>Further customizations, such as citing only a publications year (<code>[-@bem_2011]</code>) are available, see RStudio’s <a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">overview of the R Markdown citation syntax</a>.
 If you are not interested in creating Microsoft Word documents it’s possible to use NatBib or Bib(La)TeX for reference formatting, which grant a little more flexibility than <code>pandoc-citeproc</code>.
@@ -327,8 +331,24 @@ See the <a href="http://R%20Markdown.rstudio.com/authoring_bibliographies_and_ci
 <span class="fu">csl:</span><span class="at"> mystyle.csl</span>
 <span class="ot">---</span></code></pre>
 </div>
+<div id="works-in-press" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Works ‘in press’</h3>
+<p>Bibliographic entries that are missing the <code>year</code> field will be rendered without a date.
+For example, the following entry in the bibliography file will be printed as <code>Aust &amp; Barth (n.d.)</code>.</p>
+<pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span class="va">@article</span>{<span class="ot">R</span>-<span class="ot">papaja</span>,
+  <span class="dt">author</span> = {Frederik Aust and Marius Barth},
+  <span class="dt">title</span> = {{papaja}: {Create} {APA} manuscripts with {R Markdown}}
+}</code></pre>
+<p>When refering to works that are missing a date because they are not yet published (e.g., works that are under review or accepted for but awaiting publication), the publication state can be included in the citation and reference via the <code>pubstate</code> field:</p>
+<pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span class="va">@article</span>{<span class="ot">R</span>-<span class="ot">papaja</span>,
+  <span class="dt">author</span> = {Frederik Aust and Marius Barth},
+  <span class="dt">title</span> = {{papaja}: {Create} {APA} manuscripts with {R Markdown}},
+  <span class="dt">pubstate</span> = {in press}
+}</code></pre>
+<p>Now, this entry will be printed as <code>Aust &amp; Barth (in press)</code>.</p>
+</div>
 <div id="conveniently-inserting-citations-with-citr" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Conveniently inserting citations with <code>citr</code></h3>
+<h3><span class="header-section-number">3.2.3</span> Conveniently inserting citations with <code>citr</code></h3>
 <p><code>citr</code> is an R package that provides functions to search Bib(La)TeX-files to create and insert formatted Markdown citations into the current document.
 If you use RStudio, the package supplies an easy-to-use <a href="https://rstudio.github.io/rstudioaddins/">RStudio add-in</a> that facilitates inserting citations (Figure <a href="writing.html#fig:citr-gif">3.1</a>).
 The references for the inserted citations are automatically added to the documents reference section.</p>
@@ -349,7 +369,7 @@ The following call searches a Bib(La)TeX-file and creates formatted Markdown cit
 <span class="kw">md_cite</span>(<span class="st">&quot;bem&quot;</span>, <span class="dt">bib_file =</span> <span class="st">&quot;references.bib&quot;</span>)</code></pre>
 <p><code>md_cite()</code> searches the author, year, title, and journal fields of your references.</p>
 <div id="working-with-a-reference-manager" class="section level4">
-<h4><span class="header-section-number">3.2.2.1</span> Working with a reference manager</h4>
+<h4><span class="header-section-number">3.2.3.1</span> Working with a reference manager</h4>
 <p>If you use Zotero or Juris-M <code>citr</code> can access your reference database without previous export.
 For this to work, you need to install the <a href="https://github.com/retorquere/zotero-better-bibtex/wiki">Better Bib(La)TeX extension</a>, which we recommend even if you don’t intend to use <code>citr</code>.
 Once the extension is installed and the reference manager is running, <code>citr</code> will automatically access all your references and keep the Bib(La)Tex-file specified in the current R Markdown file up-to-date.
@@ -357,8 +377,8 @@ If you dislike this behavior, you can disable the automatic access to the refere
 </div>
 </div>
 <div id="meta-analysis-references" class="section level3">
-<h3><span class="header-section-number">3.2.3</span> Meta-analysis references</h3>
-<p>When reporting meta-analyses APA guidelines require that studies included in the meta analysis are included in the reference section and preceeded by an asterisk <span class="citation">(p. 138, American Psychological Association, <a href="published-manuscripts.html#ref-american_psychological_association_publication_2010">2010</a>)</span>.
+<h3><span class="header-section-number">3.2.4</span> Meta-analysis references</h3>
+<p>When reporting meta-analyses APA guidelines require that studies included in the meta analysis are included in the reference section and preceeded by an asterisk <span class="citation">(p. 138, American Psychological Association, <a href="#ref-american_psychological_association_publication_2010">2010</a>)</span>.
 There are two approaches to mark meta-analysis references.</p>
 <p>First, we have created a variant of the widely available APA CSL file that enables adding the required asteriskes.
 To use this variant insert the following into YAML front matter.</p>
@@ -410,7 +430,7 @@ The note that explains what an asterisk means can be added at the end of the doc
 <span class="fu">\renewcommand</span>{<span class="ex">\printbibliography</span>}{}</code></pre>
 </div>
 <div id="citing-r-and-its-packages" class="section level3">
-<h3><span class="header-section-number">3.2.4</span> Citing R and its packages</h3>
+<h3><span class="header-section-number">3.2.5</span> Citing R and its packages</h3>
 <p>A lot of R packages are developed by academics free of charge.
 As citations are the currency of science, it’s easy to compensate volunteers for their work by citing the R packages we use.
 Howerver, citing software is rarely done arguebly because it is tedious work.
@@ -421,7 +441,7 @@ my_citations &lt;-<span class="st"> </span><span class="kw">cite_r</span>(<span 
 <code>cite_r()</code> takes these citations and turns them into readily reportable text.
 <code>my_citations</code> now contains the following text that you can use in your document:</p>
 <blockquote>
-<p>R <span class="citation">(Version 3.5.1; R Core Team, <a href="published-manuscripts.html#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.21.2; Singmann et al., <a href="published-manuscripts.html#ref-R-afex">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Version 0.2.2; Müller, <a href="published-manuscripts.html#ref-R-bindrcpp">2017</a>)</span>, <em>car</em> <span class="citation">(Version 3.0.0; Fox &amp; Weisberg, <a href="published-manuscripts.html#ref-R-car">2011</a>; Fox et al., <a href="published-manuscripts.html#ref-R-carData">2018</a>)</span>, <em>carData</em> <span class="citation">(Version 3.0.1; Fox et al., <a href="published-manuscripts.html#ref-R-carData">2018</a>)</span>, <em>citr</em> <span class="citation">(Version 0.3.0; Aust, <a href="published-manuscripts.html#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 1.0.0; Sveidqvist et al., <a href="published-manuscripts.html#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 0.7.7; Wickham &amp; Francois, <a href="published-manuscripts.html#ref-R-dplyr">2016</a>)</span>, <em>estimability</em> <span class="citation">(Version 1.3; Lenth, <a href="published-manuscripts.html#ref-R-estimability">2015</a>)</span>, <em>ez</em> <span class="citation">(Lawrence, <a href="published-manuscripts.html#ref-R-ez">2016</a>)</span>, <em>ggplot2</em> <span class="citation">(Version 3.0.0; Wickham, <a href="published-manuscripts.html#ref-R-ggplot2">2009</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.21; Xie, <a href="published-manuscripts.html#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.17; Bates et al., <a href="published-manuscripts.html#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="published-manuscripts.html#ref-R-lsmeans">2016</a>)</span>, <em>Matrix</em> <span class="citation">(Version 1.2.14; Bates &amp; Maechler, <a href="published-manuscripts.html#ref-R-Matrix">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9842; Aust &amp; Barth, <a href="published-manuscripts.html#ref-R-papaja">2016</a>)</span>, <em>reshape2</em> <span class="citation">(Version 1.4.3; Wickham, <a href="published-manuscripts.html#ref-R-reshape2">2007</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 1.11; Allaire et al., <a href="published-manuscripts.html#ref-R-rmarkdown">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.2.0; Chang et al., <a href="published-manuscripts.html#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Marwick, n.d.)</span></p>
+<p>R <span class="citation">(Version 3.6.1; R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.23.0; Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Version 0.2.2; Müller, <a href="#ref-R-bindrcpp">2017</a>)</span>, <em>car</em> <span class="citation">(Version 3.0.3; Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>carData</em> <span class="citation">(Version 3.0.2; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>citr</em> <span class="citation">(Version 0.3.2; Aust, <a href="#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 1.0.1; Sveidqvist et al., <a href="#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 0.8.3; Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>estimability</em> <span class="citation">(Version 1.3; Lenth, <a href="#ref-R-estimability">2015</a>)</span>, <em>ez</em> <span class="citation">(Version 4.4.0; Lawrence, <a href="#ref-R-ez">2016</a>)</span>, <em>ggplot2</em> <span class="citation">(Version 3.1.1; Wickham, <a href="#ref-R-ggplot2">2009</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.23; Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.21; Bates et al., <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>Matrix</em> <span class="citation">(Version 1.2.17; Bates &amp; Maechler, <a href="#ref-R-Matrix">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9842; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>reshape2</em> <span class="citation">(Version 1.4.3; Wickham, <a href="#ref-R-reshape2">2007</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 1.13; Allaire et al., <a href="#ref-R-rmarkdown">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.3.2; Chang et al., <a href="#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Marwick, n.d.)</span></p>
 </blockquote>
 <p>If you prefer to cite only a subset of these packages, package names can be specified either as a blacklist, so they won’t be cited (<code>withhold = TRUE</code>), or as a whitelist, so only these packages will be cited (<code>withhold = FALSE</code>).</p>
 <pre class="sourceCode r"><code class="sourceCode r">my_citations &lt;-<span class="st"> </span><span class="kw">cite_r</span>(
@@ -430,13 +450,13 @@ my_citations &lt;-<span class="st"> </span><span class="kw">cite_r</span>(<span 
   , <span class="dt">withhold =</span> <span class="ot">FALSE</span>
 )</code></pre>
 <blockquote>
-<p>R <span class="citation">(Version 3.5.1; R Core Team, <a href="published-manuscripts.html#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.21.2; Singmann et al., <a href="published-manuscripts.html#ref-R-afex">2016</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="published-manuscripts.html#ref-R-lsmeans">2016</a>)</span>, and <em>papaja</em> <span class="citation">(Version 0.1.0.9842; Aust &amp; Barth, <a href="published-manuscripts.html#ref-R-papaja">2016</a>)</span></p>
+<p>R <span class="citation">(Version 3.6.1; R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.23.0; Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, and <em>papaja</em> <span class="citation">(Version 0.1.0.9842; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span></p>
 </blockquote>
 <p>Another option is to cite R in text but move the list of R packges into a footnote.</p>
 <pre class="sourceCode r"><code class="sourceCode r">my_citations &lt;-<span class="st"> </span><span class="kw">cite_r</span>(<span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span>, <span class="dt">footnote =</span> <span class="ot">TRUE</span>)</code></pre>
 <p>This way you can reference R in the running text using <code>my_citations$r</code> and place the footnote syntax including the package list <code>my_citations$pkgs</code> in a new paragraph.</p>
 <blockquote>
-<p>R <span class="citation">(Version 3.5.1; R Core Team, <a href="published-manuscripts.html#ref-R-base">2016</a>)</span><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>R <span class="citation">(Version 3.6.1; R Core Team, <a href="#ref-R-base">2016</a>)</span><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 </blockquote>
 </div>
 </div>
@@ -480,10 +500,79 @@ This enables the use of <code>bookdown</code> cross-referencing syntax including
 
 </div>
 </div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-rmarkdown">
+<p>Allaire, J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., … Chang, W. (2017). <em>Rmarkdown: Dynamic documents for r</em>. Retrieved from <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a></p>
+</div>
+<div id="ref-american_psychological_association_publication_2010">
+<p>American Psychological Association. (2010). <em>Publication Manual of the American Psychological Association</em> (6th edition.). Washington, DC: American Psychological Association.</p>
+</div>
+<div id="ref-R-citr">
+<p>Aust, F. (2016). <em>Citr: ’RStudio’ add-in to insert markdown citations</em>. Retrieved from <a href="https://CRAN.R-project.org/package=citr">https://CRAN.R-project.org/package=citr</a></p>
+</div>
+<div id="ref-R-papaja">
+<p>Aust, F., &amp; Barth, M. (2016). <em>Papaja: Create apa manuscripts with rmarkdown</em>. Retrieved from <a href="https://github.com/crsh/papaja">https://github.com/crsh/papaja</a></p>
+</div>
+<div id="ref-R-Matrix">
+<p>Bates, D., &amp; Maechler, M. (2016). <em>Matrix: Sparse and dense matrix classes and methods</em>. Retrieved from <a href="https://CRAN.R-project.org/package=Matrix">https://CRAN.R-project.org/package=Matrix</a></p>
+</div>
+<div id="ref-R-lme4">
+<p>Bates, D., Mächler, M., Bolker, B., &amp; Walker, S. (2015). Fitting linear mixed-effects models using lme4. <em>Journal of Statistical Software</em>, <em>67</em>(1), 1–48. doi:<a href="https://doi.org/10.18637/jss.v067.i01">10.18637/jss.v067.i01</a></p>
+</div>
+<div id="ref-bem_2011">
+<p>Bem, D. J. (2011). Feeling the future: Experimental evidence for anomalous retroactive influences on cognition and affect. <em>Journal of Personality and Social Psychology</em>, <em>100</em>(3), 407—425. doi:<a href="https://doi.org/10.1037/a0021524">10.1037/a0021524</a></p>
+</div>
+<div id="ref-R-shiny">
+<p>Chang, W., Cheng, J., Allaire, J., Xie, Y., &amp; McPherson, J. (2016). <em>Shiny: Web application framework for r</em>. Retrieved from <a href="http://shiny.rstudio.com">http://shiny.rstudio.com</a></p>
+</div>
+<div id="ref-R-car">
+<p>Fox, J., &amp; Weisberg, S. (2011). <em>An R companion to applied regression</em> (Second.). Thousand Oaks CA: Sage. Retrieved from <a href="http://socserv.socsci.mcmaster.ca/jfox/Books/Companion">http://socserv.socsci.mcmaster.ca/jfox/Books/Companion</a></p>
+</div>
+<div id="ref-R-carData">
+<p>Fox, J., Weisberg, S., &amp; Price, B. (2018). <em>CarData: Companion to applied regression data sets</em>. Retrieved from <a href="https://CRAN.R-project.org/package=carData">https://CRAN.R-project.org/package=carData</a></p>
+</div>
+<div id="ref-james_1890">
+<p>James, W. (1890). <em>The principles of psychology</em>. Holt: New York.</p>
+</div>
+<div id="ref-R-ez">
+<p>Lawrence, M. A. (2016). <em>Ez: Easy analysis and visualization of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=ez">https://CRAN.R-project.org/package=ez</a></p>
+</div>
+<div id="ref-R-estimability">
+<p>Lenth, R. V. (2015). <em>Estimability: Tools for assessing estimability of linear predictions</em>. Retrieved from <a href="https://CRAN.R-project.org/package=estimability">https://CRAN.R-project.org/package=estimability</a></p>
+</div>
+<div id="ref-R-lsmeans">
+<p>Lenth, R. V. (2016). Least-squares means: The R package lsmeans. <em>Journal of Statistical Software</em>, <em>69</em>(1), 1–33. doi:<a href="https://doi.org/10.18637/jss.v069.i01">10.18637/jss.v069.i01</a></p>
+</div>
+<div id="ref-R-bindrcpp">
+<p>Müller, K. (2017). <em>Bindrcpp: An ’rcpp’ interface to active bindings</em>. Retrieved from <a href="https://CRAN.R-project.org/package=bindrcpp">https://CRAN.R-project.org/package=bindrcpp</a></p>
+</div>
+<div id="ref-R-base">
+<p>R Core Team. (2016). <em>R: A language and environment for statistical computing</em>. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from <a href="https://www.R-project.org/">https://www.R-project.org/</a></p>
+</div>
+<div id="ref-R-afex">
+<p>Singmann, H., Bolker, B., Westfall, J., &amp; Aust, F. (2016). <em>Afex: Analysis of factorial experiments</em>. Retrieved from <a href="https://CRAN.R-project.org/package=afex">https://CRAN.R-project.org/package=afex</a></p>
+</div>
+<div id="ref-R-DiagrammeR">
+<p>Sveidqvist, K., Bostock, M., Pettitt, C., Daines, M., Kashcha, A., &amp; Iannone, R. (2016). <em>DiagrammeR: Create graph diagrams and flowcharts using r</em>. Retrieved from <a href="https://CRAN.R-project.org/package=DiagrammeR">https://CRAN.R-project.org/package=DiagrammeR</a></p>
+</div>
+<div id="ref-R-reshape2">
+<p>Wickham, H. (2007). Reshaping data with the reshape package. <em>Journal of Statistical Software</em>, <em>21</em>(12), 1–20. Retrieved from <a href="http://www.jstatsoft.org/v21/i12/">http://www.jstatsoft.org/v21/i12/</a></p>
+</div>
+<div id="ref-R-ggplot2">
+<p>Wickham, H. (2009). <em>Ggplot2: Elegant graphics for data analysis</em>. Springer-Verlag New York. Retrieved from <a href="http://ggplot2.org">http://ggplot2.org</a></p>
+</div>
+<div id="ref-R-dplyr">
+<p>Wickham, H., &amp; Francois, R. (2016). <em>Dplyr: A grammar of data manipulation</em>. Retrieved from <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a></p>
+</div>
+<div id="ref-R-knitr">
+<p>Xie, Y. (2015). <em>Dynamic documents with R and knitr</em> (2nd ed.). Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a></p>
+</div>
+</div>
 <div class="footnotes">
 <hr />
 <ol start="2">
-<li id="fn2"><p>We, furthermore, used the R-packages <em>afex</em> <span class="citation">(Version 0.21.2; Singmann et al., <a href="published-manuscripts.html#ref-R-afex">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Version 0.2.2; Müller, <a href="published-manuscripts.html#ref-R-bindrcpp">2017</a>)</span>, <em>car</em> <span class="citation">(Version 3.0.0; Fox &amp; Weisberg, <a href="published-manuscripts.html#ref-R-car">2011</a>; Fox et al., <a href="published-manuscripts.html#ref-R-carData">2018</a>)</span>, <em>carData</em> <span class="citation">(Version 3.0.1; Fox et al., <a href="published-manuscripts.html#ref-R-carData">2018</a>)</span>, <em>citr</em> <span class="citation">(Version 0.3.0; Aust, <a href="published-manuscripts.html#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 1.0.0; Sveidqvist et al., <a href="published-manuscripts.html#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 0.7.7; Wickham &amp; Francois, <a href="published-manuscripts.html#ref-R-dplyr">2016</a>)</span>, <em>estimability</em> <span class="citation">(Version 1.3; Lenth, <a href="published-manuscripts.html#ref-R-estimability">2015</a>)</span>, <em>ez</em> <span class="citation">(Lawrence, <a href="published-manuscripts.html#ref-R-ez">2016</a>)</span>, <em>ggplot2</em> <span class="citation">(Version 3.0.0; Wickham, <a href="published-manuscripts.html#ref-R-ggplot2">2009</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.21; Xie, <a href="published-manuscripts.html#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.17; Bates et al., <a href="published-manuscripts.html#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="published-manuscripts.html#ref-R-lsmeans">2016</a>)</span>, <em>Matrix</em> <span class="citation">(Version 1.2.14; Bates &amp; Maechler, <a href="published-manuscripts.html#ref-R-Matrix">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9842; Aust &amp; Barth, <a href="published-manuscripts.html#ref-R-papaja">2016</a>)</span>, <em>reshape2</em> <span class="citation">(Version 1.4.3; Wickham, <a href="published-manuscripts.html#ref-R-reshape2">2007</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 1.11; Allaire et al., <a href="published-manuscripts.html#ref-R-rmarkdown">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.2.0; Chang et al., <a href="published-manuscripts.html#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Marwick, n.d.)</span>.<a href="writing.html#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>We, furthermore, used the R-packages <em>afex</em> <span class="citation">(Version 0.23.0; Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Version 0.2.2; Müller, <a href="#ref-R-bindrcpp">2017</a>)</span>, <em>car</em> <span class="citation">(Version 3.0.3; Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>carData</em> <span class="citation">(Version 3.0.2; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>citr</em> <span class="citation">(Version 0.3.2; Aust, <a href="#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 1.0.1; Sveidqvist et al., <a href="#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 0.8.3; Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>estimability</em> <span class="citation">(Version 1.3; Lenth, <a href="#ref-R-estimability">2015</a>)</span>, <em>ez</em> <span class="citation">(Version 4.4.0; Lawrence, <a href="#ref-R-ez">2016</a>)</span>, <em>ggplot2</em> <span class="citation">(Version 3.1.1; Wickham, <a href="#ref-R-ggplot2">2009</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.23; Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.21; Bates et al., <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>Matrix</em> <span class="citation">(Version 1.2.17; Bates &amp; Maechler, <a href="#ref-R-Matrix">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9842; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>reshape2</em> <span class="citation">(Version 1.4.3; Wickham, <a href="#ref-R-reshape2">2007</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 1.13; Allaire et al., <a href="#ref-R-rmarkdown">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.3.2; Chang et al., <a href="#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Marwick, n.d.)</span>.<a href="writing.html#fnref2" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
 <h1>Comments and Questions</h1>
