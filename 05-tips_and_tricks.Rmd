@@ -122,12 +122,22 @@ Search all files with <kbd>Ctrl</kbd> + <kbd>Shift</kbd>+<kbd>F</kbd>
 
 ### Comparing documents
 
-In revisions, it can be helpful to highlight all changes
-- for DOCX, use the Microsoft Word combine feature
-- for PDF, use [`latexdiff`](https://3142.nl/latex-diff/) on $\LaTeX$ source documents
-    1. Create $\LaTeX$ file with highlighted changes
-    2. Compile to PDF in RStudio
+In revisions, it can be helpful to highlight all changes.
 
+* for DOCX, use the Microsoft Word combine feature
+* for PDF, use [`latexdiff`](https://3142.nl/latex-diff/) on $\LaTeX$ source documents
+  1. Create $\LaTeX$ file with highlighted changes
+  2. Compile to PDF in RStudio
+
+Notes on PDF method:
+
+The .tex files are generated when you knit your .rmd document. Make sure you save the .tex file from *before* you make any modifications.
+
+You can now visit [`latexdiff`](https://3142.nl/latex-diff/) and copy/paste in the contents of `manuscript_old.tex` and `manuscript_new.tex`, or (if you are a command line ninja install [`latexdiff`](https://3142.nl/latex-diff/) on your own system). This will generate output which you can copy/paste into a file `manuscript_with_changes.tex`.
+
+Now open this file `manuscript_with_changes.tex` in RStudio and click "Compile to PDF" in the top bar.
+
+N.B. Will not track changes in the front matter (affiliations, abstract)
 
 ### Counting words
 
