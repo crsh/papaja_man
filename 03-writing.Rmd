@@ -45,11 +45,19 @@ To cite a source in text simply omit the brackets; for example, write `@james_18
 | Year only | `[-@bem_2011]` | (2011) |
 
 Additional information can be added to citations as pre- or postfixes.
-Pre- and postfixes can simply be added to each citation by writing inside the brackets (`[e.g., @bem_2011]`).
-Note that pre- and postfixes are bound to the enclosed citation, not to the set of all citations.
-Hence, a prefix will be reorder together with its citation, which may be undesirable.
-For example, `[e.g., @james_1890; @bem_2011]` yields [e.g., @james_1890; @bem_2011].
-There is no way to prevent this behavior, so mind the alphabetical order of citations.
+Pre- and postfixes can be added to each citation by adding them inside the brackets (`[e.g., @bem_2011]`).
+Note that prefixes divide a set of citations into subgroups; automatic (alphabetical) sorting  of citations is done only *within each subgroup*.
+For example, there are three subgroups of citations in `Disagreements abound [@Xylax2016; see also @Yi2014; @Ang2017; for a contrary view, see @Mutt2012]`:
+
+1. `@Xylax2016`
+2. `@Yi2014; @Ang2017` (will be printed in reverse order)
+3. `@Mutt2012`
+
+Conveniently, the citations in subgroup 2 will be reordered but the order of the prefixed subgroups is preserved:
+
+> Disagreements abound (Xylax, 2016; see also Ang, 2017; Yi, 2014; for a contrary view, see Mutt, 2012)
+
+This ensures that the reordering citations doesn't distort the semantics implied by the prefixes.
 
 Further customizations, such as citing only a publications year (`[-@bem_2011]`) are available, see RStudio's [overview of the R Markdown citation syntax](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html).
 If you are not interested in creating Microsoft Word documents it's possible to use NatBib or Bib(La)TeX for reference formatting, which grant a little more flexibility than `pandoc-citeproc`.
