@@ -134,7 +134,7 @@ md_cite("bem", bib_file = "references.bib")
 #### Working with a reference manager
 
 If you use Zotero or Juris-M `citr` can access your reference database without previous export.
-For this to work, you need to install the [Better Bib(La)TeX extension](https://github.com/retorquere/zotero-better-bibtex/wiki), which we recommend even if you don't intend to use `citr`.
+For this to work, you need to install the [Better BibTeX extension](http://retorque.re/zotero-better-bibtex/), which we recommend even if you don't intend to use `citr`.
 Once the extension is installed and the reference manager is running, `citr` will automatically access all your references and keep the Bib(La)Tex-file specified in the current R Markdown file up-to-date.
 If you dislike this behavior, you can disable the automatic access to the reference manager by setting `options(citr.use_betterbiblatex = FALSE)`.
 
