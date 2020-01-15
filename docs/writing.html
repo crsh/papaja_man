@@ -308,11 +308,19 @@ To cite a source in text simply omit the brackets; for example, write <code>@jam
 </tbody>
 </table>
 <p>Additional information can be added to citations as pre- or postfixes.
-Pre- and postfixes can simply be added to each citation by writing inside the brackets (<code>[e.g., @bem_2011]</code>).
-Note that pre- and postfixes are bound to the enclosed citation, not to the set of all citations.
-Hence, a prefix will be reorder together with its citation, which may be undesirable.
-For example, <code>[e.g., @james_1890; @bem_2011]</code> yields <span class="citation">(e.g., James, <a href="#ref-james_1890">1890</a>; Bem, <a href="#ref-bem_2011">2011</a>)</span>.
-There is no way to prevent this behavior, so mind the alphabetical order of citations.</p>
+Pre- and postfixes can be added to each citation by adding them inside the brackets (<code>[e.g., @bem_2011]</code>).
+Note that prefixes divide a set of citations into subgroups; automatic (alphabetical) sorting of citations is done only <em>within each subgroup</em>.
+For example, there are three subgroups of citations in <code>Disagreements abound [@Xylax2016; see also @Yi2014; @Ang2017; for a contrary view, see @Mutt2012]</code>:</p>
+<ol style="list-style-type: decimal">
+<li><code>@Xylax2016</code></li>
+<li><code>@Yi2014; @Ang2017</code> (will be printed in reverse order)</li>
+<li><code>@Mutt2012</code></li>
+</ol>
+<p>Conveniently, the citations in subgroup 2 will be reordered but the order of the prefixed subgroups is preserved:</p>
+<blockquote>
+<p>Disagreements abound (Xylax, 2016; see also Ang, 2017; Yi, 2014; for a contrary view, see Mutt, 2012)</p>
+</blockquote>
+<p>This ensures that the reordering citations doesn’t distort the semantics implied by the prefixes.</p>
 <p>Further customizations, such as citing only a publications year (<code>[-@bem_2011]</code>) are available, see RStudio’s <a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">overview of the R Markdown citation syntax</a>.
 If you are not interested in creating Microsoft Word documents it’s possible to use NatBib or Bib(La)TeX for reference formatting, which grant a little more flexibility than <code>pandoc-citeproc</code>.
 To do so, an additional argument has to be supplied to <code>apa6_pdf()</code>:</p>

@@ -383,11 +383,20 @@ To include a child document, insert an empty chunk and provide the path to the R
 </ul>
 <div id="comparing-documents" class="section level3">
 <h3><span class="header-section-number">5.7.1</span> Comparing documents</h3>
-<p>In revisions, it can be helpful to highlight all changes
-- for DOCX, use the Microsoft Word combine feature
-- for PDF, use <a href="https://3142.nl/latex-diff/"><code>latexdiff</code></a> on <span class="math inline">\(\LaTeX\)</span> source documents
-1. Create <span class="math inline">\(\LaTeX\)</span> file with highlighted changes
-2. Compile to PDF in RStudio</p>
+<p>In revisions, it can be helpful to highlight all changes.</p>
+<ul>
+<li>for DOCX, use the Microsoft Word combine feature</li>
+<li>for PDF, use <a href="https://3142.nl/latex-diff/"><code>latexdiff</code></a> on <span class="math inline">\(\LaTeX\)</span> source documents
+<ol style="list-style-type: decimal">
+<li>Create <span class="math inline">\(\LaTeX\)</span> file with highlighted changes</li>
+<li>Compile to PDF in RStudio</li>
+</ol></li>
+</ul>
+<p>Notes on PDF method:</p>
+<p>The .tex files are generated when you knit your .rmd document. Make sure you save the .tex file from <em>before</em> you make any modifications.</p>
+<p>You can now visit <a href="https://3142.nl/latex-diff/"><code>latexdiff</code></a> and copy/paste in the contents of <code>manuscript_old.tex</code> and <code>manuscript_new.tex</code>, or (if you are a command line ninja install <a href="https://3142.nl/latex-diff/"><code>latexdiff</code></a> on your own system). This will generate output which you can copy/paste into a file <code>manuscript_with_changes.tex</code>.</p>
+<p>Now open this file <code>manuscript_with_changes.tex</code> in RStudio and click “Compile to PDF” in the top bar.</p>
+<p>N.B. Will not track changes in the front matter (affiliations, abstract)</p>
 </div>
 <div id="counting-words" class="section level3">
 <h3><span class="header-section-number">5.7.2</span> Counting words</h3>
