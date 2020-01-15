@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html >
+
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>2 R Markdown components | papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="&quot;&quot;" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="description" content="&quot;&quot;">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="2 R Markdown components | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -21,14 +22,14 @@
   <meta name="twitter:description" content="&quot;&quot;" />
   
 
-<meta name="author" content="Frederik Aust &amp; Marius Barth" />
+<meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2019-07-29" />
+<meta name="date" content="2020-01-15">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
 <link rel="prev" href="introduction.html">
@@ -399,7 +400,7 @@ The following is the default YAML front matter; it starts and ends with <code>--
 </tr>
 <tr class="odd">
 <td><code>authornote</code></td>
-<td>automatically contains corresponding author line</td>
+<td>aka. acknowledgements; automatically contains corresponding author line</td>
 </tr>
 <tr class="even">
 <td><code>keywords</code></td>
@@ -425,9 +426,9 @@ Exactly one author has to be declared as corresponding author by adding <code>co
 The latter two fields are used to automatically generate the last sentence of the author note that—as required by the APA guidelines—provides the corresponding author’s contact information.</p>
 <p><code>affiliation</code> is another structured list that contains the institutions’ information; again each new element is indented and starts with <code>-</code>.
 <code>id</code> is printed as superscript in front of the <code>institution</code> name below the author names on the title page (e.g., <code>2</code> yields <sup>2</sup> Konstanz Business School).</p>
-<p><code>author_note</code> and <code>abstract</code> contain the text for the corresponding sections of the manuscript.
+<p><code>authornote</code> and <code>abstract</code> contain the text for the corresponding sections of the manuscript.
 The <code>|</code> indicate that all following <em>indented</em> lines, including line breaks and new paragraphs, belong to this field.
-Thus, <code>abstract</code> and <code>author_note</code> can be structured into multiple paragraphs as shown above.
+Thus, <code>abstract</code> and <code>authornote</code> can be structured into multiple paragraphs as shown above.
 <code>keywords</code> and <code>wordcount</code><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> are self-explanatory and the corresponding information is printed below the abstract on the second page of the manuscript.</p>
 <p><code>bibliography</code> contains a list of one or more Bib(La)TeX files that contain the references cited in the manuscript.
 Additional files can be added by appending them to the list separated by commata, e.g. <code>bibliography: [&quot;my_bib1.bib&quot;, &quot;my_bib2.bib&quot;]</code>.

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html >
+
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>3 Writing | papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="&quot;&quot;" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="description" content="&quot;&quot;">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="3 Writing | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -21,14 +22,14 @@
   <meta name="twitter:description" content="&quot;&quot;" />
   
 
-<meta name="author" content="Frederik Aust &amp; Marius Barth" />
+<meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2019-12-09" />
+<meta name="date" content="2020-01-15">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
 <link rel="prev" href="r-markdown-components.html">
@@ -371,7 +372,7 @@ The following call searches a Bib(La)TeX-file and creates formatted Markdown cit
 <div id="working-with-a-reference-manager" class="section level4">
 <h4><span class="header-section-number">3.2.3.1</span> Working with a reference manager</h4>
 <p>If you use Zotero or Juris-M <code>citr</code> can access your reference database without previous export.
-For this to work, you need to install the <a href="https://github.com/retorquere/zotero-better-bibtex/wiki">Better Bib(La)TeX extension</a>, which we recommend even if you don’t intend to use <code>citr</code>.
+For this to work, you need to install the <a href="http://retorque.re/zotero-better-bibtex/">Better BibTeX extension</a>, which we recommend even if you don’t intend to use <code>citr</code>.
 Once the extension is installed and the reference manager is running, <code>citr</code> will automatically access all your references and keep the Bib(La)Tex-file specified in the current R Markdown file up-to-date.
 If you dislike this behavior, you can disable the automatic access to the reference manager by setting <code>options(citr.use_betterbiblatex = FALSE)</code>.</p>
 </div>
@@ -441,7 +442,7 @@ my_citations &lt;-<span class="st"> </span><span class="kw">cite_r</span>(<span 
 <code>cite_r()</code> takes these citations and turns them into readily reportable text.
 <code>my_citations</code> now contains the following text that you can use in your document:</p>
 <blockquote>
-<p>R <span class="citation">(Version 3.6.1; R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.23.0; Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Version 0.2.2; Müller, <a href="#ref-R-bindrcpp">2017</a>)</span>, <em>car</em> <span class="citation">(Version 3.0.3; Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>carData</em> <span class="citation">(Version 3.0.2; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>citr</em> <span class="citation">(Version 0.3.2; Aust, <a href="#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 1.0.1; Sveidqvist et al., <a href="#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 0.8.3; Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>estimability</em> <span class="citation">(Version 1.3; Lenth, <a href="#ref-R-estimability">2015</a>)</span>, <em>ez</em> <span class="citation">(Version 4.4.0; Lawrence, <a href="#ref-R-ez">2016</a>)</span>, <em>ggplot2</em> <span class="citation">(Version 3.1.1; Wickham, <a href="#ref-R-ggplot2">2009</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.23; Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.21; Bates et al., <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>Matrix</em> <span class="citation">(Version 1.2.17; Bates &amp; Maechler, <a href="#ref-R-Matrix">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9842; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>reshape2</em> <span class="citation">(Version 1.4.3; Wickham, <a href="#ref-R-reshape2">2007</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 1.13; Allaire et al., <a href="#ref-R-rmarkdown">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.3.2; Chang et al., <a href="#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Marwick, n.d.)</span></p>
+<p>R <span class="citation">(Version 3.5.2; R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.23.0; Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Version 0.2.2; Müller, <a href="#ref-R-bindrcpp">2017</a>)</span>, <em>car</em> <span class="citation">(Version 3.0.0; Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>carData</em> <span class="citation">(Version 3.0.1; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>citr</em> <span class="citation">(Version 0.3.1; Aust, <a href="#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 1.0.0; Sveidqvist et al., <a href="#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 0.8.3; Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>estimability</em> <span class="citation">(Version 1.3; Lenth, <a href="#ref-R-estimability">2015</a>)</span>, <em>ez</em> <span class="citation">(Lawrence, <a href="#ref-R-ez">2016</a>)</span>, <em>ggplot2</em> <span class="citation">(Version 3.0.0; Wickham, <a href="#ref-R-ggplot2">2009</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.26; Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.17; Bates et al., <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>Matrix</em> <span class="citation">(Version 1.2.15; Bates &amp; Maechler, <a href="#ref-R-Matrix">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9842; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>reshape2</em> <span class="citation">(Version 1.4.3; Wickham, <a href="#ref-R-reshape2">2007</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 2.0; Allaire et al., <a href="#ref-R-rmarkdown">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.3.2; Chang et al., <a href="#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Version 0.3.0.9000; Marwick, n.d.)</span></p>
 </blockquote>
 <p>If you prefer to cite only a subset of these packages, package names can be specified either as a blacklist, so they won’t be cited (<code>withhold = TRUE</code>), or as a whitelist, so only these packages will be cited (<code>withhold = FALSE</code>).</p>
 <pre class="sourceCode r"><code class="sourceCode r">my_citations &lt;-<span class="st"> </span><span class="kw">cite_r</span>(
@@ -450,13 +451,13 @@ my_citations &lt;-<span class="st"> </span><span class="kw">cite_r</span>(<span 
   , <span class="dt">withhold =</span> <span class="ot">FALSE</span>
 )</code></pre>
 <blockquote>
-<p>R <span class="citation">(Version 3.6.1; R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.23.0; Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, and <em>papaja</em> <span class="citation">(Version 0.1.0.9842; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span></p>
+<p>R <span class="citation">(Version 3.5.2; R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.23.0; Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, and <em>papaja</em> <span class="citation">(Version 0.1.0.9842; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span></p>
 </blockquote>
 <p>Another option is to cite R in text but move the list of R packges into a footnote.</p>
 <pre class="sourceCode r"><code class="sourceCode r">my_citations &lt;-<span class="st"> </span><span class="kw">cite_r</span>(<span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span>, <span class="dt">footnote =</span> <span class="ot">TRUE</span>)</code></pre>
 <p>This way you can reference R in the running text using <code>my_citations$r</code> and place the footnote syntax including the package list <code>my_citations$pkgs</code> in a new paragraph.</p>
 <blockquote>
-<p>R <span class="citation">(Version 3.6.1; R Core Team, <a href="#ref-R-base">2016</a>)</span><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>R <span class="citation">(Version 3.5.2; R Core Team, <a href="#ref-R-base">2016</a>)</span><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 </blockquote>
 </div>
 </div>
@@ -489,7 +490,6 @@ This enables the use of <code>bookdown</code> cross-referencing syntax including
 <pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
 <span class="fu">appendix:</span><span class="at"> </span><span class="st">&quot;appendix.Rmd&quot;</span>
 <span class="ot">---</span></code></pre>
-<p>–</p>
 <p>The R code is executed after the main document; all packages and variables from the main document should be available.</p>
 <p>Multiple appendices are possible</p>
 <pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
@@ -572,7 +572,7 @@ This enables the use of <code>bookdown</code> cross-referencing syntax including
 <div class="footnotes">
 <hr />
 <ol start="2">
-<li id="fn2"><p>We, furthermore, used the R-packages <em>afex</em> <span class="citation">(Version 0.23.0; Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Version 0.2.2; Müller, <a href="#ref-R-bindrcpp">2017</a>)</span>, <em>car</em> <span class="citation">(Version 3.0.3; Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>carData</em> <span class="citation">(Version 3.0.2; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>citr</em> <span class="citation">(Version 0.3.2; Aust, <a href="#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 1.0.1; Sveidqvist et al., <a href="#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 0.8.3; Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>estimability</em> <span class="citation">(Version 1.3; Lenth, <a href="#ref-R-estimability">2015</a>)</span>, <em>ez</em> <span class="citation">(Version 4.4.0; Lawrence, <a href="#ref-R-ez">2016</a>)</span>, <em>ggplot2</em> <span class="citation">(Version 3.1.1; Wickham, <a href="#ref-R-ggplot2">2009</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.23; Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.21; Bates et al., <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>Matrix</em> <span class="citation">(Version 1.2.17; Bates &amp; Maechler, <a href="#ref-R-Matrix">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9842; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>reshape2</em> <span class="citation">(Version 1.4.3; Wickham, <a href="#ref-R-reshape2">2007</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 1.13; Allaire et al., <a href="#ref-R-rmarkdown">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.3.2; Chang et al., <a href="#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Marwick, n.d.)</span>.<a href="writing.html#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>We, furthermore, used the R-packages <em>afex</em> <span class="citation">(Version 0.23.0; Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Version 0.2.2; Müller, <a href="#ref-R-bindrcpp">2017</a>)</span>, <em>car</em> <span class="citation">(Version 3.0.0; Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>carData</em> <span class="citation">(Version 3.0.1; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>citr</em> <span class="citation">(Version 0.3.1; Aust, <a href="#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 1.0.0; Sveidqvist et al., <a href="#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 0.8.3; Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>estimability</em> <span class="citation">(Version 1.3; Lenth, <a href="#ref-R-estimability">2015</a>)</span>, <em>ez</em> <span class="citation">(Lawrence, <a href="#ref-R-ez">2016</a>)</span>, <em>ggplot2</em> <span class="citation">(Version 3.0.0; Wickham, <a href="#ref-R-ggplot2">2009</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.26; Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.17; Bates et al., <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>Matrix</em> <span class="citation">(Version 1.2.15; Bates &amp; Maechler, <a href="#ref-R-Matrix">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9842; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>reshape2</em> <span class="citation">(Version 1.4.3; Wickham, <a href="#ref-R-reshape2">2007</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 2.0; Allaire et al., <a href="#ref-R-rmarkdown">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.3.2; Chang et al., <a href="#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Version 0.3.0.9000; Marwick, n.d.)</span>.<a href="writing.html#fnref2" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
 <h1>Comments and Questions</h1>

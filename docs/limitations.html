@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html >
+
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>8 Limitations | papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="&quot;&quot;" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="description" content="&quot;&quot;">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="8 Limitations | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -21,14 +22,14 @@
   <meta name="twitter:description" content="&quot;&quot;" />
   
 
-<meta name="author" content="Frederik Aust &amp; Marius Barth" />
+<meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2019-07-29" />
+<meta name="date" content="2020-01-15">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
 <link rel="prev" href="published-manuscripts.html">
@@ -281,25 +282,11 @@ To do so, add the following to the YAML front matter of your document:</p>
 <p>In contrast, there is no simple way to compensate for the limited control offered by <code>pandoc</code> when rendering Microsoft Word documents.
 This is the reason why some of <code>papaja</code>’s features are only available if the to-be-rendered document is in PDF format, such as some <a href="r-markdown-components.html#rendering-options">Rendering options</a> and some features of <code>apa_table()</code> (see <a href="reporting.html#tables">Tables</a>).
 More over, rendered documents in DOCX format require some manual work before they fully comply with APA guidelines.
-We, therefore, provide the following checklist of necessary changes:</p>
-<p>Always,</p>
+If necessary,</p>
 <ol style="list-style-type: decimal">
-<li>add a header line with running head and page number</li>
-</ol>
-<p>If necessary,</p>
-<ol start="2" style="list-style-type: decimal">
-<li>position author note at the bottom of page 1</li>
-<li>move figures and tables to the end of the manuscript</li>
-<li>add colon to level 3-headings</li>
-<li>in figure captions,
-<ul>
-<li>add a colon following the figure numbers and italicize<br />(e.g. “<em>Figure 1</em>. This is a caption.”)</li>
-</ul></li>
-<li>in tables,
-<ul>
-<li>add horizontal rules above the first and below the last row</li>
-<li>add midrules</li>
-</ul></li>
+<li>position author note at the bottom of page 1,</li>
+<li>move figures and tables to the end of the manuscript, and</li>
+<li>add midrules to tables.</li>
 </ol>
 <p>We hope to automated some of these points in the future as the flexibility of <code>pandoc</code> increases.</p>
 

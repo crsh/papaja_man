@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html >
+
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>4 Reporting | papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="&quot;&quot;" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="description" content="&quot;&quot;">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="4 Reporting | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -21,14 +22,14 @@
   <meta name="twitter:description" content="&quot;&quot;" />
   
 
-<meta name="author" content="Frederik Aust &amp; Marius Barth" />
+<meta name="author" content="Frederik Aust &amp; Marius Barth">
 
 
-<meta name="date" content="2019-12-09" />
+<meta name="date" content="2020-01-15">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
 <link rel="prev" href="writing.html">
@@ -563,9 +564,9 @@ descriptives[, <span class="dv">-1</span>] &lt;-<span class="st"> </span><span c
 <caption>
 <span id="tab:unnamed-chunk-17">Table 4.1: </span>
 </caption>
-<caption>
+<div custom-style="Table Caption">
 <em>Descriptive statistics of correct recall by dosage.</em>
-</caption>
+</div>
 <table>
 <thead>
 <tr class="header">
@@ -604,9 +605,10 @@ descriptives[, <span class="dv">-1</span>] &lt;-<span class="st"> </span><span c
 </tr>
 </tbody>
 </table>
-<center>
-<em>Note.</em> This table was created with apa_table().
-</center>
+<div custom-style="Compact">
+<p><em>Note.</em> This table was created with apa_table().</p>
+</div>
+<p> </p>
 <p>Of course popular packages like <code>xtable</code><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> or <code>tables</code> can also be used to create tables when knitting PDF documents.
 These packages, however, cannot be used when you want to create Microsoft Word documents because they rely on <span class="math inline">\(\LaTeX\)</span> for typesetting.
 <code>apa_table()</code> creates tables that conform to APA guidelines and are correctly rendered in PDF and Word documents.
@@ -684,7 +686,7 @@ For a full list of supported output objects, see Table <a href="#tab:supported-s
 A-B
 </th>
 <th style="text-align:left;">
-B-H
+B-L
 </th>
 <th style="text-align:left;">
 L-S
@@ -703,34 +705,6 @@ afex_aov
 BFBayesFactorTop<sup>*</sup>
 </td>
 <td style="text-align:left;">
-list
-</td>
-<td style="text-align:left;">
-summary_emm<sup>*</sup>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-anova
-</td>
-<td style="text-align:left;">
-bf_bridge
-</td>
-<td style="text-align:left;">
-lm
-</td>
-<td style="text-align:left;">
-summary.glht<sup>*</sup>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Anova.mlm
-</td>
-<td style="text-align:left;">
-bf_bridge_list
-</td>
-<td style="text-align:left;">
 lsmobj<sup>*</sup>
 </td>
 <td style="text-align:left;">
@@ -739,7 +713,7 @@ summary.glm
 </tr>
 <tr>
 <td style="text-align:left;">
-aov
+anova
 </td>
 <td style="text-align:left;">
 emmGrid<sup>*</sup>
@@ -753,13 +727,13 @@ summary.lm
 </tr>
 <tr>
 <td style="text-align:left;">
-aovlist
+Anova.mlm
 </td>
 <td style="text-align:left;">
 glht<sup>*</sup>
 </td>
 <td style="text-align:left;">
-summary.Anova.mlm
+summary_emm<sup>*</sup>
 </td>
 <td style="text-align:left;">
 summary.manova
@@ -767,13 +741,13 @@ summary.manova
 </tr>
 <tr>
 <td style="text-align:left;">
-BFBayesFactor<sup>*</sup>
+aov
 </td>
 <td style="text-align:left;">
 glm
 </td>
 <td style="text-align:left;">
-summary.aov
+summary.Anova.mlm
 </td>
 <td style="text-align:left;">
 summary.ref.grid<sup>*</sup>
@@ -781,13 +755,39 @@ summary.ref.grid<sup>*</sup>
 </tr>
 <tr>
 <td style="text-align:left;">
-BFBayesFactorList<sup>*</sup>
+aovlist
 </td>
 <td style="text-align:left;">
 htest
 </td>
 <td style="text-align:left;">
+summary.aov
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BFBayesFactor<sup>*</sup>
+</td>
+<td style="text-align:left;">
+list
+</td>
+<td style="text-align:left;">
 summary.aovlist
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BFBayesFactorList<sup>*</sup>
+</td>
+<td style="text-align:left;">
+lm
+</td>
+<td style="text-align:left;">
+summary.glht<sup>*</sup>
 </td>
 <td style="text-align:left;">
 </td>
@@ -852,9 +852,9 @@ apa_lm &lt;-<span class="st"> </span><span class="kw">apa_print</span>(lm_out)</
 <caption>
 <span id="tab:lm-table">Table 4.2: </span>
 </caption>
-<caption>
+<div custom-style="Table Caption">
 <em>A full regression table.</em>
-</caption>
+</div>
 <table>
 <thead>
 <tr class="header">
@@ -896,7 +896,6 @@ lm_res_apa<span class="op">$</span>estimate<span class="op">$</span>Intercept</c
 <blockquote>
 <p><span class="math inline">\(b = 18.50\)</span>, 95% CI <span class="math inline">\([13.10\)</span>, <span class="math inline">\(23.91]\)</span></p>
 </blockquote>
-<p>–</p>
 <pre class="sourceCode r"><code class="sourceCode r">lm_res_apa<span class="op">$</span>full_result<span class="op">$</span>modelfit<span class="op">$</span>r2</code></pre>
 <pre><code>## [1] &quot;$R^2 = .50$, 90\\% CI $[0.42$, $0.57]$, $F(2, 273) = 136.78$, $p &lt; .001$&quot;</code></pre>
 <blockquote>
@@ -1007,9 +1006,9 @@ apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmet
 <caption>
 <span id="tab:anova-table">Table 4.3: </span>
 </caption>
-<caption>
+<div custom-style="Table Caption">
 <em>A really beautiful ANOVA table.</em>
-</caption>
+</div>
 <table>
 <thead>
 <tr class="header">
@@ -1052,9 +1051,10 @@ apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmet
 </tr>
 </tbody>
 </table>
-<center>
-<em>Note.</em> Note that the column names contain beautiful mathematical copy: This is because the table has variable labels.
-</center>
+<div custom-style="Compact">
+<p><em>Note.</em> Note that the column names contain beautiful mathematical copy: This is because the table has variable labels.</p>
+</div>
+<p> </p>
 <div id="glht-lsmeans-ref.grid-post-hoc-tests" class="section level4">
 <h4><span class="header-section-number">4.4.3.1</span> glht, lsmeans, ref.grid (post-hoc tests)</h4>
 <p>…</p>
@@ -1076,12 +1076,10 @@ apa_anova &lt;-<span class="st"> </span><span class="kw">apa_print</span>(cosmet
 <li>If unchanged, cached results are loaded</li>
 <li>If changed, cache is discarded and code is executed anew</li>
 </ul>
-<p>–</p>
 <p>Packages are not reloaded, which cause problems in subsequent uncached chunks</p>
 <ul>
 <li>Do not include <code>library()</code>-calls in cached chunks!</li>
 </ul>
-<p>–</p>
 <p>Load cache into an interactive R session using <code>lazyLoad()</code></p>
 
 <div class="rmdcaution">
