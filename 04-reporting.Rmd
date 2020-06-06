@@ -616,8 +616,9 @@ As you can see, `apa_print()` returns a list of four elements:
 List element `estimate` contains the sample estimate of mean difference;
 element `statistic` contains the result of the NHST with test statistic, *df*s, and *p* value;
 element `full_result` contains both information combined.
-The fourth element, `table`, contains a table containing test results; while this is `NULL` for a $t$ test,
-it will be quiet interesting for ANOVA or linear model results, as you will see in the next subsections.
+The fourth element, `table`, arranges estimate and statistic in a data frame, so that it is easy to
+create a results table that may included in the manuscript via `apa_table()`.
+It will be most useful for ANOVA or linear model results, as you will see in the next subsections.
 
 ### lm (linear regression)
 
