@@ -170,6 +170,7 @@ We decided to implement these options nonetheless because they are required by s
 | `mask` | Omit identifying information from the title page |
 | `appendix` | List of R Markdown files to include as appendices |
 | `linenumbers`<sup>\*</sup> | Add line numbers in the margins |
+| `numbersections`           | Number sections |
 | `draft`<sup>\*</sup> | Add "DRAFT" watermark across all pages |
 | `floatsintext`<sup>\*</sup>  | Place figures and tables in the text rather than at the end |
 | `figurelist`<sup>\*</sup><br />`tablelist`<sup>\*</sup><br />`footnotelist`<sup>\*</sup> | Create lists of figure captions, table captions, or footnotes |
