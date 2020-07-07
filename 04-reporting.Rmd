@@ -589,7 +589,7 @@ knitr::kable(print_classes, format = "html", escape = FALSE)
 # }
 # ")
 
-knitr::include_graphics("result_formatting_process.png")
+knitr::include_graphics("images/result_formatting_process.png")
 ```
 
 

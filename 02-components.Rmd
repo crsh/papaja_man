@@ -136,6 +136,9 @@ A full `name` and an `affiliation` symbol need to be provided for every author.
 The symbol is printed as superscript following the author's name on the manuscripts title page and can be a combination of multiple symbols if the author has multiple affiliations (e.g., `1,2` yields Ernst-August Doelle^1,2^).
 Exactly one author has to be declared as corresponding author by adding `corresponding: yes` and the fields `address` and `email` to the author's information.
 The latter two fields are used to automatically generate the last sentence of the author note that---as required by the APA guidelines---provides the corresponding author's contact information.
+`role` is a list of contributorship roles that can be used to provide details on each authors contributions beyond the mere rank order of authors on the paper.
+It is recommended that you specify roles from one of the established contributorship role taxonomies (e.g., [CRediT](https://casrai.org/credit/) or [CRO](https://github.com/data2health/contributor-role-ontology)).
+Each author's list of roles is used to automatically generate a paragraph in the author note that lists each authors contributions.
 
 `affiliation` is another structured list that contains the institutions' information; again each new element is indented and starts with `-`.
 `id` is printed as superscript in front of the `institution` name below the author names on the title page (e.g., `2` yields ^2^ Konstanz Business School).
