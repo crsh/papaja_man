@@ -24,7 +24,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-07-07" />
+<meta name="date" content="2020-07-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -328,7 +328,7 @@ The following is the default YAML front matter; it starts and ends with <code>--
 <a class="sourceLine" id="cb9-8" data-line-number="8">    <span class="fu">corresponding :</span><span class="at"> yes    </span><span class="co"># Define only one corresponding author</span></a>
 <a class="sourceLine" id="cb9-9" data-line-number="9">    <span class="fu">address       :</span><span class="at"> </span><span class="st">&quot;Postal address&quot;</span></a>
 <a class="sourceLine" id="cb9-10" data-line-number="10">    <span class="fu">email         :</span><span class="at"> </span><span class="st">&quot;my@email.com&quot;</span></a>
-<a class="sourceLine" id="cb9-11" data-line-number="11">    <span class="fu">role:</span><span class="at">         </span><span class="co"># Contributorship roles (e.g. CRediT, https://casrai.org/credit/)</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">    <span class="fu">role:</span><span class="at">         </span><span class="co"># Contributorship roles (e.g., CRediT, https://casrai.org/credit/)</span></a>
 <a class="sourceLine" id="cb9-12" data-line-number="12">      <span class="kw">-</span> Conceptualization</a>
 <a class="sourceLine" id="cb9-13" data-line-number="13">      <span class="kw">-</span> Writing - Original Draft Preparation</a>
 <a class="sourceLine" id="cb9-14" data-line-number="14">      <span class="kw">-</span> Writing - Review &amp; Editing</a>
@@ -433,7 +433,9 @@ Exactly one author has to be declared as corresponding author by adding <code>co
 The latter two fields are used to automatically generate the last sentence of the author note that—as required by the APA guidelines—provides the corresponding author’s contact information.
 <code>role</code> is a list of contributorship roles that can be used to provide details on each authors contributions beyond the mere rank order of authors on the paper.
 It is recommended that you specify roles from one of the established contributorship role taxonomies (e.g., <a href="https://casrai.org/credit/">CRediT</a> or <a href="https://github.com/data2health/contributor-role-ontology">CRO</a>).
-Each author’s list of roles is used to automatically generate a paragraph in the author note that lists each authors contributions.</p>
+Each author’s list of roles is used to automatically generate a paragraph in the author note that lists each authors contributions.
+Authors who contributed equally to the manuscript and share first authorship can be declared as such by setting <code>equal_contrib: yes</code>.
+When equal contributions are declared a superscript is added to the author names and a corresponding explanation is added to the author note.</p>
 <p><code>affiliation</code> is another structured list that contains the institutions’ information; again each new element is indented and starts with <code>-</code>.
 <code>id</code> is printed as superscript in front of the <code>institution</code> name below the author names on the title page (e.g., <code>2</code> yields <sup>2</sup> Konstanz Business School).</p>
 <p><code>authornote</code> and <code>abstract</code> contain the text for the corresponding sections of the manuscript.
