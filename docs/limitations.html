@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Limitations | papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="&quot;&quot;" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Limitations | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-07-07" />
+<meta name="date" content="2020-07-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -174,12 +174,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#numerical-values"><i class="fa fa-check"></i><b>4.1</b> Numerical values</a></li>
 <li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#figures"><i class="fa fa-check"></i><b>4.2</b> Figures</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#r-generated-figures"><i class="fa fa-check"></i><b>4.2.1</b> R-generated figures</a></li>
-<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#external-files"><i class="fa fa-check"></i><b>4.2.2</b> External files</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#external-images"><i class="fa fa-check"></i><b>4.2.2</b> External images</a></li>
 <li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.3</b> Figure captions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
-<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3.2" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.4</b> Results from statistical tests</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.4.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
@@ -221,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a><ul>
 <li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
+<li class="chapter" data-level="10.1.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -248,7 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="limitations" class="section level1">
 <h1><span class="header-section-number">8</span> Limitations</h1>
-<p>As outlined in <a href="introduction.html#document-compilation">Document compilation</a>, <code>papaja</code> builds on <code>pandoc</code> to render Markdown into PDF and DOCX documents.
+<p>As outlined in [Document compilation], <code>papaja</code> builds on <code>pandoc</code> to render Markdown into PDF and DOCX documents.
 Markdown provides good common basis for these and other document types but the common basis necessarily limits the degree of control that can be exerted over the rendered document.
 For example, there is currently no way to generate tables with <code>pandoc</code> in which cells span multiple rows or columns.
 Similarly, it is not possible to insert page breaks into a document.
@@ -256,7 +256,7 @@ Both of these limitations have been raised with the developers of <code>pandoc</
 <div id="pdf-documents" class="section level2">
 <h2><span class="header-section-number">8.1</span> PDF documents</h2>
 <p><code>pandoc</code> builds on LaTeX to render PDF documents.
-As discussed in <a href="writing.html#markdown-text-formatting">Markdown text formatting</a>, when the R Markdown document contains LaTeX code it is kept as-is and can be used to exert greater control over the final result.
+As discussed in [Markdown text formatting], when the R Markdown document contains LaTeX code it is kept as-is and can be used to exert greater control over the final result.
 For example, to create a page break in the rendered document you can use the LaTeX command <code>\pagebreak</code>.
 Similarly, tables with column spanners can be created by using the corresponding LaTeX code.
 Hence, the limited control offered by <code>pandoc</code> can be compensated by using LaTeX code and <code>papaja</code> resorts to this approach, for example, in <code>apa_table()</code>.</p>
@@ -274,14 +274,14 @@ Figure 8.1: An example of large vertical spacing between paragraphs and section 
 </div>
 <p>If you prefer white space at the bottom of the page, rather than between paragraphs, you can overwrite this default behavior by including <code>\raggedbottom</code> in the document preamble.
 To do so, add the following to the YAML front matter of your document:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="fu">header-includes:</span></a>
-<a class="sourceLine" id="cb91-2" data-line-number="2">  <span class="kw">-</span> \raggedbottom</a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="fu">header-includes:</span></a>
+<a class="sourceLine" id="cb93-2" data-line-number="2">  <span class="kw">-</span> \raggedbottom</a></code></pre></div>
 </div>
 </div>
 <div id="microsoft-word-documents" class="section level2">
 <h2><span class="header-section-number">8.2</span> Microsoft Word documents</h2>
 <p>In contrast, there is no simple way to compensate for the limited control offered by <code>pandoc</code> when rendering Microsoft Word documents.
-This is the reason why some of <code>papaja</code>’s features are only available if the to-be-rendered document is in PDF format, such as some <a href="r-markdown-components.html#rendering-options">Rendering options</a> and some features of <code>apa_table()</code> (see <a href="reporting.html#tables">Tables</a>).
+This is the reason why some of <code>papaja</code>’s features are only available if the to-be-rendered document is in PDF format, such as some [Rendering options] and some features of <code>apa_table()</code> (see [Tables]).
 More over, rendered documents in DOCX format require some manual work before they fully comply with APA guidelines.
 If necessary,</p>
 <ol style="list-style-type: decimal">

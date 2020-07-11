@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Tips and Tricks | papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="&quot;&quot;" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Tips and Tricks | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-07-07" />
+<meta name="date" content="2020-07-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -174,12 +174,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#numerical-values"><i class="fa fa-check"></i><b>4.1</b> Numerical values</a></li>
 <li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#figures"><i class="fa fa-check"></i><b>4.2</b> Figures</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#r-generated-figures"><i class="fa fa-check"></i><b>4.2.1</b> R-generated figures</a></li>
-<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#external-files"><i class="fa fa-check"></i><b>4.2.2</b> External files</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#external-images"><i class="fa fa-check"></i><b>4.2.2</b> External images</a></li>
 <li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.3</b> Figure captions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
-<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3.2" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.4</b> Results from statistical tests</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.4.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
@@ -221,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a><ul>
 <li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
+<li class="chapter" data-level="10.1.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -258,11 +258,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="global-chunk-options" class="section level2">
 <h2><span class="header-section-number">5.1</span> Global chunk options</h2>
 <p>It can be useful to set chunk options globally for all (following) chunks to avoid retyping or copy-and-pasting</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="co"># Save all plots as 600 DPI TIFF-files</span></a>
-<a class="sourceLine" id="cb89-2" data-line-number="2">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">dev =</span> <span class="st">&quot;tiff&quot;</span>, <span class="dt">dpi =</span> <span class="dv">600</span>)</a>
-<a class="sourceLine" id="cb89-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb89-4" data-line-number="4"><span class="co"># Do not evaluate subsequent chunks (debugging or fine-tuning)</span></a>
-<a class="sourceLine" id="cb89-5" data-line-number="5">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">eval =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="co"># Save all plots as 600 DPI TIFF-files</span></a>
+<a class="sourceLine" id="cb90-2" data-line-number="2">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">dev =</span> <span class="st">&quot;tiff&quot;</span>, <span class="dt">dpi =</span> <span class="dv">600</span>)</a>
+<a class="sourceLine" id="cb90-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb90-4" data-line-number="4"><span class="co"># Do not evaluate subsequent chunks (debugging or fine-tuning)</span></a>
+<a class="sourceLine" id="cb90-5" data-line-number="5">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">eval =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p>See the <a href="https://yihui.name/knitr/options/">knitr chunk options and package options</a> for an overview of settings</p>
 </div>
 <div id="meaningful-chunk-names" class="section level2">
