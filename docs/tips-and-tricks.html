@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Tips and Tricks | papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="&quot;&quot;">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="&quot;&quot;" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Tips and Tricks | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -22,18 +21,18 @@
   <meta name="twitter:description" content="&quot;&quot;" />
   
 
-<meta name="author" content="Frederik Aust &amp; Marius Barth">
+<meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-01-15">
+<meta name="date" content="2020-07-07" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="reporting.html">
-<link rel="next" href="collaborative-writing.html">
+<link rel="prev" href="reporting.html"/>
+<link rel="next" href="collaborative-writing.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -41,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -56,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -251,18 +252,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Spell check functionality in RStudio</li>
 </ul>
 <p>Although often overlooked, RStudio can check your spelling</p>
-<p><img src="workshop_files/figure-html/spellcheck.png" style="display: block; margin: auto;" /></p>
 <ul>
 <li>New line for each sentence</li>
 </ul>
 <div id="global-chunk-options" class="section level2">
 <h2><span class="header-section-number">5.1</span> Global chunk options</h2>
 <p>It can be useful to set chunk options globally for all (following) chunks to avoid retyping or copy-and-pasting</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save all plots as 600 DPI TIFF-files</span>
-knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">dev =</span> <span class="st">&quot;tiff&quot;</span>, <span class="dt">dpi =</span> <span class="dv">600</span>)
-
-<span class="co"># Do not evaluate subsequent chunks (debugging or fine-tuning)</span>
-knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">eval =</span> <span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="co"># Save all plots as 600 DPI TIFF-files</span></a>
+<a class="sourceLine" id="cb89-2" data-line-number="2">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">dev =</span> <span class="st">&quot;tiff&quot;</span>, <span class="dt">dpi =</span> <span class="dv">600</span>)</a>
+<a class="sourceLine" id="cb89-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb89-4" data-line-number="4"><span class="co"># Do not evaluate subsequent chunks (debugging or fine-tuning)</span></a>
+<a class="sourceLine" id="cb89-5" data-line-number="5">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">eval =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p>See the <a href="https://yihui.name/knitr/options/">knitr chunk options and package options</a> for an overview of settings</p>
 </div>
 <div id="meaningful-chunk-names" class="section level2">
@@ -345,7 +345,6 @@ knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="k
 <li>Document outline</li>
 </ol>
 <p>RStudio provides a handy document outline view</p>
-<p><img src="workshop_files/figure-html/rstudio-outline.png" style="display: block; margin: auto;" /></p>
 <!-- If you discover an error in a data file, never modify it directly, but instead write code to correct the value. Explain why you made the fix. -->
 <!-- Before you finish for the day, make sure you can knit the notebook (if you’re using caching, make sure to clear the caches). That will let you fix any problems while the code is still fresh in your mind. -->
 </div>
@@ -505,11 +504,13 @@ s.setAttribute('data-timestamp', +new Date());
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -517,12 +518,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -534,6 +534,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -552,8 +556,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

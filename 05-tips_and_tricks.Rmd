@@ -4,10 +4,6 @@
 
 Although often overlooked, RStudio can check your spelling
 
-```{r echo = FALSE}
-knitr::include_graphics("workshop_files/figure-html/spellcheck.png")
-```
-
 
 - New line for each sentence
 
@@ -68,10 +64,6 @@ Suggested keyboard shortcuts
 1. Document outline
 
 RStudio provides a handy document outline view
-
-```{r echo = FALSE}
-knitr::include_graphics("workshop_files/figure-html/rstudio-outline.png")
-```
 
 
 <!-- If you discover an error in a data file, never modify it directly, but instead write code to correct the value. Explain why you made the fix. -->
