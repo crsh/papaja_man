@@ -139,6 +139,7 @@ The latter two fields are used to automatically generate the last sentence of th
 `role` is a list of contributorship roles that can be used to provide details on each authors contributions beyond the mere rank order of authors on the paper.
 It is recommended that you specify roles from one of the established contributorship role taxonomies (e.g., [CRediT](https://casrai.org/credit/) or [CRO](https://github.com/data2health/contributor-role-ontology)).
 Each author's list of roles is used to automatically generate a paragraph in the author note that lists each authors contributions.
+For convenience, you can generate the YAML-code for the author-metadata with all of the above-mentioned information using the web application [*tenzing*](https://martonbalazskovacs.shinyapps.io/tenzing/) [@holcombe_tenzing_2020].
 Authors who contributed equally to the manuscript and share first authorship can be declared as such by setting `equal_contrib: yes`.
 When equal contributions are declared a superscript is added to the author names and a corresponding explanation is added to the author note.
 
