@@ -5,7 +5,7 @@ Any output from R is included as you usually would using R Markdown.
 By default the R code will not be displayed in the final documents.
 If you wish to show off your code you need to set `echo = TRUE` in the chunk options.
 
-This section describes how you can include the results of your analyses can be included in text.
+This section describes how results from statistical analyses can be included into the manuscript:
 It starts with simple numerical values (like a sample mean) and then continues with more-complex
 output, like figures, tables, and the results from statistical models and hypothesis tests.
 
@@ -29,7 +29,7 @@ The above line is rendered as follows:
 
 > Participants mean age was `r printnum(age_mean)` years ($SD = `r printnum(age_sd)`$).
 
-`printnum()` is quiet flexible and passes its arguments to the underlying base function `formatC()` 
+`printnum()` is quiet flexible by passing its arguments to the underlying base function `formatC()` 
 (CAVE: We are currently considering to switch to `format()`.),
 so changing the number of digits after the decimal point or the character to be used to indicate the 
 decimal point (e.g., from a point `"."` to a comma `","`) is always possible.
@@ -64,7 +64,7 @@ printp(c(1, 0.0008, 0))
 As in any R Markdown document, you can include figures in your document.
 Figures can either consist of plots generated in R or external files.
 In accordance with APA guidelines, figures are not displayed in place but are deferred to the final pages of the document.
-To change this default behavior set the option `figsintext` in the [YAML front matter] to `yes`.
+To change this default behavior, set the option `figsintext` in the [YAML front matter] to `yes`.
 
 Figures are saved as 300 dpi PDF and PNG
 
@@ -85,22 +85,22 @@ plot(cars)
 
 Figure display size, resolution, file format and many other things can be controlled by setting the corresponding chunk options.
 Refer to the [plot-related `knitr` chunk options](https://yihui.name/knitr/options/#plots) for an overview of all options.
-In `papaja`-documents, by default, all figures as saved as vectorized PDF and pixel-based PNG files at a resolution of 300 DPI, which should in most cases be sufficient for print publication.
+In `papaja`-documents, by default, all figures are saved as vectorized PDF and pixel-based PNG files at a resolution of 300 DPI, which should in most cases be sufficient for a print publication.
 When the target document format is PDF the vectorized PDF files are included; when the target document format is DOCX the pixel-based PNG files are included.
 The files can be found in the `mydocument_files` folder that is generated when `mydocument.Rmd` is knitted.
 
-Note, if you define transparent colors in your plots (e.g., when you defining colors using `rgb()`), the rendered document will always display the pixel-based PNG files, regardless of the target document format.
+Note, if you define transparent colors in your plots (e.g., when you define colors using `rgb()`), the rendered document will always display the pixel-based PNG files, regardless of the target document format.
 Given the lossless compression in PNG and the decent resolution of 300 DPI this should not be a problem in print.
 
 
 #### `papaja` plot functions
 
-Factorial designs are ubiquotous in experimental psychology but notoriously cumbersome to visualize with R base `graphics`.
+Factorial designs are ubiquitous in experimental psychology, but notoriously cumbersome to visualize with R base `graphics`.
 That is why `papaja` provides a set of functions to facilitate plotting data from factorial designs.
 
 The functions `apa_beeplot()`, `apa_lineplot()`, `apa_barplot()`, and the generic `apa_factorial_plot()` are intended to provide a convenient way to obtain a publication-ready figure while maintaining enough flexibility for customization.
 The basic arguments to these functions are all the same, so you only need to learn one syntax to generate different types of plots.
-Moreover, it is easy switch between the different types of plots by changing the name of the called function.
+Moreover, it is easy to switch between the different types of plots by only changing a few letters of the function name.
 
 Consider the following example of a so-called beeswarm plot:
 
@@ -133,12 +133,13 @@ For each cell of the design, the functions plot
 
 Mesures of central tendency and dispersion default to the mean and 95% confidence intervals.
 However, the arguments `tendency` and `dispersion` can be used to overwrite these defaults and plot other statistics.
-For example, to plot within-subject rather than between-subject confidence intervals you can set `dispersion = within_subjects_conf_int`.
+For example, to plot within-subjects rather than between-subjects confidence intervals you can set `dispersion = within_subjects_conf_int`.
 If the data encompass multiple observations per participant-factor-level-combination, these observations are aggregated.
 By default, the condition means are computed but you can specify other aggregation functions via the `fun_aggregate` argument.
 
 The visual elements of the plots can be customized by passing options to the arguments `args_points`, `args_error_bars`, `args_legend`, and so on.
-These arugments take named lists of arguments that are passed on to the respective `graphics` functions, such as `points()`, `arrows()`, and `legend()`.
+These arguments take named lists of arguments that are passed on to the respective functions from the `graphics` package
+(which comprises R's standard plotting functions), such as `points()`, `arrows()`, and `legend()`.
 Consider the following code and the resulting Figure\ \@ref(fig:customized-plot) for a customized version of the previous beeswarm plot.
 
 
@@ -189,7 +190,7 @@ apa_beeplot(
 #### Setting global plot options
 
 As noted in the APA guidelines (p. 153) figures in an article should be consistent and in the same style.
-Hence, it is desireable to define plot styles once rather than every time a new plot is created.
+Hence, it is desireable to define plot styles only once, rather than every time a new plot is created.
 When using `graphics` plot functions global options can be set using `par()`.
 For example, the size of labels and symbols can be controled with `cex`:
 
@@ -215,12 +216,14 @@ By default, `knitr` resets `par()` for every chunk; `par()` needs to be called a
 While there are advantages to this behavior it impedes defining a consistent plot style.
 Although not very convenient, it *is* possible to set global plot options in `knitr` and therefore also in `papaja`.
 The following example illustrates how to make `knitr` execute a specified call to `par()` before executing code in a given chunk.
-Here we rotate the $y$-axis label (`las = 1`), sets a regular font and increases the size of the main title (`font.main = 1`, `cex.main = 1.05`).
+Here we rotate the $y$-axis label (`las = 1`), set a regular font and increase the size of the main title (`font.main = 1`, `cex.main = 1.05`).
 
-```{r knitr-par, eval = FALSE}
+```{r knitr-global-par, eval = FALSE}
 # Ensure that par()-settings are retained across chunks
 knitr::opts_knit$set(global.par = TRUE)
+```
 
+```{r knitr-define-par, eval = FALSE}
 # Define a function that sets desired global plot defaults
 par(font.main = 1`, `cex.main = 1.05, las = 1)
 ```
@@ -228,7 +231,7 @@ par(font.main = 1`, `cex.main = 1.05, las = 1)
 The customizations apply to all subsequently generated plots.
 It is, thus, advisable to add this code at the top of the R Markdown document shortly after the YAML front matter.
 
-These same limitations do not apply to users of `ggplot2`.
+The aforementioned limitations do not apply to users of `ggplot2`.
 Custom themes can be set as default as usual and are subsequently applied to all plots created with `ggplot()`.
 `papaja` provides a template `theme_apa()` that we feel is well suited to create publication-ready plots.
 The following example demonstrates how to set a default theme.
@@ -258,14 +261,14 @@ theme_set(theme_apa())
 ```
 
 
-### External files
+### External images
 
-External graphics are best included by using `knitr::include_graphics()`, e.g.
+External images are best included by using `knitr::include_graphics()`, e.g.
 
-(ref:poppers-swanes) Only from observing many white swanes, you cannot conclude that all swanes are white. 
+(ref:poppers-swans) Only from observing many white swans, you cannot conclude that all swans are white. 
 
-```{r poppers-swanes, echo = TRUE, fig.cap = "(ref:poppers-swanes)"}
-knitr::include_graphics("images/swane.png")
+```{r poppers-swans, echo = TRUE, fig.cap = "(ref:poppers-swans)"}
+knitr::include_graphics("images/swans.png")
 ```
   
 
@@ -275,7 +278,7 @@ knitr::include_graphics("images/swane.png")
 The chunk option `fig.cap` sets a figure caption.
 In principle, it is possible to define a figure caption simply by passing a character string to `fig.cap`.
 However, we strongly recommend that you use [text references](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references)---a feature of the `bookdown` package---instead.
-A text reference consist of a unique label and the corresponding text that it represents.
+A text reference consists of a unique label and the corresponding text that it represents.
 Text references can be defined as follows:
 
 ```
@@ -307,7 +310,7 @@ Unless this behavior is desired, only one figure should be created per chunk.
 - Only one figure per chunk
 - Combine multiple plots into one figure (e.g., `layout()`)
 
-If a given figure is tall or the figure caption is extensive, it may flow of the page of a PDF document.
+If a given figure is tall or the figure caption is extensive, it may flow over the page borders of a PDF document.
 There are two approaches to accomodate long figure captions or tall figures. You can adjust the line spacing/font size of the caption or use a separate list of figure captions.
 
 #### Line spacing and font size
@@ -343,11 +346,11 @@ If you would rather suppress figure captions only where necessary you can instea
 To remove the caption below a figure set `fig.cap = " "` and instead set the figure short caption via the chunk option `fig.scap = "My figure caption"`:
 
 ~~~
-(ref:figure-caption) This is a long figure caption!
-
-```{r fig.cap = " ", fig.scap = "(ref:figure-caption)", out.width = "\\textwidth"}`r ''`
-plot(cars)
-```
+    (ref:figure-caption) This is a long figure caption!
+    
+    ```{r fig.cap = " ", fig.scap = "(ref:figure-caption)", out.width = "\\textwidth"}`r ''`
+    plot(cars)
+    ```
 ~~~
 
 ```{block2, fig-scap-caution, type = "rmdcaution"}
@@ -432,13 +435,12 @@ some latex $\\alpha$"
 - Does not perform any calculations
 - Can merge multiple `data.frame` of the same structure contained in a `list`
 - Much more powerful in PDF documents<br />(see `apa_table_example.Rmd`)
-- Remember to set chunk option `results = "asis"`!
 
 `kableExtra` is another powerful alternative
 
 ### Table captions
 
-Table captions can by passing a character string to `caption = ` argument within apa_table function (e.g. `apa_table(descriptives, caption = "My table caption")`). However, as with figures we strongly recommend that you use [text references](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references)---a feature of the `bookdown` package---instead.
+Table captions can be created by passing a character string to `caption = ` argument within apa_table function (e.g. `apa_table(descriptives, caption = "My table caption")`). However, as with figures we strongly recommend that you use [text references](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references)---a feature of the `bookdown` package---instead.
 A text reference consists of a unique label and the corresponding text that it represents.
 Text references can be defined as follows:
 
@@ -513,7 +515,7 @@ kableExtra: https://cran.r-project.org/web/packages/kableExtra/index.html
 Output from statistical models and tests needs to be properly formatted before it
 can be included in text.
 For this purpose, we created the function `apa_print()`.
-Simply drop the results from a statistical test (e.g. a $t$ test or an ANOVA)
+Simply drop the results from a statistical test (e.g., a $t$ test or an ANOVA)
 into `apa_print()`, and you will get an output object (a `list`) that contains all you need
 to report the analysis according to APA guidelines.
 `apa_print()` currently supports output objects from a variety of statistical models/tests,
@@ -616,8 +618,9 @@ As you can see, `apa_print()` returns a list of four elements:
 List element `estimate` contains the sample estimate of mean difference;
 element `statistic` contains the result of the NHST with test statistic, *df*s, and *p* value;
 element `full_result` contains both information combined.
-The fourth element, `table`, contains a table containing test results; while this is `NULL` for a $t$ test,
-it will be quiet interesting for ANOVA or linear model results, as you will see in the next subsections.
+The fourth element, `table`, arranges estimate and statistic in a data frame, so that it is easy to
+create a results table that may included in the manuscript via `apa_table()`.
+It will be most useful for ANOVA or linear model results, as you will see in the next subsections.
 
 ### lm (linear regression)
 
@@ -694,7 +697,7 @@ Variable labels are attributes of the variables that make up the `data.frame`
 
 
 - Conflicting implementations
-- Ours is, in principle, compatible with `Hmisc`
+- Ours is, in principle, compatible with `Hmisc` and also `haven`
 
 
 ```{r}
@@ -712,7 +715,7 @@ cars[1:15, "dist"]
 
 ### anova, Anova, Anova.mlm (Analysis of Variance -- ANOVA)
 
-*Foreword -- you can skip this if you are not interested in background*.
+*You can skip this if you are not interested in technical background*.
 Amongst psychologists, analysis of variance is a still-popular and frequently used technique.
 In base R, however, analysis of variance is not implemented in a way that is too useful
 for psychologists, as the `aov`-function in the stats package does not provide the much sought-after
@@ -738,7 +741,7 @@ apa_anova <- apa_print(cosmetic_surgery_anova)
 
 Now, you can report the results of your analyses like so:
 
-```{r eval = FALSE, echo = TRUE, eval = FALSE}
+```
 Clinic (`r apa_anova$full$Clinic`) and patient gender affected post-surgery quality of life, `r apa_anova$full$Gender`. However, the effect of gender differed by clinic, `r apa_anova$full$Clinic_Gender`.
 ```
 
@@ -760,7 +763,11 @@ apa_table(
 
 #### glht, lsmeans, ref.grid (post-hoc tests)
 
-...
+We are currently working onn full support of post-hoc tests, contrasts and expected
+marginal means from the `emmeans` and `lsmeans` packages. A lot of work has already
+been done and you may use the available methods, but you should double-check
+the results because these new methods are not fully tested, yet.
+The same applies to results returned by the `glht()` function from package `multcomp`.
 
 
 
@@ -783,7 +790,7 @@ The next time the chunk is executed
 - If unchanged, cached results are loaded
 - If changed, cache is discarded and code is executed anew
 
-Packages are not reloaded, which cause problems in subsequent uncached chunks
+Packages are not reloaded, which causes problems in subsequent uncached chunks
 
 - Do not include `library()`-calls in cached chunks!
 
