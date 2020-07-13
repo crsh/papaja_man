@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 R Markdown components | papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="&quot;&quot;" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 R Markdown components | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-07-11" />
+<meta name="date" content="2020-07-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -179,7 +179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
-<li class="chapter" data-level="4.3.2" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.4</b> Results from statistical tests</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.4.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
@@ -221,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a><ul>
 <li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
+<li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -434,6 +434,7 @@ The latter two fields are used to automatically generate the last sentence of th
 <code>role</code> is a list of contributorship roles that can be used to provide details on each authors contributions beyond the mere rank order of authors on the paper.
 It is recommended that you specify roles from one of the established contributorship role taxonomies (e.g., <a href="https://casrai.org/credit/">CRediT</a> or <a href="https://github.com/data2health/contributor-role-ontology">CRO</a>).
 Each author’s list of roles is used to automatically generate a paragraph in the author note that lists each authors contributions.
+For convenience, you can generate the YAML-code for the author-metadata with all of the above-mentioned information using the web application <a href="https://martonbalazskovacs.shinyapps.io/tenzing/"><em>tenzing</em></a> <span class="citation">(Holcombe, Kovacs, Aust, &amp; Aczel, <a href="#ref-holcombe_tenzing_2020">2020</a>)</span>.
 Authors who contributed equally to the manuscript and share first authorship can be declared as such by setting <code>equal_contrib: yes</code>.
 When equal contributions are declared a superscript is added to the author names and a corresponding explanation is added to the author note.</p>
 <p><code>affiliation</code> is another structured list that contains the institutions’ information; again each new element is indented and starts with <code>-</code>.
@@ -445,13 +446,13 @@ Thus, <code>abstract</code> and <code>authornote</code> can be structured into m
 <p><code>bibliography</code> contains a list of one or more Bib(La)TeX files that contain the references cited in the manuscript.
 Additional files can be added by appending them to the list separated by commata, e.g. <code>bibliography: [&quot;my_bib1.bib&quot;, &quot;my_bib2.bib&quot;]</code>.
 By default, <code>papaja</code> assumes that you will cite R and all R packages used for the analysis and that the corresponding bibliographic information is contained in <code>r-references.bib</code>.
-See [Citations] for instructions on how to automate the citation of R packages.</p>
+See <a href="writing.html#citations">Citations</a> for instructions on how to automate the citation of R packages.</p>
 <p><code>note</code> is an add additional metadata field that are not part of the default YAML front matter.
 It’s contents is printed on title page in between author information and the author note; it can be used to add remarks, such as “Preprint submitted to peer-review on June, 29th, 2016”.</p>
 </div>
 <div id="rendering-options" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Rendering options</h3>
-<p>The first set of rendering options breaks with the [guiding principal][Guiding principles] that <code>papaja</code> <em>is convertible</em> because they have no effect on Microsoft Word documents.
+<p>The first set of rendering options breaks with the <a href="introduction.html#guiding-principles">guiding principal</a> that <code>papaja</code> <em>is convertible</em> because they have no effect on Microsoft Word documents.
 We decided to implement these options nonetheless because they are required by some journals and can be used for submissions where (initially) PDF/LaTeX documents are accepted.</p>
 <table>
 <colgroup>
@@ -564,8 +565,8 @@ The following is an excerpt from the APA example manuscript written in Markdown.
 <p>Without any prior knowledge of Markdown it should be easy to guess what most of this syntax does:
 <code>#</code> and <code>##</code> denote first and second order section headings (and so on), <code>&lt;!--</code> and <code>--&gt;</code> surround comments that will not be displayed in the rendered document, and <code>[^p]</code> adds a reference to a footnote that is written out following <code>[^p]:</code>.
 The equations surrounded by <code>$</code> may be somewhat less intuitive.
-In R Markdown, equations are written in LaTeX’s powerful <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">mathematics syntax</a> (also see [Equations]).
-For an overview of the Markdown syntax see [Markdown text formatting].</p>
+In R Markdown, equations are written in LaTeX’s powerful <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">mathematics syntax</a> (also see <a href="writing.html#equations">Equations</a>).
+For an overview of the Markdown syntax see <a href="writing.html#markdown-text-formatting">Markdown text formatting</a>.</p>
 </div>
 <div id="r-code" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> R code</h3>
@@ -583,7 +584,7 @@ It is good practice to provide a meaningful name for each chunk because chunk na
 <ol style="list-style-type: decimal">
 <li>briefly describe the following codes purpose and, hence, are a means of structuring and documenting the code</li>
 <li>serve as meaningful names for graphic files that the chunks produce</li>
-<li>are required to control when the code of a cached chunk has to be rerun because a preceeding chunk has changed (see [Caching expensive computations]).</li>
+<li>are required to control when the code of a cached chunk has to be rerun because a preceeding chunk has changed (see <a href="reporting.html#caching-expensive-computations">Caching expensive computations</a>).</li>
 </ol>
 <p>By default, <code>papaja</code> sets the chunk options <code>echo = FALSE</code> and <code>message = FALSE</code> for all chunks.
 <code>echo = FALSE</code> means that the code chunk is run but hides the code and <code>message = FALSE</code> hides any messages generated by the code so that they are not included in the manuscript.
@@ -597,19 +598,16 @@ These numbers can be reported by printing the variables in inline R code.</p>
 <p>As in any other R script, R code is executed from top to bottom.
 Thus, any variables that are called in code chunks or inline R code must be defined above.</p>
 <p>Reporting numerical values frequently requires some formatting, such as rounding or filling with trailing zeros (e.g., 24.10).
-In the section [Numerical values], we provide an overview of <code>papaja</code> functions that can be used to easily format simple numbers or results from statistical analyses according to APA guidelines.</p>
+In the section <a href="reporting.html#numerical-values">Numerical values</a>, we provide an overview of <code>papaja</code> functions that can be used to easily format simple numbers or results from statistical analyses according to APA guidelines.</p>
 
 </div>
 </div>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>We hope to automate the word count [in the future][Future directions].
-For now, we recommend using the <a href="https://github.com/benmarwick/wordcountaddin">wordcountaddin</a> package <span class="citation">(Marwick, n.d.)</span> to count the words in R Markdonw documents.
-Note, that counting words in R Markdown documents may underestimate the word count in the final document because the R Markdown document does not include the properly formatted citations and does not contain the results of analyses.
-An alternative approach is to use the <a href="http://app.uio.no/ifi/texcount/"><code>texcount</code></a> command line tool on the TeX-file generated by <code>papaja::apa6_pdf()</code>.<a href="r-markdown-components.html#fnref1" class="footnote-back">↩</a></p></li>
-</ol>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-holcombe_tenzing_2020">
+<p>Holcombe, A. O., Kovacs, M., Aust, F., &amp; Aczel, B. (2020). tenzing: Documenting contributorship using CRediT. <em>MetaArXiv</em>. doi:<a href="https://doi.org/10.31222/osf.io/b6ywe">10.31222/osf.io/b6ywe</a></p>
+</div>
 </div>
 <h1>Comments and Questions</h1>
 <div id="disqus_thread"></div>

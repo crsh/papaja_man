@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Reporting | papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="&quot;&quot;" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Reporting | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-07-11" />
+<meta name="date" content="2020-07-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -179,7 +179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
-<li class="chapter" data-level="4.3.2" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.4</b> Results from statistical tests</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.4.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
@@ -221,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a><ul>
 <li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
+<li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -291,7 +291,7 @@ Hence, <code>`r age_mean`</code> and <code>`r printnum(age_mean)`</code> are eff
 <p>As in any R Markdown document, you can include figures in your document.
 Figures can either consist of plots generated in R or external files.
 In accordance with APA guidelines, figures are not displayed in place but are deferred to the final pages of the document.
-To change this default behavior, set the option <code>figsintext</code> in the [YAML front matter] to <code>yes</code>.</p>
+To change this default behavior, set the option <code>figsintext</code> in the <a href="r-markdown-components.html#yaml-front-matter">YAML front matter</a> to <code>yes</code>.</p>
 <p>Figures are saved as 300 dpi PDF and PNG</p>
 <ul>
 <li>e.g., <code>my_manuscript_figures/figure-latex/chunk-name-1.pdf</code></li>
@@ -512,7 +512,7 @@ Unless this behavior is desired, only one figure should be created per chunk.
 There are two approaches to accomodate long figure captions or tall figures. You can adjust the line spacing/font size of the caption or use a separate list of figure captions.</p>
 <div id="line-spacing-and-font-size" class="section level4">
 <h4><span class="header-section-number">4.2.3.1</span> Line spacing and font size</h4>
-<p>As mentioned [Adjusting line spacing], you can adjust the line spacing but also the font size of figure captions.
+<p>As mentioned <a href="customizations.html#adjusting-line-spacing">Adjusting line spacing</a>, you can adjust the line spacing but also the font size of figure captions.
 For single-spaced script-size figure captions, add the following to the YAML front matter:</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="fu">header-includes:</span></a>
 <a class="sourceLine" id="cb51-2" data-line-number="2">  <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span></a>
@@ -657,7 +657,7 @@ None of these limitations apply to text references.</li>
 <pre><code>(ref:my-table-caption) 
 This is a caption for my table.</code></pre>
 </div>
-<div id="alternatives" class="section level3">
+<div id="alternatives-1" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> Alternatives</h3>
 <p>Pixidust: <a href="https://github.com/nutterb/pixiedust/blob/master/README.md" class="uri">https://github.com/nutterb/pixiedust/blob/master/README.md</a></p>
 <p>xtable: <a href="https://cran.r-project.org/web/packages/xtable/xtable.pdf" class="uri">https://cran.r-project.org/web/packages/xtable/xtable.pdf</a></p>
@@ -709,7 +709,7 @@ BFBayesFactorTop<sup>*</sup>
 lm
 </td>
 <td style="text-align:left;">
-summary_emm<sup>*</sup>
+summary.aovlist
 </td>
 </tr>
 <tr>
@@ -762,7 +762,7 @@ aovlist
 glm
 </td>
 <td style="text-align:left;">
-summary.Anova.mlm
+summary_emm<sup>*</sup>
 </td>
 <td style="text-align:left;">
 summary.ref.grid<sup>*</sup>
@@ -776,7 +776,7 @@ BFBayesFactor<sup>*</sup>
 htest
 </td>
 <td style="text-align:left;">
-summary.aov
+summary.Anova.mlm
 </td>
 <td style="text-align:left;">
 </td>
@@ -789,7 +789,7 @@ BFBayesFactorList<sup>*</sup>
 list
 </td>
 <td style="text-align:left;">
-summary.aovlist
+summary.aov
 </td>
 <td style="text-align:left;">
 </td>
@@ -938,18 +938,14 @@ It will be most useful for ANOVA or linear model results, as you will see in the
 <a class="sourceLine" id="cb71-2" data-line-number="2">letters[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>]</a></code></pre></div>
 <pre><code>## Variable label     : Alphabet
 ##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot;
-## attr(,&quot;label&quot;)
-## [1] &quot;Alphabet&quot;
 ## attr(,&quot;class&quot;)
-## [1] &quot;character&quot;</code></pre>
+## [1] &quot;papaja_labelled&quot; &quot;character&quot;</code></pre>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="kw">variable_labels</span>(cars<span class="op">$</span>speed) &lt;-<span class="st"> &quot;Speed [m/h]&quot;</span></a>
 <a class="sourceLine" id="cb73-2" data-line-number="2">cars[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="st">&quot;speed&quot;</span>]</a></code></pre></div>
 <pre><code>## Variable label     : Speed [m/h]
 ##  [1]  4  4  7  7  8  9 10 10 10 11 11 12 12 12 12
-## attr(,&quot;label&quot;)
-## [1] &quot;Speed [m/h]&quot;
 ## attr(,&quot;class&quot;)
-## [1] &quot;numeric&quot;</code></pre>
+## [1] &quot;papaja_labelled&quot; &quot;numeric&quot;</code></pre>
 <p>Variable labels can be added to any <code>vector</code> or <code>data.frame</code></p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1"><span class="kw">variable_labels</span>(cars) &lt;-<span class="st"> </span><span class="kw">c</span>(</a>
 <a class="sourceLine" id="cb75-2" data-line-number="2">  <span class="dt">speed =</span> <span class="st">&quot;Speed [m/h]&quot;</span></a>
@@ -970,10 +966,8 @@ It will be most useful for ANOVA or linear model results, as you will see in the
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">cars[<span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="st">&quot;dist&quot;</span>]</a></code></pre></div>
 <pre><code>## Variable label     : Stopping distance [ft]
 ##  [1]  2 10  4 22 16 10 18 26 34 17 28 14 20 24 28
-## attr(,&quot;label&quot;)
-## [1] &quot;Stopping distance [ft]&quot;
 ## attr(,&quot;class&quot;)
-## [1] &quot;numeric&quot;</code></pre>
+## [1] &quot;papaja_labelled&quot; &quot;numeric&quot;</code></pre>
 <div id="anova-model-comparisons" class="section level4">
 <h4><span class="header-section-number">4.4.2.1</span> anova (model comparisons)</h4>
 <p>…</p>
