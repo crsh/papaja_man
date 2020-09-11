@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Tips and Tricks | papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="&quot;&quot;" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Tips and Tricks | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-07-13" />
+<meta name="date" content="2020-09-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -169,6 +169,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.3</b> Equations</a></li>
 <li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.4</b> Cross-referencing</a></li>
 <li class="chapter" data-level="3.5" data-path="writing.html"><a href="writing.html#appendices"><i class="fa fa-check"></i><b>3.5</b> Appendices</a></li>
+<li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#counting-words"><i class="fa fa-check"></i><b>3.6</b> Counting words</a></li>
+<li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#comparing-document-versions"><i class="fa fa-check"></i><b>3.7</b> Comparing document versions</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#numerical-values"><i class="fa fa-check"></i><b>4.1</b> Numerical values</a></li>
@@ -193,17 +195,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a><ul>
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#global-chunk-options"><i class="fa fa-check"></i><b>5.1</b> Global chunk options</a></li>
 <li class="chapter" data-level="5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#meaningful-chunk-names"><i class="fa fa-check"></i><b>5.2</b> Meaningful chunk names</a></li>
-<li class="chapter" data-level="5.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#useful-rstudio-addins"><i class="fa fa-check"></i><b>5.3</b> Useful RStudio Addins</a></li>
-<li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environment"><i class="fa fa-check"></i><b>5.4</b> Reproducible software environment</a></li>
-<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.5</b> RStudio</a></li>
-<li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.6</b> Splitting an R Markdown document</a></li>
-<li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.7</b> Workflow</a><ul>
-<li class="chapter" data-level="5.7.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#comparing-documents"><i class="fa fa-check"></i><b>5.7.1</b> Comparing documents</a></li>
-<li class="chapter" data-level="5.7.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#counting-words"><i class="fa fa-check"></i><b>5.7.2</b> Counting words</a></li>
-</ul></li>
-<li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.8</b> Best practices</a></li>
-<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.9</b> Troubleshooting</a><ul>
-<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.9.1</b> R</a></li>
+<li class="chapter" data-level="5.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#text-references"><i class="fa fa-check"></i><b>5.3</b> Text references</a></li>
+<li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#useful-rstudio-addins"><i class="fa fa-check"></i><b>5.4</b> Useful RStudio Addins</a></li>
+<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environment"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environment</a></li>
+<li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
+<li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
+<li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.8</b> Workflow</a></li>
+<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.9</b> Best practices</a></li>
+<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.10</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="5.10.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.10.1</b> R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
@@ -258,18 +258,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="global-chunk-options" class="section level2">
 <h2><span class="header-section-number">5.1</span> Global chunk options</h2>
 <p>It can be useful to set chunk options globally for all (following) chunks to avoid retyping or copy-and-pasting</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="co"># Save all plots as 600 DPI TIFF-files</span></a>
-<a class="sourceLine" id="cb90-2" data-line-number="2">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">dev =</span> <span class="st">&quot;tiff&quot;</span>, <span class="dt">dpi =</span> <span class="dv">600</span>)</a>
-<a class="sourceLine" id="cb90-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb90-4" data-line-number="4"><span class="co"># Do not evaluate subsequent chunks (debugging or fine-tuning)</span></a>
-<a class="sourceLine" id="cb90-5" data-line-number="5">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">eval =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="co"># Save all plots as 600 DPI TIFF-files</span></a>
+<a class="sourceLine" id="cb89-2" data-line-number="2">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">dev =</span> <span class="st">&quot;tiff&quot;</span>, <span class="dt">dpi =</span> <span class="dv">600</span>)</a>
+<a class="sourceLine" id="cb89-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb89-4" data-line-number="4"><span class="co"># Do not evaluate subsequent chunks (debugging or fine-tuning)</span></a>
+<a class="sourceLine" id="cb89-5" data-line-number="5">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">eval =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p>See the <a href="https://yihui.name/knitr/options/">knitr chunk options and package options</a> for an overview of settings</p>
 </div>
 <div id="meaningful-chunk-names" class="section level2">
 <h2><span class="header-section-number">5.2</span> Meaningful chunk names</h2>
+<p>…</p>
+</div>
+<div id="text-references" class="section level2">
+<h2><span class="header-section-number">5.3</span> Text references</h2>
+<p>Because <code>papaja</code> extends <code>bookdown</code> you can use text references in any <code>papaja</code> document.
+A text reference consists of a unique label—defined as <code>(ref:unique-label)</code> somewhere in the body of the document (not inside a code chunk)—and the text that the label stands in for.
+Text references must be defined in a separate single-line paragraph with empty lines above and below:</p>
+<pre><code>(ref:my-caption) This is a caption for my table.</code></pre>
+
+<div class="rmdcaution">
+<p>The definition of a text reference must be on a single line and should not end with a white space.
+Hence, the following will <em>not</em> work as expected</p>
+<pre><code>(ref:my-caption) 
+This is a caption for my table.</code></pre>
+</div>
+
+<p>Using text references for table and figure captions has several advantages:</p>
+<ol style="list-style-type: decimal">
+<li>Markdown and <span class="math inline">\(\LaTeX\)</span> syntax is not well supported in chunk options, such as <code>fig.cap</code>, or elsewhere inside a code chunk, e.g., in the <code>caption</code> argument of <code>apa_table()</code>.
+Specifically, Markdown formatting and citation syntax are ignored (rendered as-is) and, for example, <code>\</code> and <code>_</code> must be escaped to prevent errors in either R or <span class="math inline">\(\LaTeX\)</span>.
+None of these limitations apply to text references.</li>
+<li>Long captions can impair the readability of the document when they are part of chunk options or R code.</li>
+<li><code>knitr</code> considers modifications of the text in <code>fig.cap</code> as changes to the code chunk and hence may invalidate the cache of a chunk.
+As a consequence cached results of the code chunk need to be recomputed.
+Changes to the text of a text reference do not invalidate the cached computations.</li>
+<li>It’s straight forward to include inline code chunks in text references.</li>
+</ol>
+<p>Text references can be used to duplicate information throughout the document.
+Consider the following example.</p>
+<pre><code>(ref:aesthetics) Points represent conditions means, error bars represent 955% confidence intervals.
+
+(ref:caption1) An interesting plot.
+
+```{r fig.cap = paste(&quot;(ref:caption1)&quot;, &quot;(ref:aesthetics)&quot;)}
+apa_beeplot(data = npk, id = &quot;block&quot;, dv = &quot;yield&quot;, factors = &quot;N&quot;)
+```
+
+(ref:caption2) Another interesting plot.
+
+```{r fig.cap = paste(&quot;(ref:caption2)&quot;, &quot;(ref:aesthetics)&quot;)}
+apa_beeplot(data = npk, id = &quot;block&quot;, dv = &quot;yield&quot;, factors = &quot;N&quot;)
+```</code></pre>
+<p>The resulting figure caption combines the two text references, Figure <a href="tips-and-tricks.html#fig:text-reference-figure">5.1</a>.</p>
+
+
+<div class="figure" style="text-align: center"><span id="fig:text-reference-figure"></span>
+<img src="papaja_manual_files/figure-html/text-reference-figure-1.png" alt="An interesting plot. Points represent conditions means, error bars represent 955% confidence intervals." width="672" />
+<p class="caption">
+Figure 5.1: An interesting plot. Points represent conditions means, error bars represent 955% confidence intervals.
+</p>
+</div>
+<p>Because the information about what points and error bars represent is repeated using a text reference, and not by literal repetition throughout the document, it’s easy to correct the typo (<code>955% confidence intervals</code>) and be sure that it is corrected in every instance.</p>
 </div>
 <div id="useful-rstudio-addins" class="section level2">
-<h2><span class="header-section-number">5.3</span> Useful RStudio Addins</h2>
+<h2><span class="header-section-number">5.4</span> Useful RStudio Addins</h2>
 <ul>
 <li><a href="https://github.com/crsh/citr"><code>citr</code></a>: Insert Markdown Citations</li>
 <li><a href="https://github.com/ThinkR-open/remedy"><code>remedy</code></a>: Keyboard shortcuts for Markdown formatting</li>
@@ -331,7 +383,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="reproducible-software-environment" class="section level2">
-<h2><span class="header-section-number">5.4</span> Reproducible software environment</h2>
+<h2><span class="header-section-number">5.5</span> Reproducible software environment</h2>
 <ul>
 <li>sessionInfo()</li>
 <li>packrat</li>
@@ -340,7 +392,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="rstudio" class="section level2">
-<h2><span class="header-section-number">5.5</span> RStudio</h2>
+<h2><span class="header-section-number">5.6</span> RStudio</h2>
 <ol style="list-style-type: decimal">
 <li>Document outline</li>
 </ol>
@@ -349,7 +401,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- Before you finish for the day, make sure you can knit the notebook (if you’re using caching, make sure to clear the caches). That will let you fix any problems while the code is still fresh in your mind. -->
 </div>
 <div id="splitting-an-r-markdown-document" class="section level2">
-<h2><span class="header-section-number">5.6</span> Splitting an R Markdown document</h2>
+<h2><span class="header-section-number">5.7</span> Splitting an R Markdown document</h2>
 <p>Some authors may prefer to split long manuscripts into multiple component files for better clarity.
 There are two basic strategies to split R Markdown documents that can be combined or used in isolation: sourcing R scripts and splitting the R Markdown document.
 If the R Markdown document contains a lot of code, it may be helpful to disincorporate parts of the code, such as reading, merging, restructuring, and relabeling data files.
@@ -372,7 +424,7 @@ To include a child document, insert an empty chunk and provide the path to the R
 <p>Search all files with <kbd>Ctrl</kbd> + <kbd>Shift</kbd>+<kbd>F</kbd></p>
 </div>
 <div id="workflow" class="section level2">
-<h2><span class="header-section-number">5.7</span> Workflow</h2>
+<h2><span class="header-section-number">5.8</span> Workflow</h2>
 <ul>
 <li>Don’t edit raw data</li>
 <li>Don’t set a working directory</li>
@@ -380,59 +432,9 @@ To include a child document, insert an empty chunk and provide the path to the R
 <li>Don’t edit word documents</li>
 <li>Relative paths</li>
 </ul>
-<div id="comparing-documents" class="section level3">
-<h3><span class="header-section-number">5.7.1</span> Comparing documents</h3>
-<p>In revisions, it can be helpful to highlight all changes.</p>
-<ul>
-<li>for DOCX, use the Microsoft Word combine feature</li>
-<li>for PDF, use <a href="https://3142.nl/latex-diff/"><code>latexdiff</code></a> on <span class="math inline">\(\LaTeX\)</span> source documents
-<ol style="list-style-type: decimal">
-<li>Create <span class="math inline">\(\LaTeX\)</span> file with highlighted changes</li>
-<li>Compile to PDF in RStudio</li>
-</ol></li>
-</ul>
-<p>Notes on PDF method:</p>
-<p>The .tex files are generated when you knit your .rmd document. Make sure you save the .tex file from <em>before</em> you make any modifications.</p>
-<p>You can now visit <a href="https://3142.nl/latex-diff/"><code>latexdiff</code></a> and copy/paste in the contents of <code>manuscript_old.tex</code> and <code>manuscript_new.tex</code>, or (if you are a command line ninja install <a href="https://3142.nl/latex-diff/"><code>latexdiff</code></a> on your own system). This will generate output which you can copy/paste into a file <code>manuscript_with_changes.tex</code>.</p>
-<p>Now open this file <code>manuscript_with_changes.tex</code> in RStudio and click “Compile to PDF” in the top bar.</p>
-<p>N.B. Will not track changes in the front matter (affiliations, abstract)</p>
-</div>
-<div id="counting-words" class="section level3">
-<h3><span class="header-section-number">5.7.2</span> Counting words</h3>
-<ol style="list-style-type: decimal">
-<li>Lua word count filter in <a href="https://cran.r-project.org/web/packages/rmdfiltr/index.html"><code>rmdfiltr</code></a>
-<ul>
-<li>Easy to apply to any document format in R Markdown</li>
-<li>Counts words in <code>pandoc</code> abstract syntax tree</li>
-<li>If applied after <code>pandoc-citeproc</code>, counts rendered citations</li>
-<li>Excludes figure and table captions</li>
-<li>Provides separate word count for reference section</li>
-<li><a href="https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html">Comparable in precision</a> to other methods</li>
-</ul></li>
-<li><a href="https://github.com/benmarwick/wordcountaddin"><code>wordcount</code></a>
-<ul>
-<li>RStudio addin counts words in R Markdown documents</li>
-<li>Good for quick interactive use</li>
-<li><a href="https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html">Less precise</a> than other methods; cannot, for example, count rendered citations</li>
-</ul></li>
-<li><a href="http://app.uio.no/ifi/texcount/"><code>texcount</code></a>
-<ul>
-<li>Counts words in TeX documents</li>
-<li>If used with <code>pandoc-citeproc</code>, reference section must be removed manually prior to counting</li>
-<li><a href="https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html">Comparable in precision</a> to other methods</li>
-</ul></li>
-<li>Microsoft Word word count
-<ul>
-<li>Use <code>apa6_docx()</code>-format</li>
-<li>Reference section must be removed manually prior to counting</li>
-<li><a href="https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html">Comparable in precision</a> to other methods</li>
-</ul></li>
-</ol>
-<p>If you are using <code>pandoc-citeproc</code> for references, exclude the reference section before counting words</p>
-</div>
 </div>
 <div id="best-practices" class="section level2">
-<h2><span class="header-section-number">5.8</span> Best practices</h2>
+<h2><span class="header-section-number">5.9</span> Best practices</h2>
 <ol style="list-style-type: decimal">
 <li>Load all R packages in the first code chunk
 <ul>
@@ -448,9 +450,9 @@ To include a child document, insert an empty chunk and provide the path to the R
 </ol>
 </div>
 <div id="troubleshooting" class="section level2">
-<h2><span class="header-section-number">5.9</span> Troubleshooting</h2>
+<h2><span class="header-section-number">5.10</span> Troubleshooting</h2>
 <div id="r" class="section level3">
-<h3><span class="header-section-number">5.9.1</span> R</h3>
+<h3><span class="header-section-number">5.10.1</span> R</h3>
 <!-- Copy and paste from R4DS -->
 <!-- Troubleshooting R Markdown documents can be challenging because you are no longer in an interactive R environment, and you will need to learn some new tricks. The first thing you should always try is to recreate the problem in an interactive session. Restart R, then “Run all chunks” (either from Code menu, under Run region), or with the keyboard shortcut Ctrl + Alt + R. If you’re lucky, that will recreate the problem, and you can figure out what’s going on interactively. -->
 <!-- If that doesn’t help, there must be something different between your interactive environment and the R markdown environment. You’re going to need to systematically explore the options. The most common difference is the working directory: the working directory of an R Markdown is the directory in which it lives. Check the working directory is what you expect by including getwd() in a chunk. -->

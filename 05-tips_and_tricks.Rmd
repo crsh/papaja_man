@@ -23,6 +23,73 @@ See the [knitr chunk options and package options](https://yihui.name/knitr/optio
 
 ## Meaningful chunk names
 
+...
+
+
+## Text references
+
+Because `papaja` extends `bookdown` you can use text references in any `papaja` document.
+A text reference consists of a unique label---defined as `(ref:unique-label)` somewhere in the body of the document (not inside a code chunk)---and the text that the label stands in for.
+Text references must be defined in a separate single-line paragraph with empty lines above and below:
+
+```
+(ref:my-caption) This is a caption for my table.
+```
+
+```{block2, text-references-warning, type='rmdcaution'}
+The definition of a text reference must be on a single line and should not end with a white space.
+Hence, the following will *not* work as expected
+
+~~~
+(ref:my-caption) 
+This is a caption for my table.
+~~~
+
+```
+
+Using text references for table and figure captions has several advantages:
+
+1. Markdown and $\LaTeX$ syntax is not well supported in chunk options, such as `fig.cap`, or elsewhere inside a code chunk, e.g., in the `caption` argument of `apa_table()`.
+Specifically, Markdown formatting and citation syntax are ignored (rendered as-is) and, for example, `\` and `_` must be escaped to prevent errors in either R or $\LaTeX$.
+None of these limitations apply to text references.
+2. Long captions can impair the readability of the document when they are part of chunk options or R code.
+3. `knitr` considers modifications of the text in `fig.cap` as changes to the code chunk and hence may invalidate the cache of a chunk.
+As a consequence cached results of the code chunk need to be recomputed.
+Changes to the text of a text reference do not invalidate the cached computations.
+4. It's straight forward to include inline code chunks in text references.
+
+Text references can be used to duplicate information throughout the document.
+Consider the following example.
+
+~~~
+(ref:aesthetics) Points represent conditions means, error bars represent 955% confidence intervals.
+
+(ref:caption1) An interesting plot.
+
+```{r fig.cap = paste("(ref:caption1)", "(ref:aesthetics)")}`r ''`
+apa_beeplot(data = npk, id = "block", dv = "yield", factors = "N")
+```
+
+(ref:caption2) Another interesting plot.
+
+```{r fig.cap = paste("(ref:caption2)", "(ref:aesthetics)")}`r ''`
+apa_beeplot(data = npk, id = "block", dv = "yield", factors = "N")
+```
+~~~
+
+The resulting figure caption combines the two text references, Figure\ \@ref(fig:text-reference-figure).
+
+(ref:aesthetics2) Points represent conditions means, error bars represent 955% confidence intervals.
+
+(ref:caption3) An interesting plot.
+
+```{r text-reference-figure, fig.cap = paste("(ref:caption3)", "(ref:aesthetics2)"), echo = FALSE}
+apa_beeplot(data = npk, id = "block", dv = "yield", factors = "N")
+```
+
+Because the information about what points and error bars represent is repeated using a text reference, and not by literal repetition throughout the document, it's easy to correct the typo (`955% confidence intervals`) and be sure that it is corrected in every instance.
+
+
 ## Useful RStudio Addins
 
 - [`citr`](https://github.com/crsh/citr): Insert Markdown Citations
@@ -109,52 +176,6 @@ Search all files with <kbd>Ctrl</kbd> + <kbd>Shift</kbd>+<kbd>F</kbd>
 - Generate graphics from R code
 - Don't edit word documents
 - Relative paths
-
-
-
-### Comparing documents
-
-In revisions, it can be helpful to highlight all changes.
-
-* for DOCX, use the Microsoft Word combine feature
-* for PDF, use [`latexdiff`](https://3142.nl/latex-diff/) on $\LaTeX$ source documents
-  1. Create $\LaTeX$ file with highlighted changes
-  2. Compile to PDF in RStudio
-
-Notes on PDF method:
-
-The .tex files are generated when you knit your .rmd document. Make sure you save the .tex file from *before* you make any modifications.
-
-You can now visit [`latexdiff`](https://3142.nl/latex-diff/) and copy/paste in the contents of `manuscript_old.tex` and `manuscript_new.tex`, or (if you are a command line ninja install [`latexdiff`](https://3142.nl/latex-diff/) on your own system). This will generate output which you can copy/paste into a file `manuscript_with_changes.tex`.
-
-Now open this file `manuscript_with_changes.tex` in RStudio and click "Compile to PDF" in the top bar.
-
-N.B. Will not track changes in the front matter (affiliations, abstract)
-
-### Counting words
-
-1. Lua word count filter in [`rmdfiltr`](https://cran.r-project.org/web/packages/rmdfiltr/index.html)
-    - Easy to apply to any document format in R Markdown
-    - Counts words in `pandoc` abstract syntax tree
-    - If applied after `pandoc-citeproc`, counts rendered citations
-    - Excludes figure and table captions
-    - Provides separate word count for reference section
-    - [Comparable in precision](https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html) to other methods
-2. [`wordcount`](https://github.com/benmarwick/wordcountaddin)
-    - RStudio addin counts words in R Markdown documents
-    - Good for quick interactive use
-    - [Less precise](https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html) than other methods; cannot, for example, count rendered citations
-3. [`texcount`](http://app.uio.no/ifi/texcount/)
-    - Counts words in TeX documents
-    - If used with `pandoc-citeproc`, reference section must be removed manually prior to counting
-    - [Comparable in precision](https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html) to other methods
-4. Microsoft Word word count
-    - Use `apa6_docx()`-format
-    - Reference section must be removed manually prior to counting
-    - [Comparable in precision](https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html) to other methods
-
-If you are using `pandoc-citeproc` for references, exclude the reference section before counting words
-
 
 
 ## Best practices

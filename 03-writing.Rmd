@@ -323,5 +323,33 @@ appendix:
 ```
 
 
+## Counting words
+
+To get an accurate word count `papaja` uses the Lua word count filter in [`rmdfiltr`](https://cran.r-project.org/web/packages/rmdfiltr/index.html), which yields counts that are [comparable to other methods](https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html).
+Words are counted separately for the body of the text (excluding captions) and the reference section.
+Every time the document is knitted the current word count is printed to the R Markdown pane in RStudio or the console:
+
+~~~
+5138 words in text body
+624 words in reference section
+~~~
 
 
+## Comparing document versions
+
+In revisions, it can be helpful to highlight all changes.
+
+* for DOCX, use the Microsoft Word combine feature
+* for PDF, use [`latexdiff`](https://3142.nl/latex-diff/) on $\LaTeX$ source documents
+  1. Create $\LaTeX$ file with highlighted changes
+  2. Compile to PDF in RStudio
+
+Notes on PDF method:
+
+The .tex files are generated when you knit your .rmd document. Make sure you save the .tex file from *before* you make any modifications.
+
+You can now visit [`latexdiff`](https://3142.nl/latex-diff/) and copy/paste in the contents of `manuscript_old.tex` and `manuscript_new.tex`, or (if you are a command line ninja install [`latexdiff`](https://3142.nl/latex-diff/) on your own system). This will generate output which you can copy/paste into a file `manuscript_with_changes.tex`.
+
+Now open this file `manuscript_with_changes.tex` in RStudio and click "Compile to PDF" in the top bar.
+
+N.B. Will not track changes in the front matter (affiliations, abstract)
