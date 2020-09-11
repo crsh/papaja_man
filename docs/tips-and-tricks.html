@@ -200,10 +200,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environment"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environment</a></li>
 <li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
 <li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
-<li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.8</b> Workflow</a></li>
-<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.9</b> Best practices</a></li>
-<li class="chapter" data-level="5.10" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.10</b> Troubleshooting</a><ul>
-<li class="chapter" data-level="5.10.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.10.1</b> R</a></li>
+<li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.8</b> Best practices</a></li>
+<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.9</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#yaml"><i class="fa fa-check"></i><b>5.9.1</b> YAML</a></li>
+<li class="chapter" data-level="5.9.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.9.2</b> R</a></li>
+<li class="chapter" data-level="5.9.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#bookdown"><i class="fa fa-check"></i><b>5.9.3</b> <code>bookdown</code></a></li>
+<li class="chapter" data-level="5.9.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#pandoc"><i class="fa fa-check"></i><b>5.9.4</b> <code>pandoc</code></a></li>
+<li class="chapter" data-level="5.9.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#latex"><i class="fa fa-check"></i><b>5.9.5</b> <span class="math inline">\(\LaTeX\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
@@ -221,7 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a><ul>
 <li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
+<li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -423,18 +426,8 @@ To include a child document, insert an empty chunk and provide the path to the R
 ```</code></pre>
 <p>Search all files with <kbd>Ctrl</kbd> + <kbd>Shift</kbd>+<kbd>F</kbd></p>
 </div>
-<div id="workflow" class="section level2">
-<h2><span class="header-section-number">5.8</span> Workflow</h2>
-<ul>
-<li>Don’t edit raw data</li>
-<li>Don’t set a working directory</li>
-<li>Generate graphics from R code</li>
-<li>Don’t edit word documents</li>
-<li>Relative paths</li>
-</ul>
-</div>
 <div id="best-practices" class="section level2">
-<h2><span class="header-section-number">5.9</span> Best practices</h2>
+<h2><span class="header-section-number">5.8</span> Best practices</h2>
 <ol style="list-style-type: decimal">
 <li>Load all R packages in the first code chunk
 <ul>
@@ -446,29 +439,94 @@ To include a child document, insert an empty chunk and provide the path to the R
 <li>Use meaningful chunk names</li>
 <li>Keep R code close to the corresponding prose</li>
 <li>Document R and R-package versions<br />(e.g., <code>devtools::session_info()</code>)</li>
-<li>Make sure you can knit without errors before going home</li>
+<li>Try to ensure you can knit without errors before going home</li>
 </ol>
 </div>
 <div id="troubleshooting" class="section level2">
-<h2><span class="header-section-number">5.10</span> Troubleshooting</h2>
-<div id="r" class="section level3">
-<h3><span class="header-section-number">5.10.1</span> R</h3>
-<!-- Copy and paste from R4DS -->
-<!-- Troubleshooting R Markdown documents can be challenging because you are no longer in an interactive R environment, and you will need to learn some new tricks. The first thing you should always try is to recreate the problem in an interactive session. Restart R, then “Run all chunks” (either from Code menu, under Run region), or with the keyboard shortcut Ctrl + Alt + R. If you’re lucky, that will recreate the problem, and you can figure out what’s going on interactively. -->
-<!-- If that doesn’t help, there must be something different between your interactive environment and the R markdown environment. You’re going to need to systematically explore the options. The most common difference is the working directory: the working directory of an R Markdown is the directory in which it lives. Check the working directory is what you expect by including getwd() in a chunk. -->
-<!-- Next, brainstorm all the things that might cause the bug. You’ll need to systematically check that they’re the same in your R session and your R markdown session. The easiest way to do that is to set error = TRUE on the chunk causing the problem, then use print() and str() to check that settings are as you expect. -->
-<p>Fixing bugs in R Markdown documents can be challenging</p>
-<ul>
-<li>The code is run in a new non-interactive R session</li>
-<li>Try is to recreate the problem in your interactive session
+<h2><span class="header-section-number">5.9</span> Troubleshooting</h2>
+<p>As detailed in <a href="introduction.html#document-compilation">Document compilation</a>, rendering a <code>papaja</code> document involves several software packages.
+This layered software design grants the package its capabilities but it comes at a cost:
+When compilation of a <code>papaja</code>-document throws an error it may not be immediately obvious to an inexperienced user, which part of the process failed.
+However, the error message usually give some indication which portion of the process errored:</p>
 <ol style="list-style-type: decimal">
-<li>Restart R (<code>Session &gt; Restart R</code> or<br /><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F10</kbd>)</li>
-<li>Run all chunks (<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd>)</li>
-<li>Compare the working directories (e.g., use <code>getwd()</code> in a code chunk)</li>
-</ol></li>
-</ul>
+<li>Parsing of the YAML front matter
+<ul>
+<li><code>Error in yaml::yaml.load(enc2utf8(string), ...) :</code></li>
+</ul></li>
+<li>R code execution
+<ul>
+<li><code>Error: Object 'x' not found.</code></li>
+</ul></li>
+<li><code>bookdown</code> adds cross- and text-references
+<ul>
+<li>No error messages; look for <code></code> in text</li>
+</ul></li>
+<li><code>pandoc</code> document conversion
+<ul>
+<li><code>Error: pandoc document conversion failed with error 1</code></li>
+<li><code>Error running filter /path/to/filter/filter.lua</code></li>
+</ul></li>
+<li><code>pandoc-citeproc</code> reference generation
+<ul>
+<li><code>pandoc-citeproc: Cannot decode byte '\xfc'</code></li>
+<li><code>pandoc-citeproc: reference X not found</code>, shows up as <strong>???</strong> in text</li>
+</ul></li>
+<li><span class="math inline">\(\LaTeX\)</span> PDF generation
+<ul>
+<li><code>! Missing $ inserted</code></li>
+</ul></li>
+</ol>
+<p>It is often helpful to search the internet for the error messages or portions thereof.
+Many times others will have encountered the same problem and may have documented their solution.
+In the following we provide some general advice.</p>
+<div id="yaml" class="section level3">
+<h3><span class="header-section-number">5.9.1</span> YAML</h3>
+<p>TBD</p>
+<p>Double check indentation and white space.</p>
+</div>
+<div id="r" class="section level3">
+<h3><span class="header-section-number">5.9.2</span> R</h3>
+
+<div class="rmdnote">
+Error messages generated by R unfortunately do not provide the exact line that has errored.
+The reported line number indicates the first line of R code chunk that contains the erroneous code.
+</div>
+
+<p>Fixing bugs in R Markdown documents can be challenging because the code is run in a new non-interactive R session.
+This makes it a little harder to play around to pinpoint what’s causing the problem.
+Hence, do your best to recreate the problem in your interactive session:</p>
+<ol style="list-style-type: decimal">
+<li>Restart R (<code>Session &gt; Restart R</code> or<br /><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F10</kbd> in RStudio)</li>
+<li>Compare the working directories (e.g., use <code>getwd()</code> in the console and in a code chunk of your knitted document)</li>
+<li>Run every chunk individually until you get the error</li>
+</ol>
+<p>If you can’t reproduce the problem in your interactive R session, there must be some difference between it and the R environment of your document.
+Once you identify that difference you will often know what is causing the problem.
+If you don’t you at least can now recreate the problem in your interactive R session and start debugging.
+To learn more about debugging techniques refer to <a href="https://adv-r.hadley.nz/debugging.html">Advanced R</a> <span class="citation">(Wickham, <a href="#ref-wickham_advanced_2019">2019</a>)</span>.</p>
+</div>
+<div id="bookdown" class="section level3">
+<h3><span class="header-section-number">5.9.3</span> <code>bookdown</code></h3>
+<p>TBD</p>
+<p>Don’t use <code>_</code> in chunk names!</p>
+</div>
+<div id="pandoc" class="section level3">
+<h3><span class="header-section-number">5.9.4</span> <code>pandoc</code></h3>
+<p>TBD</p>
+<p>Report errors with <code>papaja</code> Lua filters at <a href="https://github.com/crsh/papaja/issues" class="uri">https://github.com/crsh/papaja/issues</a></p>
+</div>
+<div id="latex" class="section level3">
+<h3><span class="header-section-number">5.9.5</span> <span class="math inline">\(\LaTeX\)</span></h3>
+<p>TBD</p>
+<p>Inspect the log file.</p>
 
 </div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-wickham_advanced_2019">
+<p>Wickham, H. (2019). <em>Advanced R</em> (2nd ed.). Chapman; Hall/CRC. Retrieved from <a href="https://adv-r.hadley.nz//">https://adv-r.hadley.nz//</a></p>
 </div>
 </div>
 <h1>Comments and Questions</h1>
