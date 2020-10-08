@@ -7,6 +7,7 @@ Although often overlooked, RStudio can check your spelling
 
 - New line for each sentence
 
+
 ## Global chunk options
 
 It can be useful to set chunk options globally for all (following) chunks to avoid retyping or copy-and-pasting
@@ -119,12 +120,100 @@ Suggested keyboard shortcuts
 - [`retractcheck`](https://frederikaust.shinyapps.io/retractcheck_shinyapp/): Check DOIs in a paper for retractions
 
 
-## Reproducible software environment
+## Reproducible software environments
 
-- sessionInfo()
-- packrat
-- checkpoint
-- liftr & docker
+To ensure mid- to long-term computation reproducibility we highly recommend conserving the software environment used to write a manuscript (e.g. R and all R packages) either in a software container or a virutal machine.
+This way you can be sure that your R code does not break because of updates to R or any R package.
+For a brief primer on containers and virtual machines see [the supplementary material](https://psych-transparency-guide.uni-koeln.de/analytic-reproducibility.html#document-hardware-and-software-used-for-analyses) by @klein_practical_2018.
+
+
+### Docker
+
+Docker is the most widely used containerization approach.
+It is open source and free to use but requires some disk space.
+For a concise hands-on introduction see [the ROpenSci tutorial](https://ropenscilabs.github.io/r-docker-tutorial/).
+A [more detailed introduction](https://docker-curriculum.com/) is available from the Docker project.
+Docker containers a configured using so-called Docker files.
+To configure a Docker container that includes everything to start writing your manuscript, including an instance of RStudio that you can access through you Browser you can build use the following Docker file:
+
+~~~docker
+# Look up available R versions at https://github.com/rocker-org/rocker-versioned/tree/master/verse
+
+FROM rocker/verse:3.6.3
+
+# Install papaja dependencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    libgsl0-dev \
+    libnlopt-dev
+
+RUN install2.r --error \
+    --skipinstalled \
+    --deps TRUE \
+    rmdfiltr
+
+# Required by broom -- obsolete once newer versions are available from MRAN
+RUN Rscript -e "remotes::install_version('rlang', '0.4.7', repos = 'http://cran.us.r-project.org', upgrade = FALSE, Ncpus = 3)"
+RUN Rscript -e "remotes::install_version('tidyselect', '1.1.0', repos = 'http://cran.us.r-project.org', upgrade = FALSE, Ncpus = 3)"
+RUN Rscript -e "remotes::install_version('vctrs', '0.3.2', repos = 'http://cran.us.r-project.org', upgrade = FALSE, Ncpus = 3)"
+RUN Rscript -e "remotes::install_version('dplyr', '1.0.0', repos = 'http://cran.us.r-project.org', upgrade = FALSE, Ncpus = 3)"
+
+# Latest papaja development version
+RUN Rscript -e "remotes::install_github('crsh/papaja',  quick = FALSE, build = TRUE, dependencies = c('Depends', 'Imports'), Ncpus = 3, upgrade = FALSE)"
+~~~
+
+Place this Docker file in your project repository and run the container using the following Bash script (for MacOS or Linux):
+
+~~~bash
+#!/bin/sh
+
+docker build \
+    --build-arg RSTUDIO_VERSION=1.3.1093 \
+    -t container-name .
+
+docker run -d \
+    -p 8787:8787 \
+    -e DISABLE_AUTH=true \
+    -e ROOT=TRUE \
+    -v $(pwd):/home/rstudio \
+    container-name
+
+sleep 1
+
+open http://$(ipconfig getifaddr en0):8787
+~~~
+
+Place this file in your project repository and execute it.
+This script will take a little while to finish the first time around (it downloads the base container and installs the missing dependencies), but should be fast the next time.
+Finally, a Browser window with an instance of RStudio should open and all files from you project repository should be shared between your host system and the container.
+In new you can work as you usually would.
+
+```{block2, docker-r-packages, type='rmdnote'}
+Note that if you work in RStudio, whenever you install an R package interactively (i.e., via the GUI or `install.packages()`) they will be lost once you stop the container.
+While this may seem inconvenient, it ensures that your software environment is fully self-contained.
+```
+
+To make additional R packages available in your container, add them to the Docker file.
+For example,
+
+~~~
+RUN install2.r --error \
+    --skipinstalled \
+    --deps TRUE \
+    rmdfiltr
+    afex
+    emmeans
+~~~
+
+Note that all R packages are installed from the MRAN server that provides each package as it was available from CRAN on a particular date in the past (that is, the last day the specified version of R was the most recent release, see the [rocker version information](https://github.com/rocker-org/rocker-versioned/blob/master/VERSIONS.md)).
+
+
+### CodeOcean
+
+[CodeOcean](https://codeocean.com/) is a commercial service that builds on Docker, facilitates setting up and sharing containers and lets you run computations in the cloud.
+CodeOcean's Seth Green has kindly prepared a [minimal `papaja` example capsule](https://codeocean.com/capsule/8183533/).
+If you want to use `papaja` in your next CodeOcean project you can use this capsule as a starting point.
+
 
 ## RStudio
 

@@ -5,26 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Published manuscripts | papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="&quot;&quot;" />
+  <meta name="description" content="""" />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Published manuscripts | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="&quot;&quot;" />
+  <meta property="og:description" content="""" />
   <meta name="github-repo" content="crsh/papaja_man" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="7 Published manuscripts | papaja: Reproducible APA manuscripts with R Markdown" />
   
-  <meta name="twitter:description" content="&quot;&quot;" />
+  <meta name="twitter:description" content="""" />
   
 
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-09-11" />
+<meta name="date" content="2020-10-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,9 +53,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,14 +64,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -197,7 +199,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#meaningful-chunk-names"><i class="fa fa-check"></i><b>5.2</b> Meaningful chunk names</a></li>
 <li class="chapter" data-level="5.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#text-references"><i class="fa fa-check"></i><b>5.3</b> Text references</a></li>
 <li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#useful-rstudio-addins"><i class="fa fa-check"></i><b>5.4</b> Useful RStudio Addins</a></li>
-<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environment"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environment</a></li>
+<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environments"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environments</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#docker"><i class="fa fa-check"></i><b>5.5.1</b> Docker</a></li>
+<li class="chapter" data-level="5.5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#codeocean"><i class="fa fa-check"></i><b>5.5.2</b> CodeOcean</a></li>
+</ul></li>
 <li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
 <li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
 <li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.8</b> Best practices</a></li>
@@ -253,11 +258,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">7</span> Published manuscripts</h1>
 <!-- If you have published a paper that was written with `papaja`, you can add the reference to the [public Zotero group](https://www.zotero.org/groups/2202906/papaja) yourself or send it to me. -->
 <!-- --- -->
-<p>Please cite <code>papaja</code> if you use it (<code>citation('papaja')</code> will provide the reference). Below are some peer-reviewed publications that used <code>papaja</code>. If you have published a paper that was written with <code>papaja</code>, you can add the reference to the <a href="https://www.zotero.org/groups/2202906/papaja">public Zotero group</a> yourself or send it to me.</p>
+<p>Please cite <code>papaja</code> if you use it (<code>citation('papaja')</code> will provide the reference). Below are some peer-reviewed publications that used <code>papaja</code>. If you have published a paper that was written with <code>papaja</code>, you can add the reference to the <a href="https://www.zotero.org/groups/2202906/papaja">public Zotero group</a> yourself or send it to me. Argüelles, C. L., Arroyo, L. F., Rodriguez, N., Durand L’opez, E. M., Pozu, J. J. G., Markovits, J., … Casillas, J. V. (2020). Conceptually-cued perceptual categorization in adult L2 learners. <em>PsyArXiv</em>. <a href="https://doi.org/10/gg67kv" class="uri">https://doi.org/10/gg67kv</a> (R Markdown and data files: <a href="https://osf.io/cp9bs/" class="uri">https://osf.io/cp9bs/</a>)</p>
 <hr />
 <p>Aust, F., &amp; Edwards, J. D. (2016). Incremental validity of Useful Field of View subtests for the prediction of instrumental activities of daily living. <em>Journal of Clinical and Experimental Neuropsychology</em>, <em>38</em>(5), 497–515. <a href="https://doi.org/10.1080/13803395.2015.1125453" class="uri">https://doi.org/10.1080/13803395.2015.1125453</a></p>
 <p>Aust, F., Haaf, J. M., &amp; Stahl, C. (2018). A memory-based judgment account of expectancy-liking dissociations in evaluative conditioning. <em>Journal of Experimental Psychology: Learning, Memory, and Cognition</em>. <a href="https://doi.org/10/gdxv8n" class="uri">https://doi.org/10/gdxv8n</a> (R Markdown and data files: <a href="https://osf.io/vnmby/" class="uri">https://osf.io/vnmby/</a>)</p>
-<p>Aust, F., &amp; Stahl, C. (2019). The enhancing effect of caffeine on mnemonic discrimination is at best small. <em>PsyArXiv</em>. <a href="https://doi.org/10/gf6jwz" class="uri">https://doi.org/10/gf6jwz</a> (R Markdown and data files: <a href="https://osf.io/p7f4m/" class="uri">https://osf.io/p7f4m/</a>)</p>
+<p>Aust, F., &amp; Stahl, C. (2020). The enhancing effect of caffeine on mnemonic discrimination is at best small. <em>Memory</em>. <a href="https://doi.org/10.1080/09658211.2020.1781899" class="uri">https://doi.org/10.1080/09658211.2020.1781899</a> (R Markdown and data files: <a href="https://osf.io/p7f4m/" class="uri">https://osf.io/p7f4m/</a>)</p>
+<p>Ballou, N., &amp; Van Rooij, A. J. (2020). The relationship between mental well-being and dysregulated gaming: A specification curve analysis of core and peripheral criteria in five gaming disorder scales. <em>PsyArXiv</em>. <a href="https://doi.org/10/gg6z8v" class="uri">https://doi.org/10/gg6z8v</a> (R Markdown and data files: <a href="https://osf.io/h9kmv/" class="uri">https://osf.io/h9kmv/</a>)</p>
 <p>Barrett, T. S., Borrie, S. A., &amp; Yoho, S. E. (2019). Automating with Autoscore: Introducing an R package for automating the scoring of orthographic transcripts. <em>PsyArXiv</em>. <a href="https://doi.org/10/gf4cqp" class="uri">https://doi.org/10/gf4cqp</a> (R Markdown and data files: <a href="https://osf.io/htqvr/" class="uri">https://osf.io/htqvr/</a>)</p>
 <p>Barth, M., Stahl, C., &amp; Haider, H. (2018). Assumptions of the process-dissociation procedure are violated in implicit sequence learning. <em>Journal of Experimental Psychology: Learning, Memory, and Cognition</em>. <a href="https://doi.org/10/gdxv8m" class="uri">https://doi.org/10/gdxv8m</a> (R Markdown and data files: <a href="https://github.com/methexp/pdl2" class="uri">https://github.com/methexp/pdl2</a>)</p>
 <p>Bartlett, J. E. (2020). No Difference in Trait-Level Attentional Bias Between Daily and Non-Daily Smokers. <em>PsyArXiv</em>. <a href="https://doi.org/10/gg2c8f" class="uri">https://doi.org/10/gg2c8f</a> (R Markdown and data files: osf.io/am9hd/)</p>
@@ -290,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Henderson, E. L., Vall’ee-Tourangeau, F., &amp; Simons, D. J. (2019). The Effect of Concrete Wording on Truth Judgements: A Preregistered Replication and Extension of Hansen &amp; Wänke (2010). <em>Collabra: Psychology</em>, <em>5</em>. <a href="https://doi.org/10/gf9h3x" class="uri">https://doi.org/10/gf9h3x</a></p>
 <p>Heycke, T. (2018, July). <em>Contingency Awareness in Evaluative Conditioning: Investigations Using Subliminal Stimulus Presentations</em> (text.thesis.doctoral). Universität zu Köln. Retrieved from <a href="http://www.uni-koeln.de/" class="uri">http://www.uni-koeln.de/</a></p>
 <p>Heycke, T., Aust, F., &amp; Stahl, C. (2017). Subliminal influence on preferences? A test of evaluative conditioning for brief visual conditioned stimuli using auditory unconditioned stimuli. <em>Royal Society Open Science</em>, <em>4</em>(9), 160935. <a href="https://doi.org/10.1098/rsos.160935" class="uri">https://doi.org/10.1098/rsos.160935</a></p>
-<p>Heycke, T., Gehrmann, S., Haaf, J. M., &amp; Stahl, C. (2018). Of two minds or one? A registered replication of Rydell et al. (2006). <em>Cognition and Emotion</em>, <em>32</em>(8), 1708–1727. <a href="https://doi.org/10.1080/02699931.2018.1429389" class="uri">https://doi.org/10.1080/02699931.2018.1429389</a></p>
+<p>Heycke, T., Gehrmann, S., Haaf, J. M., &amp; Stahl, C. (2018). Of two minds or one? A registered replication of Rydell et al. (2006). <em>Cognition and Emotion</em>, <em>32</em>(8), 1708–1727. <a href="https://doi.org/10.1080/02699931.2018.1429389" class="uri">https://doi.org/10.1080/02699931.2018.1429389</a></p>
 <p>Heycke, T., &amp; Spitzer, L. (2019). Screen Recordings as a Tool to Document Computer Assisted Data Collection Procedures. <em>Psychologica Belgica</em>, <em>59</em>(1), 269–280. <a href="https://doi.org/10/gf5t5c" class="uri">https://doi.org/10/gf5t5c</a></p>
 <p>Heycke, T., &amp; Stahl, C. (2018). No evaluative conditioning effects with briefly presented stimuli. <em>Psychological Research</em>. <a href="https://doi.org/10.1007/s00426-018-1109-1" class="uri">https://doi.org/10.1007/s00426-018-1109-1</a></p>
 <p>Heyman, T., &amp; Heyman, G. (2018). Can prediction-based distributional semantic models predict typicality? <em>PsyArXiv</em>. <a href="https://doi.org/10.17605/osf.io/59xtd" class="uri">https://doi.org/10.17605/osf.io/59xtd</a> (R Markdown and data files: <a href="https://osf.io/nkfjy/" class="uri">https://osf.io/nkfjy/</a>)</p>
@@ -306,13 +312,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Morin-Lessard, E., Poulin-Dubois, D., Segalowitz, N., &amp; Byers-Heinlein, K. (2019). Selective attention to the mouth of talking faces in monolinguals and bilinguals aged 5 months to 5 years. <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/5pkne" class="uri">https://doi.org/10.31234/osf.io/5pkne</a> (R Markdown and data files: <a href="https://osf.io/ikvyr/" class="uri">https://osf.io/ikvyr/</a>)</p>
 <p>Nalborczyk, L., Batailler, C., Lœvenbruck, H., Vilain, A., &amp; Bürkner, P.-C. (2019). An Introduction to Bayesian Multilevel Models Using brms: A Case Study of Gender Effects on Vowel Variability in Standard Indonesian. <em>Journal of Speech, Language, and Hearing Research</em>, <em>62</em>(5), 1225–1242. <a href="https://doi.org/10.1044/2018_JSLHR-S-18-0006" class="uri">https://doi.org/10.1044/2018_JSLHR-S-18-0006</a> (R Markdown and data files: <a href="https://osf.io/dpzcb/" class="uri">https://osf.io/dpzcb/</a>)</p>
 <p>Navarro, D. (2020). If mathematical psychology did not exist we might need to invent it: A comment on theory building in psychology. <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/ygbjp" class="uri">https://doi.org/10.31234/osf.io/ygbjp</a></p>
+<p>Orben, A., Lucas, R. E., Fuhrmann, D., &amp; Kievit, R. (2020). Trajectories of adolescent life satisfaction. <em>PsyArXiv</em>. <a href="https://doi.org/10/gg8ss6" class="uri">https://doi.org/10/gg8ss6</a> (R Markdown and data files: <a href="https://osf.io/9kd2r/" class="uri">https://osf.io/9kd2r/</a>)</p>
 <p>Papenberg, M., Willing, S., &amp; Musch, J. (2017). Sequentially presented response options prevent the use of testwiseness cues in multiple-choice testing. <em>Psychological Test and Assessment Modeling</em>, <em>59</em>(2), 245–266. Retrieved from <a href="http://www.psychologie-aktuell.com/fileadmin/download/ptam/2-2017_20170627/06_Papenberg_.pdf" class="uri">http://www.psychologie-aktuell.com/fileadmin/download/ptam/2-2017_20170627/06_Papenberg_.pdf</a></p>
 <p>Pavlacic, J., Buchanan, E., Maxwell, N., Hopke, T., &amp; Schulenberg, S. (2018). A Meta-Analysis of Expressive Writing on Positive Psychology Variables and Traumatic Stress. <em>PsyArXiv</em>. <a href="https://doi.org/10.17605/osf.io/u98cw" class="uri">https://doi.org/10.17605/osf.io/u98cw</a> (R Markdown and data files: <a href="https://osf.io/4mjqt/" class="uri">https://osf.io/4mjqt/</a>)</p>
 <p>Peterka-Bonetta, J., Sindermann, C., Sha, P., Zhou, M., &amp; Montag, C. (2019). The relationship between Internet Use Disorder, depression and burnout among Chinese and German college students. <em>Addictive Behaviors</em>, <em>89</em>, 188–199. <a href="https://doi.org/10/gd4rcw" class="uri">https://doi.org/10/gd4rcw</a></p>
 <p>Pollet, T. V., &amp; Saxton, T. (2018). How diverse are the samples used in the journals “Evolution &amp; Human Behavior” and “Evolutionary Psychology”? <em>PsyArXiv</em>. <a href="https://doi.org/10.17605/osf.io/7h24p" class="uri">https://doi.org/10.17605/osf.io/7h24p</a></p>
 <p>Robison, M. K., &amp; Unsworth, N. (2018). Pupillometry tracks fluctuations in working memory performance. <em>PsyArXiv</em>. <a href="https://doi.org/10/gdz63r" class="uri">https://doi.org/10/gdz63r</a> (R Markdown and data files: osf.io/vuw9h/)</p>
 <p>Rouder, J., &amp; Haaf, J. M. (2018). A Psychometrics of Individual Differences in Experimental Tasks. <em>PsyArXiv</em>. <a href="https://doi.org/10/gfdbw2" class="uri">https://doi.org/10/gfdbw2</a> (R Markdown and data files: <a href="https://github.com/perceptionandcognitionlab/ctx-reliability" class="uri">https://github.com/perceptionandcognitionlab/ctx-reliability</a>)</p>
-<p>Rouder, J., &amp; Haaf, J. M. (2019). Optional Stopping and the Interpretation of The Bayes Factor. <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/m6dhw" class="uri">https://doi.org/10.31234/osf.io/m6dhw</a> (R Markdown and data files: <a href="https://osf.io/uv456/" class="uri">https://osf.io/uv456/</a>)</p>
+<p>Rouder, J., &amp; Haaf, J. M. (2019). Optional Stopping and the Interpretation of The Bayes Factor. <em>PsyArXiv</em>. <a href="https://doi.org/10/gf523c" class="uri">https://doi.org/10/gf523c</a> (R Markdown and data files: <a href="https://osf.io/uv456/" class="uri">https://osf.io/uv456/</a>)</p>
 <p>Rouder, J., Haaf, J. M., &amp; Snyder, H. K. (2018a). Minimizing Mistakes In Psychological Science. <em>PsyArXiv</em>. <a href="https://doi.org/10/gfdb27" class="uri">https://doi.org/10/gfdb27</a> (R Markdown and data files: <a href="https://github.com/perceptionandcognitionlab/lab-transparent" class="uri">https://github.com/perceptionandcognitionlab/lab-transparent</a>)</p>
 <p>Rouder, J., Haaf, J. M., Stober, C., &amp; Hilgard, J. (2017). Beyond Overall Effects: A Bayesian Approach to Finding Constraints Across A Collection Of Studies In Meta-Analysis. <em>PsyArXiv</em>. <a href="https://doi.org/10/gffjrd" class="uri">https://doi.org/10/gffjrd</a> (R Markdown and data files: <a href="https://github.com/perceptionandcognitionlab/meta-planned" class="uri">https://github.com/perceptionandcognitionlab/meta-planned</a>)</p>
 <p>Rouder, J. N., Haaf, J. M., &amp; Aust, F. (2018b). From theories to models to predictions: A Bayesian model comparison approach. <em>Communication Monographs</em>, <em>85</em>(1), 41–56. <a href="https://doi.org/10.1080/03637751.2017.1394581" class="uri">https://doi.org/10.1080/03637751.2017.1394581</a></p>
@@ -324,6 +331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Stahl, C., Henze, L., &amp; Aust, F. (2016b). False memory for perceptually similar but conceptually distinct line drawings. <em>PsyArXiv</em>. <a href="https://doi.org/10.17605/osf.io/zr7m8" class="uri">https://doi.org/10.17605/osf.io/zr7m8</a> (R Markdown and data files: <a href="https://osf.io/jxm7z/" class="uri">https://osf.io/jxm7z/</a>)</p>
 <p>Stahl, C., &amp; Heycke, T. (2016). Evaluative Conditioning with Simultaneous and Sequential Pairings Under Incidental and Intentional Learning Conditions. <em>Social Cognition</em>, <em>34</em>(5), 382–412. <a href="https://doi.org/10.1521/soco.2016.34.5.382" class="uri">https://doi.org/10.1521/soco.2016.34.5.382</a></p>
 <p>Stevens, J. R., &amp; Soh, L.-K. (2018). Predicting similarity judgments in intertemporal choice with machine learning. <em>Psychonomic Bulletin &amp; Review</em>, <em>25</em>(2), 627–635. <a href="https://doi.org/10/gdfghk" class="uri">https://doi.org/10/gdfghk</a></p>
+<p>Urry, H. L. (2019). Don’t Ditch the Laptop Just Yet: A Direct Replication of Mueller and Oppenheimer’s (2014) Study 1 Plus Mini-Meta-Analyses Across Similar Studies. <em>PsyArXiv</em>. <a href="https://doi.org/10/gg6rbg" class="uri">https://doi.org/10/gg6rbg</a> (R Markdown and data files: <a href="https://osf.io/tr868/" class="uri">https://osf.io/tr868/</a>)</p>
 <p>Urry, H. L., Sifre, E., Song, J., Steinberg, H., Bornstein, M., Kim, J., … Andrews, M. (2018). Effect of Disgust on Judgments of Moral Wrongness: A Replication of Eskine, Kacinik, and Prinz (2011). <em>At Tufts University - Spring, 2017</em>. Retrieved from <a href="https://osf.io/fu384/" class="uri">https://osf.io/fu384/</a> (R Markdown and data files: <a href="https://osf.io/ddmkm" class="uri">https://osf.io/ddmkm</a>)</p>
 <p>Valentine, K., Buchanan, E., Scofield, J., &amp; Beauchamp, M. (2018). Beyond p-values: Utilizing Multiple Estimates to Evaluate Evidence. <em>PsyArXiv</em>. <a href="https://doi.org/10.17605/osf.io/9hp7y" class="uri">https://doi.org/10.17605/osf.io/9hp7y</a> (R Markdown and data files: <a href="https://osf.io/u9hf4/" class="uri">https://osf.io/u9hf4/</a>)</p>
 <p>Vuorre, M., &amp; Curley, J. P. (2018). Curating Research Assets: A Tutorial on the Git Version Control System. <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/6tzh8" class="uri">https://doi.org/10.31234/osf.io/6tzh8</a> (R Markdown and data files: <a href="https://github.com/mvuorre/reproguide-curate" class="uri">https://github.com/mvuorre/reproguide-curate</a>)</p>
