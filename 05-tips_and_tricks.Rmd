@@ -129,7 +129,7 @@ For a brief primer on containers and virtual machines see [the supplementary mat
 
 ### Docker
 
-Docker is the most widely used containerization approach.
+[Docker](https://www.docker.com/) is the most widely used containerization approach.
 It is open source and free to use but requires some disk space.
 For a concise hands-on introduction see [the ROpenSci tutorial](https://ropenscilabs.github.io/r-docker-tutorial/).
 A [more detailed introduction](https://docker-curriculum.com/) is available from the Docker project.
