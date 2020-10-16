@@ -29,13 +29,12 @@ The above line is rendered as follows:
 
 > Participants mean age was `r printnum(age_mean)` years ($SD = `r printnum(age_sd)`$).
 
-`printnum()` is quiet flexible by passing its arguments to the underlying base function `formatC()` 
-(CAVE: We are currently considering to switch to `format()`.),
+`printnum()` is quiet flexible by passing its arguments to the underlying base function `formatC()`,
 so changing the number of digits after the decimal point or the character to be used to indicate the 
 decimal point (e.g., from a point `"."` to a comma `","`) is always possible.
 
 ```{block2, hook-note, type = "rmdnote"}
-`papaja` automatically applies `printnum()` to any numbers that a printed in inline code chunks.
+`papaja` automatically applies `printnum()` to any number that is printed in inline code chunks.
 Hence, `` `r age_mean` `` and `` `r printnum(age_mean)` `` are effectively identical and both yield "22.84".
 ```
 
@@ -64,9 +63,9 @@ printp(c(1, 0.0008, 0))
 As in any R Markdown document, you can include figures in your document.
 Figures can either consist of plots generated in R or external files.
 In accordance with APA guidelines, figures are not displayed in place but are deferred to the final pages of the document.
-To change this default behavior, set the option `figsintext` in the [YAML front matter] to `yes`.
+To change this default behavior, set the option `floatsintext` in the [YAML front matter] to `yes`.
 
-Figures are saved as 300 dpi PDF and PNG
+Figures are also saved as 300dpi PDF and PNG
 
 - e.g., `my_manuscript_figures/figure-latex/chunk-name-1.pdf`
 - Change defaults using chunk options (`dev` and `dpi`)
@@ -190,7 +189,7 @@ apa_beeplot(
 #### Setting global plot options
 
 As noted in the APA guidelines (p. 153) figures in an article should be consistent and in the same style.
-Hence, it is desireable to define plot styles only once, rather than every time a new plot is created.
+Hence, it is desirable to define plot styles only once, rather than every time a new plot is created.
 When using `graphics` plot functions global options can be set using `par()`.
 For example, the size of labels and symbols can be controled with `cex`:
 
@@ -510,17 +509,176 @@ kableExtra: https://cran.r-project.org/web/packages/kableExtra/index.html
 
 
 
-## Results from statistical tests
+## Statistical Models and Tests
 
-Output from statistical models and tests needs to be properly formatted before it
-can be included in text.
-For this purpose, we created the function `apa_print()`.
-Simply drop the results from a statistical test (e.g., a $t$ test or an ANOVA)
-into `apa_print()`, and you will get an output object (a `list`) that contains all you need
-to report the analysis according to APA guidelines.
-`apa_print()` currently supports output objects from a variety of statistical models/tests,
-including $t$ tests, ANOVA, linear regression.
-For a full list of supported output objects, see Table \@ref(tab:supported-s3-methods).
+When creating fully reproducible reports of empirical studies, it is obviously necessary to have
+a means to include the results from statistical models and tests.
+However, what comes out of R cannot be included in a report easily.
+Consider the output from a simple *t* test:
+
+```{r}
+t.test(yield ~ N, data = npk)
+```
+
+We created the function `apa_print()` to format the results from various statistical
+methods in accordance with APA guidelines.
+Just drop the results from these methods into `apa_print()`, and it will return
+a simple list with all you need to report the analysis.
+
+```{r}
+apa_print(
+  t.test(yield ~ N, data = npk)
+)
+```
+
+The returned list contains four elements:
+
+- `estimate`: A character string that holds the information about original-scale and/or standardized estimates of the model term.
+- `statistic`: A character string that holds the result of the NHST with test statistic, *df*s, and *p* value;
+- `full_result`: combines this information.
+- `table`: arranges model terms, estimates and test statistics in a `data.frame`
+
+List elements `$estimate`, `$statistic`, and `$full_result` are intended to be
+included directly into the body of your manuscript by using inline code chunks.
+For instance, you could first save the result from `apa_print()` in an output object
+
+```{r}
+out <- apa_print(
+  t.test(yield ~ N, data = npk)
+)
+```
+
+and then include a single list element by writing:
+
+```{r inline-results, eval = FALSE, highlight = FALSE}
+Plant yield indeed differed between groups, `r out$full_result`.
+```
+
+The above line is rendered as follows:
+
+> Plant yield indeed differed between groups, `r out$full_result`.
+
+
+The last element `table` is intended to be used to create results tables that may be included in the manuscript via `apa_table()`
+It will be most useful for ANOVA or linear-model results, as you will see in the next subsections.
+
+### Reporting models and tests in a table
+
+For statistical models with multiple terms (for instance, multiple regression or multi-way ANOVA) it is sometimes convenient
+to report the statistical tests of all model terms in a table.
+For this purpose, `apa_print()` returns the list element `$table` that may be included using function `apa_table()` or any other table
+(for instance, `kable()` from the **knitr** package).
+Consider the following regression model
+
+```{r}
+lm_out <- lm(formula = Post_QoL ~ Base_QoL + BDI, data = cosmetic_surgery)
+summary(lm_out)
+```
+
+To include the model table into your manuscript, first apply `apa_print()` to the model object,
+and then use `apa_table()` on the list element `$table`.
+
+```{r}
+apa_lm <- apa_print(lm_out)
+apa_table(
+  apa_lm$table
+  , caption = "A full regression table."
+)
+```
+
+
+
+
+### Fully supported analysis methods
+
+There is a plethora of possible output objects from statistical analyses in R,
+and it is of course impossible to support all of them.
+However, over the course of time, we were able to create a corpus of methods that will likely
+cover many experimental psychologists' toolboxes.
+
+- All NHST that are delivered with the base R `stats` package, which includes:
+    - $t$ for means, $\chi^2$, and nonparametric equivalents `t.test()`
+    - tests for correlation coefficients `cor.test()`
+    - (generalized) linear models
+    - ...
+    - except for pairwise comparisons (these should be done with the package **emmeans**)
+- Analysis of Variance ANOVA and ANCOVA (from packages **stats**, **car**, and **afex**)
+- Multivariate Analysis of Variance MANOVA and MANCOVA (from `stats`)
+- Hierachical (Generalized) Linear Models (from **lme4**, **lmerTest**, **nlme**, and **afex**)
+- Pairwise comparisons and planned contrasts from **emmeans**, **lsmeans**, and **glht**
+- Bayesian *t* tests and ANOVAs from **BayesFactor**
+
+There are gaps that we would like to fill, see section \@ref(future-directions).
+
+
+```{r echo = FALSE, eval = FALSE}
+library(DT)
+
+supported_functions <- list(
+  stats = data.frame(
+    "Package" = "stats"
+    , "Function" = c(
+      "anova()"
+      , "ansari.test()"
+      , "anova()"
+      , "aov()"
+      , "bartlett.test()"
+      , "binom.test()"
+      , "chisq.test()"
+      , "cor.test()"
+      , "factanal()"
+      , "glm()"
+      , "kruskal.test()"
+      , "ks.test()"
+      , "lm()"
+      , "manova()"
+      , "mantelhaen.test()"
+      , "mauchly.test()"
+      , "mcnemar.test()"
+      , "mood.test()"
+      , "oneway.test()"
+      , "poisson.test()"
+      , "prop.test()"
+      , "shapiro.test()"
+      , "wilcox.test()"
+    )
+  )
+  , car = data.frame(
+    Package = "car"
+    , "Function" = c(
+      "Anova()"
+      # , "Manova()"
+    )
+  )
+  , afex = data.frame(
+    Package = "afex"
+    , Function = c(
+      "aov_car()"
+      , "aov_4()"
+      , "aov_ez()"
+      , "mixed()"
+    )
+  )
+  , lme4 = data.frame(
+    Package = "lme4"
+    , Function = c(
+      "lmer()"
+      , "glmer()"
+    )
+  )
+  , lmerTest = data.frame(
+    Package = "lmerTest"
+    , Function = "lmer()"
+  )
+)
+
+datatable(
+  dplyr::bind_rows(supported_functions)
+  , rownames = FALSE
+)
+```
+
+
 
 
 ```{r supported-s3-methods, echo = FALSE, results = "asis"}
@@ -543,7 +701,7 @@ knitr::kable(print_classes, format = "html", escape = FALSE)
 <span style="font-size:50%;"><sup>\*</sup> Not fully tested, don't trust blindly!</span>
 
 
-```{r formatting-process-diagram, fig.cap = "Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.", fig.align = "center", echo = FALSE}
+```{r formatting-process-diagram, fig.cap = "Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.", fig.align = "center", echo = FALSE, eval = FALSE}
 # grViz("
 # digraph reporting_process {
 #   graph [rankdir = TB, fontname = Helvetica, ranksep = 0.8, overlap = FALSE]
@@ -595,6 +753,7 @@ knitr::include_graphics("images/result_formatting_process.png")
 ```
 
 
+<!--
 ### htest (*t* tests, correlations, etc.)
 
 The results of a $t$ test (regardless of the exact type of $t$ test) are typically stored in an `htest` object.
@@ -619,9 +778,12 @@ List element `estimate` contains the sample estimate of mean difference;
 element `statistic` contains the result of the NHST with test statistic, *df*s, and *p* value;
 element `full_result` contains both information combined.
 The fourth element, `table`, arranges estimate and statistic in a data frame, so that it is easy to
-create a results table that may included in the manuscript via `apa_table()`.
+create a results table that may be included in the manuscript via `apa_table()`.
 It will be most useful for ANOVA or linear model results, as you will see in the next subsections.
+-->
 
+
+<!--
 ### lm (linear regression)
 
 The results of a linear model are stored in an `lm` object.
@@ -707,13 +869,13 @@ variable_labels(cars$dist)
 ```{r}
 cars[1:15, "dist"]
 ```
+-->
 
-
-#### anova (model comparisons)
+#### Model Comparisons for Linear (Mixed-Effects) Models
 
 ...
 
-### anova, Anova, Anova.mlm (Analysis of Variance -- ANOVA)
+### Analysis of Variance ANOVA
 
 *You can skip this if you are not interested in technical background*.
 Amongst psychologists, analysis of variance is a still-popular and frequently used technique.
@@ -749,7 +911,7 @@ Which will yield the following text:
 
 > Clinic (`r apa_anova$full$Clinic`) and patient gender affected post-surgery quality of life, `r apa_anova$full$Gender`. However, the effect of gender differed by clinic, `r apa_anova$full$Clinic_Gender`.
 
-Again, you can easily create a complete ANOVA table by passing `recall_anova_results$table` to `apa_table()`, see \autoref{ref:anova}.
+Again, you can easily create a complete ANOVA table by passing `$table` to `apa_table()`, see \autoref{ref:anova}.
 
 ```{r anova-table, results = 'asis'}
 apa_table(
@@ -761,13 +923,15 @@ apa_table(
 
 
 
-#### glht, lsmeans, ref.grid (post-hoc tests)
+#### Post-hoc Comparisons and Planned Contrasts
 
-We are currently working onn full support of post-hoc tests, contrasts and expected
+We are currently working on full support of post-hoc tests, contrasts and expected
 marginal means from the `emmeans` and `lsmeans` packages. A lot of work has already
 been done and you may use the available methods, but you should double-check
 the results because these new methods are not fully tested, yet.
 The same applies to results returned by the `glht()` function from package `multcomp`.
+
+#### Mixed-effects Models
 
 
 
