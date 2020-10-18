@@ -559,8 +559,8 @@ The above line is rendered as follows:
 > Plant yield indeed differed between groups, `r out$full_result`.
 
 
-The last element `table` is intended to be used to create results tables that may be included in the manuscript via `apa_table()`
-It will be most useful for ANOVA or linear-model results, as you will see in the next subsections.
+The last element `$table` is intended to be used to create results tables that may be included in the manuscript via `apa_table()`
+It will be most useful for analyses that contain multiple hypothesis tests, as you will see in the next subsections.
 
 ### Reporting models and tests in a table
 
@@ -596,89 +596,19 @@ and it is of course impossible to support all of them.
 However, over the course of time, we were able to create a corpus of methods that will likely
 cover many experimental psychologists' toolboxes.
 
-- All NHST that are delivered with the base R `stats` package, which includes:
+- All NHST that are delivered with R's **stats** package, which includes:
     - $t$ for means, $\chi^2$, and nonparametric equivalents `t.test()`
     - tests for correlation coefficients `cor.test()`
     - (generalized) linear models
     - ...
     - except for pairwise comparisons (these should be done with the package **emmeans**)
 - Analysis of Variance ANOVA and ANCOVA (from packages **stats**, **car**, and **afex**)
-- Multivariate Analysis of Variance MANOVA and MANCOVA (from `stats`)
+- Multivariate Analysis of Variance MANOVA and MANCOVA (from **stats**)
 - Hierachical (Generalized) Linear Models (from **lme4**, **lmerTest**, **nlme**, and **afex**)
-- Pairwise comparisons and planned contrasts from **emmeans**, **lsmeans**, and **glht**
+- Pairwise comparisons and planned contrasts from **emmeans**, **lsmeans**, and **glht** (*these methods are still experimental*)
 - Bayesian *t* tests and ANOVAs from **BayesFactor**
 
 There are gaps that we would like to fill, see section \@ref(future-directions).
-
-
-```{r echo = FALSE, eval = FALSE}
-library(DT)
-
-supported_functions <- list(
-  stats = data.frame(
-    "Package" = "stats"
-    , "Function" = c(
-      "anova()"
-      , "ansari.test()"
-      , "anova()"
-      , "aov()"
-      , "bartlett.test()"
-      , "binom.test()"
-      , "chisq.test()"
-      , "cor.test()"
-      , "factanal()"
-      , "glm()"
-      , "kruskal.test()"
-      , "ks.test()"
-      , "lm()"
-      , "manova()"
-      , "mantelhaen.test()"
-      , "mauchly.test()"
-      , "mcnemar.test()"
-      , "mood.test()"
-      , "oneway.test()"
-      , "poisson.test()"
-      , "prop.test()"
-      , "shapiro.test()"
-      , "wilcox.test()"
-    )
-  )
-  , car = data.frame(
-    Package = "car"
-    , "Function" = c(
-      "Anova()"
-      # , "Manova()"
-    )
-  )
-  , afex = data.frame(
-    Package = "afex"
-    , Function = c(
-      "aov_car()"
-      , "aov_4()"
-      , "aov_ez()"
-      , "mixed()"
-    )
-  )
-  , lme4 = data.frame(
-    Package = "lme4"
-    , Function = c(
-      "lmer()"
-      , "glmer()"
-    )
-  )
-  , lmerTest = data.frame(
-    Package = "lmerTest"
-    , Function = "lmer()"
-  )
-)
-
-datatable(
-  dplyr::bind_rows(supported_functions)
-  , rownames = FALSE
-)
-```
-
-
 
 
 ```{r supported-s3-methods, echo = FALSE, results = "asis"}
@@ -701,7 +631,7 @@ knitr::kable(print_classes, format = "html", escape = FALSE)
 <span style="font-size:50%;"><sup>\*</sup> Not fully tested, don't trust blindly!</span>
 
 
-```{r formatting-process-diagram, fig.cap = "Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.", fig.align = "center", echo = FALSE, eval = FALSE}
+```{r formatting-process-diagram, fig.cap = "Process diagram illustrating the use of `apa_print()` methods and `apa_table()` to format results from statistical analyses according to APA guidelines. The formatted text and tables can be reported in a manuscript.", fig.align = "center", echo = FALSE}
 # grViz("
 # digraph reporting_process {
 #   graph [rankdir = TB, fontname = Helvetica, ranksep = 0.8, overlap = FALSE]
@@ -882,7 +812,7 @@ Amongst psychologists, analysis of variance is a still-popular and frequently us
 In base R, however, analysis of variance is not implemented in a way that is too useful
 for psychologists, as the `aov`-function in the stats package does not provide the much sought-after
 Type-$\rm{I\!I\!I}$ sums-of-squares. A variety of R packages has emerged to fill the gap, e.g.
-`car` [@R-car], `ez` [@R-ez], and `afex` [@R-afex].
+**car** [@R-car], **ez** [@R-ez], and **afex** [@R-afex].
 Unfortunately, each ANOVA function provides different output objects that need to be digested by `apa_print()`.
 To do so, we rely on the package authors to return standardized result objects (i.e., S3/S4 classes).
 For this reason `apa_print()` does not support results from the popular `ezANOVA()`.
