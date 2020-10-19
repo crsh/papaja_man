@@ -533,10 +533,10 @@ apa_print(
 
 The returned list contains four elements:
 
-- `estimate`: A character string that holds the information about original-scale and/or standardized estimates of the model term.
-- `statistic`: A character string that holds the result of the NHST with test statistic, *df*s, and *p* value;
-- `full_result`: combines this information.
-- `table`: arranges model terms, estimates and test statistics in a `data.frame`
+- `$estimate`: A character string that holds the information about original-scale and/or standardized estimates of the model term.
+- `$statistic`: A character string that holds the result of the NHST with test statistic, *df*s, and *p* value;
+- `$full_result`: combines this information.
+- `$table`: arranges model terms, estimates and test statistics in a `data.frame`
 
 List elements `$estimate`, `$statistic`, and `$full_result` are intended to be
 included directly into the body of your manuscript by using inline code chunks.
@@ -559,7 +559,7 @@ The above line is rendered as follows:
 > Plant yield indeed differed between groups, `r out$full_result`.
 
 
-The last element `$table` is intended to be used to create results tables that may be included in the manuscript via `apa_table()`
+The last element `$table` is intended to be used to create results tables that may be included in the manuscript via `apa_table()`.
 It will be most useful for analyses that contain multiple hypothesis tests, as you will see in the next subsections.
 
 ### Reporting models and tests in a table
@@ -567,7 +567,7 @@ It will be most useful for analyses that contain multiple hypothesis tests, as y
 For statistical models with multiple terms (for instance, multiple regression or multi-way ANOVA) it is sometimes convenient
 to report the statistical tests of all model terms in a table.
 For this purpose, `apa_print()` returns the list element `$table` that may be included using function `apa_table()` or any other table
-(for instance, `kable()` from the **knitr** package).
+(for instance, `kable()` from the [{knitr}](https://cran.r-project.org/package=knitr) package).
 Consider the following regression model
 
 ```{r}
@@ -596,17 +596,17 @@ and it is of course impossible to support all of them.
 However, over the course of time, we were able to create a corpus of methods that will likely
 cover many experimental psychologists' toolboxes.
 
-- All NHST that are delivered with R's **stats** package, which includes:
+- All NHST that are delivered with R's {stats} package, which includes:
     - $t$ for means, $\chi^2$, and nonparametric equivalents `t.test()`
     - tests for correlation coefficients `cor.test()`
     - (generalized) linear models
     - ...
-    - except for pairwise comparisons (these should be done with the package **emmeans**)
-- Analysis of Variance ANOVA and ANCOVA (from packages **stats**, **car**, and **afex**)
-- Multivariate Analysis of Variance MANOVA and MANCOVA (from **stats**)
-- Hierachical (Generalized) Linear Models (from **lme4**, **lmerTest**, **nlme**, and **afex**)
-- Pairwise comparisons and planned contrasts from **emmeans**, **lsmeans**, and **glht** (*these methods are still experimental*)
-- Bayesian *t* tests and ANOVAs from **BayesFactor**
+    - except for pairwise comparisons (these should be done with the package [{emmeans}](https://cran.r-project.org/package=emmeans))
+- Analysis of Variance ANOVA and ANCOVA (from packages {stats}, [{car}](https://cran.r-project.org/package=car), and [{afex}](https://cran.r-project.org/package=afex))
+- Multivariate Analysis of Variance MANOVA and MANCOVA (from {stats})
+- Hierachical (Generalized) Linear Models (from [{lme4}](https://cran.r-project.org/package=lme4), [{lmerTest}](https://cran.r-project.org/package=lmerTest), [{nlme}](https://cran.r-project.org/package=nlme), and [{afex}](https://cran.r-project.org/package=afex))
+- Pairwise comparisons and planned contrasts from [{emmeans}](https://cran.r-project.org/package=emmeans), [{lsmeans}](https://cran.r-project.org/package=lsmeans), and [{glht}](https://cran.r-project.org/package=glht) (*these methods are still experimental*)
+- Bayesian *t* tests and ANOVAs from [{BayesFactor}](https://cran.r-project.org/package=BayesFactor)
 
 There are gaps that we would like to fill, see section \@ref(future-directions).
 
@@ -805,14 +805,14 @@ cars[1:15, "dist"]
 
 ...
 
-### Analysis of Variance ANOVA
+#### Analysis of Variance ANOVA
 
 *You can skip this if you are not interested in technical background*.
 Amongst psychologists, analysis of variance is a still-popular and frequently used technique.
 In base R, however, analysis of variance is not implemented in a way that is too useful
 for psychologists, as the `aov`-function in the stats package does not provide the much sought-after
 Type-$\rm{I\!I\!I}$ sums-of-squares. A variety of R packages has emerged to fill the gap, e.g.
-**car** [@R-car], **ez** [@R-ez], and **afex** [@R-afex].
+{car} [@R-car], {ez} [@R-ez], and {afex} [@R-afex].
 Unfortunately, each ANOVA function provides different output objects that need to be digested by `apa_print()`.
 To do so, we rely on the package authors to return standardized result objects (i.e., S3/S4 classes).
 For this reason `apa_print()` does not support results from the popular `ezANOVA()`.
@@ -833,7 +833,7 @@ apa_anova <- apa_print(cosmetic_surgery_anova)
 
 Now, you can report the results of your analyses like so:
 
-```
+```{r eval = FALSE, highlight = FALSE}
 Clinic (`r apa_anova$full$Clinic`) and patient gender affected post-surgery quality of life, `r apa_anova$full$Gender`. However, the effect of gender differed by clinic, `r apa_anova$full$Clinic_Gender`.
 ```
 
@@ -863,6 +863,7 @@ The same applies to results returned by the `glht()` function from package `mult
 
 #### Mixed-effects Models
 
+We are currently working on full supoort of mixed effects
 
 
 ## Caching expensive computations
