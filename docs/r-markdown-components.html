@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 R Markdown components | papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="""" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 R Markdown components | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-10-08" />
+<meta name="date" content="2020-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
@@ -183,12 +184,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
-<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3.2" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.4</b> Results from statistical tests</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.4.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
-<li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.4.2</b> lm (linear regression)</a></li>
-<li class="chapter" data-level="4.4.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.4.3</b> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</a></li>
+<li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#statistical-models-and-tests"><i class="fa fa-check"></i><b>4.4</b> Statistical Models and Tests</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#reporting-models-and-tests-in-a-table"><i class="fa fa-check"></i><b>4.4.1</b> Reporting models and tests in a table</a></li>
+<li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#fully-supported-analysis-methods"><i class="fa fa-check"></i><b>4.4.2</b> Fully supported analysis methods</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="reporting.html"><a href="reporting.html#inserting-variables-before-they-have-been-computed"><i class="fa fa-check"></i><b>4.5.1</b> Inserting variables before they have been computed</a></li>
@@ -459,13 +459,13 @@ Thus, <code>abstract</code> and <code>authornote</code> can be structured into m
 <p><code>bibliography</code> contains a list of one or more Bib(La)TeX files that contain the references cited in the manuscript.
 Additional files can be added by appending them to the list separated by commata, e.g. <code>bibliography: ["my_bib1.bib", "my_bib2.bib"]</code>.
 By default, <code>papaja</code> assumes that you will cite R and all R packages used for the analysis and that the corresponding bibliographic information is contained in <code>r-references.bib</code>.
-See <a href="writing.html#citations">Citations</a> for instructions on how to automate the citation of R packages.</p>
+See [Citations] for instructions on how to automate the citation of R packages.</p>
 <p><code>note</code> is an add additional metadata field that are not part of the default YAML front matter.
 It’s contents is printed on title page in between author information and the author note; it can be used to add remarks, such as “Preprint submitted to peer-review on June, 29th, 2016”.</p>
 </div>
 <div id="rendering-options" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Rendering options</h3>
-<p>The first set of rendering options breaks with the <a href="introduction.html#guiding-principles">guiding principal</a> that <code>papaja</code> <em>is convertible</em> because they have no effect on Microsoft Word documents.
+<p>The first set of rendering options breaks with the [guiding principal][Guiding principles] that <code>papaja</code> <em>is convertible</em> because they have no effect on Microsoft Word documents.
 We decided to implement these options nonetheless because they are required by some journals and can be used for submissions where (initially) PDF/LaTeX documents are accepted.</p>
 <table>
 <colgroup>
@@ -488,16 +488,24 @@ We decided to implement these options nonetheless because they are required by s
 <td>List of R Markdown files to include as appendices</td>
 </tr>
 <tr class="odd">
+<td><code>numbersections</code></td>
+<td>Number sections headings</td>
+</tr>
+<tr class="even">
+<td><code>disambiguate_authors</code></td>
+<td>Disambiguate author names in citations by adding given names</td>
+</tr>
+<tr class="odd">
+<td><code>annotate_references</code></td>
+<td>Add annotation prefix to bibliography entries, e.g. <code>*</code> for meta-analytic references</td>
+</tr>
+<tr class="even">
 <td><code>linenumbers</code><sup>*</sup></td>
 <td>Add line numbers in the margins</td>
 </tr>
-<tr class="even">
-<td><code>numbersections</code></td>
-<td>Number sections</td>
-</tr>
 <tr class="odd">
 <td><code>draft</code><sup>*</sup></td>
-<td>Add “DRAFT” watermark across all pages</td>
+<td>Add “DRAFT” watermark to every page</td>
 </tr>
 <tr class="even">
 <td><code>floatsintext</code><sup>*</sup></td>
@@ -516,14 +524,23 @@ We decided to implement these options nonetheless because they are required by s
 <p><small><sup>*</sup> Only available for PDF documents</small></p>
 <p><code>floatsintext</code> indicates whether figures and tables are to be positioned at the end of the document—as required by APA guidelines—or included in the body of the document.
 If <code>figurelist</code>, <code>tablelist</code>, or <code>footnotelist</code> are set to <code>yes</code> lists of figure captions, table captions, or footnotes are created and placed after the reference section.
-<code>linenumbers</code> indicates whether lines should be continuously numbered throughout the manuscript.</p>
+<code>linenumbers</code> indicates whether lines should be continuously numbered throughout the manuscript.
+<code>draft</code> indicates whether a “DRAFT” watermark should be added to every page.
+<code>classoptions</code> are pased to the underlying <code>apa6</code> <span class="math inline">\(\LaTeX\)</span> document class and define the layout and style of the manuscript.
+For example, setting <code>classoptions</code> to <code>man</code> produces the default APA manuscript style, <code>doc</code> produces a more typical document (single-spaced, single-column).</p>
 <p>The remaining rendering options affect both PDF and Microsoft Word documents.
 <code>mask</code> can be set to <code>yes</code> to prepare the manuscript for double-blind peer review by removing author names, affiliations, and author note from the title page.
+There are several additional options that are no not listed in the vanilla document template.
+To add one or more appendices to the manuscript, a list of R Markdown files can be passed to <code>appendix</code>.
+For details see <a href="writing.html#appendices">Appendices</a>.
+<code>numbersections</code> controls whether section headers are numbered or not.
+The remaining to options control formatting of citations and references.
+As per APA style, citations in <code>papaja</code> documents will be disambiguated by adding given names if the bibliography file contains multiple authors with the same family but different given names.
+This author name disambiguation can deactivated by setting <code>disambiguate_authors: no</code>, for details see <a href="customizations.html#author-name-disambiguation">Author name disambiguation</a>.
+When reporting meta-analyses, APA guidelines require that studies included in the meta analysis are included in the reference section and preceeded by an asterisk <span class="citation">(p. 138, American Psychological Association, <a href="#ref-american_psychological_association_publication_2010" role="doc-biblioref">2010</a>)</span>.
+To do this, set <code>annotate_references: yes</code> and add <code>*</code> (or other indicators) to the <code>annote</code> field of the corresponding bibliography entries, for details see <a href="writing.html#meta-analysis-references">Meta-analysis references</a>.</p>
 <!-- The language of the manuscript is given in `lang` and affects automatically generated text, such as "Author note" on the title page or "Figure 1." in figure captions. -->
 <!-- Currently, `english` and `german` are supported. -->
-<code>class</code> defines the layout style of the manuscript.
-Setting <code>class</code> to <code>man</code> produces the default APA manuscript style, <code>doc</code> produces a more typical document (single-spaced, single-column).
-The latter option is, however, currently not available for Microsoft Word documents.</p>
 <p>The <code>output</code> field determines the type of document that is created and can be either <code>papaja::apa6_pdf</code> or <code>papaja::apa6_word</code>.
 Additional arguments can be passed to these functions, e.g. to delete the LaTeX source file after the PDF has been rendered (see <code>?apa6_pdf</code> for details):</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="r-markdown-components.html#cb10-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
@@ -578,8 +595,8 @@ The following is an excerpt from the APA example manuscript written in Markdown.
 <p>Without any prior knowledge of Markdown it should be easy to guess what most of this syntax does:
 <code>#</code> and <code>##</code> denote first and second order section headings (and so on), <code>&lt;!--</code> and <code>--&gt;</code> surround comments that will not be displayed in the rendered document, and <code>[^p]</code> adds a reference to a footnote that is written out following <code>[^p]:</code>.
 The equations surrounded by <code>$</code> may be somewhat less intuitive.
-In R Markdown, equations are written in LaTeX’s powerful <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">mathematics syntax</a> (also see <a href="writing.html#equations">Equations</a>).
-For an overview of the Markdown syntax see <a href="writing.html#markdown-text-formatting">Markdown text formatting</a>.</p>
+In R Markdown, equations are written in LaTeX’s powerful <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">mathematics syntax</a> (also see [Equations]).
+For an overview of the Markdown syntax see [Markdown text formatting].</p>
 </div>
 <div id="r-code" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> R code</h3>
@@ -597,7 +614,7 @@ It is good practice to provide a meaningful name for each chunk because chunk na
 <ol style="list-style-type: decimal">
 <li>briefly describe the following codes purpose and, hence, are a means of structuring and documenting the code</li>
 <li>serve as meaningful names for graphic files that the chunks produce</li>
-<li>are required to control when the code of a cached chunk has to be rerun because a preceeding chunk has changed (see <a href="reporting.html#caching-expensive-computations">Caching expensive computations</a>).</li>
+<li>are required to control when the code of a cached chunk has to be rerun because a preceeding chunk has changed (see [Caching expensive computations]).</li>
 </ol>
 <p>By default, <code>papaja</code> sets the chunk options <code>echo = FALSE</code> and <code>message = FALSE</code> for all chunks.
 <code>echo = FALSE</code> means that the code chunk is run but hides the code and <code>message = FALSE</code> hides any messages generated by the code so that they are not included in the manuscript.
@@ -611,13 +628,16 @@ These numbers can be reported by printing the variables in inline R code.</p>
 <p>As in any other R script, R code is executed from top to bottom.
 Thus, any variables that are called in code chunks or inline R code must be defined above.</p>
 <p>Reporting numerical values frequently requires some formatting, such as rounding or filling with trailing zeros (e.g., 24.10).
-In the section <a href="reporting.html#numerical-values">Numerical values</a>, we provide an overview of <code>papaja</code> functions that can be used to easily format simple numbers or results from statistical analyses according to APA guidelines.</p>
+In the section [Numerical values], we provide an overview of <code>papaja</code> functions that can be used to easily format simple numbers or results from statistical analyses according to APA guidelines.</p>
 
 </div>
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
+<div id="ref-american_psychological_association_publication_2010">
+<p>American Psychological Association. (2010). <em>Publication Manual of the American Psychological Association</em> (6th edition.). Washington, DC: American Psychological Association.</p>
+</div>
 <div id="ref-holcombe_tenzing_2020">
 <p>Holcombe, A. O., Kovacs, M., Aust, F., &amp; Aczel, B. (2020). tenzing: Documenting contributorship using CRediT. <em>MetaArXiv</em>. doi:<a href="https://doi.org/10.31222/osf.io/b6ywe">10.31222/osf.io/b6ywe</a></p>
 </div>
@@ -625,7 +645,7 @@ In the section <a href="reporting.html#numerical-values">Numerical values</a>, w
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>We hope to automate the word count in the future. For now, the current word count is printed to the R Markdown pane in RStudio or the console. See <a href="writing.html#counting-words">Counting words</a> for details.<a href="r-markdown-components.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>We hope to automate the word count in the future. For now, the current word count is printed to the R Markdown pane in RStudio or the console. See [Counting words] for details.<a href="r-markdown-components.html#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <h1>Comments and Questions</h1>

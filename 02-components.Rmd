@@ -202,9 +202,10 @@ For details see [Appendices](#appendices).
 `numbersections` controls whether section headers are numbered or not.
 The remaining to options control formatting of citations and references.
 As per APA style, citations in `papaja` documents will be disambiguated by adding given names if the bibliography file contains multiple authors with the same family but different given names.
-This author name disambiguation can deactivated by setting ` `disambiguate_authors: no`, for details see [Author name disambiguation](#author-name-disambiguation).
+This author name disambiguation can deactivated by setting `disambiguate_authors: no`, for details see [Author name disambiguation](#author-name-disambiguation).
 When reporting meta-analyses, APA guidelines require that studies included in the meta analysis are included in the reference section and preceeded by an asterisk [p. 138, @american_psychological_association_publication_2010].
 To do this, set `annotate_references: yes` and add `*` (or other indicators) to the `annote` field of the corresponding bibliography entries, for details see [Meta-analysis references](#meta-analysis-references).
+
 <!-- The language of the manuscript is given in `lang` and affects automatically generated text, such as "Author note" on the title page or "Figure 1." in figure captions. -->
 <!-- Currently, `english` and `german` are supported. -->
 

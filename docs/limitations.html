@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Limitations | papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="""" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Limitations | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-10-08" />
+<meta name="date" content="2020-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
@@ -183,12 +184,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
-<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3.2" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.4</b> Results from statistical tests</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.4.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
-<li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.4.2</b> lm (linear regression)</a></li>
-<li class="chapter" data-level="4.4.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.4.3</b> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</a></li>
+<li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#statistical-models-and-tests"><i class="fa fa-check"></i><b>4.4</b> Statistical Models and Tests</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#reporting-models-and-tests-in-a-table"><i class="fa fa-check"></i><b>4.4.1</b> Reporting models and tests in a table</a></li>
+<li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#fully-supported-analysis-methods"><i class="fa fa-check"></i><b>4.4.2</b> Fully supported analysis methods</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="reporting.html"><a href="reporting.html#inserting-variables-before-they-have-been-computed"><i class="fa fa-check"></i><b>4.5.1</b> Inserting variables before they have been computed</a></li>
@@ -256,7 +256,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="limitations" class="section level1">
 <h1><span class="header-section-number">8</span> Limitations</h1>
-<p>As outlined in <a href="introduction.html#document-compilation">Document compilation</a>, <code>papaja</code> builds on <code>pandoc</code> to render Markdown into PDF and DOCX documents.
+<p>As outlined in [Document compilation], <code>papaja</code> builds on <code>pandoc</code> to render Markdown into PDF and DOCX documents.
 Markdown provides good common basis for these and other document types but the common basis necessarily limits the degree of control that can be exerted over the rendered document.
 For example, there is currently no way to generate tables with <code>pandoc</code> in which cells span multiple rows or columns.
 Similarly, it is not possible to insert page breaks into a document.
@@ -264,7 +264,7 @@ Both of these limitations have been raised with the developers of <code>pandoc</
 <div id="pdf-documents" class="section level2">
 <h2><span class="header-section-number">8.1</span> PDF documents</h2>
 <p><code>pandoc</code> builds on LaTeX to render PDF documents.
-As discussed in <a href="writing.html#markdown-text-formatting">Markdown text formatting</a>, when the R Markdown document contains LaTeX code it is kept as-is and can be used to exert greater control over the final result.
+As discussed in [Markdown text formatting], when the R Markdown document contains LaTeX code it is kept as-is and can be used to exert greater control over the final result.
 For example, to create a page break in the rendered document you can use the LaTeX command <code>\pagebreak</code>.
 Similarly, tables with column spanners can be created by using the corresponding LaTeX code.
 Hence, the limited control offered by <code>pandoc</code> can be compensated by using LaTeX code and <code>papaja</code> resorts to this approach, for example, in <code>apa_table()</code>.</p>
@@ -282,14 +282,14 @@ Figure 8.1: An example of large vertical spacing between paragraphs and section 
 </div>
 <p>If you prefer white space at the bottom of the page, rather than between paragraphs, you can overwrite this default behavior by including <code>\raggedbottom</code> in the document preamble.
 To do so, add the following to the YAML front matter of your document:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb97-1"><a href="limitations.html#cb97-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
-<span id="cb97-2"><a href="limitations.html#cb97-2"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \raggedbottom</span></span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb86-1"><a href="limitations.html#cb86-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb86-2"><a href="limitations.html#cb86-2"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \raggedbottom</span></span></code></pre></div>
 </div>
 </div>
 <div id="microsoft-word-documents" class="section level2">
 <h2><span class="header-section-number">8.2</span> Microsoft Word documents</h2>
 <p>In contrast, there is no simple way to compensate for the limited control offered by <code>pandoc</code> when rendering Microsoft Word documents.
-This is the reason why some of <code>papaja</code>’s features are only available if the to-be-rendered document is in PDF format, such as some <a href="r-markdown-components.html#rendering-options">Rendering options</a> and some features of <code>apa_table()</code> (see <a href="reporting.html#tables">Tables</a>).
+This is the reason why some of <code>papaja</code>’s features are only available if the to-be-rendered document is in PDF format, such as some [Rendering options] and some features of <code>apa_table()</code> (see [Tables]).
 More over, rendered documents in DOCX format require some manual work before they fully comply with APA guidelines.
 If necessary,</p>
 <ol style="list-style-type: decimal">
