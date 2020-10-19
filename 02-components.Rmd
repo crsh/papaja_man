@@ -179,9 +179,11 @@ We decided to implement these options nonetheless because they are required by s
 |-----------|--------------------------------------|
 | `mask` | Omit identifying information from the title page |
 | `appendix` | List of R Markdown files to include as appendices |
+| `numbersections`           | Number sections headings |
+| `disambiguate_authors` | Disambiguate author names in citations by adding given names |
+| `annotate_references`  | Add annotation prefix to bibliography entries, e.g. `*` for meta-analytic references |
 | `linenumbers`<sup>\*</sup> | Add line numbers in the margins |
-| `numbersections`           | Number sections |
-| `draft`<sup>\*</sup> | Add "DRAFT" watermark across all pages |
+| `draft`<sup>\*</sup> | Add "DRAFT" watermark to every page |
 | `floatsintext`<sup>\*</sup>  | Place figures and tables in the text rather than at the end |
 | `figurelist`<sup>\*</sup><br />`tablelist`<sup>\*</sup><br />`footnotelist`<sup>\*</sup> | Create lists of figure captions, table captions, or footnotes |
 | `classoptions`<sup>\*</sup> | control the style of the document<br />(e.g., `man` or `doc`, see [`apa6`](https://mirror.hmc.edu/ctan/macros/latex/contrib/apa6/apa6.pdf) $\LaTeX$ class options) |
@@ -192,14 +194,23 @@ We decided to implement these options nonetheless because they are required by s
 `floatsintext` indicates whether figures and tables are to be positioned at the end of the document---as required by APA guidelines---or included in the body of the document.
 If `figurelist`, `tablelist`, or `footnotelist` are set to `yes` lists of figure captions, table captions, or footnotes are created and placed after the reference section.
 `linenumbers` indicates whether lines should be continuously numbered throughout the manuscript.
+`draft` indicates whether a "DRAFT" watermark should be added to every page.
+`classoptions` are pased to the underlying `apa6` $\LaTeX$ document class and define the layout and style of the manuscript.
+For example, setting `classoptions` to `man` produces the default APA manuscript style, `doc` produces a more typical document (single-spaced, single-column).
 
 The remaining rendering options affect both PDF and Microsoft Word documents.
 `mask` can be set to `yes` to prepare the manuscript for double-blind peer review by removing author names, affiliations, and author note from the title page.
+There are several additional options that are no not listed in the vanilla document template.
+To add one or more appendices to the manuscript, a list of R Markdown files can be passed to `appendix`.
+For details see [Appendices](#appendices).
+`numbersections` controls whether section headers are numbered or not.
+The remaining to options control formatting of citations and references.
+As per APA style, citations in `papaja` documents will be disambiguated by adding given names if the bibliography file contains multiple authors with the same family but different given names.
+This author name disambiguation can deactivated by setting ` `disambiguate_authors: no`, for details see [Author name disambiguation](#author-name-disambiguation).
+When reporting meta-analyses, APA guidelines require that studies included in the meta analysis are included in the reference section and preceeded by an asterisk [p. 138, @american_psychological_association_publication_2010].
+To do this, set `annotate_references: yes` and add `*` (or other indicators) to the `annote` field of the corresponding bibliography entries, for details see [Meta-analysis references](#meta-analysis-references).
 <!-- The language of the manuscript is given in `lang` and affects automatically generated text, such as "Author note" on the title page or "Figure 1." in figure captions. -->
 <!-- Currently, `english` and `german` are supported. -->
-`class` defines the layout style of the manuscript.
-Setting `class` to `man` produces the default APA manuscript style, `doc` produces a more typical document (single-spaced, single-column).
-The latter option is, however, currently not available for Microsoft Word documents.
 
 The `output` field determines the type of document that is created and can be either `papaja::apa6_pdf` or `papaja::apa6_word`.
 Additional arguments can be passed to these functions, e.g. to delete the LaTeX source file after the PDF has been rendered (see `?apa6_pdf` for details):
