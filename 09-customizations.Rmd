@@ -44,21 +44,21 @@ header-includes:
 
 A general drawback to this approach is that `biblatex` does not operate on any text in the YAML front matter.
 This can be a problem when, for example, the abstract contains citations.
-This problem can be addressed with the [text references](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references) feature in `bookdown`.
-Replace the text of the abstract in the YAML front matter by
+Fortunately, this drawback can be resolved by defining the respective text for the YAML front matter as a [Text references].
+Replace the text of the abstract in the YAML front matter by a unique identifier:
 
 ~~~yaml
 abstract: (ref:abstract)
 ~~~
 
-`(ref:abstract)` is a placeholder for text that you can now define in the body of the R Markdown document (e.g., right after the YAML front matter):
+`(ref:abstract)` is a stand-in for text that you define in the body of the R Markdown document (e.g., right after the YAML front matter):
 
 ~~~
-(ref:abstract)
-This is the abstract [@doe1986].
+(ref:abstract) This is the abstract [@doe1986].
 ~~~
 
 This text will now be processed and citations will be generated as expected.
+For details see [Text references].
 
 <!-- TODO: See Lua filter! -->
 

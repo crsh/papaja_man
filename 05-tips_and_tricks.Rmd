@@ -7,6 +7,7 @@ Although often overlooked, RStudio can check your spelling
 
 - New line for each sentence
 
+
 ## Global chunk options
 
 It can be useful to set chunk options globally for all (following) chunks to avoid retyping or copy-and-pasting
@@ -22,6 +23,73 @@ knitr::opts_chunk$set(eval = FALSE)
 See the [knitr chunk options and package options](https://yihui.name/knitr/options/) for an overview of settings
 
 ## Meaningful chunk names
+
+...
+
+
+## Text references
+
+Because `papaja` extends `bookdown` you can use text references in any `papaja` document.
+A text reference consists of a unique label---defined as `(ref:unique-label)` somewhere in the body of the document (not inside a code chunk)---and the text that the label stands in for.
+Text references must be defined in a separate single-line paragraph with empty lines above and below:
+
+```
+(ref:my-caption) This is a caption for my table.
+```
+
+```{block2, text-references-warning, type='rmdcaution'}
+The definition of a text reference must be on a single line and should not end with a white space.
+Hence, the following will *not* work as expected
+
+~~~
+(ref:my-caption) 
+This is a caption for my table.
+~~~
+
+```
+
+Using text references for table and figure captions has several advantages:
+
+1. Markdown and $\LaTeX$ syntax is not well supported in chunk options, such as `fig.cap`, or elsewhere inside a code chunk, e.g., in the `caption` argument of `apa_table()`.
+Specifically, Markdown formatting and citation syntax are ignored (rendered as-is) and, for example, `\` and `_` must be escaped to prevent errors in either R or $\LaTeX$.
+None of these limitations apply to text references.
+2. Long captions can impair the readability of the document when they are part of chunk options or R code.
+3. `knitr` considers modifications of the text in `fig.cap` as changes to the code chunk and hence may invalidate the cache of a chunk.
+As a consequence cached results of the code chunk need to be recomputed.
+Changes to the text of a text reference do not invalidate the cached computations.
+4. It's straight forward to include inline code chunks in text references.
+
+Text references can be used to duplicate information throughout the document.
+Consider the following example.
+
+~~~
+(ref:aesthetics) Points represent conditions means, error bars represent 955% confidence intervals.
+
+(ref:caption1) An interesting plot.
+
+```{r fig.cap = paste("(ref:caption1)", "(ref:aesthetics)")}`r ''`
+apa_beeplot(data = npk, id = "block", dv = "yield", factors = "N")
+```
+
+(ref:caption2) Another interesting plot.
+
+```{r fig.cap = paste("(ref:caption2)", "(ref:aesthetics)")}`r ''`
+apa_beeplot(data = npk, id = "block", dv = "yield", factors = "N")
+```
+~~~
+
+The resulting figure caption combines the two text references, Figure\ \@ref(fig:text-reference-figure).
+
+(ref:aesthetics2) Points represent conditions means, error bars represent 955% confidence intervals.
+
+(ref:caption3) An interesting plot.
+
+```{r text-reference-figure, fig.cap = paste("(ref:caption3)", "(ref:aesthetics2)"), echo = FALSE}
+apa_beeplot(data = npk, id = "block", dv = "yield", factors = "N")
+```
+
+Because the information about what points and error bars represent is repeated using a text reference, and not by literal repetition throughout the document, it's easy to correct the typo (`955% confidence intervals`) and be sure that it is corrected in every instance.
+
 
 ## Useful RStudio Addins
 
@@ -52,12 +120,100 @@ Suggested keyboard shortcuts
 - [`retractcheck`](https://frederikaust.shinyapps.io/retractcheck_shinyapp/): Check DOIs in a paper for retractions
 
 
-## Reproducible software environment
+## Reproducible software environments
 
-- sessionInfo()
-- packrat
-- checkpoint
-- liftr & docker
+To ensure mid- to long-term computation reproducibility we highly recommend conserving the software environment used to write a manuscript (e.g. R and all R packages) either in a software container or a virutal machine.
+This way you can be sure that your R code does not break because of updates to R or any R package.
+For a brief primer on containers and virtual machines see [the supplementary material](https://psych-transparency-guide.uni-koeln.de/analytic-reproducibility.html#document-hardware-and-software-used-for-analyses) by @klein_practical_2018.
+
+
+### Docker
+
+[Docker](https://www.docker.com/) is the most widely used containerization approach.
+It is open source and free to use but requires some disk space.
+For a concise hands-on introduction see [the ROpenSci tutorial](https://ropenscilabs.github.io/r-docker-tutorial/).
+A [more detailed introduction](https://docker-curriculum.com/) is available from the Docker project.
+Docker containers a configured using so-called Docker files.
+To configure a Docker container that includes everything to start writing your manuscript, including an instance of RStudio that you can access through you Browser you can build use the following Docker file:
+
+~~~docker
+# Look up available R versions at https://github.com/rocker-org/rocker-versioned/tree/master/verse
+
+FROM rocker/verse:3.6.3
+
+# Install papaja dependencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    libgsl0-dev \
+    libnlopt-dev
+
+RUN install2.r --error \
+    --skipinstalled \
+    --deps TRUE \
+    rmdfiltr
+
+# Required by broom -- obsolete once newer versions are available from MRAN
+RUN Rscript -e "remotes::install_version('rlang', '0.4.7', repos = 'http://cran.us.r-project.org', upgrade = FALSE, Ncpus = 3)"
+RUN Rscript -e "remotes::install_version('tidyselect', '1.1.0', repos = 'http://cran.us.r-project.org', upgrade = FALSE, Ncpus = 3)"
+RUN Rscript -e "remotes::install_version('vctrs', '0.3.2', repos = 'http://cran.us.r-project.org', upgrade = FALSE, Ncpus = 3)"
+RUN Rscript -e "remotes::install_version('dplyr', '1.0.0', repos = 'http://cran.us.r-project.org', upgrade = FALSE, Ncpus = 3)"
+
+# Latest papaja development version
+RUN Rscript -e "remotes::install_github('crsh/papaja',  quick = FALSE, build = TRUE, dependencies = c('Depends', 'Imports'), Ncpus = 3, upgrade = FALSE)"
+~~~
+
+Place this Docker file in your project repository and run the container using the following Bash script (for MacOS or Linux):
+
+~~~bash
+#!/bin/sh
+
+docker build \
+    --build-arg RSTUDIO_VERSION=1.3.1093 \
+    -t container-name .
+
+docker run -d \
+    -p 8787:8787 \
+    -e DISABLE_AUTH=true \
+    -e ROOT=TRUE \
+    -v $(pwd):/home/rstudio \
+    container-name
+
+sleep 1
+
+open http://$(ipconfig getifaddr en0):8787
+~~~
+
+Place this file in your project repository and execute it.
+This script will take a little while to finish the first time around (it downloads the base container and installs the missing dependencies), but should be fast the next time.
+Finally, a Browser window with an instance of RStudio should open and all files from you project repository should be shared between your host system and the container.
+In new you can work as you usually would.
+
+```{block2, docker-r-packages, type='rmdnote'}
+Note that if you work in RStudio, whenever you install an R package interactively (i.e., via the GUI or `install.packages()`) they will be lost once you stop the container.
+While this may seem inconvenient, it ensures that your software environment is fully self-contained.
+```
+
+To make additional R packages available in your container, add them to the Docker file.
+For example,
+
+~~~
+RUN install2.r --error \
+    --skipinstalled \
+    --deps TRUE \
+    rmdfiltr
+    afex
+    emmeans
+~~~
+
+Note that all R packages are installed from the MRAN server that provides each package as it was available from CRAN on a particular date in the past (that is, the last day the specified version of R was the most recent release, see the [rocker version information](https://github.com/rocker-org/rocker-versioned/blob/master/VERSIONS.md)).
+
+
+### CodeOcean
+
+[CodeOcean](https://codeocean.com/) is a commercial service that builds on Docker, facilitates setting up and sharing containers and lets you run computations in the cloud.
+CodeOcean's Seth Green has kindly prepared a [minimal `papaja` example capsule](https://codeocean.com/capsule/8183533/).
+If you want to use `papaja` in your next CodeOcean project you can use this capsule as a starting point.
+
 
 ## RStudio
 
@@ -102,61 +258,6 @@ Search all files with <kbd>Ctrl</kbd> + <kbd>Shift</kbd>+<kbd>F</kbd>
 
 
 
-## Workflow
-
-- Don't edit raw data
-- Don't set a working directory
-- Generate graphics from R code
-- Don't edit word documents
-- Relative paths
-
-
-
-### Comparing documents
-
-In revisions, it can be helpful to highlight all changes.
-
-* for DOCX, use the Microsoft Word combine feature
-* for PDF, use [`latexdiff`](https://3142.nl/latex-diff/) on $\LaTeX$ source documents
-  1. Create $\LaTeX$ file with highlighted changes
-  2. Compile to PDF in RStudio
-
-Notes on PDF method:
-
-The .tex files are generated when you knit your .rmd document. Make sure you save the .tex file from *before* you make any modifications.
-
-You can now visit [`latexdiff`](https://3142.nl/latex-diff/) and copy/paste in the contents of `manuscript_old.tex` and `manuscript_new.tex`, or (if you are a command line ninja install [`latexdiff`](https://3142.nl/latex-diff/) on your own system). This will generate output which you can copy/paste into a file `manuscript_with_changes.tex`.
-
-Now open this file `manuscript_with_changes.tex` in RStudio and click "Compile to PDF" in the top bar.
-
-N.B. Will not track changes in the front matter (affiliations, abstract)
-
-### Counting words
-
-1. Lua word count filter in [`rmdfiltr`](https://cran.r-project.org/web/packages/rmdfiltr/index.html)
-    - Easy to apply to any document format in R Markdown
-    - Counts words in `pandoc` abstract syntax tree
-    - If applied after `pandoc-citeproc`, counts rendered citations
-    - Excludes figure and table captions
-    - Provides separate word count for reference section
-    - [Comparable in precision](https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html) to other methods
-2. [`wordcount`](https://github.com/benmarwick/wordcountaddin)
-    - RStudio addin counts words in R Markdown documents
-    - Good for quick interactive use
-    - [Less precise](https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html) than other methods; cannot, for example, count rendered citations
-3. [`texcount`](http://app.uio.no/ifi/texcount/)
-    - Counts words in TeX documents
-    - If used with `pandoc-citeproc`, reference section must be removed manually prior to counting
-    - [Comparable in precision](https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html) to other methods
-4. Microsoft Word word count
-    - Use `apa6_docx()`-format
-    - Reference section must be removed manually prior to counting
-    - [Comparable in precision](https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html) to other methods
-
-If you are using `pandoc-citeproc` for references, exclude the reference section before counting words
-
-
-
 ## Best practices
 
 1. Load all R packages in the first code chunk
@@ -167,28 +268,77 @@ If you are using `pandoc-citeproc` for references, exclude the reference section
 5. Use meaningful chunk names
 6. Keep R code close to the corresponding prose
 7. Document R and R-package versions<br />(e.g., `devtools::session_info()`)
-8. Make sure you can knit without errors before going home
+8. Try to ensure you can knit without errors before going home
 
 
 
 ## Troubleshooting
 
+As detailed in [Document compilation], rendering a `papaja` document involves several software packages.
+This layered software design grants the package its capabilities but it comes at a cost:
+When compilation of a `papaja`-document throws an error it may not be immediately obvious to an inexperienced user, which part of the process failed.
+However, the error message usually give some indication which portion of the process errored:
+
+1. Parsing of the YAML front matter
+    - `Error in yaml::yaml.load(enc2utf8(string), ...) :`
+2. R code execution
+    - `Error: Object 'x' not found.`
+3. `bookdown` adds cross- and text-references
+    - No error messages; look for `(#fig:chunk-name)` in text
+4. `pandoc` document conversion
+    - `Error: pandoc document conversion failed with error 1`
+    - `Error running filter /path/to/filter/filter.lua`
+5. `pandoc-citeproc` reference generation
+    - `pandoc-citeproc: Cannot decode byte '\xfc'`
+    - `pandoc-citeproc: reference X not found`, shows up as **???** in text
+6. $\LaTeX$ PDF generation
+    - `! Missing $ inserted`
+
+It is often helpful to search the internet for the error messages or portions thereof.
+Many times others will have encountered the same problem and may have documented their solution.
+In the following we provide some general advice.
+
+
+### YAML
+
+TBD
+
+Double check indentation and white space.
+
 ### R
 
-<!-- Copy and paste from R4DS -->
-<!-- Troubleshooting R Markdown documents can be challenging because you are no longer in an interactive R environment, and you will need to learn some new tricks. The first thing you should always try is to recreate the problem in an interactive session. Restart R, then “Run all chunks” (either from Code menu, under Run region), or with the keyboard shortcut Ctrl + Alt + R. If you’re lucky, that will recreate the problem, and you can figure out what’s going on interactively. -->
+```{block2, r-error-messages, type='rmdnote'}
+Error messages generated by R unfortunately do not provide the exact line that has errored.
+The reported line number indicates the first line of R code chunk that contains the erroneous code.
+```
 
-<!-- If that doesn’t help, there must be something different between your interactive environment and the R markdown environment. You’re going to need to systematically explore the options. The most common difference is the working directory: the working directory of an R Markdown is the directory in which it lives. Check the working directory is what you expect by including getwd() in a chunk. -->
+Fixing bugs in R Markdown documents can be challenging because the code is run in a new non-interactive R session.
+This makes it a little harder to play around to pinpoint what's causing the problem.
+Hence, do your best to recreate the problem in your interactive session:
 
-<!-- Next, brainstorm all the things that might cause the bug. You’ll need to systematically check that they’re the same in your R session and your R markdown session. The easiest way to do that is to set error = TRUE on the chunk causing the problem, then use print() and str() to check that settings are as you expect. -->
-
-
-Fixing bugs in R Markdown documents can be challenging
-
-- The code is run in a new non-interactive R session
-- Try is to recreate the problem in your interactive session
-    1. Restart R (`Session > Restart R` or<br /><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F10</kbd>)
-    2. Run all chunks (<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd>)
-    3. Compare the working directories (e.g., use `getwd()` in a code chunk)
+1. Restart R (`Session > Restart R` or<br /><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F10</kbd> in RStudio)
+3. Compare the working directories (e.g., use `getwd()` in the console and in a code chunk of your knitted document)
+2. Run every chunk individually until you get the error
     
+If you can't reproduce the problem in your interactive R session, there must be some difference between it and the R environment of your document.
+Once you identify that difference you will often know what is causing the problem.
+If you don't you at least can now recreate the problem in your interactive R session and start debugging.
+To learn more about debugging techniques refer to [Advanced R](https://adv-r.hadley.nz/debugging.html) [@wickham_advanced_2019].
 
+### `bookdown`
+
+TBD
+
+Don't use `_` in chunk names!
+
+### `pandoc`
+
+TBD
+
+Report errors with `papaja` Lua filters at https://github.com/crsh/papaja/issues
+
+### $\LaTeX$
+
+TBD
+
+Inspect the log file.

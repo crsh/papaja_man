@@ -465,24 +465,11 @@ After all filters have been applied to the AST pandoc converts the document into
 To create DOCX-documents `papaja` provides a reference DOCX-file containing page setup and style definitions that pandoc uses to create the manuscript file.
 That is, pandoc translates the AST directly to the office open XML format.
 To create PDF-documents pandoc in turn relies on LaTeX, that is, pandoc translates the AST to a TeX-file based on a template provided by `papaja`.
-This template invokes the `apa6` LaTeX document class [@???] and loads several additional LaTeX packages.
-pandoc then generates a system call to LaTeX to render the PDF document.
+This template invokes the `apa6` LaTeX document class [@citation_needed] and loads several additional LaTeX packages.
+pandoc then generates a system call to LaTeX, which renders the PDF document.
 During this processing step, that is, following the pandoc system calls, errors are due to failures of LaTeX to compile the TeX-file and usually start with `!`, for example, `! Undefined control sequence.` or `! Missing $ inserted`.
 
-- YAML front matter is read
-    - `Error in yaml::yaml.load(enc2utf8(string), ...) :`
-- R code is executed
-    - `Error: Object 'experiment_data' not found.`
-    - Gives first line of erroneous R code chunk
-- `bookdown` adds cross- and text-references
-    - No error messages; look for `(#fig:chunk-name)` in text
-    - Don't use `_` in chunk names!
-- `pandoc` and `pandoc-citeproc` convert Markdown
-    - `Error: pandoc document conversion failed with error 1`
-    - `pandoc-citeproc: Cannot decode byte '\xfc'`
-    - `pandoc-citeproc: reference XYZ not found`,<br />shows up as **???** in text
-- LaTeX creates a PDF
-    - `! Missing $ inserted`
+We provide some advice on [Troubleshooting] later in this manual.
 
 
 ## Alternatives

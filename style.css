@@ -37,9 +37,10 @@ kbd {
 }
 
 .rmdcaution, .rmdnote, .rmdcustomization {
-  padding: 1em 1em 1em 4em;
+  padding: 1em 1em 1em 5em;
   margin-bottom: 10px;
   background: #f5f5f5 5px center/3em no-repeat;
+  background-position: 1em 1em;
 }
 
 .rmdcaution {
