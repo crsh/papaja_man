@@ -122,19 +122,18 @@ Suggested keyboard shortcuts
 
 ## Reproducible software environments
 
-To ensure mid- to long-term computation reproducibility we highly recommend conserving the software environment used to write a manuscript (e.g. R and all R packages) either in a software container or a virutal machine.
+To ensure mid- to long-term computational reproducibility, we highly recommend conserving the software environment used to write a manuscript (e.g. R and all R packages) either in a software container or a virutal machine.
 This way you can be sure that your R code does not break because of updates to R or any R package.
 For a brief primer on containers and virtual machines see [the supplementary material](https://psych-transparency-guide.uni-koeln.de/analytic-reproducibility.html#document-hardware-and-software-used-for-analyses) by @klein_practical_2018.
 
 
 ### Docker
 
-[Docker](https://www.docker.com/) is the most widely used containerization approach.
+[Docker](https://www.docker.com/) is probably the most widely used containerization approach.
 It is open source and free to use but requires some disk space.
-For a concise hands-on introduction see [the ROpenSci tutorial](https://ropenscilabs.github.io/r-docker-tutorial/).
-A [more detailed introduction](https://docker-curriculum.com/) is available from the Docker project.
-Docker containers a configured using so-called Docker files.
-To configure a Docker container that includes everything to start writing your manuscript, including an instance of RStudio that you can access through you Browser you can build use the following Docker file:
+For a concise hands-on introduction see the [ROpenSci Docker tutorial](https://ropenscilabs.github.io/r-docker-tutorial/); a [more detailed introduction](https://docker-curriculum.com/) is available from the Docker project.
+Docker containers are configured using so-called Docker files that act as a recipe for the software environment.
+As a starting point for your container you can build on the following Docker file, which sets up everything that is needed for creating a manuscript with `papaja`---including an instance of RStudio that you can access through your browser:
 
 ~~~docker
 # Look up available R versions at https://github.com/rocker-org/rocker-versioned/tree/master/verse
@@ -162,7 +161,7 @@ RUN Rscript -e "remotes::install_version('dplyr', '1.0.0', repos = 'http://cran.
 RUN Rscript -e "remotes::install_github('crsh/papaja',  quick = FALSE, build = TRUE, dependencies = c('Depends', 'Imports'), Ncpus = 3, upgrade = FALSE)"
 ~~~
 
-Place this Docker file in your project repository and run the container using the following Bash script (for MacOS or Linux):
+Place this Docker file in your project directory alongside the following bash script (for MacOS or Linux):
 
 ~~~bash
 #!/bin/sh
@@ -183,17 +182,17 @@ sleep 1
 open http://$(ipconfig getifaddr en0):8787
 ~~~
 
-Place this file in your project repository and execute it.
-This script will take a little while to finish the first time around (it downloads the base container and installs the missing dependencies), but should be fast the next time.
-Finally, a Browser window with an instance of RStudio should open and all files from you project repository should be shared between your host system and the container.
-In new you can work as you usually would.
+Execute this script in your project directory to set up and run the container.
+This script will take a little while to finish the first time around (it downloads the base container and installs all needed R packages), but should be fast the next time.
+Finally, a browser window with an instance of RStudio should open and all files from you project directory should be shared between your container and the host system.
+You can work in that RStudio instance in your browser just as you usually would.
 
 ```{block2, docker-r-packages, type='rmdnote'}
-Note that if you work in RStudio, whenever you install an R package interactively (i.e., via the GUI or `install.packages()`) they will be lost once you stop the container.
-While this may seem inconvenient, it ensures that your software environment is fully self-contained.
+Note that whenever you install an R package interactively (i.e., via the GUI or `install.packages()`) they will be lost once you stop the container.
+While this may seem inconvenient, it ensures that your Docker file (that is your recipe) is complete.
 ```
 
-To make additional R packages available in your container, add them to the Docker file.
+To permanently install new R packages in your container, add them to the Docker file.
 For example,
 
 ~~~
@@ -205,14 +204,20 @@ RUN install2.r --error \
     emmeans
 ~~~
 
-Note that all R packages are installed from the MRAN server that provides each package as it was available from CRAN on a particular date in the past (that is, the last day the specified version of R was the most recent release, see the [rocker version information](https://github.com/rocker-org/rocker-versioned/blob/master/VERSIONS.md)).
+Note that all R packages are installed from [MRAN](https://mran.microsoft.com/), which serves packages as they were available from CRAN on a particular date in the past.
+For the rocker images used here this date is the last day the desired version of R was the most recent release, see the [rocker version information](https://github.com/rocker-org/rocker-versioned/blob/master/VERSIONS.md) for details.
+
+```{block2, docker-ncpus, type='rmdnote'}
+If the installation of the required R packages takes a long time, it may help to install the packages and their dependencies in parallel.
+To install packages using three cores in parallel, add `--ncpus 3 \` to the above `RUN` instructions.
+```
 
 
 ### CodeOcean
 
-[CodeOcean](https://codeocean.com/) is a commercial service that builds on Docker, facilitates setting up and sharing containers and lets you run computations in the cloud.
-CodeOcean's Seth Green has kindly prepared a [minimal `papaja` example capsule](https://codeocean.com/capsule/8183533/).
-If you want to use `papaja` in your next CodeOcean project you can use this capsule as a starting point.
+[CodeOcean](https://codeocean.com/) is a commercial service that builds on Docker, facilitates setting up and sharing containers, and lets you run computations in the cloud.
+In case you prefer CodeOcean over plain Docker, you may be interested in the [minimal `papaja` example capsule](https://codeocean.com/capsule/8183533/) that CodeOcean's Seth Green has kindly prepared.
+If you want to use `papaja` in your next CodeOcean project, you may use this capsule as a starting point.
 
 
 ## RStudio
