@@ -5,26 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9 Customizations | papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="&quot;&quot;" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="description" content="""" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9 Customizations | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="&quot;&quot;" />
+  <meta property="og:description" content="""" />
   <meta name="github-repo" content="crsh/papaja_man" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="9 Customizations | papaja: Reproducible APA manuscripts with R Markdown" />
   
-  <meta name="twitter:description" content="&quot;&quot;" />
+  <meta name="twitter:description" content="""" />
   
 
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-07-13" />
+<meta name="date" content="2020-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,12 +50,13 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,14 +65,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -169,6 +172,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.3</b> Equations</a></li>
 <li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.4</b> Cross-referencing</a></li>
 <li class="chapter" data-level="3.5" data-path="writing.html"><a href="writing.html#appendices"><i class="fa fa-check"></i><b>3.5</b> Appendices</a></li>
+<li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#counting-words"><i class="fa fa-check"></i><b>3.6</b> Counting words</a></li>
+<li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#comparing-document-versions"><i class="fa fa-check"></i><b>3.7</b> Comparing document versions</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#numerical-values"><i class="fa fa-check"></i><b>4.1</b> Numerical values</a></li>
@@ -179,12 +184,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
-<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3.2" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.4</b> Results from statistical tests</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.4.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
-<li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.4.2</b> lm (linear regression)</a></li>
-<li class="chapter" data-level="4.4.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.4.3</b> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</a></li>
+<li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#statistical-models-and-tests"><i class="fa fa-check"></i><b>4.4</b> Statistical Models and Tests</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#reporting-models-and-tests-in-a-table"><i class="fa fa-check"></i><b>4.4.1</b> Reporting models and tests in a table</a></li>
+<li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#fully-supported-analysis-methods"><i class="fa fa-check"></i><b>4.4.2</b> Fully supported analysis methods</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="reporting.html"><a href="reporting.html#inserting-variables-before-they-have-been-computed"><i class="fa fa-check"></i><b>4.5.1</b> Inserting variables before they have been computed</a></li>
@@ -193,17 +197,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a><ul>
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#global-chunk-options"><i class="fa fa-check"></i><b>5.1</b> Global chunk options</a></li>
 <li class="chapter" data-level="5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#meaningful-chunk-names"><i class="fa fa-check"></i><b>5.2</b> Meaningful chunk names</a></li>
-<li class="chapter" data-level="5.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#useful-rstudio-addins"><i class="fa fa-check"></i><b>5.3</b> Useful RStudio Addins</a></li>
-<li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environment"><i class="fa fa-check"></i><b>5.4</b> Reproducible software environment</a></li>
-<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.5</b> RStudio</a></li>
-<li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.6</b> Splitting an R Markdown document</a></li>
-<li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.7</b> Workflow</a><ul>
-<li class="chapter" data-level="5.7.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#comparing-documents"><i class="fa fa-check"></i><b>5.7.1</b> Comparing documents</a></li>
-<li class="chapter" data-level="5.7.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#counting-words"><i class="fa fa-check"></i><b>5.7.2</b> Counting words</a></li>
+<li class="chapter" data-level="5.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#text-references"><i class="fa fa-check"></i><b>5.3</b> Text references</a></li>
+<li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#useful-rstudio-addins"><i class="fa fa-check"></i><b>5.4</b> Useful RStudio Addins</a></li>
+<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environments"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environments</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#docker"><i class="fa fa-check"></i><b>5.5.1</b> Docker</a></li>
+<li class="chapter" data-level="5.5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#codeocean"><i class="fa fa-check"></i><b>5.5.2</b> CodeOcean</a></li>
 </ul></li>
+<li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
+<li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
 <li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.8</b> Best practices</a></li>
 <li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.9</b> Troubleshooting</a><ul>
-<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.9.1</b> R</a></li>
+<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#yaml"><i class="fa fa-check"></i><b>5.9.1</b> YAML</a></li>
+<li class="chapter" data-level="5.9.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.9.2</b> R</a></li>
+<li class="chapter" data-level="5.9.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#bookdown"><i class="fa fa-check"></i><b>5.9.3</b> <code>bookdown</code></a></li>
+<li class="chapter" data-level="5.9.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#pandoc"><i class="fa fa-check"></i><b>5.9.4</b> <code>pandoc</code></a></li>
+<li class="chapter" data-level="5.9.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#latex"><i class="fa fa-check"></i><b>5.9.5</b> <span class="math inline">\(\LaTeX\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
@@ -221,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a><ul>
 <li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
+<li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -252,72 +260,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.1</span> Author name disambiguation</h2>
 <p>As per APA style, citations in <code>papaja</code> documents will be disambiguated if the bibliography file contains multiple authors with the same family but different given names.
 This can be a nuisance if the bibliographic information is not maintained meticulously.
-Entries such as <code>author = {John Doe}</code> and <code>author = {J. Doe}</code> are taken to be different authors and will be disambiguated (i.e. “John Doe (1986)” and “J. Doe (1986)”).</p>
-<p>Disabling author name disambiguation is possible (although it is somewhat beyond the scope of <code>papaja</code>).
-The definition of the citation style used in <code>papaja</code> is given in a citation style language file (CSL, see [Additional-rendering-options]).
-We have created a variant of the widely available APA CSL file without author name disambiguation.
+Entries such as <code>author = {John Doe}</code> and <code>author = {J. Doe}</code> are taken to be different authors and will be disambiguated (i.e. “John Doe (1986)” and “J. Doe (1986)”).</p>
+<p><code>papaja</code> provides an APA CSL file that disables author name disambiguation.
 To use this variant insert the following into YAML front matter:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="fu">csl:</span><span class="at"> https://tinyurl.com/apa6-no-disambiguation</span></a></code></pre></div>
-<p>Alternatively, you can download the file and use the location on your hard drive instead of the above URL.
-Note that using this style can create the false impression that two works are authored by the same author when really they were not.
+<div class="sourceCode" id="cb87"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb87-1"><a href="customizations.html#cb87-1"></a><span class="fu">disambiguate_authors</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span></code></pre></div>
+<p>Note that using this style can create the false impression that two works are authored by the same author when really they were not.
 For example, <code>author = {John Doe}</code> and <code>author = {Jane Doe}</code> will be displayed as “Doe (1986a)” and “Doe (1986b)”.</p>
-<p>If you prefer <span class="math inline">\(\LaTeX\)</span> to generate the bibliographic information, we recommend the following approach to disable author name disambiguation:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="fu">lang              :</span><span class="at"> </span><span class="st">&quot;en-EN&quot;</span><span class="er"> # Optional, added for clarity</span></a>
-<a class="sourceLine" id="cb94-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb94-3" data-line-number="3"><span class="fu">biblio-style      :</span><span class="at"> </span><span class="st">&quot;apa&quot;</span></a>
-<a class="sourceLine" id="cb94-4" data-line-number="4"><span class="fu">biblatexoptions   :</span><span class="at"> </span><span class="st">&quot;uniquename=false&quot;</span></a>
-<a class="sourceLine" id="cb94-5" data-line-number="5"><span class="fu">header-includes:</span></a>
-<a class="sourceLine" id="cb94-6" data-line-number="6">  <span class="kw">-</span> \DeclareLanguageMapping<span class="kw">{</span>english<span class="kw">}{</span>english-apa<span class="kw">}</span></a>
-<a class="sourceLine" id="cb94-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb94-8" data-line-number="8"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb94-9" data-line-number="9">  <span class="fu">papaja:</span><span class="at">:apa6_pdf:</span></a>
-<a class="sourceLine" id="cb94-10" data-line-number="10">    <span class="fu">citation_package:</span><span class="at"> biblatex</span></a></code></pre></div>
+<p>If you prefer <span class="math inline">\(\LaTeX\)</span> to render the bibliographic information, we recommend the following approach to disable author name disambiguation:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb88-1"><a href="customizations.html#cb88-1"></a><span class="fu">lang              </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;en-EN&quot;</span><span class="co"> # Optional, added for clarity</span></span>
+<span id="cb88-2"><a href="customizations.html#cb88-2"></a></span>
+<span id="cb88-3"><a href="customizations.html#cb88-3"></a><span class="fu">biblio-style      </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;apa&quot;</span></span>
+<span id="cb88-4"><a href="customizations.html#cb88-4"></a><span class="fu">biblatexoptions   </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;uniquename=false&quot;</span></span>
+<span id="cb88-5"><a href="customizations.html#cb88-5"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb88-6"><a href="customizations.html#cb88-6"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \DeclareLanguageMapping{english}{english-apa}</span></span>
+<span id="cb88-7"><a href="customizations.html#cb88-7"></a></span>
+<span id="cb88-8"><a href="customizations.html#cb88-8"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb88-9"><a href="customizations.html#cb88-9"></a><span class="at">  papaja:</span><span class="fu">:apa6_pdf</span><span class="kw">:</span></span>
+<span id="cb88-10"><a href="customizations.html#cb88-10"></a><span class="at">    </span><span class="fu">citation_package</span><span class="kw">:</span><span class="at"> biblatex</span></span></code></pre></div>
 <p>Specifying <code>lang</code> is optional in this case, because <code>en-EN</code> is the default.
 <code>pandoc</code> converts <code>en-EN</code> to <code>english</code> and inserts it into the document preamble.
 Hence, <code>english</code> needs to be mapped to <code>english-apa</code>.
-Similarly, if you want, say, British english you would have to adapt the above as follows:</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="fu">lang              :</span><span class="at"> </span><span class="st">&quot;en-GB&quot;</span><span class="er"> # Required</span></a>
-<a class="sourceLine" id="cb95-2" data-line-number="2"><span class="fu">header-includes:</span></a>
-<a class="sourceLine" id="cb95-3" data-line-number="3">  <span class="kw">-</span> \DeclareLanguageMapping<span class="kw">{</span>british<span class="kw">}{</span>british-apa<span class="kw">}</span></a></code></pre></div>
+Similarly, if you want, say, British English you would have to adapt the above as follows:</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb89-1"><a href="customizations.html#cb89-1"></a><span class="fu">lang              </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;en-GB&quot;</span><span class="co"> # Required</span></span>
+<span id="cb89-2"><a href="customizations.html#cb89-2"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb89-3"><a href="customizations.html#cb89-3"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \DeclareLanguageMapping{british}{british-apa}</span></span></code></pre></div>
 <p>A general drawback to this approach is that <code>biblatex</code> does not operate on any text in the YAML front matter.
 This can be a problem when, for example, the abstract contains citations.
-This problem can be addressed with the <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#text-references">text references</a> feature in <code>bookdown</code>.
-Replace the text of the abstract in the YAML front matter by</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="fu">abstract:</span><span class="at"> (ref:abstract)</span></a></code></pre></div>
-<p><code>(ref:abstract)</code> is a placeholder for text that you can now define in the body of the R Markdown document (e.g., right after the YAML front matter):</p>
-<pre><code>(ref:abstract)
-This is the abstract [@doe1986].</code></pre>
-<p>This text will now be processed and citations will be generated as expected.</p>
+Fortunately, this drawback can be resolved by defining the respective text for the YAML front matter as a [Text references].
+Replace the text of the abstract in the YAML front matter by a unique identifier:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb90-1"><a href="customizations.html#cb90-1"></a><span class="fu">abstract</span><span class="kw">:</span><span class="at"> (ref:abstract)</span></span></code></pre></div>
+<p><code>(ref:abstract)</code> is a stand-in for text that you define in the body of the R Markdown document (e.g., right after the YAML front matter):</p>
+<pre><code>(ref:abstract) This is the abstract [@doe1986].</code></pre>
+<p>This text will now be processed and citations will be generated as expected.
+For details see [Text references].</p>
 <!-- TODO: See Lua filter! -->
 </div>
 <div id="adjusting-line-spacing" class="section level2">
 <h2><span class="header-section-number">9.2</span> Adjusting line spacing</h2>
-<p>According to the APA guidelines, “Tables may be submitted either single- or double-spaced.” <span class="citation">(p. 141; American Psychological Association, <a href="#ref-american_psychological_association_publication_2010">2010</a>)</span>.
+<p>According to the APA guidelines, “Tables may be submitted either single- or double-spaced.” <span class="citation">(p. 141; American Psychological Association, <a href="#ref-american_psychological_association_publication_2010" role="doc-biblioref">2010</a>)</span>.
 Adjusting the line spacing of table contents is currently not supported in <code>papaja</code>.
 However, as usual it is possible to adjust the spacing in PDF documents by including additional <span class="math inline">\(\LaTeX\)</span> code.
 If you use <code>apa_table()</code>, including the following in the YAML front matter will result in single-spaced tables with double-spaced caption and table note:</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="fu">header-includes:</span></a>
-<a class="sourceLine" id="cb98-2" data-line-number="2">  <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span></a>
-<a class="sourceLine" id="cb98-3" data-line-number="3">  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tabular<span class="kw">}{</span>\singlespacing<span class="kw">}</span></a>
-<a class="sourceLine" id="cb98-4" data-line-number="4">  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>lltable<span class="kw">}{</span>\singlespacing<span class="kw">}</span></a>
-<a class="sourceLine" id="cb98-5" data-line-number="5">  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tablenotes<span class="kw">}{</span>\doublespacing<span class="kw">}</span></a>
-<a class="sourceLine" id="cb98-6" data-line-number="6">  <span class="kw">-</span> \captionsetup<span class="kw">[</span>table<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}</a>
-<a class="sourceLine" id="cb98-7" data-line-number="7">  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}</a></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb92-1"><a href="customizations.html#cb92-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb92-2"><a href="customizations.html#cb92-2"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \usepackage{setspace}</span></span>
+<span id="cb92-3"><a href="customizations.html#cb92-3"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{tabular}{\singlespacing}</span></span>
+<span id="cb92-4"><a href="customizations.html#cb92-4"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{lltable}{\singlespacing}</span></span>
+<span id="cb92-5"><a href="customizations.html#cb92-5"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{tablenotes}{\doublespacing}</span></span>
+<span id="cb92-6"><a href="customizations.html#cb92-6"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \captionsetup[table]{font={stretch=1.5}}</span></span>
+<span id="cb92-7"><a href="customizations.html#cb92-7"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \captionsetup[figure]{font={stretch=1.5}}</span></span></code></pre></div>
 <p>Similarly, the line spacing of figure captions can be adjusted as follows:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="fu">header-includes:</span></a>
-<a class="sourceLine" id="cb99-2" data-line-number="2">  <span class="kw">-</span> \usepackage<span class="kw">{</span>setspace<span class="kw">}</span></a>
-<a class="sourceLine" id="cb99-3" data-line-number="3">  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tabular<span class="kw">}{</span>\doublespacing<span class="kw">}</span></a>
-<a class="sourceLine" id="cb99-4" data-line-number="4">  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>lltable<span class="kw">}{</span>\doublespacing<span class="kw">}</span></a>
-<a class="sourceLine" id="cb99-5" data-line-number="5">  <span class="kw">-</span> \AtBeginEnvironment<span class="kw">{</span>tablenotes<span class="kw">}{</span>\doublespacing<span class="kw">}</span></a>
-<a class="sourceLine" id="cb99-6" data-line-number="6">  <span class="kw">-</span> \captionsetup<span class="kw">[</span>table<span class="kw">]{</span>font={stretch=1.5<span class="kw">}</span>}</a>
-<a class="sourceLine" id="cb99-7" data-line-number="7">  <span class="kw">-</span> \captionsetup<span class="kw">[</span>figure<span class="kw">]{</span>font={stretch=1<span class="kw">}</span>}</a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb93-1"><a href="customizations.html#cb93-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb93-2"><a href="customizations.html#cb93-2"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \usepackage{setspace}</span></span>
+<span id="cb93-3"><a href="customizations.html#cb93-3"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{tabular}{\doublespacing}</span></span>
+<span id="cb93-4"><a href="customizations.html#cb93-4"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{lltable}{\doublespacing}</span></span>
+<span id="cb93-5"><a href="customizations.html#cb93-5"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{tablenotes}{\doublespacing}</span></span>
+<span id="cb93-6"><a href="customizations.html#cb93-6"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \captionsetup[table]{font={stretch=1.5}}</span></span>
+<span id="cb93-7"><a href="customizations.html#cb93-7"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \captionsetup[figure]{font={stretch=1}}</span></span></code></pre></div>
 </div>
 <div id="writing-dissertations" class="section level2">
 <h2><span class="header-section-number">9.3</span> Writing dissertations</h2>
 <p>While <code>papaja</code> is primarily intended for preparing journal articles and preprints, it is possible to create entire dissertations using it.
 This is particularly useful for cummulative dissertation formats that include individual papers as separate chapters.
 If the individual papers were written with <code>papaja</code>, it is straight forward to include them in the dissertation document.
-The first dissertation written using <code>papaja</code> that I’m aware of is <em>Contingency Awareness in Evaluative Conditioning: Investigations Using Subliminal Stimulus Presentations</em> by <span class="citation">Heycke (<a href="#ref-heycke_contingency_2018">2018</a>)</span>.
+The first dissertation written using <code>papaja</code> that I’m aware of is <em>Contingency Awareness in Evaluative Conditioning: Investigations Using Subliminal Stimulus Presentations</em> by <span class="citation">Heycke (<a href="#ref-heycke_contingency_2018" role="doc-biblioref">2018</a>)</span>.
 Tobias provides a <a href="http://rpubs.com/theycke/380678">brief tutorial</a> on how he used <code>papaja</code>.</p>
 
 </div>

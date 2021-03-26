@@ -5,26 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Writing | papaja: Reproducible APA manuscripts with R Markdown</title>
-  <meta name="description" content="&quot;&quot;" />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="description" content="""" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Writing | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="&quot;&quot;" />
+  <meta property="og:description" content="""" />
   <meta name="github-repo" content="crsh/papaja_man" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="3 Writing | papaja: Reproducible APA manuscripts with R Markdown" />
   
-  <meta name="twitter:description" content="&quot;&quot;" />
+  <meta name="twitter:description" content="""" />
   
 
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-07-13" />
+<meta name="date" content="2020-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,12 +50,13 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,14 +65,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -169,6 +172,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="writing.html"><a href="writing.html#equations"><i class="fa fa-check"></i><b>3.3</b> Equations</a></li>
 <li class="chapter" data-level="3.4" data-path="writing.html"><a href="writing.html#cross-referencing"><i class="fa fa-check"></i><b>3.4</b> Cross-referencing</a></li>
 <li class="chapter" data-level="3.5" data-path="writing.html"><a href="writing.html#appendices"><i class="fa fa-check"></i><b>3.5</b> Appendices</a></li>
+<li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#counting-words"><i class="fa fa-check"></i><b>3.6</b> Counting words</a></li>
+<li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#comparing-document-versions"><i class="fa fa-check"></i><b>3.7</b> Comparing document versions</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#numerical-values"><i class="fa fa-check"></i><b>4.1</b> Numerical values</a></li>
@@ -179,12 +184,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
-<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3.2" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#results-from-statistical-tests"><i class="fa fa-check"></i><b>4.4</b> Results from statistical tests</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#htest-t-tests-correlations-etc."><i class="fa fa-check"></i><b>4.4.1</b> htest (<em>t</em> tests, correlations, etc.)</a></li>
-<li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#lm-linear-regression"><i class="fa fa-check"></i><b>4.4.2</b> lm (linear regression)</a></li>
-<li class="chapter" data-level="4.4.3" data-path="reporting.html"><a href="reporting.html#anova-anova-anova.mlm-analysis-of-variance-anova"><i class="fa fa-check"></i><b>4.4.3</b> anova, Anova, Anova.mlm (Analysis of Variance – ANOVA)</a></li>
+<li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#statistical-models-and-tests"><i class="fa fa-check"></i><b>4.4</b> Statistical Models and Tests</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#reporting-models-and-tests-in-a-table"><i class="fa fa-check"></i><b>4.4.1</b> Reporting models and tests in a table</a></li>
+<li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#fully-supported-analysis-methods"><i class="fa fa-check"></i><b>4.4.2</b> Fully supported analysis methods</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="reporting.html"><a href="reporting.html#inserting-variables-before-they-have-been-computed"><i class="fa fa-check"></i><b>4.5.1</b> Inserting variables before they have been computed</a></li>
@@ -193,17 +197,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a><ul>
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#global-chunk-options"><i class="fa fa-check"></i><b>5.1</b> Global chunk options</a></li>
 <li class="chapter" data-level="5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#meaningful-chunk-names"><i class="fa fa-check"></i><b>5.2</b> Meaningful chunk names</a></li>
-<li class="chapter" data-level="5.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#useful-rstudio-addins"><i class="fa fa-check"></i><b>5.3</b> Useful RStudio Addins</a></li>
-<li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environment"><i class="fa fa-check"></i><b>5.4</b> Reproducible software environment</a></li>
-<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.5</b> RStudio</a></li>
-<li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.6</b> Splitting an R Markdown document</a></li>
-<li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#workflow"><i class="fa fa-check"></i><b>5.7</b> Workflow</a><ul>
-<li class="chapter" data-level="5.7.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#comparing-documents"><i class="fa fa-check"></i><b>5.7.1</b> Comparing documents</a></li>
-<li class="chapter" data-level="5.7.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#counting-words"><i class="fa fa-check"></i><b>5.7.2</b> Counting words</a></li>
+<li class="chapter" data-level="5.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#text-references"><i class="fa fa-check"></i><b>5.3</b> Text references</a></li>
+<li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#useful-rstudio-addins"><i class="fa fa-check"></i><b>5.4</b> Useful RStudio Addins</a></li>
+<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environments"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environments</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#docker"><i class="fa fa-check"></i><b>5.5.1</b> Docker</a></li>
+<li class="chapter" data-level="5.5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#codeocean"><i class="fa fa-check"></i><b>5.5.2</b> CodeOcean</a></li>
 </ul></li>
+<li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
+<li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
 <li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.8</b> Best practices</a></li>
 <li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.9</b> Troubleshooting</a><ul>
-<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.9.1</b> R</a></li>
+<li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#yaml"><i class="fa fa-check"></i><b>5.9.1</b> YAML</a></li>
+<li class="chapter" data-level="5.9.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.9.2</b> R</a></li>
+<li class="chapter" data-level="5.9.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#bookdown"><i class="fa fa-check"></i><b>5.9.3</b> <code>bookdown</code></a></li>
+<li class="chapter" data-level="5.9.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#pandoc"><i class="fa fa-check"></i><b>5.9.4</b> <code>pandoc</code></a></li>
+<li class="chapter" data-level="5.9.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#latex"><i class="fa fa-check"></i><b>5.9.5</b> <span class="math inline">\(\LaTeX\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
@@ -221,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a><ul>
 <li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow-1"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
+<li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -274,9 +282,9 @@ Reference managers are like iTunes for your literature; they help you search, do
 <p>By default, citations in R Markdown are formatted by <code>pandoc-citeproc</code>, a filter that <code>pandoc</code> applies as it renders the final document.
 The advantage of using <code>pandoc-citeproc</code> is that it works equally well for both PDF and Microsoft Word documents.
 To start citing, supply a Bib(La)TeX (or for example EndNote, RIS, Medline) file to the <code>bibliography</code> parameter in the YAML front matter (<code>bibliography: my.bib</code>).
-Once the R Markdown file knows where to look for reference <code>[@james_1890]</code> will create a citation within parentheses <span class="citation">(James, <a href="#ref-james_1890">1890</a>)</span>.
-Multiple citations must be separated by <code>;</code> (e.g., <code>[@james_1890; @bem_2011]</code>) and are ordered alphabetically as per APA style <span class="citation">(Bem, <a href="#ref-bem_2011">2011</a>; James, <a href="#ref-james_1890">1890</a>)</span>.
-To cite a source in text simply omit the brackets; for example, write <code>@james_1890</code> to cite <span class="citation">James (<a href="#ref-james_1890">1890</a>)</span>.</p>
+Once the R Markdown file knows where to look for reference <code>[@james_1890]</code> will create a citation within parentheses <span class="citation">(James, <a href="#ref-james_1890" role="doc-biblioref">1890</a>)</span>.
+Multiple citations must be separated by <code>;</code> (e.g., <code>[@james_1890; @bem_2011]</code>) and are ordered alphabetically as per APA style <span class="citation">(Bem, <a href="#ref-bem_2011" role="doc-biblioref">2011</a>; James, <a href="#ref-james_1890" role="doc-biblioref">1890</a>)</span>.
+To cite a source in text simply omit the brackets; for example, write <code>@james_1890</code> to cite <span class="citation">James (<a href="#ref-james_1890" role="doc-biblioref">1890</a>)</span>.</p>
 <table>
 <thead>
 <tr class="header">
@@ -325,11 +333,11 @@ For example, there are three subgroups of citations in <code>Disagreements aboun
 <p>Further customizations, such as citing only a publications year (<code>[-@bem_2011]</code>) are available, see RStudio’s <a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">overview of the R Markdown citation syntax</a>.
 If you are not interested in creating Microsoft Word documents it’s possible to use NatBib or Bib(La)TeX for reference formatting, which grant a little more flexibility than <code>pandoc-citeproc</code>.
 To do so, an additional argument has to be supplied to <code>apa6_pdf()</code>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="fu">papaja:</span><span class="at">:apa6_pdf:</span></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">    <span class="fu">citation_package:</span><span class="at"> biblatex</span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb14-1"><a href="writing.html#cb14-1"></a><span class="pp">---</span></span>
+<span id="cb14-2"><a href="writing.html#cb14-2"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb14-3"><a href="writing.html#cb14-3"></a><span class="at">  papaja:</span><span class="fu">:apa6_pdf</span><span class="kw">:</span></span>
+<span id="cb14-4"><a href="writing.html#cb14-4"></a><span class="at">    </span><span class="fu">citation_package</span><span class="kw">:</span><span class="at"> biblatex</span></span>
+<span id="cb14-5"><a href="writing.html#cb14-5"></a><span class="pp">---</span></span></code></pre></div>
 <div id="citation-styles" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Citation styles</h3>
 <p>The citation style is automatically set to APA style.
@@ -337,24 +345,24 @@ Other styles can be set in the YAML front matter by specifying a CSL, or Citatio
 You can use either one of the large number of <a href="https://www.zotero.org/styles">existing CSL files</a>, <a href="http://citationstyles.org/downloads/primer.html">customize</a> an existing CSL file, or create a new one entirely.
 To change the citation style, add a <code>csl: mystyle.csl</code> to the YAML front matter.
 See the <a href="http://R%20Markdown.rstudio.com/authoring_bibliographies_and_citations.html">R Markdown documentation</a> and <a href="http://citationstyles.org/">Citation Style Language</a> for further details.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="fu">csl:</span><span class="at"> mystyle.csl</span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb15-1"><a href="writing.html#cb15-1"></a><span class="pp">---</span></span>
+<span id="cb15-2"><a href="writing.html#cb15-2"></a><span class="fu">csl</span><span class="kw">:</span><span class="at"> mystyle.csl</span></span>
+<span id="cb15-3"><a href="writing.html#cb15-3"></a><span class="pp">---</span></span></code></pre></div>
 </div>
 <div id="works-in-press" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Works ‘in press’</h3>
 <p>Bibliographic entries that are missing the <code>year</code> field will be rendered without a date.
 For example, the following entry in the bibliography file will be printed as <code>Aust &amp; Barth (n.d.)</code>.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="va">@article</span>{<span class="ot">R</span>-<span class="ot">papaja</span>,</a>
-<a class="sourceLine" id="cb16-2" data-line-number="2">  <span class="dt">author</span> = {Frederik Aust and Marius Barth},</a>
-<a class="sourceLine" id="cb16-3" data-line-number="3">  <span class="dt">title</span> = {{papaja}: {Create} {APA} manuscripts with {R Markdown}}</a>
-<a class="sourceLine" id="cb16-4" data-line-number="4">}</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb16-1"><a href="writing.html#cb16-1"></a><span class="va">@article</span>{<span class="ot">R</span>-<span class="ot">papaja</span>,</span>
+<span id="cb16-2"><a href="writing.html#cb16-2"></a>  <span class="dt">author</span> = {Frederik Aust and Marius Barth},</span>
+<span id="cb16-3"><a href="writing.html#cb16-3"></a>  <span class="dt">title</span> = {{papaja}: {Create} {APA} manuscripts with {R Markdown}}</span>
+<span id="cb16-4"><a href="writing.html#cb16-4"></a>}</span></code></pre></div>
 <p>When refering to works that are missing a date because they are not yet published (e.g., works that are under review or accepted for but awaiting publication), the publication state can be included in the citation and reference via the <code>pubstate</code> field:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="va">@article</span>{<span class="ot">R</span>-<span class="ot">papaja</span>,</a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">  <span class="dt">author</span> = {Frederik Aust and Marius Barth},</a>
-<a class="sourceLine" id="cb17-3" data-line-number="3">  <span class="dt">title</span> = {{papaja}: {Create} {APA} manuscripts with {R Markdown}},</a>
-<a class="sourceLine" id="cb17-4" data-line-number="4">  <span class="dt">pubstate</span> = {in press}</a>
-<a class="sourceLine" id="cb17-5" data-line-number="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb17-1"><a href="writing.html#cb17-1"></a><span class="va">@article</span>{<span class="ot">R</span>-<span class="ot">papaja</span>,</span>
+<span id="cb17-2"><a href="writing.html#cb17-2"></a>  <span class="dt">author</span> = {Frederik Aust and Marius Barth},</span>
+<span id="cb17-3"><a href="writing.html#cb17-3"></a>  <span class="dt">title</span> = {{papaja}: {Create} {APA} manuscripts with {R Markdown}},</span>
+<span id="cb17-4"><a href="writing.html#cb17-4"></a>  <span class="dt">pubstate</span> = {in press}</span>
+<span id="cb17-5"><a href="writing.html#cb17-5"></a>}</span></code></pre></div>
 <p>Now, this entry will be printed as <code>Aust &amp; Barth (in press)</code>.</p>
 </div>
 <div id="conveniently-inserting-citations-with-citr" class="section level3">
@@ -368,15 +376,15 @@ The references for the inserted citations are automatically added to the documen
 Figure 3.1: Demonstration of the RStudio addin from the <code>citr</code> package that inserts R Markdown citations.
 </p>
 </div>
-<p>Once <code>citr</code> is installed (<code>install.packages(&quot;citr&quot;)</code>) and you have restarted your R session, the addin appears in the menus and you can define a <a href="https://rstudio.github.io/rstudioaddins/#keyboard-shorcuts">keyboard shortcut</a> to call the addin (we suggest <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>).</p>
+<p>Once <code>citr</code> is installed (<code>install.packages("citr")</code>) and you have restarted your R session, the addin appears in the menus and you can define a <a href="https://rstudio.github.io/rstudioaddins/#keyboard-shorcuts">keyboard shortcut</a> to call the addin (we suggest <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>).</p>
 <p>The addin will automatically look up the Bib(La)TeX-file(s) specified in the YAML front matter.
 If the document does not contain a YAML front matter the addin will attempt to locate a parent document and look up the Bib(La)TeX-file specified therein.
-That is, the addin works its automagic even if you edit R Markdown documents that are included in another R Markdown document (see <a href="tips-and-tricks.html#splitting-an-r-markdown-document">Splitting an R Markdown document</a>).
-The expected names of a parent document default to <code>c(&quot;index.Rmd&quot;, &quot;master.Rmd&quot;)</code>, but those can be customized (e.g., <code>options(citr.parent_documents = &quot;my_parent.Rmd&quot;)</code>).</p>
+That is, the addin works its automagic even if you edit R Markdown documents that are included in another R Markdown document (see [Splitting an R Markdown document]).
+The expected names of a parent document default to <code>c("index.Rmd", "master.Rmd")</code>, but those can be customized (e.g., <code>options(citr.parent_documents = "my_parent.Rmd")</code>).</p>
 <p><code>citr</code> can also be used without RStudio, albeit it is less convenient.
 The following call searches a Bib(La)TeX-file and creates formatted Markdown citations for the results.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;citr&quot;</span>)</a>
-<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="kw">md_cite</span>(<span class="st">&quot;bem&quot;</span>, <span class="dt">bib_file =</span> <span class="st">&quot;references.bib&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="writing.html#cb18-1"></a><span class="kw">library</span>(<span class="st">&quot;citr&quot;</span>)</span>
+<span id="cb18-2"><a href="writing.html#cb18-2"></a><span class="kw">md_cite</span>(<span class="st">&quot;bem&quot;</span>, <span class="dt">bib_file =</span> <span class="st">&quot;references.bib&quot;</span>)</span></code></pre></div>
 <p><code>md_cite()</code> searches the author, year, title, and journal fields of your references.</p>
 <div id="working-with-a-reference-manager" class="section level4">
 <h4><span class="header-section-number">3.2.3.1</span> Working with a reference manager</h4>
@@ -388,56 +396,53 @@ If you dislike this behavior, you can disable the automatic access to the refere
 </div>
 <div id="meta-analysis-references" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Meta-analysis references</h3>
-<p>When reporting meta-analyses APA guidelines require that studies included in the meta analysis are included in the reference section and preceeded by an asterisk <span class="citation">(p. 138, American Psychological Association, <a href="#ref-american_psychological_association_publication_2010">2010</a>)</span>.
+<p>When reporting meta-analyses, APA guidelines require that studies included in the meta analysis are included in the reference section and preceeded by an asterisk <span class="citation">(p. 138, American Psychological Association, <a href="#ref-american_psychological_association_publication_2010" role="doc-biblioref">2010</a>)</span>.
 There are two approaches to mark meta-analysis references.</p>
-<p>First, we have created a variant of the widely available APA CSL file that enables adding the required asteriskes.
+<p><code>papaja</code> provides an APA CSL file that enables adding annotations to the bibliography.
 To use this variant insert the following into YAML front matter.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="fu">csl:</span><span class="at"> https://tinyurl.com/apa6-meta-analysis</span></a></code></pre></div>
-<p>Alternatively, you can download the file and use the location on your hard drive instead of the above URL.
-Now any refernces that has an <code>annotation</code> field will be preceeded by an asterisk.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb19-1"><a href="writing.html#cb19-1"></a><span class="fu">annotate_references</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span></code></pre></div>
+<p>Any references that has an <code>annote</code> field will be preceded by the contents of that field, e.g. <code>*</code>.</p>
 <pre class="biblatex"><code>@article{aust_memory-based_2018,
   author = {Aust, Frederik and Haaf, Julia M. and Stahl, Christoph},
   title = {A Memory-Based Judgment Account of Expectancy-Liking Dissociations in Evaluative Conditioning.},
   date = {2018},
   journaltitle = {Journal of Experimental Psychology: Learning, Memory, and Cognition},
   doi = {10.1037/xlm0000600},
-  annotation = {meta-analysis}
+  annote = {*}
 }</code></pre>
 <p>To include references that are not explicitly cited in the paper, you can use the <code>nocite</code> field of the YAML front matter.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="fu">nocite:</span><span class="at"> @aust_memory-based_2018</span></a>
-<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb21-1"><a href="writing.html#cb21-1"></a><span class="fu">nocite</span><span class="kw">:</span><span class="at"> @aust_memory-based_2018</span></span></code></pre></div>
 <p>Finally, the APA guidelines require a note at the start of the reference section that explains what an asterisk means.
 This note can be added at the end of the document as follows.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb22-1" data-line-number="1">\begingroup</a>
-<a class="sourceLine" id="cb22-2" data-line-number="2">\setlength{\parindent}{-0.5in}</a>
-<a class="sourceLine" id="cb22-3" data-line-number="3">\setlength{\leftskip}{0.5in}</a>
-<a class="sourceLine" id="cb22-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb22-5" data-line-number="5">References marked with an asterisk indicate studies included in the meta-analysis.</a>
-<a class="sourceLine" id="cb22-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb22-7" data-line-number="7">&lt;div id = &quot;refs&quot;&gt;&lt;/div&gt;</a>
-<a class="sourceLine" id="cb22-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb22-9" data-line-number="9">\endgroup</a></code></pre></div>
-<p>Second, if you prefer <span class="math inline">\(\LaTeX\)</span> to generate the bibliographic information, we recommend you use <code>biblatex-apa</code> by adding the following to the YAML front matter.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="fu">biblio-style      :</span><span class="at"> </span><span class="st">&quot;apa&quot;</span></a>
-<a class="sourceLine" id="cb23-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb23-4" data-line-number="4">  <span class="fu">papaja:</span><span class="at">:apa6_pdf:</span></a>
-<a class="sourceLine" id="cb23-5" data-line-number="5">    <span class="fu">citation_package:</span><span class="at"> biblatex</span></a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb22-1"><a href="writing.html#cb22-1"></a>\begingroup</span>
+<span id="cb22-2"><a href="writing.html#cb22-2"></a>\setlength{\parindent}{-0.5in}</span>
+<span id="cb22-3"><a href="writing.html#cb22-3"></a>\setlength{\leftskip}{0.5in}</span>
+<span id="cb22-4"><a href="writing.html#cb22-4"></a></span>
+<span id="cb22-5"><a href="writing.html#cb22-5"></a>References marked with an asterisk indicate studies included in the meta-analysis.</span>
+<span id="cb22-6"><a href="writing.html#cb22-6"></a></span>
+<span id="cb22-7"><a href="writing.html#cb22-7"></a>&lt;div id = &quot;refs&quot;&gt;&lt;/div&gt;</span>
+<span id="cb22-8"><a href="writing.html#cb22-8"></a></span>
+<span id="cb22-9"><a href="writing.html#cb22-9"></a>\endgroup</span></code></pre></div>
+<p>If you prefer <span class="math inline">\(\LaTeX\)</span> to render the bibliographic information, you can add the following to the YAML front matter:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb23-1"><a href="writing.html#cb23-1"></a><span class="fu">biblio-style      </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;apa&quot;</span></span>
+<span id="cb23-2"><a href="writing.html#cb23-2"></a></span>
+<span id="cb23-3"><a href="writing.html#cb23-3"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb23-4"><a href="writing.html#cb23-4"></a><span class="at">  papaja:</span><span class="fu">:apa6_pdf</span><span class="kw">:</span></span>
+<span id="cb23-5"><a href="writing.html#cb23-5"></a><span class="at">    </span><span class="fu">citation_package</span><span class="kw">:</span><span class="at"> biblatex</span></span></code></pre></div>
 <p>Additionally, you need to define a language mapping and to define a custom <span class="math inline">\(LaTeX\)</span> command that can be used to add meta-analysis references.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="fu">header-includes:</span></a>
-<a class="sourceLine" id="cb24-2" data-line-number="2">  <span class="kw">-</span> \DeclareLanguageMapping<span class="kw">{</span>english<span class="kw">}{</span>english-apa<span class="kw">}</span></a>
-<a class="sourceLine" id="cb24-3" data-line-number="3">  <span class="kw">-</span> \DeclareBibliographyCategory<span class="kw">{</span>asterisk<span class="kw">}</span></a>
-<a class="sourceLine" id="cb24-4" data-line-number="4">  <span class="kw">-</span> \renewbibmacro*<span class="kw">{</span>begentry<span class="kw">}{</span>\ifcategory{asterisk<span class="kw">}{</span>\ensuremath{\ast<span class="kw">}</span>}<span class="kw">{}</span>}</a>
-<a class="sourceLine" id="cb24-5" data-line-number="5">  <span class="kw">-</span> \newcommand*<span class="kw">{</span>\nocitemeta<span class="kw">}[</span>1<span class="kw">]{</span>\nocite{<span class="co">#1}\addtocategory{asterisk}{#1}}</span></a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb24-1"><a href="writing.html#cb24-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb24-2"><a href="writing.html#cb24-2"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \DeclareLanguageMapping{english}{english-apa}</span></span>
+<span id="cb24-3"><a href="writing.html#cb24-3"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \DeclareBibliographyCategory{asterisk}</span></span>
+<span id="cb24-4"><a href="writing.html#cb24-4"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \renewbibmacro*{begentry}{\ifcategory{asterisk}{\ensuremath{\ast}}{}}</span></span>
+<span id="cb24-5"><a href="writing.html#cb24-5"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \newcommand*{\nocitemeta}[1]{\nocite{</span><span class="co">#1}\addtocategory{asterisk}{#1}}</span></span></code></pre></div>
 <p>In the document you can use this custom command to add meta-analysis references.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="fu">\nocitemeta</span>{aust_memory-based_2018}</a></code></pre></div>
-<p>No entry in the <code>annotation</code> field of the reference is required.
-As usual, any non-meta-analysis citation can be added using the <code>pandoc-citeproc</code> syntax, e.g. <code>[@R-papaja]</code>.
+<div class="sourceCode" id="cb25"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb25-1"><a href="writing.html#cb25-1"></a><span class="fu">\nocitemeta</span>{aust_memory-based_2018}</span></code></pre></div>
+<p>No entry in the <code>annote</code> field of the reference is required.
+As usual, any non-meta-analysis citation can be added using the <code>pandoc-citeproc</code> syntax, e.g. <code>[@R-papaja]</code>.
 The note that explains what an asterisk means can be added at the end of the document as follows.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode latex"><code class="sourceCode latex"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="fu">\defbibnote</span>{asterisk}{References marked with an asterisk indicate studies included in the meta-analysis.}</a>
-<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="fu">\printbibliography</span>[title=References,prenote=asterisk]</a>
-<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="fu">\renewcommand</span>{<span class="ex">\printbibliography</span>}{}</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb26-1"><a href="writing.html#cb26-1"></a><span class="fu">\defbibnote</span>{asterisk}{References marked with an asterisk indicate studies included in the meta-analysis.}</span>
+<span id="cb26-2"><a href="writing.html#cb26-2"></a><span class="fu">\printbibliography</span>[title=References,prenote=asterisk]</span>
+<span id="cb26-3"><a href="writing.html#cb26-3"></a><span class="fu">\renewcommand</span>{<span class="ex">\printbibliography</span>}{}</span></code></pre></div>
 </div>
 <div id="citing-r-and-its-packages" class="section level3">
 <h3><span class="header-section-number">3.2.5</span> Citing R and its packages</h3>
@@ -445,28 +450,28 @@ The note that explains what an asterisk means can be added at the end of the doc
 As citations are the currency of science, it’s easy to compensate volunteers for their work by citing the R packages we use.
 Howerver, citing software is rarely done arguebly because it is tedious work.
 <code>papaja</code> therefore supplies two functions that make citing R and its packages easy.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">r_refs</span>(<span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span>)</a>
-<a class="sourceLine" id="cb27-2" data-line-number="2">my_citations &lt;-<span class="st"> </span><span class="kw">cite_r</span>(<span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="writing.html#cb27-1"></a><span class="kw">r_refs</span>(<span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span>)</span>
+<span id="cb27-2"><a href="writing.html#cb27-2"></a>my_citations &lt;-<span class="st"> </span><span class="kw">cite_r</span>(<span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span>)</span></code></pre></div>
 <p><code>r_refs()</code> creates a BibTeX file containing citations for R and packages that are in use at the time the function is executed.
 <code>cite_r()</code> takes these citations and turns them into readily reportable text.
 <code>my_citations</code> now contains the following text that you can use in your document:</p>
 <blockquote>
-<p>R <span class="citation">(Version 3.6.3; R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.27.2; Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Müller, <a href="#ref-R-bindrcpp">2017</a>)</span>, <em>car</em> <span class="citation">(Version 3.0.7; Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>carData</em> <span class="citation">(Version 3.0.3; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>citr</em> <span class="citation">(Version 0.3.2; Aust, <a href="#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 1.0.6.1; Sveidqvist et al., <a href="#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 0.8.5; Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>estimability</em> <span class="citation">(Version 1.3; Lenth, <a href="#ref-R-estimability">2015</a>)</span>, <em>ez</em> <span class="citation">(Version 4.4.0; Lawrence, <a href="#ref-R-ez">2016</a>)</span>, <em>ggplot2</em> <span class="citation">(Version 3.3.0; Wickham, <a href="#ref-R-ggplot2">2009</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.28; Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.21; Bates et al., <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>Matrix</em> <span class="citation">(Version 1.2.18; Bates &amp; Maechler, <a href="#ref-R-Matrix">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9997; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>reshape2</em> <span class="citation">(Version 1.4.4; Wickham, <a href="#ref-R-reshape2">2007</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 2.1; Allaire et al., <a href="#ref-R-rmarkdown">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.4.0.2; Chang et al., <a href="#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Marwick, n.d.)</span></p>
+<p>R <span class="citation">(Version 4.0.2; R Core Team, <a href="#ref-R-base" role="doc-biblioref">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.27.2; Singmann et al., <a href="#ref-R-afex" role="doc-biblioref">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Müller, <a href="#ref-R-bindrcpp" role="doc-biblioref">2017</a>)</span>, <em>car</em> <span class="citation">(Version 3.0.8; Fox &amp; Weisberg, <a href="#ref-R-car" role="doc-biblioref">2011</a>; Fox et al., <a href="#ref-R-carData" role="doc-biblioref">2018</a>)</span>, <em>carData</em> <span class="citation">(Version 3.0.4; Fox et al., <a href="#ref-R-carData" role="doc-biblioref">2018</a>)</span>, <em>citr</em> <span class="citation">(Version 0.3.2; Aust, <a href="#ref-R-citr" role="doc-biblioref">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 1.0.6.1; Sveidqvist et al., <a href="#ref-R-DiagrammeR" role="doc-biblioref">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 1.0.1; Wickham &amp; Francois, <a href="#ref-R-dplyr" role="doc-biblioref">2016</a>)</span>, <em>estimability</em> <span class="citation">(Version 1.3; Lenth, <a href="#ref-R-estimability" role="doc-biblioref">2015</a>)</span>, <em>ez</em> <span class="citation">(Lawrence, <a href="#ref-R-ez" role="doc-biblioref">2016</a>)</span>, <em>ggplot2</em> <span class="citation">(Version 3.3.2; Wickham, <a href="#ref-R-ggplot2" role="doc-biblioref">2009</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.29; Xie, <a href="#ref-R-knitr" role="doc-biblioref">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.23; Bates et al., <a href="#ref-R-lme4" role="doc-biblioref">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans" role="doc-biblioref">2016</a>)</span>, <em>Matrix</em> <span class="citation">(Version 1.2.18; Bates &amp; Maechler, <a href="#ref-R-Matrix" role="doc-biblioref">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9997; Aust &amp; Barth, <a href="#ref-R-papaja" role="doc-biblioref">2016</a>)</span>, <em>reshape2</em> <span class="citation">(Version 1.4.4; Wickham, <a href="#ref-R-reshape2" role="doc-biblioref">2007</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 2.3; Allaire et al., <a href="#ref-R-rmarkdown" role="doc-biblioref">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.5.0; Chang et al., <a href="#ref-R-shiny" role="doc-biblioref">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Marwick, <a href="#ref-R-wordcountaddin" role="doc-biblioref">n.d.</a>)</span></p>
 </blockquote>
 <p>If you prefer to cite only a subset of these packages, package names can be specified either as a blacklist, so they won’t be cited (<code>withhold = TRUE</code>), or as a whitelist, so only these packages will be cited (<code>withhold = FALSE</code>).</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">my_citations &lt;-<span class="st"> </span><span class="kw">cite_r</span>(</a>
-<a class="sourceLine" id="cb28-2" data-line-number="2">  <span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span></a>
-<a class="sourceLine" id="cb28-3" data-line-number="3">  , <span class="dt">pkgs =</span> <span class="kw">c</span>(<span class="st">&quot;afex&quot;</span>, <span class="st">&quot;lsmeans&quot;</span>, <span class="st">&quot;papaja&quot;</span>)</a>
-<a class="sourceLine" id="cb28-4" data-line-number="4">  , <span class="dt">withhold =</span> <span class="ot">FALSE</span></a>
-<a class="sourceLine" id="cb28-5" data-line-number="5">)</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="writing.html#cb28-1"></a>my_citations &lt;-<span class="st"> </span><span class="kw">cite_r</span>(</span>
+<span id="cb28-2"><a href="writing.html#cb28-2"></a>  <span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span></span>
+<span id="cb28-3"><a href="writing.html#cb28-3"></a>  , <span class="dt">pkgs =</span> <span class="kw">c</span>(<span class="st">&quot;afex&quot;</span>, <span class="st">&quot;lsmeans&quot;</span>, <span class="st">&quot;papaja&quot;</span>)</span>
+<span id="cb28-4"><a href="writing.html#cb28-4"></a>  , <span class="dt">withhold =</span> <span class="ot">FALSE</span></span>
+<span id="cb28-5"><a href="writing.html#cb28-5"></a>)</span></code></pre></div>
 <blockquote>
-<p>R <span class="citation">(Version 3.6.3; R Core Team, <a href="#ref-R-base">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.27.2; Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, and <em>papaja</em> <span class="citation">(Version 0.1.0.9997; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span></p>
+<p>R <span class="citation">(Version 4.0.2; R Core Team, <a href="#ref-R-base" role="doc-biblioref">2016</a>)</span> and the R-packages <em>afex</em> <span class="citation">(Version 0.27.2; Singmann et al., <a href="#ref-R-afex" role="doc-biblioref">2016</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans" role="doc-biblioref">2016</a>)</span>, and <em>papaja</em> <span class="citation">(Version 0.1.0.9997; Aust &amp; Barth, <a href="#ref-R-papaja" role="doc-biblioref">2016</a>)</span></p>
 </blockquote>
 <p>Another option is to cite R in text but move the list of R packges into a footnote.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">my_citations &lt;-<span class="st"> </span><span class="kw">cite_r</span>(<span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span>, <span class="dt">footnote =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="writing.html#cb29-1"></a>my_citations &lt;-<span class="st"> </span><span class="kw">cite_r</span>(<span class="dt">file =</span> <span class="st">&quot;r-references.bib&quot;</span>, <span class="dt">footnote =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p>This way you can reference R in the running text using <code>my_citations$r</code> and place the footnote syntax including the package list <code>my_citations$pkgs</code> in a new paragraph.</p>
 <blockquote>
-<p>R <span class="citation">(Version 3.6.3; R Core Team, <a href="#ref-R-base">2016</a>)</span><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>R <span class="citation">(Version 4.0.2; R Core Team, <a href="#ref-R-base" role="doc-biblioref">2016</a>)</span><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 </blockquote>
 </div>
 </div>
@@ -496,16 +501,41 @@ This enables the use of <code>bookdown</code> cross-referencing syntax including
 <li>One level-1 heading</li>
 <li>No YAML front matter</li>
 </ul>
-<div class="sourceCode" id="cb30"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="fu">appendix:</span><span class="at"> </span><span class="st">&quot;appendix.Rmd&quot;</span></a>
-<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb30-1"><a href="writing.html#cb30-1"></a><span class="pp">---</span></span>
+<span id="cb30-2"><a href="writing.html#cb30-2"></a><span class="fu">appendix</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;appendix.Rmd&quot;</span></span>
+<span id="cb30-3"><a href="writing.html#cb30-3"></a><span class="pp">---</span></span></code></pre></div>
 <p>The R code is executed after the main document; all packages and variables from the main document should be available.</p>
 <p>Multiple appendices are possible</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="fu">appendix:</span></a>
-<a class="sourceLine" id="cb31-3" data-line-number="3">  <span class="kw">-</span> <span class="st">&quot;appendix_a.Rmd&quot;</span></a>
-<a class="sourceLine" id="cb31-4" data-line-number="4">  <span class="kw">-</span> <span class="st">&quot;appendix_b.Rmd&quot;</span></a>
-<a class="sourceLine" id="cb31-5" data-line-number="5"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb31-1"><a href="writing.html#cb31-1"></a><span class="pp">---</span></span>
+<span id="cb31-2"><a href="writing.html#cb31-2"></a><span class="fu">appendix</span><span class="kw">:</span></span>
+<span id="cb31-3"><a href="writing.html#cb31-3"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;appendix_a.Rmd&quot;</span></span>
+<span id="cb31-4"><a href="writing.html#cb31-4"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;appendix_b.Rmd&quot;</span></span>
+<span id="cb31-5"><a href="writing.html#cb31-5"></a><span class="pp">---</span></span></code></pre></div>
+</div>
+<div id="counting-words" class="section level2">
+<h2><span class="header-section-number">3.6</span> Counting words</h2>
+<p>To get an accurate word count <code>papaja</code> uses the Lua word count filter in <a href="https://cran.r-project.org/web/packages/rmdfiltr/index.html"><code>rmdfiltr</code></a>, which yields counts that are <a href="https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html">comparable to other methods</a>.
+Words are counted separately for the body of the text (excluding captions) and the reference section.
+Every time the document is knitted the current word count is printed to the R Markdown pane in RStudio or the console:</p>
+<pre><code>5138 words in text body
+624 words in reference section</code></pre>
+</div>
+<div id="comparing-document-versions" class="section level2">
+<h2><span class="header-section-number">3.7</span> Comparing document versions</h2>
+<p>In revisions, it can be helpful to highlight all changes.</p>
+<ul>
+<li>for DOCX, use the Microsoft Word combine feature</li>
+<li>for PDF, use <a href="https://3142.nl/latex-diff/"><code>latexdiff</code></a> on <span class="math inline">\(\LaTeX\)</span> source documents
+<ol style="list-style-type: decimal">
+<li>Create <span class="math inline">\(\LaTeX\)</span> file with highlighted changes</li>
+<li>Compile to PDF in RStudio</li>
+</ol></li>
+</ul>
+<p>Notes on PDF method:</p>
+<p>The .tex files are generated when you knit your .rmd document. Make sure you save the .tex file from <em>before</em> you make any modifications.</p>
+<p>You can now visit <a href="https://3142.nl/latex-diff/"><code>latexdiff</code></a> and copy/paste in the contents of <code>manuscript_old.tex</code> and <code>manuscript_new.tex</code>, or (if you are a command line ninja install <a href="https://3142.nl/latex-diff/"><code>latexdiff</code></a> on your own system). This will generate output which you can copy/paste into a file <code>manuscript_with_changes.tex</code>.</p>
+<p>Now open this file <code>manuscript_with_changes.tex</code> in RStudio and click “Compile to PDF” in the top bar.</p>
+<p>N.B. Will not track changes in the front matter (affiliations, abstract)</p>
 
 </div>
 </div>
@@ -553,6 +583,9 @@ This enables the use of <code>bookdown</code> cross-referencing syntax including
 <div id="ref-R-lsmeans">
 <p>Lenth, R. V. (2016). Least-squares means: The R package lsmeans. <em>Journal of Statistical Software</em>, <em>69</em>(1), 1–33. doi:<a href="https://doi.org/10.18637/jss.v069.i01">10.18637/jss.v069.i01</a></p>
 </div>
+<div id="ref-R-wordcountaddin">
+<p>Marwick, B. (n.d.). <em>Wordcountaddin: Word counts and readability statistics in r markdown documents</em>.</p>
+</div>
 <div id="ref-R-bindrcpp">
 <p>Müller, K. (2017). <em>Bindrcpp: An ’rcpp’ interface to active bindings</em>. Retrieved from <a href="https://CRAN.R-project.org/package=bindrcpp">https://CRAN.R-project.org/package=bindrcpp</a></p>
 </div>
@@ -581,7 +614,7 @@ This enables the use of <code>bookdown</code> cross-referencing syntax including
 <div class="footnotes">
 <hr />
 <ol start="2">
-<li id="fn2"><p>We, furthermore, used the R-packages <em>afex</em> <span class="citation">(Version 0.27.2; Singmann et al., <a href="#ref-R-afex">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Müller, <a href="#ref-R-bindrcpp">2017</a>)</span>, <em>car</em> <span class="citation">(Version 3.0.7; Fox &amp; Weisberg, <a href="#ref-R-car">2011</a>; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>carData</em> <span class="citation">(Version 3.0.3; Fox et al., <a href="#ref-R-carData">2018</a>)</span>, <em>citr</em> <span class="citation">(Version 0.3.2; Aust, <a href="#ref-R-citr">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 1.0.6.1; Sveidqvist et al., <a href="#ref-R-DiagrammeR">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 0.8.5; Wickham &amp; Francois, <a href="#ref-R-dplyr">2016</a>)</span>, <em>estimability</em> <span class="citation">(Version 1.3; Lenth, <a href="#ref-R-estimability">2015</a>)</span>, <em>ez</em> <span class="citation">(Version 4.4.0; Lawrence, <a href="#ref-R-ez">2016</a>)</span>, <em>ggplot2</em> <span class="citation">(Version 3.3.0; Wickham, <a href="#ref-R-ggplot2">2009</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.28; Xie, <a href="#ref-R-knitr">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.21; Bates et al., <a href="#ref-R-lme4">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans">2016</a>)</span>, <em>Matrix</em> <span class="citation">(Version 1.2.18; Bates &amp; Maechler, <a href="#ref-R-Matrix">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9997; Aust &amp; Barth, <a href="#ref-R-papaja">2016</a>)</span>, <em>reshape2</em> <span class="citation">(Version 1.4.4; Wickham, <a href="#ref-R-reshape2">2007</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 2.1; Allaire et al., <a href="#ref-R-rmarkdown">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.4.0.2; Chang et al., <a href="#ref-R-shiny">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Marwick, n.d.)</span>.<a href="writing.html#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>We, furthermore, used the R-packages <em>afex</em> <span class="citation">(Version 0.27.2; Singmann et al., <a href="#ref-R-afex" role="doc-biblioref">2016</a>)</span>, <em>bindrcpp</em> <span class="citation">(Müller, <a href="#ref-R-bindrcpp" role="doc-biblioref">2017</a>)</span>, <em>car</em> <span class="citation">(Version 3.0.8; Fox &amp; Weisberg, <a href="#ref-R-car" role="doc-biblioref">2011</a>; Fox et al., <a href="#ref-R-carData" role="doc-biblioref">2018</a>)</span>, <em>carData</em> <span class="citation">(Version 3.0.4; Fox et al., <a href="#ref-R-carData" role="doc-biblioref">2018</a>)</span>, <em>citr</em> <span class="citation">(Version 0.3.2; Aust, <a href="#ref-R-citr" role="doc-biblioref">2016</a>)</span>, <em>DiagrammeR</em> <span class="citation">(Version 1.0.6.1; Sveidqvist et al., <a href="#ref-R-DiagrammeR" role="doc-biblioref">2016</a>)</span>, <em>dplyr</em> <span class="citation">(Version 1.0.1; Wickham &amp; Francois, <a href="#ref-R-dplyr" role="doc-biblioref">2016</a>)</span>, <em>estimability</em> <span class="citation">(Version 1.3; Lenth, <a href="#ref-R-estimability" role="doc-biblioref">2015</a>)</span>, <em>ez</em> <span class="citation">(Lawrence, <a href="#ref-R-ez" role="doc-biblioref">2016</a>)</span>, <em>ggplot2</em> <span class="citation">(Version 3.3.2; Wickham, <a href="#ref-R-ggplot2" role="doc-biblioref">2009</a>)</span>, <em>knitr</em> <span class="citation">(Version 1.29; Xie, <a href="#ref-R-knitr" role="doc-biblioref">2015</a>)</span>, <em>lme4</em> <span class="citation">(Version 1.1.23; Bates et al., <a href="#ref-R-lme4" role="doc-biblioref">2015</a>)</span>, <em>lsmeans</em> <span class="citation">(Version 2.30.0; Lenth, <a href="#ref-R-lsmeans" role="doc-biblioref">2016</a>)</span>, <em>Matrix</em> <span class="citation">(Version 1.2.18; Bates &amp; Maechler, <a href="#ref-R-Matrix" role="doc-biblioref">2016</a>)</span>, <em>papaja</em> <span class="citation">(Version 0.1.0.9997; Aust &amp; Barth, <a href="#ref-R-papaja" role="doc-biblioref">2016</a>)</span>, <em>reshape2</em> <span class="citation">(Version 1.4.4; Wickham, <a href="#ref-R-reshape2" role="doc-biblioref">2007</a>)</span>, <em>rmarkdown</em> <span class="citation">(Version 2.3; Allaire et al., <a href="#ref-R-rmarkdown" role="doc-biblioref">2017</a>)</span>, <em>shiny</em> <span class="citation">(Version 1.5.0; Chang et al., <a href="#ref-R-shiny" role="doc-biblioref">2016</a>)</span>, and <em>wordcountaddin</em> <span class="citation">(Marwick, <a href="#ref-R-wordcountaddin" role="doc-biblioref">n.d.</a>)</span>.<a href="writing.html#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <h1>Comments and Questions</h1>

@@ -149,18 +149,17 @@ If you dislike this behavior, you can disable the automatic access to the refere
 
 ### Meta-analysis references
 
-When reporting meta-analyses APA guidelines require that studies included in the meta analysis are included in the reference section and preceeded by an asterisk [p. 138, @american_psychological_association_publication_2010].
+When reporting meta-analyses, APA guidelines require that studies included in the meta analysis are included in the reference section and preceeded by an asterisk [p. 138, @american_psychological_association_publication_2010].
 There are two approaches to mark meta-analysis references.
 
-First, we have created a variant of the widely available APA CSL file that enables adding the required asteriskes.
+`papaja` provides an APA CSL file that enables adding annotations to the bibliography.
 To use this variant insert the following into YAML front matter.
 
 ~~~yaml
-csl: https://tinyurl.com/apa6-meta-analysis
+annotate_references: yes
 ~~~
 
-Alternatively, you can download the file and use the location on your hard drive instead of the above URL.
-Now any refernces that has an `annotation` field will be preceeded by an asterisk.
+Any references that has an `annote` field will be preceded by the contents of that field, e.g.  `*`.
 
 ~~~biblatex
 @article{aust_memory-based_2018,
@@ -169,16 +168,14 @@ Now any refernces that has an `annotation` field will be preceeded by an asteris
   date = {2018},
   journaltitle = {Journal of Experimental Psychology: Learning, Memory, and Cognition},
   doi = {10.1037/xlm0000600},
-  annotation = {meta-analysis}
+  annote = {*}
 }
 ~~~
 
 To include references that are not explicitly cited in the paper, you can use the `nocite` field of the YAML front matter.
 
 ~~~yaml
----
 nocite: @aust_memory-based_2018
----
 ~~~
 
 Finally, the APA guidelines require a note at the start of the reference section that explains what an asterisk means.
@@ -196,7 +193,7 @@ References marked with an asterisk indicate studies included in the meta-analysi
 \endgroup
 ~~~
 
-Second, if you prefer $\LaTeX$ to generate the bibliographic information, we recommend you use `biblatex-apa` by adding the following to the YAML front matter.
+If you prefer $\LaTeX$ to render the bibliographic information, you can add the following to the YAML front matter:
 
 ~~~yaml
 biblio-style      : "apa"
@@ -222,7 +219,7 @@ In the document you can use this custom command to add meta-analysis references.
 \nocitemeta{aust_memory-based_2018}
 ~~~
 
-No entry in the `annotation` field of the reference is required.
+No entry in the `annote` field of the reference is required.
 As usual, any non-meta-analysis citation can be added using the `pandoc-citeproc` syntax, e.g. `[@R-papaja]`.
 The note that explains what an asterisk means can be added at the end of the document as follows.
 
@@ -325,5 +322,33 @@ appendix:
 ```
 
 
+## Counting words
+
+To get an accurate word count `papaja` uses the Lua word count filter in [`rmdfiltr`](https://cran.r-project.org/web/packages/rmdfiltr/index.html), which yields counts that are [comparable to other methods](https://cran.r-project.org/web/packages/rmdfiltr/vignettes/wordcount.html).
+Words are counted separately for the body of the text (excluding captions) and the reference section.
+Every time the document is knitted the current word count is printed to the R Markdown pane in RStudio or the console:
+
+~~~
+5138 words in text body
+624 words in reference section
+~~~
 
 
+## Comparing document versions
+
+In revisions, it can be helpful to highlight all changes.
+
+* for DOCX, use the Microsoft Word combine feature
+* for PDF, use [`latexdiff`](https://3142.nl/latex-diff/) on $\LaTeX$ source documents
+  1. Create $\LaTeX$ file with highlighted changes
+  2. Compile to PDF in RStudio
+
+Notes on PDF method:
+
+The .tex files are generated when you knit your .rmd document. Make sure you save the .tex file from *before* you make any modifications.
+
+You can now visit [`latexdiff`](https://3142.nl/latex-diff/) and copy/paste in the contents of `manuscript_old.tex` and `manuscript_new.tex`, or (if you are a command line ninja install [`latexdiff`](https://3142.nl/latex-diff/) on your own system). This will generate output which you can copy/paste into a file `manuscript_with_changes.tex`.
+
+Now open this file `manuscript_with_changes.tex` in RStudio and click "Compile to PDF" in the top bar.
+
+N.B. Will not track changes in the front matter (affiliations, abstract)
