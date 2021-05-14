@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9 Customizations | papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="""" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9 Customizations | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-10-19" />
+<meta name="date" content="2021-05-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="limitations.html"/>
 <link rel="next" href="future-directions.html"/>
+<script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,22 +51,21 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -135,34 +135,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a><ul>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="introduction.html"><a href="introduction.html#reproducible-scientific-reports"><i class="fa fa-check"></i><b>1.1.1</b> Reproducible scientific reports</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#implementation"><i class="fa fa-check"></i><b>1.2</b> Implementation</a><ul>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#implementation"><i class="fa fa-check"></i><b>1.2</b> Implementation</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#guiding-principles"><i class="fa fa-check"></i><b>1.2.1</b> Guiding principles</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#document-compilation"><i class="fa fa-check"></i><b>1.2.2</b> Document compilation</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>1.3</b> Alternatives</a></li>
-<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#getting-started"><i class="fa fa-check"></i><b>1.4</b> Getting started</a><ul>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#getting-started"><i class="fa fa-check"></i><b>1.4</b> Getting started</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#software-requirements"><i class="fa fa-check"></i><b>1.4.1</b> Software requirements</a></li>
 <li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#installing-papaja"><i class="fa fa-check"></i><b>1.4.2</b> Installing papaja</a></li>
 <li class="chapter" data-level="1.4.3" data-path="introduction.html"><a href="introduction.html#creating-a-document"><i class="fa fa-check"></i><b>1.4.3</b> Creating a document</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="r-markdown-components.html"><a href="r-markdown-components.html"><i class="fa fa-check"></i><b>2</b> R Markdown components</a><ul>
-<li class="chapter" data-level="2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#yaml-front-matter"><i class="fa fa-check"></i><b>2.1</b> YAML front matter</a><ul>
+<li class="chapter" data-level="2" data-path="r-markdown-components.html"><a href="r-markdown-components.html"><i class="fa fa-check"></i><b>2</b> R Markdown components</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#yaml-front-matter"><i class="fa fa-check"></i><b>2.1</b> YAML front matter</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#manuscript-metadata"><i class="fa fa-check"></i><b>2.1.1</b> Manuscript metadata</a></li>
 <li class="chapter" data-level="2.1.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#rendering-options"><i class="fa fa-check"></i><b>2.1.2</b> Rendering options</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#body"><i class="fa fa-check"></i><b>2.2</b> Body</a><ul>
+<li class="chapter" data-level="2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#body"><i class="fa fa-check"></i><b>2.2</b> Body</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#markdown"><i class="fa fa-check"></i><b>2.2.1</b> Markdown</a></li>
 <li class="chapter" data-level="2.2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#r-code"><i class="fa fa-check"></i><b>2.2.2</b> R code</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i><b>3</b> Writing</a><ul>
+<li class="chapter" data-level="3" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i><b>3</b> Writing</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#markdown-text-formatting"><i class="fa fa-check"></i><b>3.1</b> Markdown text formatting</a></li>
-<li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
+<li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#citation-styles"><i class="fa fa-check"></i><b>3.2.1</b> Citation styles</a></li>
 <li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#works-in-press"><i class="fa fa-check"></i><b>3.2.2</b> Works ‘in press’</a></li>
 <li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.3</b> Conveniently inserting citations with <code>citr</code></a></li>
@@ -175,38 +184,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#counting-words"><i class="fa fa-check"></i><b>3.6</b> Counting words</a></li>
 <li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#comparing-document-versions"><i class="fa fa-check"></i><b>3.7</b> Comparing document versions</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
+<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#numerical-values"><i class="fa fa-check"></i><b>4.1</b> Numerical values</a></li>
-<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#figures"><i class="fa fa-check"></i><b>4.2</b> Figures</a><ul>
+<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#figures"><i class="fa fa-check"></i><b>4.2</b> Figures</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#r-generated-figures"><i class="fa fa-check"></i><b>4.2.1</b> R-generated figures</a></li>
 <li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#external-images"><i class="fa fa-check"></i><b>4.2.2</b> External images</a></li>
 <li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.3</b> Figure captions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
-<li class="chapter" data-level="4.3.2" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#fixed-width-columns"><i class="fa fa-check"></i><b>4.3.1</b> Fixed-width columns</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.2</b> Table captions</a></li>
+<li class="chapter" data-level="4.3.3" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.3</b> Alternatives</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#statistical-models-and-tests"><i class="fa fa-check"></i><b>4.4</b> Statistical Models and Tests</a><ul>
+<li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#statistical-models-and-tests"><i class="fa fa-check"></i><b>4.4</b> Statistical Models and Tests</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#reporting-models-and-tests-in-a-table"><i class="fa fa-check"></i><b>4.4.1</b> Reporting models and tests in a table</a></li>
-<li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#fully-supported-analysis-methods"><i class="fa fa-check"></i><b>4.4.2</b> Fully supported analysis methods</a></li>
+<li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#supported-analysis-methods"><i class="fa fa-check"></i><b>4.4.2</b> Supported analysis methods</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a><ul>
+<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="reporting.html"><a href="reporting.html#inserting-variables-before-they-have-been-computed"><i class="fa fa-check"></i><b>4.5.1</b> Inserting variables before they have been computed</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a><ul>
+<li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#global-chunk-options"><i class="fa fa-check"></i><b>5.1</b> Global chunk options</a></li>
 <li class="chapter" data-level="5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#meaningful-chunk-names"><i class="fa fa-check"></i><b>5.2</b> Meaningful chunk names</a></li>
 <li class="chapter" data-level="5.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#text-references"><i class="fa fa-check"></i><b>5.3</b> Text references</a></li>
 <li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#useful-rstudio-addins"><i class="fa fa-check"></i><b>5.4</b> Useful RStudio Addins</a></li>
-<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environments"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environments</a><ul>
+<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environments"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environments</a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#docker"><i class="fa fa-check"></i><b>5.5.1</b> Docker</a></li>
 <li class="chapter" data-level="5.5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#codeocean"><i class="fa fa-check"></i><b>5.5.2</b> CodeOcean</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
 <li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
 <li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.8</b> Best practices</a></li>
-<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.9</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.9</b> Troubleshooting</a>
+<ul>
 <li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#yaml"><i class="fa fa-check"></i><b>5.9.1</b> YAML</a></li>
 <li class="chapter" data-level="5.9.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.9.2</b> R</a></li>
 <li class="chapter" data-level="5.9.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#bookdown"><i class="fa fa-check"></i><b>5.9.3</b> <code>bookdown</code></a></li>
@@ -216,19 +234,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
 <li class="chapter" data-level="7" data-path="published-manuscripts.html"><a href="published-manuscripts.html"><i class="fa fa-check"></i><b>7</b> Published manuscripts</a></li>
-<li class="chapter" data-level="8" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>8</b> Limitations</a><ul>
-<li class="chapter" data-level="8.1" data-path="limitations.html"><a href="limitations.html#pdf-documents"><i class="fa fa-check"></i><b>8.1</b> PDF documents</a><ul>
+<li class="chapter" data-level="8" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>8</b> Limitations</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="limitations.html"><a href="limitations.html#pdf-documents"><i class="fa fa-check"></i><b>8.1</b> PDF documents</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="limitations.html"><a href="limitations.html#customizing-the-document-preamble"><i class="fa fa-check"></i><b>8.1.1</b> Customizing the document preamble</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="limitations.html"><a href="limitations.html#microsoft-word-documents"><i class="fa fa-check"></i><b>8.2</b> Microsoft Word documents</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="customizations.html"><a href="customizations.html"><i class="fa fa-check"></i><b>9</b> Customizations</a><ul>
+<li class="chapter" data-level="9" data-path="customizations.html"><a href="customizations.html"><i class="fa fa-check"></i><b>9</b> Customizations</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="customizations.html"><a href="customizations.html#author-name-disambiguation"><i class="fa fa-check"></i><b>9.1</b> Author name disambiguation</a></li>
 <li class="chapter" data-level="9.2" data-path="customizations.html"><a href="customizations.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>9.2</b> Adjusting line spacing</a></li>
 <li class="chapter" data-level="9.3" data-path="customizations.html"><a href="customizations.html#writing-dissertations"><i class="fa fa-check"></i><b>9.3</b> Writing dissertations</a></li>
+<li class="chapter" data-level="9.4" data-path="customizations.html"><a href="customizations.html#customizing-apa_print"><i class="fa fa-check"></i><b>9.4</b> Customizing <code>apa_print()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a><ul>
-<li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a><ul>
+<li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a>
+<ul>
 <li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
 </ul></li>
 </ul></li>
@@ -254,86 +278,126 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="customizations" class="section level1">
+<div id="customizations" class="section level1" number="9">
 <h1><span class="header-section-number">9</span> Customizations</h1>
-<div id="author-name-disambiguation" class="section level2">
+<div id="author-name-disambiguation" class="section level2" number="9.1">
 <h2><span class="header-section-number">9.1</span> Author name disambiguation</h2>
 <p>As per APA style, citations in <code>papaja</code> documents will be disambiguated if the bibliography file contains multiple authors with the same family but different given names.
 This can be a nuisance if the bibliographic information is not maintained meticulously.
 Entries such as <code>author = {John Doe}</code> and <code>author = {J. Doe}</code> are taken to be different authors and will be disambiguated (i.e. “John Doe (1986)” and “J. Doe (1986)”).</p>
 <p><code>papaja</code> provides an APA CSL file that disables author name disambiguation.
 To use this variant insert the following into YAML front matter:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb87-1"><a href="customizations.html#cb87-1"></a><span class="fu">disambiguate_authors</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb89-1"><a href="customizations.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">disambiguate_authors</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span></code></pre></div>
 <p>Note that using this style can create the false impression that two works are authored by the same author when really they were not.
-For example, <code>author = {John Doe}</code> and <code>author = {Jane Doe}</code> will be displayed as “Doe (1986a)” and “Doe (1986b)”.</p>
+For example, <code>author = {John Doe}</code> and <code>author = {Jane Doe}</code> will be displayed as “Doe (1986a)” and “Doe (1986b).”</p>
 <p>If you prefer <span class="math inline">\(\LaTeX\)</span> to render the bibliographic information, we recommend the following approach to disable author name disambiguation:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb88-1"><a href="customizations.html#cb88-1"></a><span class="fu">lang              </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;en-EN&quot;</span><span class="co"> # Optional, added for clarity</span></span>
-<span id="cb88-2"><a href="customizations.html#cb88-2"></a></span>
-<span id="cb88-3"><a href="customizations.html#cb88-3"></a><span class="fu">biblio-style      </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;apa&quot;</span></span>
-<span id="cb88-4"><a href="customizations.html#cb88-4"></a><span class="fu">biblatexoptions   </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;uniquename=false&quot;</span></span>
-<span id="cb88-5"><a href="customizations.html#cb88-5"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
-<span id="cb88-6"><a href="customizations.html#cb88-6"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \DeclareLanguageMapping{english}{english-apa}</span></span>
-<span id="cb88-7"><a href="customizations.html#cb88-7"></a></span>
-<span id="cb88-8"><a href="customizations.html#cb88-8"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb88-9"><a href="customizations.html#cb88-9"></a><span class="at">  papaja:</span><span class="fu">:apa6_pdf</span><span class="kw">:</span></span>
-<span id="cb88-10"><a href="customizations.html#cb88-10"></a><span class="at">    </span><span class="fu">citation_package</span><span class="kw">:</span><span class="at"> biblatex</span></span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb90-1"><a href="customizations.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lang              </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;en-EN&quot;</span><span class="co"> # Optional, added for clarity</span></span>
+<span id="cb90-2"><a href="customizations.html#cb90-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-3"><a href="customizations.html#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="fu">biblio-style      </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;apa&quot;</span></span>
+<span id="cb90-4"><a href="customizations.html#cb90-4" aria-hidden="true" tabindex="-1"></a><span class="fu">biblatexoptions   </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;uniquename=false&quot;</span></span>
+<span id="cb90-5"><a href="customizations.html#cb90-5" aria-hidden="true" tabindex="-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb90-6"><a href="customizations.html#cb90-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \DeclareLanguageMapping{english}{english-apa}</span></span>
+<span id="cb90-7"><a href="customizations.html#cb90-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-8"><a href="customizations.html#cb90-8" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb90-9"><a href="customizations.html#cb90-9" aria-hidden="true" tabindex="-1"></a><span class="at">  papaja:</span><span class="fu">:apa6_pdf</span><span class="kw">:</span></span>
+<span id="cb90-10"><a href="customizations.html#cb90-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">citation_package</span><span class="kw">:</span><span class="at"> biblatex</span></span></code></pre></div>
 <p>Specifying <code>lang</code> is optional in this case, because <code>en-EN</code> is the default.
 <code>pandoc</code> converts <code>en-EN</code> to <code>english</code> and inserts it into the document preamble.
 Hence, <code>english</code> needs to be mapped to <code>english-apa</code>.
 Similarly, if you want, say, British English you would have to adapt the above as follows:</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb89-1"><a href="customizations.html#cb89-1"></a><span class="fu">lang              </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;en-GB&quot;</span><span class="co"> # Required</span></span>
-<span id="cb89-2"><a href="customizations.html#cb89-2"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
-<span id="cb89-3"><a href="customizations.html#cb89-3"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \DeclareLanguageMapping{british}{british-apa}</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb91-1"><a href="customizations.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lang              </span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;en-GB&quot;</span><span class="co"> # Required</span></span>
+<span id="cb91-2"><a href="customizations.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb91-3"><a href="customizations.html#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \DeclareLanguageMapping{british}{british-apa}</span></span></code></pre></div>
 <p>A general drawback to this approach is that <code>biblatex</code> does not operate on any text in the YAML front matter.
 This can be a problem when, for example, the abstract contains citations.
-Fortunately, this drawback can be resolved by defining the respective text for the YAML front matter as a [Text references].
+Fortunately, this drawback can be resolved by defining the respective text for the YAML front matter as a <a href="tips-and-tricks.html#text-references">Text references</a>.
 Replace the text of the abstract in the YAML front matter by a unique identifier:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb90-1"><a href="customizations.html#cb90-1"></a><span class="fu">abstract</span><span class="kw">:</span><span class="at"> (ref:abstract)</span></span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb92-1"><a href="customizations.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abstract</span><span class="kw">:</span><span class="at"> (ref:abstract)</span></span></code></pre></div>
 <p><code>(ref:abstract)</code> is a stand-in for text that you define in the body of the R Markdown document (e.g., right after the YAML front matter):</p>
 <pre><code>(ref:abstract) This is the abstract [@doe1986].</code></pre>
 <p>This text will now be processed and citations will be generated as expected.
-For details see [Text references].</p>
+For details see <a href="tips-and-tricks.html#text-references">Text references</a>.</p>
 <!-- TODO: See Lua filter! -->
 </div>
-<div id="adjusting-line-spacing" class="section level2">
+<div id="adjusting-line-spacing" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> Adjusting line spacing</h2>
-<p>According to the APA guidelines, “Tables may be submitted either single- or double-spaced.” <span class="citation">(p. 141; American Psychological Association, <a href="#ref-american_psychological_association_publication_2010" role="doc-biblioref">2010</a>)</span>.
+<p>According to the APA guidelines, “Tables may be submitted either single- or double-spaced.” [p. 141; <span class="citation"><a href="references.html#ref-american_psychological_association_publication_2010" role="doc-biblioref">American Psychological Association</a> (<a href="references.html#ref-american_psychological_association_publication_2010" role="doc-biblioref">2010</a>)</span>].
 Adjusting the line spacing of table contents is currently not supported in <code>papaja</code>.
 However, as usual it is possible to adjust the spacing in PDF documents by including additional <span class="math inline">\(\LaTeX\)</span> code.
 If you use <code>apa_table()</code>, including the following in the YAML front matter will result in single-spaced tables with double-spaced caption and table note:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb92-1"><a href="customizations.html#cb92-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
-<span id="cb92-2"><a href="customizations.html#cb92-2"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \usepackage{setspace}</span></span>
-<span id="cb92-3"><a href="customizations.html#cb92-3"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{tabular}{\singlespacing}</span></span>
-<span id="cb92-4"><a href="customizations.html#cb92-4"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{lltable}{\singlespacing}</span></span>
-<span id="cb92-5"><a href="customizations.html#cb92-5"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{tablenotes}{\doublespacing}</span></span>
-<span id="cb92-6"><a href="customizations.html#cb92-6"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \captionsetup[table]{font={stretch=1.5}}</span></span>
-<span id="cb92-7"><a href="customizations.html#cb92-7"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \captionsetup[figure]{font={stretch=1.5}}</span></span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb94-1"><a href="customizations.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb94-2"><a href="customizations.html#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \usepackage{setspace}</span></span>
+<span id="cb94-3"><a href="customizations.html#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{tabular}{\singlespacing}</span></span>
+<span id="cb94-4"><a href="customizations.html#cb94-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{lltable}{\singlespacing}</span></span>
+<span id="cb94-5"><a href="customizations.html#cb94-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{tablenotes}{\doublespacing}</span></span>
+<span id="cb94-6"><a href="customizations.html#cb94-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \captionsetup[table]{font={stretch=1.5}}</span></span>
+<span id="cb94-7"><a href="customizations.html#cb94-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \captionsetup[figure]{font={stretch=1.5}}</span></span></code></pre></div>
 <p>Similarly, the line spacing of figure captions can be adjusted as follows:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb93-1"><a href="customizations.html#cb93-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
-<span id="cb93-2"><a href="customizations.html#cb93-2"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \usepackage{setspace}</span></span>
-<span id="cb93-3"><a href="customizations.html#cb93-3"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{tabular}{\doublespacing}</span></span>
-<span id="cb93-4"><a href="customizations.html#cb93-4"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{lltable}{\doublespacing}</span></span>
-<span id="cb93-5"><a href="customizations.html#cb93-5"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{tablenotes}{\doublespacing}</span></span>
-<span id="cb93-6"><a href="customizations.html#cb93-6"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \captionsetup[table]{font={stretch=1.5}}</span></span>
-<span id="cb93-7"><a href="customizations.html#cb93-7"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \captionsetup[figure]{font={stretch=1}}</span></span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb95-1"><a href="customizations.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">header-includes</span><span class="kw">:</span></span>
+<span id="cb95-2"><a href="customizations.html#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \usepackage{setspace}</span></span>
+<span id="cb95-3"><a href="customizations.html#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{tabular}{\doublespacing}</span></span>
+<span id="cb95-4"><a href="customizations.html#cb95-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{lltable}{\doublespacing}</span></span>
+<span id="cb95-5"><a href="customizations.html#cb95-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \AtBeginEnvironment{tablenotes}{\doublespacing}</span></span>
+<span id="cb95-6"><a href="customizations.html#cb95-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \captionsetup[table]{font={stretch=1.5}}</span></span>
+<span id="cb95-7"><a href="customizations.html#cb95-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> \captionsetup[figure]{font={stretch=1}}</span></span></code></pre></div>
 </div>
-<div id="writing-dissertations" class="section level2">
+<div id="writing-dissertations" class="section level2" number="9.3">
 <h2><span class="header-section-number">9.3</span> Writing dissertations</h2>
 <p>While <code>papaja</code> is primarily intended for preparing journal articles and preprints, it is possible to create entire dissertations using it.
-This is particularly useful for cummulative dissertation formats that include individual papers as separate chapters.
+This is particularly useful for cumulative dissertation formats that include individual papers as separate chapters.
 If the individual papers were written with <code>papaja</code>, it is straight forward to include them in the dissertation document.
-The first dissertation written using <code>papaja</code> that I’m aware of is <em>Contingency Awareness in Evaluative Conditioning: Investigations Using Subliminal Stimulus Presentations</em> by <span class="citation">Heycke (<a href="#ref-heycke_contingency_2018" role="doc-biblioref">2018</a>)</span>.
+The first dissertation written using <code>papaja</code> that I’m aware of is <em>Contingency Awareness in Evaluative Conditioning: Investigations Using Subliminal Stimulus Presentations</em> by <span class="citation"><a href="references.html#ref-heycke_contingency_2018" role="doc-biblioref">Heycke</a> (<a href="references.html#ref-heycke_contingency_2018" role="doc-biblioref">2018</a>)</span>.
 Tobias provides a <a href="http://rpubs.com/theycke/380678">brief tutorial</a> on how he used <code>papaja</code>.</p>
+</div>
+<div id="customizing-apa_print" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Customizing <code>apa_print()</code></h2>
+<p><code>apa_print()</code> is designed to format the results from various statistical methods in accordance with APA guidelines.
+Of course, one size does not fit <em>all</em> and maybe you would like to report other or additional information.
+This section will demonstrate how to use <code>glue_apa_results()</code> to customize the output of <code>apa_print()</code>.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="customizations.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;afex&quot;</span>)</span></code></pre></div>
+<pre><code>## Loading required package: lme4</code></pre>
+<pre><code>## Loading required package: Matrix</code></pre>
+<pre><code>## ************
+## Welcome to afex. For support visit: http://afex.singmann.science/</code></pre>
+<pre><code>## - Functions for ANOVAs: aov_car(), aov_ez(), and aov_4()
+## - Methods for calculating p-values with mixed(): &#39;KR&#39;, &#39;S&#39;, &#39;LRT&#39;, and &#39;PB&#39;
+## - &#39;afex_aov&#39; and &#39;mixed&#39; objects can be passed to emmeans() for follow-up tests
+## - NEWS: library(&#39;emmeans&#39;) now needs to be called explicitly!
+## - Get and set global package options with: afex_options()
+## - Set orthogonal sum-to-zero contrasts globally: set_sum_contrasts()
+## - For example analyses see: browseVignettes(&quot;afex&quot;)
+## ************</code></pre>
+<pre><code>## 
+## Attaching package: &#39;afex&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:lme4&#39;:
+## 
+##     lmer</code></pre>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="customizations.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;emmeans&quot;</span>)</span>
+<span id="cb103-2"><a href="customizations.html#cb103-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-3"><a href="customizations.html#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(md_12<span class="fl">.1</span>)</span>
+<span id="cb103-4"><a href="customizations.html#cb103-4" aria-hidden="true" tabindex="-1"></a>md_aov <span class="ot">&lt;-</span> <span class="fu">aov_ez</span>(</span>
+<span id="cb103-5"><a href="customizations.html#cb103-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="st">&quot;id&quot;</span></span>
+<span id="cb103-6"><a href="customizations.html#cb103-6" aria-hidden="true" tabindex="-1"></a>  , <span class="at">dv =</span> <span class="st">&quot;rt&quot;</span></span>
+<span id="cb103-7"><a href="customizations.html#cb103-7" aria-hidden="true" tabindex="-1"></a>  , <span class="at">data =</span> md_12<span class="fl">.1</span></span>
+<span id="cb103-8"><a href="customizations.html#cb103-8" aria-hidden="true" tabindex="-1"></a>  , <span class="at">within =</span> <span class="fu">c</span>(<span class="st">&quot;angle&quot;</span>, <span class="st">&quot;noise&quot;</span>)</span>
+<span id="cb103-9"><a href="customizations.html#cb103-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb103-10"><a href="customizations.html#cb103-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-11"><a href="customizations.html#cb103-11" aria-hidden="true" tabindex="-1"></a><span class="fu">emmeans</span>(md_aov, <span class="sc">~</span> angle <span class="sc">*</span> noise)</span></code></pre></div>
+<pre><code>##  angle noise   emmean SE   df lower.CL upper.CL
+##  X0    absent     462 29 19.8      402      522
+##  X4    absent     510 29 19.8      450      570
+##  X8    absent     528 29 19.8      468      588
+##  X0    present    492 29 19.8      432      552
+##  X4    present    660 29 19.8      600      720
+##  X8    present    762 29 19.8      702      822
+## 
+## Warning: EMMs are biased unless design is perfectly balanced 
+## Confidence level used: 0.95</code></pre>
+<p>For the following example, we want to report pairwise comparisons between experimental conditions.
+We use <code>afex::aov_ez()</code> for the ANOVA and {emmeans} to preform the pairwise comparisons.
+However, in addition to the frequentist NHST results, we also want to report Bayes factors for all comparisons.
+Hence, we need to calculate the Bayes factors and add them to the <code>$table</code>, <code>$statistics</code>, and <code>$full_result</code> elements of the <code>list</code> returned by <code>apa_print()</code>.</p>
 
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-american_psychological_association_publication_2010">
-<p>American Psychological Association. (2010). <em>Publication Manual of the American Psychological Association</em> (6th edition.). Washington, DC: American Psychological Association.</p>
-</div>
-<div id="ref-heycke_contingency_2018">
-<p>Heycke, T. (2018, July). <em>Contingency awareness in evaluative conditioning: Investigations using subliminal stimulus presentations</em> (Doctoral dissertation). University of Cologne. Retrieved from <a href="http://www.uni-koeln.de/">http://www.uni-koeln.de/</a></p>
 </div>
 </div>
 <h1>Comments and Questions</h1>

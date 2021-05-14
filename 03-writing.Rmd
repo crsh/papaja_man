@@ -290,8 +290,10 @@ This enables the use of `bookdown` cross-referencing syntax including automatica
 
 To cross-reference figures and tables use `\@ref(fig:chunk-label)` or<br /> `\@ref(tab:chunk-label)`
 
-- Only works if chunk labels don't contain `_`
+- Chunk labels must not contain underscores (`_`) for this to work.
 - Precede by non-breaking spaces, e.g.<br />`Figure\ \@ref(fig:chunk-label)`
+- If you want to reference sections (i.e., "in Section 1, we describe in more detail..."), make sure that your sections are actually numbered by setting `numbersections: yes` in the document's yaml header.
+
 
 ## Appendices
 
