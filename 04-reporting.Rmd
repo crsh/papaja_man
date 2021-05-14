@@ -419,7 +419,7 @@ This approach, however, is not particularly useful if one of the columns contain
 In such cases, it is possible to create fixed-width columns by explicitly specifying the desired column widths.
 Such fixed-width colums automatically break the content into multiple lines.
 For example, set \code{align = "lm{5cm}l"} to limit the second column to a width of 5 cm.
-Consider the following example, curtosey of [James Conigrave](https://github.com/conig).
+Consider the following example of a table summarizing the scoring rules of the AUDIT-C scale [@Bradley2007], curtosey of [James Conigrave](https://github.com/conig).
 
 ```{r eval = FALSE}
 audit_table <- structure(
