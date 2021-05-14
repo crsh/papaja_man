@@ -6,8 +6,7 @@ By default the R code will not be displayed in the final documents.
 If you wish to show off your code you need to set `echo = TRUE` in the chunk options.
 
 This section describes how results from statistical analyses can be included into the manuscript:
-It starts with simple numerical values (like a sample mean) and then continues with more-complex
-output, like figures, tables, and the results from statistical models and hypothesis tests.
+It starts with simple numerical values (like a sample mean) and then continues with more-complex output, like figures, tables, and the results from statistical models and hypothesis tests.
 
 
 ## Numerical values
@@ -29,9 +28,7 @@ The above line is rendered as follows:
 
 > Participants mean age was `r printnum(age_mean)` years ($SD = `r printnum(age_sd)`$).
 
-`printnum()` is quiet flexible by passing its arguments to the underlying base function `formatC()`,
-so changing the number of digits after the decimal point or the character to be used to indicate the 
-decimal point (e.g., from a point `"."` to a comma `","`) is always possible.
+`printnum()` is quiet flexible by passing its arguments to the underlying base function `formatC()`, so changing the number of digits after the decimal point or the character to be used to indicate the  decimal point (e.g., from a point `"."` to a comma `","`) is always possible.
 
 ```{block2, hook-note, type = "rmdnote"}
 `papaja` automatically applies `printnum()` to any number that is printed in inline code chunks.
@@ -135,8 +132,7 @@ If the data encompass multiple observations per participant-factor-level-combina
 By default, the condition means are computed but you can specify other aggregation functions via the `fun_aggregate` argument.
 
 The visual elements of the plots can be customized by passing options to the arguments `args_points`, `args_error_bars`, `args_legend`, and so on.
-These arguments take named lists of arguments that are passed on to the respective functions from the `graphics` package
-(which comprises R's standard plotting functions), such as `points()`, `arrows()`, and `legend()`.
+These arguments take named lists of arguments that are passed on to the respective functions from the `graphics` package (which comprises R's standard plotting functions), such as `points()`, `arrows()`, and `legend()`.
 Consider the following code and the resulting Figure\ \@ref(fig:customized-plot) for a customized version of the previous beeswarm plot.
 
 
@@ -346,7 +342,10 @@ To ensure that `fig.scap` takes effect, `knitr` requires that the chunk specifie
 
 ## Tables
 
-For prettier tables, I suggest you try `apa_table()`, which builds on `knitr`'s `kable()`.
+There are many available functions and packages to create tables in R Markdown documents.
+As a default option `knitr::kable()` is a good choice.
+`papaja` also provides a funtion to create tables---`apa_table()`.
+`apa_table()` is an extension of `knitr::kable()`, so all the options you know from `kable()` will work with `apa_table()`.
 
 (ref:mixed-table-caption) Descriptive statistics of correct recall by dosage.
 
@@ -372,20 +371,20 @@ apa_table(
 )
 ```
 
-Of course popular packages like `xtable`[^xtable] or `tables` can also be used to create tables when knitting PDF documents.
-These packages, however, cannot be used when you want to create Microsoft Word documents because they rely on $\LaTeX$ for typesetting.
-`apa_table()` creates tables that conform to APA guidelines and are correctly rendered in PDF and Word documents.
-But don't get too excited.
-In papaja, table formatting is somewhat limited for Word documents due to missing functionality in pandoc (e.g., it is not possible to have cells or headers span across multiple columns).
+`apa_table()` creates tables that are inspired by the examples presented in the APA manual and that adhere to its guidelines.
+Unfortunately, in papaja table formatting is somewhat limited for Word documents due to missing functionality in `pandoc` (e.g., it is not possible to have cells or headers span across multiple columns).
+The function performs no calculations but simply prints any `data.frame` it is given.
+If you pass a `list` to `apa_table()`, all list elements are merged by columns into a single `data.frame` and the names of list elements are added to the table according to the setting of `merge_method`.
 
-[^xtable]: When you use `xtable()`, table captions are [set to the left page margin](http://tex.stackexchange.com/questions/42209/centering-tables-in-document-class-apa6).
+When using `apa_table()`, the type of the output (LaTeX or MS Word) is determined automatically by the rendered document type.
+In interactive R session (unless a document is being rendered) the output defaults to LaTeX.
 
-As required by the APA guidelines, tables are deferred to the final pages of the manuscript when creating a PDF.
-To place tables and figures in your text instead, set the `figsintext` parameter in the YAML header to `yes` or `true`, as I have done in this document.
-Again, this is not the case in Word documents due to limited pandoc functionality.
-The bottom line is, Word documents will be less polished than PDF.
-The resulting documents should suffice to enable collaboration with Wordy colleagues and prepare a journal submission with limited manual labor.
+To use LaTeX code inside a table you have to set `escape = FALSE`.
+Otherwise, elements of the LaTeX syntax (such as backslashes) will be printed as is.
+If you set `escape = FALSE` you need to manually escape symbols that would otherwise be interpreted as LaTeX code, such as underscores (see `note` in the example below).
+When you pass backslashes as character strings you need to escape the backslash with one additional backslash because R uses backslashes to denote special characters, such as `\t` for tab or `\n` for newline.
 
+If you would like to add mathematical symbols in any part of the table use `$` (not `$$`, which is used in-text) to denote the beginning and end of the mathematical expression.
 
 ```{r results = "asis", include = FALSE, eval = FALSE}
 employee <- c("$\\alpha$",'$\\alpha$','$\\alpha$')
@@ -403,25 +402,61 @@ some latex $\\alpha$"
 )
 ```
 
-<!-- 1. To use LaTeX code inside a table you have to set escape = FALSE. Otherwise, elements of the LaTeX syntax (such as backslashes) will be printed as is. -->
 
-<!-- 2. If you set escape = FALSE you need to manually escape symbols that would otherwise be interpreted as LaTeX code, such as underscores (see note). -->
-
-<!-- 3. When you pass backslashes as character strings you need to escape the backslash with one additional backslash because R uses backslashes to denote special characters, such as \t for tab or \n for newline, and will interpret \a as newline, I think. The remaining lpha is meaningless in LaTeX math environments and will cause an error. -->
-
-<!-- 4. If you want to write symbols in any part of the table use $ instead of $$, which is used in text to format equations as distinct equations in new inset paragraphs. -->
-
-<!-- (5. format = "latex" is not required if you use the function inside an R Markdown document)  -->
+As required by the APA guidelines, tables are deferred to the final pages of the manuscript when creating a PDF.
+To place tables and figures in your text instead, set the `figsintext` parameter in the YAML header to `yes` or `true`, as I have done in this document.
+Again, this is not the case in Word documents due to limited pandoc functionality.
+The bottom line is, Word documents will be less polished than PDF.
+The resulting documents should suffice to enable collaboration with Wordy colleagues and prepare a journal submission with limited manual labor.
 
 
-`apa_table()` extends `knitr::kable()`
+### Fixed-width columns
 
-- Designed to create table designs from the APA manual
-- Does not perform any calculations
-- Can merge multiple `data.frame` of the same structure contained in a `list`
-- Much more powerful in PDF documents<br />(see `apa_table_example.Rmd`)
+By default, the width of the table is set to accommodate its contents.
+In some cases, this may cause the table to exceed the page width.
+To address this, in PDF documents tables can be rotated 90 degrees by setting \code{langscape = TRUE}.
+This approach, however, is not particularly useful if one of the columns contains long texts, such as survey question texts.
+In such cases, it is possible to create fixed-width columns by explicitly specifying the desired column widths.
+Such fixed-width colums automatically break the content into multiple lines.
+For example, set \code{align = "lm{5cm}l"} to limit the second column to a width of 5 cm.
+Consider the following example, curtosey of [James Conigrave](https://github.com/conig).
 
-`kableExtra` is another powerful alternative
+```{r eval = FALSE}
+audit_table <- structure(
+  list(
+    Questions = c(
+      "How often do you have a drink containing alcohol?",
+      "How many standard drinks of alcohol do you drink on a typical day when you are drinking?",
+      "How often do you have 5 or more drinks on one occasion?"
+    ),
+    `0` = c("Never", "1–2", "Never"),
+    `1` = c("Monthly or less", "3-4", "Less than monthly"),
+    `2` = c("2-4 times per month", "5-6", "monthly"),
+    `3` = c("2-3 times per week","7-9", "Weekly"),
+    `4` = c("4+ times per week", "10+", "Daily or almost daily")
+  ),
+  class = "data.frame",
+  row.names = c(NA, 3L)
+)
+
+apa_table(
+  audit_table,
+  caption = "AUDIT-C scoring table",
+  align = c("m{8cm}", rep("m{2cm}", 5)),
+  col_spanners = list("Score" = c(2,6)),
+  note = "Item scores are summed. Women who score 3+ and men who score 4+ are at-risk",
+  landscape = TRUE
+)
+```
+
+
+```{r echo = FALSE, out.width = "590px"}
+knitr::include_graphics("images/text-columns.png")
+```
+
+
+Similarly, to space columns equally use `align = paste0("m{", 1/(ncol(x) + 1), "\\linewidth}")`.
+
 
 
 ### Table captions
@@ -452,10 +487,7 @@ tables: https://cran.r-project.org/web/packages/tables/vignettes/tables.pdf
 
 stargazer: https://cran.r-project.org/web/packages/stargazer/index.html
 
-knitr::kable
-
 Hmisc::latex
-
 
 https://twitter.com/polesasunder/status/464132152347475968/photo/1
 
@@ -480,8 +512,7 @@ kableExtra: https://cran.r-project.org/web/packages/kableExtra/index.html
 
 ## Statistical Models and Tests
 
-When creating fully reproducible reports of empirical studies, it is obviously necessary to have
-a means to include the results from statistical models and tests.
+When creating reproducible reports of quantitative results, it will be necessary to include the results from statistical models and tests.
 However, what comes out of R cannot be included in a report easily.
 Consider the output from a simple *t* test:
 
@@ -489,10 +520,8 @@ Consider the output from a simple *t* test:
 t.test(yield ~ N, data = npk)
 ```
 
-We created the function `apa_print()` to format the results from various statistical
-methods in accordance with APA guidelines.
-Just drop the results from these methods into `apa_print()`, and it will return
-a simple list with all you need to report the analysis.
+We created the function `apa_print()` to format the results from various statistical methods in accordance with APA guidelines.
+Just drop the results from these methods into `apa_print()`, and it will return a simple list with all you need to report the analysis.
 
 ```{r}
 apa_print(
@@ -507,8 +536,7 @@ The returned list contains four elements:
 - `$full_result`: combines this information.
 - `$table`: arranges model terms, estimates and test statistics in a `data.frame`
 
-List elements `$estimate`, `$statistic`, and `$full_result` are intended to be
-included directly into the body of your manuscript by using inline code chunks.
+List elements `$estimate`, `$statistic`, and `$full_result` are intended to be included directly into the body of your manuscript by using inline code chunks.
 For instance, you could first save the result from `apa_print()` in an output object
 
 ```{r}
@@ -556,14 +584,10 @@ apa_table(
 ```
 
 
+### Supported analysis methods
 
-
-### Fully supported analysis methods
-
-There is a plethora of possible output objects from statistical analyses in R,
-and it is of course impossible to support all of them.
-However, over the course of time, we were able to create a corpus of methods that will likely
-cover many experimental psychologists' toolboxes.
+There is a plethora of possible output objects from statistical analyses in R, and it is of course impossible to support all of them.
+However, over the course of time, we were able to create a corpus of methods that will likely cover many experimental psychologists' toolboxes.
 
 - All NHST that are delivered with R's {stats} package, which includes:
     - $t$ for means, $\chi^2$, and nonparametric equivalents `t.test()`

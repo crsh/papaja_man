@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Published manuscripts | papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="""" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Published manuscripts | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-10-19" />
+<meta name="date" content="2021-05-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="collaborative-writing.html"/>
 <link rel="next" href="limitations.html"/>
+<script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,22 +51,21 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -135,34 +135,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a><ul>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="introduction.html"><a href="introduction.html#reproducible-scientific-reports"><i class="fa fa-check"></i><b>1.1.1</b> Reproducible scientific reports</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#implementation"><i class="fa fa-check"></i><b>1.2</b> Implementation</a><ul>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#implementation"><i class="fa fa-check"></i><b>1.2</b> Implementation</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#guiding-principles"><i class="fa fa-check"></i><b>1.2.1</b> Guiding principles</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#document-compilation"><i class="fa fa-check"></i><b>1.2.2</b> Document compilation</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>1.3</b> Alternatives</a></li>
-<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#getting-started"><i class="fa fa-check"></i><b>1.4</b> Getting started</a><ul>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#getting-started"><i class="fa fa-check"></i><b>1.4</b> Getting started</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#software-requirements"><i class="fa fa-check"></i><b>1.4.1</b> Software requirements</a></li>
 <li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#installing-papaja"><i class="fa fa-check"></i><b>1.4.2</b> Installing papaja</a></li>
 <li class="chapter" data-level="1.4.3" data-path="introduction.html"><a href="introduction.html#creating-a-document"><i class="fa fa-check"></i><b>1.4.3</b> Creating a document</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="r-markdown-components.html"><a href="r-markdown-components.html"><i class="fa fa-check"></i><b>2</b> R Markdown components</a><ul>
-<li class="chapter" data-level="2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#yaml-front-matter"><i class="fa fa-check"></i><b>2.1</b> YAML front matter</a><ul>
+<li class="chapter" data-level="2" data-path="r-markdown-components.html"><a href="r-markdown-components.html"><i class="fa fa-check"></i><b>2</b> R Markdown components</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#yaml-front-matter"><i class="fa fa-check"></i><b>2.1</b> YAML front matter</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#manuscript-metadata"><i class="fa fa-check"></i><b>2.1.1</b> Manuscript metadata</a></li>
 <li class="chapter" data-level="2.1.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#rendering-options"><i class="fa fa-check"></i><b>2.1.2</b> Rendering options</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#body"><i class="fa fa-check"></i><b>2.2</b> Body</a><ul>
+<li class="chapter" data-level="2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#body"><i class="fa fa-check"></i><b>2.2</b> Body</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#markdown"><i class="fa fa-check"></i><b>2.2.1</b> Markdown</a></li>
 <li class="chapter" data-level="2.2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#r-code"><i class="fa fa-check"></i><b>2.2.2</b> R code</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i><b>3</b> Writing</a><ul>
+<li class="chapter" data-level="3" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i><b>3</b> Writing</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#markdown-text-formatting"><i class="fa fa-check"></i><b>3.1</b> Markdown text formatting</a></li>
-<li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
+<li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#citation-styles"><i class="fa fa-check"></i><b>3.2.1</b> Citation styles</a></li>
 <li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#works-in-press"><i class="fa fa-check"></i><b>3.2.2</b> Works ‘in press’</a></li>
 <li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.3</b> Conveniently inserting citations with <code>citr</code></a></li>
@@ -175,38 +184,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#counting-words"><i class="fa fa-check"></i><b>3.6</b> Counting words</a></li>
 <li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#comparing-document-versions"><i class="fa fa-check"></i><b>3.7</b> Comparing document versions</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
+<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#numerical-values"><i class="fa fa-check"></i><b>4.1</b> Numerical values</a></li>
-<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#figures"><i class="fa fa-check"></i><b>4.2</b> Figures</a><ul>
+<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#figures"><i class="fa fa-check"></i><b>4.2</b> Figures</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#r-generated-figures"><i class="fa fa-check"></i><b>4.2.1</b> R-generated figures</a></li>
 <li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#external-images"><i class="fa fa-check"></i><b>4.2.2</b> External images</a></li>
 <li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.3</b> Figure captions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
-<li class="chapter" data-level="4.3.2" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#fixed-width-columns"><i class="fa fa-check"></i><b>4.3.1</b> Fixed-width columns</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.2</b> Table captions</a></li>
+<li class="chapter" data-level="4.3.3" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.3</b> Alternatives</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#statistical-models-and-tests"><i class="fa fa-check"></i><b>4.4</b> Statistical Models and Tests</a><ul>
+<li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#statistical-models-and-tests"><i class="fa fa-check"></i><b>4.4</b> Statistical Models and Tests</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#reporting-models-and-tests-in-a-table"><i class="fa fa-check"></i><b>4.4.1</b> Reporting models and tests in a table</a></li>
-<li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#fully-supported-analysis-methods"><i class="fa fa-check"></i><b>4.4.2</b> Fully supported analysis methods</a></li>
+<li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#supported-analysis-methods"><i class="fa fa-check"></i><b>4.4.2</b> Supported analysis methods</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a><ul>
+<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="reporting.html"><a href="reporting.html#inserting-variables-before-they-have-been-computed"><i class="fa fa-check"></i><b>4.5.1</b> Inserting variables before they have been computed</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a><ul>
+<li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#global-chunk-options"><i class="fa fa-check"></i><b>5.1</b> Global chunk options</a></li>
 <li class="chapter" data-level="5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#meaningful-chunk-names"><i class="fa fa-check"></i><b>5.2</b> Meaningful chunk names</a></li>
 <li class="chapter" data-level="5.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#text-references"><i class="fa fa-check"></i><b>5.3</b> Text references</a></li>
 <li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#useful-rstudio-addins"><i class="fa fa-check"></i><b>5.4</b> Useful RStudio Addins</a></li>
-<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environments"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environments</a><ul>
+<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environments"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environments</a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#docker"><i class="fa fa-check"></i><b>5.5.1</b> Docker</a></li>
 <li class="chapter" data-level="5.5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#codeocean"><i class="fa fa-check"></i><b>5.5.2</b> CodeOcean</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
 <li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
 <li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.8</b> Best practices</a></li>
-<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.9</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.9</b> Troubleshooting</a>
+<ul>
 <li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#yaml"><i class="fa fa-check"></i><b>5.9.1</b> YAML</a></li>
 <li class="chapter" data-level="5.9.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.9.2</b> R</a></li>
 <li class="chapter" data-level="5.9.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#bookdown"><i class="fa fa-check"></i><b>5.9.3</b> <code>bookdown</code></a></li>
@@ -216,19 +234,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
 <li class="chapter" data-level="7" data-path="published-manuscripts.html"><a href="published-manuscripts.html"><i class="fa fa-check"></i><b>7</b> Published manuscripts</a></li>
-<li class="chapter" data-level="8" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>8</b> Limitations</a><ul>
-<li class="chapter" data-level="8.1" data-path="limitations.html"><a href="limitations.html#pdf-documents"><i class="fa fa-check"></i><b>8.1</b> PDF documents</a><ul>
+<li class="chapter" data-level="8" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>8</b> Limitations</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="limitations.html"><a href="limitations.html#pdf-documents"><i class="fa fa-check"></i><b>8.1</b> PDF documents</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="limitations.html"><a href="limitations.html#customizing-the-document-preamble"><i class="fa fa-check"></i><b>8.1.1</b> Customizing the document preamble</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="limitations.html"><a href="limitations.html#microsoft-word-documents"><i class="fa fa-check"></i><b>8.2</b> Microsoft Word documents</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="customizations.html"><a href="customizations.html"><i class="fa fa-check"></i><b>9</b> Customizations</a><ul>
+<li class="chapter" data-level="9" data-path="customizations.html"><a href="customizations.html"><i class="fa fa-check"></i><b>9</b> Customizations</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="customizations.html"><a href="customizations.html#author-name-disambiguation"><i class="fa fa-check"></i><b>9.1</b> Author name disambiguation</a></li>
 <li class="chapter" data-level="9.2" data-path="customizations.html"><a href="customizations.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>9.2</b> Adjusting line spacing</a></li>
 <li class="chapter" data-level="9.3" data-path="customizations.html"><a href="customizations.html#writing-dissertations"><i class="fa fa-check"></i><b>9.3</b> Writing dissertations</a></li>
+<li class="chapter" data-level="9.4" data-path="customizations.html"><a href="customizations.html#customizing-apa_print"><i class="fa fa-check"></i><b>9.4</b> Customizing <code>apa_print()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a><ul>
-<li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a><ul>
+<li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a>
+<ul>
 <li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
 </ul></li>
 </ul></li>
@@ -254,78 +278,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="published-manuscripts" class="section level1">
+<div id="published-manuscripts" class="section level1" number="7">
 <h1><span class="header-section-number">7</span> Published manuscripts</h1>
 <!-- If you have published a paper that was written with `papaja`, you can add the reference to the [public Zotero group](https://www.zotero.org/groups/2202906/papaja) yourself or send it to me. -->
 <!-- --- -->
-<p>Please cite <code>papaja</code> if you use it (<code>citation('papaja')</code> will provide the reference). Below are some peer-reviewed publications that used <code>papaja</code>. If you have published a paper that was written with <code>papaja</code>, you can add the reference to the <a href="https://www.zotero.org/groups/2202906/papaja">public Zotero group</a> yourself or send it to me. Argüelles, C. L., Arroyo, L. F., Rodriguez, N., Durand L’opez, E. M., Pozu, J. J. G., Markovits, J., … Casillas, J. V. (2020). Conceptually-cued perceptual categorization in adult L2 learners. <em>PsyArXiv</em>. <a href="https://doi.org/10/gg67kv" class="uri">https://doi.org/10/gg67kv</a> (R Markdown and data files: <a href="https://osf.io/cp9bs/" class="uri">https://osf.io/cp9bs/</a>)</p>
+<p>Please cite <code>papaja</code> if you use it. You can for example <a href="https://crsh.github.io/papaja_man/writing.html#citing-r-and-its-packages">use <code>cite_r()</code></a> or copy the reference information returned by <code>citation('papaja')</code> to your BibTeX file. Below are some peer-reviewed publications that used <code>papaja</code>. If you have published a paper that was written with <code>papaja</code>, you can add the reference to the <a href="https://www.zotero.org/groups/2202906/papaja">public Zotero group</a> yourself or send it to me. Argüelles, C. L., Arroyo, L. F., Rodriguez, N., Durand L’opez, E. M., Pozu, J. J. G., Markovits, J., … Casillas, J. V. (2020). Conceptually-cued perceptual categorization in adult L2 learners. <em>PsyArXiv</em>. <a href="https://doi.org/gg67kv" class="uri">https://doi.org/gg67kv</a> (R Markdown and data files: <a href="https://osf.io/cp9bs/" class="uri">https://osf.io/cp9bs/</a>)</p>
 <hr />
 <p>Aust, F., &amp; Edwards, J. D. (2016). Incremental validity of Useful Field of View subtests for the prediction of instrumental activities of daily living. <em>Journal of Clinical and Experimental Neuropsychology</em>, <em>38</em>(5), 497–515. <a href="https://doi.org/10.1080/13803395.2015.1125453" class="uri">https://doi.org/10.1080/13803395.2015.1125453</a></p>
-<pre><code>Aust, F., Haaf, J. M., &amp; Stahl, C. (2018). A memory-based judgment account of expectancy-liking dissociations in evaluative conditioning. *Journal of Experimental Psychology: Learning, Memory, and Cognition*. &lt;https://doi.org/10/gdxv8n&gt; (R Markdown and data files: https://osf.io/vnmby/)  
+<pre><code>Aust, F., Haaf, J. M., &amp; Stahl, C. (2018). A memory-based judgment account of expectancy-liking dissociations in evaluative conditioning. *Journal of Experimental Psychology: Learning, Memory, and Cognition*. &lt;https://doi.org/gdxv8n&gt; (R Markdown and data files: https://osf.io/vnmby/)  
 
 Aust, F., &amp; Stahl, C. (2020). The enhancing effect of caffeine on mnemonic discrimination is at best small. *Memory*. &lt;https://doi.org/10.1080/09658211.2020.1781899&gt; (R Markdown and data files: https://osf.io/p7f4m/)  
 
-Ballou, N., &amp; Van Rooij, A. J. (2020). The relationship between mental well-being and dysregulated gaming: A specification curve analysis of core and peripheral criteria in five gaming disorder scales. *PsyArXiv*. &lt;https://doi.org/10/gg6z8v&gt; (R Markdown and data files: https://osf.io/h9kmv/)  
+Ballou, N., &amp; Van Rooij, A. J. (2020). The relationship between mental well-being and dysregulated gaming: A specification curve analysis of core and peripheral criteria in five gaming disorder scales. *PsyArXiv*. &lt;https://doi.org/gg6z8v&gt; (R Markdown and data files: https://osf.io/h9kmv/)  
 
-Barrett, T. S., Borrie, S. A., &amp; Yoho, S. E. (2019). Automating with Autoscore: Introducing an R package for automating the scoring of orthographic transcripts. *PsyArXiv*. &lt;https://doi.org/10/gf4cqp&gt; (R Markdown and data files: https://osf.io/htqvr/)  
+Barrett, T. S., Borrie, S. A., &amp; Yoho, S. E. (2019). Automating with Autoscore: Introducing an R package for automating the scoring of orthographic transcripts. *PsyArXiv*. &lt;https://doi.org/gf4cqp&gt; (R Markdown and data files: https://osf.io/htqvr/)  
 
-Barth, M., Stahl, C., &amp; Haider, H. (2018). Assumptions of the process-dissociation procedure are violated in implicit sequence learning. *Journal of Experimental Psychology: Learning, Memory, and Cognition*. &lt;https://doi.org/10/gdxv8m&gt; (R Markdown and data files: https://github.com/methexp/pdl2)  
+Barth, M., Stahl, C., &amp; Haider, H. (2018). Assumptions of the process-dissociation procedure are violated in implicit sequence learning. *Journal of Experimental Psychology: Learning, Memory, and Cognition*. &lt;https://doi.org/gdxv8m&gt; (R Markdown and data files: https://github.com/methexp/pdl2)  
 
-Bartlett, J. E. (2020). No Difference in Trait-Level Attentional Bias Between Daily and Non-Daily Smokers. *PsyArXiv*. &lt;https://doi.org/10/gg2c8f&gt; (R Markdown and data files: osf.io/am9hd/)  
+Bartlett, J. E. (2020). No Difference in Trait-Level Attentional Bias Between Daily and Non-Daily Smokers. *PsyArXiv*. &lt;https://doi.org/gg2c8f&gt; (R Markdown and data files: osf.io/am9hd/)  
 
 Beaton, D., Sunderland, K. M., Levine, B., Mandzia, J., Masellis, M., Swartz, R. H., … Strother, S. C. (2018). Generalization of the minimum covariance determinant algorithm for categorical and mixed data types. *bioRxiv*. &lt;https://doi.org/10.1101/333005&gt;  
 
 Bergmann, C., Tsuji, S., Piccinini, P. E., Lewis, M. L., Braginsky, M., Frank, M. C., &amp; Cristia, A. (2018). Promoting Replicability in Developmental Research Through Meta-analyses: Insights From Language Acquisition Research. *Child Development*. &lt;https://doi.org/10.1111/cdev.13079&gt; (R Markdown and data files: https://osf.io/uhv3d/)  
 
-Bol, N., Dienlin, T., Kruikemeier, S., Sax, M., Boerman, S. C., Strycharz, J., … de Vreese, C. H. (2018). Understanding the Effects of Personalization as a Privacy Calculus: Analyzing Self-Disclosure Across Health, News, and Commerce Contexts†. *Journal of Computer-Mediated Communication*, *23*(6), 370–388. &lt;https://doi.org/10/gftcm6&gt;  
+Bol, N., Dienlin, T., Kruikemeier, S., Sax, M., Boerman, S. C., Strycharz, J., … de Vreese, C. H. (2018). Understanding the Effects of Personalization as a Privacy Calculus: Analyzing Self-Disclosure Across Health, News, and Commerce Contexts†. *Journal of Computer-Mediated Communication*, *23*(6), 370–388. &lt;https://doi.org/gftcm6&gt;  
 
 Buchanan, E., Foreman, R., Johnson, B., Pavlacic, J., Swadley, R., &amp; Schulenberg, S. (2018). Does the Delivery Matter? Examining Randomization at the Item Level. *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/p93df&gt; (R Markdown and data files: https://osf.io/gvx7s/)  
 
-Buchanan, E., Johnson, B., Miller, A., Stockburger, D., &amp; Beauchamp, M. (2018a). Perceived Grading and Student Evaluation of Instruction. *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/7x4uf&gt; (R Markdown and data files: https://osf.io/jdpfs/)  
+Buchanan, E., Johnson, B., Miller, A., Stockburger, D., &amp; Beauchamp, M. (2018). Perceived Grading and Student Evaluation of Instruction. *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/7x4uf&gt; (R Markdown and data files: https://osf.io/jdpfs/)  
 
 Buchanan, E. M., &amp; Scofield, J. E. (2018). Methods to detect low quality data and its implication for psychological research. *Behavior Research Methods*. &lt;https://doi.org/10.3758/s13428-018-1035-6&gt; (R Markdown and data files: https://osf.io/x6t8a/)  
 
 Buchanan, E., &amp; Scofield, J. (2018). Bulletproof Bias? Considering the Type of Data in Common Proportion of Variance Effect Sizes. *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/cs4vy&gt; (R Markdown and data files: https://osf.io/urd8q/)  
 
-Buchanan, E., Scofield, J., &amp; Nunley, N. (2018b). The N400’s 3 As: Association, Automaticity, Attenuation (and Some Semantics Too). *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/6w2se&gt; (R Markdown and data files: https://osf.io/h5sd6/)  
+Buchanan, E., Scofield, J., &amp; Nunley, N. (2018). The N400’s 3 As: Association, Automaticity, Attenuation (and Some Semantics Too). *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/6w2se&gt; (R Markdown and data files: https://osf.io/h5sd6/)  
 
 Buchanan, E., &amp; Valentine, K. (2018). An Extension of the QWERTY Effect: Not Just the Right Hand, Expertise and Typability Predict Valence Ratings of Words. *PsyArXiv*. &lt;https://doi.org/10.31219/osf.io/k7dx5&gt; (R Markdown and data files: https://osf.io/zs2qj/)  
 
-Buchanan, E., Valentine, K., &amp; Maxwell, N. (2018c). English Semantic Feature Production Norms: An Extended Database of 4,436 Concepts. *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/gxbf4&gt; (R Markdown and data files: https://osf.io/cjyzw/)  
+Buchanan, E., Valentine, K., &amp; Maxwell, N. (2018a). English Semantic Feature Production Norms: An Extended Database of 4,436 Concepts. *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/gxbf4&gt; (R Markdown and data files: https://osf.io/cjyzw/)  
 
-Buchanan, E., Valentine, K., &amp; Maxwell, N. (2018d). The LAB: Linguistic Annotated Bibliography. *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/h3bwx&gt; (R Markdown and data files: https://osf.io/9bcws/)  
+Buchanan, E., Valentine, K., &amp; Maxwell, N. (2018b). The LAB: Linguistic Annotated Bibliography. *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/h3bwx&gt; (R Markdown and data files: https://osf.io/9bcws/)  
 
-Chen, S.-C., de Koning, B., &amp; Zwaan, R. A. (2019). Does Object Size Matter with Regard to the Mental Simulation of Object Orientation? *Experimental Psychology*. &lt;https://doi.org/10/ggfzxw&gt;  
+Chen, S.-C., de Koning, B., &amp; Zwaan, R. A. (2019). Does Object Size Matter with Regard to the Mental Simulation of Object Orientation? *Experimental Psychology*. &lt;https://doi.org/ggfzxw&gt;  
 
-Conigrave, J. H., Lee, K. K., Zheng, C., Wilson, S., Perry, J., Chikritzhs, T., … others. (2020). Drinking risk varies within and between Australian Aboriginal and Torres Strait Islander samples: A meta-analysis to identify sources of heterogeneity. *Addiction*. &lt;https://doi.org/10/ggsk3n&gt;  
+Conigrave, J. H., Lee, K. K., Zheng, C., Wilson, S., Perry, J., Chikritzhs, T., … others. (2020). Drinking risk varies within and between Australian Aboriginal and Torres Strait Islander samples: A meta-analysis to identify sources of heterogeneity. *Addiction*. &lt;https://doi.org/ggsk3n&gt;  
 
 Craddock, M., Klepousniotou, E., El-Deredy, W., Poliakoff, E., &amp; Lloyd, D. M. (2018). Transcranial alternating current stimulation at 10 Hz modulates response bias in the Somatic Signal Detection Task. *bioRxiv*. &lt;https://doi.org/10.1101/330134&gt;  
 
-Derringer, J. (2018). A simple correction for non-independent tests. *PsyArXiv*. &lt;https://doi.org/10/gdrbxc&gt; (R Markdown and data files: https://osf.io/re5w2/)  
+Derringer, J. (2018). A simple correction for non-independent tests. *PsyArXiv*. &lt;https://doi.org/gdrbxc&gt; (R Markdown and data files: https://osf.io/re5w2/)  
 
-Faulkenberry, T. J., Cruise, A., &amp; Shaki, S. (2018). Task instructions modulate unit–decade binding in two-digit number representation. *Psychological Research*. &lt;https://doi.org/10/gdxv8k&gt; (R Markdown and data files: https://github.com/tomfaulkenberry/twodigittaskmanip)  
+Faulkenberry, T. J., Cruise, A., &amp; Shaki, S. (2018). Task instructions modulate unit–decade binding in two-digit number representation. *Psychological Research*. &lt;https://doi.org/gdxv8k&gt; (R Markdown and data files: https://github.com/tomfaulkenberry/twodigittaskmanip)  
 
-Field, A. P., Lester, K. J., Cartwright-Hatton, S., Harold, G. T., Shaw, D. S., Natsuaki, M. N., … Leve, L. D. (2020). Maternal and paternal influences on childhood anxiety symptoms: A genetically sensitive comparison. *Journal of Applied Developmental Psychology*, *68*, 101123. &lt;https://doi.org/10/ggq38c&gt; (R Markdown and data files: https://osf.io/zgcg2/)  
+Field, A. P., Lester, K. J., Cartwright-Hatton, S., Harold, G. T., Shaw, D. S., Natsuaki, M. N., … Leve, L. D. (2020). Maternal and paternal influences on childhood anxiety symptoms: A genetically sensitive comparison. *Journal of Applied Developmental Psychology*, *68*, 101123. &lt;https://doi.org/ggq38c&gt; (R Markdown and data files: https://osf.io/zgcg2/)  
 
-Flygare, O., Andersson, E., Ringberg, H., Hellstadius, A.-C., Edbacken, J., Enander, J., … Rück, C. (2018). Adapted cognitive behavior therapy for obsessive compulsive disorder with co-occuring autism spectrum disorder: A clinical effectiveness study. *PsyArXiv*. &lt;https://doi.org/10/gffjrb&gt; (R Markdown and data files: https://osf.io/gj87z/)  
+Flygare, O., Andersson, E., Ringberg, H., Hellstadius, A.-C., Edbacken, J., Enander, J., … Rück, C. (2018). Adapted cognitive behavior therapy for obsessive compulsive disorder with co-occuring autism spectrum disorder: A clinical effectiveness study. *PsyArXiv*. &lt;https://doi.org/gffjrb&gt; (R Markdown and data files: https://osf.io/gj87z/)  
 
-Garrison, H., Baudet, G., Breitfeld, E., Aberman, A., &amp; Bergelson, E. (2020). Familiarity plays a small role in noun comprehension at 12-18 months. *Infancy*. &lt;https://doi.org/10/ggsnm2&gt; (R Markdown and data files: https://osf.io/pb2g6/)  
+Garrison, H., Baudet, G., Breitfeld, E., Aberman, A., &amp; Bergelson, E. (2020). Familiarity plays a small role in noun comprehension at 12-18 months. *Infancy*. &lt;https://doi.org/ggsnm2&gt; (R Markdown and data files: https://osf.io/pb2g6/)  
 
-Haaf, J. M., Klaassen, F., &amp; Rouder, J. (2018). A Note on Using Systems of Orders to Capture Theoretical Constraint in Psychological Science. *PsyArXiv*. &lt;https://doi.org/10/gffjrf&gt; (R Markdown and data files: https://github.com/perceptionandcognitionlab/bf-order)  
+Ghelfi, E., Christopherson, C. D., Urry, H. L., Lenne, R. L., Legate, N., Ann Fischer, M., … Sulliva, D. (2020). Reexamining the Effect of Gustatory Disgust on Moral Judgment: A Multilab Direct Replication of Eskine, Kacinik, and Prinz (2011). *Advances in Methods and Practices in Psychological Science*, *3*(1), 3–23. &lt;https://doi.org/gh325h&gt;  
+
+Haaf, J. M., Klaassen, F., &amp; Rouder, J. (2018). A Note on Using Systems of Orders to Capture Theoretical Constraint in Psychological Science. *PsyArXiv*. &lt;https://doi.org/gffjrf&gt; (R Markdown and data files: https://github.com/perceptionandcognitionlab/bf-order)  
 
 Haaf, J. M., &amp; Rouder, J. (2018). Some do and some don’t? Accounting for variability of individual difference structures. *PsyArXiv*. &lt;https://doi.org/10.31234/osf.io/zwjtp&gt; (R Markdown and data files: https://github.com/perceptionandcognitionlab/ctx-mixture)  
 
 Haaf, J. M., &amp; Rouder, J. N. (2017). Developing constraint in bayesian mixed models. *Psychological Methods*, *22*(4), 779–798. &lt;https://doi.org/10.1037/met0000156&gt; (R Markdown and data files: https://github.com/perceptionandcognitionlab/ctx-indiff)  
 
-Hardwicke, T. E., Mathur, M. B., MacDonald, K., Nilsonne, G., Banks, G. C., Kidwell, M. C., … Frank, M. C. (2018). Data availability, reusability, and analytic reproducibility: Evaluating the impact of a mandatory open data policy at the journal *cognition*. *Royal Society Open Science*, *5*(8), 180448. &lt;https://doi.org/10/gdz63s&gt; (R Markdown and data files: https://osf.io/wn8fd/)  
+Hardwicke, T. E., Mathur, M. B., MacDonald, K., Nilsonne, G., Banks, G. C., Kidwell, M. C., … Frank, M. C. (2018). Data availability, reusability, and analytic reproducibility: Evaluating the impact of a mandatory open data policy at the journal *cognition*. *Royal Society Open Science*, *5*(8), 180448. &lt;https://doi.org/gdz63s&gt; (R Markdown and data files: https://osf.io/wn8fd/)  
 
-Hardwicke, T., &amp; Ioannidis. (2018). Mapping the Universe of Registered Reports. *PsyArXiv*. &lt;https://doi.org/10.31222/osf.io/fzpcy&gt; (R Markdown and data files: https://osf.io/7dpwb/)  
+Hardwicke, T., &amp; Ioannidis, john. (2018). Mapping the Universe of Registered Reports. *PsyArXiv*. &lt;https://doi.org/10.31222/osf.io/fzpcy&gt; (R Markdown and data files: https://osf.io/7dpwb/)  
 
 Harms, C., &amp; Lakens, D. (2018). Making ’Null Effects’ Informative: Statistical Techniques and Inferential Frameworks. *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/48zca&gt; (R Markdown and data files: https://osf.io/wptju/)  
 
 Heino, M. T. J., Vuorre, M., &amp; Hankonen, N. (2018). Bayesian evaluation of behavior change interventions: A brief introduction and a practical example. *Health Psychology and Behavioral Medicine*, *6*(1), 49–78. &lt;https://doi.org/10.1080/21642850.2018.1428102&gt; (R Markdown and data files: https://github.com/heinonmatti/baseline-visu)  
 
-Henderson, E. L., Vall’ee-Tourangeau, F., &amp; Simons, D. J. (2019). The Effect of Concrete Wording on Truth Judgements: A Preregistered Replication and Extension of Hansen &amp; Wänke (2010). *Collabra: Psychology*, *5*. &lt;https://doi.org/10/gf9h3x&gt;  
+Henderson, E. L., Vall’ee-Tourangeau, F., &amp; Simons, D. J. (2019). The Effect of Concrete Wording on Truth Judgements: A Preregistered Replication and Extension of Hansen &amp; Wänke (2010). *Collabra: Psychology*, *5*. &lt;https://doi.org/gf9h3x&gt;  
 
 Heycke, T. (2018, July). *Contingency Awareness in Evaluative Conditioning: Investigations Using Subliminal Stimulus Presentations* (text.thesis.doctoral). Universität zu Köln. Retrieved from &lt;http://www.uni-koeln.de/&gt;  
 
@@ -333,7 +359,7 @@ Heycke, T., Aust, F., &amp; Stahl, C. (2017). Subliminal influence on preference
 
 Heycke, T., Gehrmann, S., Haaf, J. M., &amp; Stahl, C. (2018). Of two minds or one? A registered replication of Rydell et al. (2006). *Cognition and Emotion*, *32*(8), 1708–1727. &lt;https://doi.org/10.1080/02699931.2018.1429389&gt;  
 
-Heycke, T., &amp; Spitzer, L. (2019). Screen Recordings as a Tool to Document Computer Assisted Data Collection Procedures. *Psychologica Belgica*, *59*(1), 269–280. &lt;https://doi.org/10/gf5t5c&gt;  
+Heycke, T., &amp; Spitzer, L. (2019). Screen Recordings as a Tool to Document Computer Assisted Data Collection Procedures. *Psychologica Belgica*, *59*(1), 269–280. &lt;https://doi.org/gf5t5c&gt;  
 
 Heycke, T., &amp; Stahl, C. (2018). No evaluative conditioning effects with briefly presented stimuli. *Psychological Research*. &lt;https://doi.org/10.1007/s00426-018-1109-1&gt;  
 
@@ -343,7 +369,7 @@ Jordan, K., Buchanan, E., &amp; Padfield, W. (2018). Focus on the Target: The Ro
 
 Kothe, E. J., &amp; Ling, M. (2019). Retention of participants recruited to a one-year longitudinal study via Prolific. *PsyArXiv*. &lt;https://doi.org/10.31234/osf.io/5yv2u&gt; (R Markdown and data files: https://osf.io/yjstk/)  
 
-Lakens, D., Scheel, A. M., &amp; Isager, P. M. (2018). Equivalence Testing for Psychological Research: A Tutorial. *Advances in Methods and Practices in Psychological Science*, *1*(2), 259–269. &lt;https://doi.org/10/gdj7s9&gt; (R Markdown and data files: https://osf.io/qamc6/)  
+Lakens, D., Scheel, A. M., &amp; Isager, P. M. (2018). Equivalence Testing for Psychological Research: A Tutorial. *Advances in Methods and Practices in Psychological Science*, *1*(2), 259–269. &lt;https://doi.org/gdj7s9&gt; (R Markdown and data files: https://osf.io/qamc6/)  
 
 Lewis, M., Braginsky, M., Tsuji, S., Bergmann, C., Piccinini, P. E., Cristia, A., &amp; Frank, M. C. (2017). A Quantitative Synthesis of Early Language Acquisition Using Meta-Analysis. *PsyArXiv*. &lt;https://doi.org/10.31234/osf.io/htsjm&gt;  
 
@@ -353,9 +379,9 @@ Maxwell, N., &amp; Buchanan, E. (2018b). Modeling Memory: Exploring the Relation
 
 McHugh, C., McGann, M., Igou, E. R., &amp; Kinsella, E. L. (2017). Searching for Moral Dumbfounding: Identifying Measurable Indicators of Moral Dumbfounding. *Collabra: Psychology*, *3*(1). &lt;https://doi.org/10.1525/collabra.79&gt; (R Markdown and data files: https://osf.io/wm6vc/)  
 
-McHugh, C., McGann, M., Igou, E. R., &amp; Kinsella, E. L. (2020). Reasons or rationalizations: The role of principles in the moral dumbfounding paradigm. *Journal of Behavioral Decision Making*, bdm.2167. &lt;https://doi.org/10/ggf94x&gt;  
+McHugh, C., McGann, M., Igou, E. R., &amp; Kinsella, E. L. (2020). Reasons or rationalizations: The role of principles in the moral dumbfounding paradigm. *Journal of Behavioral Decision Making*, bdm.2167. &lt;https://doi.org/ggf94x&gt;  
 
-Moors, P., &amp; Hesselmann, G. (2019). Unconscious arithmetic: Assessing the robustness of the results reported by Karpinski, Briggs, and Yale (2018). *Consciousness and Cognition*, *68*, 97–106. &lt;https://doi.org/10/gftmrj&gt;  
+Moors, P., &amp; Hesselmann, G. (2019). Unconscious arithmetic: Assessing the robustness of the results reported by Karpinski, Briggs, and Yale (2018). *Consciousness and Cognition*, *68*, 97–106. &lt;https://doi.org/gftmrj&gt;  
 
 Morin-Lessard, E., Poulin-Dubois, D., Segalowitz, N., &amp; Byers-Heinlein, K. (2019). Selective attention to the mouth of talking faces in monolinguals and bilinguals aged 5 months to 5 years. *PsyArXiv*. &lt;https://doi.org/10.31234/osf.io/5pkne&gt; (R Markdown and data files: https://osf.io/ikvyr/)  
 
@@ -363,59 +389,63 @@ Nalborczyk, L., Batailler, C., Lœvenbruck, H., Vilain, A., &amp; Bürkner, P.-C
 
 Navarro, D. (2020). If mathematical psychology did not exist we might need to invent it: A comment on theory building in psychology. *PsyArXiv*. &lt;https://doi.org/10.31234/osf.io/ygbjp&gt;  
 
-Orben, A., Lucas, R. E., Fuhrmann, D., &amp; Kievit, R. (2020). Trajectories of adolescent life satisfaction. *PsyArXiv*. &lt;https://doi.org/10/gg8ss6&gt; (R Markdown and data files: https://osf.io/9kd2r/)  
+Orben, A., Lucas, R. E., Fuhrmann, D., &amp; Kievit, R. (2020). Trajectories of adolescent life satisfaction. *PsyArXiv*. &lt;https://doi.org/gg8ss6&gt; (R Markdown and data files: https://osf.io/9kd2r/)  
 
 Papenberg, M., Willing, S., &amp; Musch, J. (2017). Sequentially presented response options prevent the use of testwiseness cues in multiple-choice testing. *Psychological Test and Assessment Modeling*, *59*(2), 245–266. Retrieved from &lt;http://www.psychologie-aktuell.com/fileadmin/download/ptam/2-2017_20170627/06_Papenberg_.pdf&gt;  
 
 Pavlacic, J., Buchanan, E., Maxwell, N., Hopke, T., &amp; Schulenberg, S. (2018). A Meta-Analysis of Expressive Writing on Positive Psychology Variables and Traumatic Stress. *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/u98cw&gt; (R Markdown and data files: https://osf.io/4mjqt/)  
 
-Peterka-Bonetta, J., Sindermann, C., Sha, P., Zhou, M., &amp; Montag, C. (2019). The relationship between Internet Use Disorder, depression and burnout among Chinese and German college students. *Addictive Behaviors*, *89*, 188–199. &lt;https://doi.org/10/gd4rcw&gt;  
+Peterka-Bonetta, J., Sindermann, C., Sha, P., Zhou, M., &amp; Montag, C. (2019). The relationship between Internet Use Disorder, depression and burnout among Chinese and German college students. *Addictive Behaviors*, *89*, 188–199. &lt;https://doi.org/gd4rcw&gt;  
 
-Pollet, T. V., &amp; Saxton, T. (2018). How diverse are the samples used in the journals “Evolution &amp; Human Behavior” and “Evolutionary Psychology”? *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/7h24p&gt;  
+Pollet, T. V., &amp; Saxton, T. (2018). How diverse are the samples used in the journals ‘Evolution &amp; Human Behavior’ and ‘Evolutionary Psychology?’ *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/7h24p&gt;  
 
-Robison, M. K., &amp; Unsworth, N. (2018). Pupillometry tracks fluctuations in working memory performance. *PsyArXiv*. &lt;https://doi.org/10/gdz63r&gt; (R Markdown and data files: osf.io/vuw9h/)  
+Robison, M. K., &amp; Unsworth, N. (2018). Pupillometry tracks fluctuations in working memory performance. *PsyArXiv*. &lt;https://doi.org/gdz63r&gt; (R Markdown and data files: osf.io/vuw9h/)  
 
-Rouder, J., &amp; Haaf, J. M. (2018). A Psychometrics of Individual Differences in Experimental Tasks. *PsyArXiv*. &lt;https://doi.org/10/gfdbw2&gt; (R Markdown and data files: https://github.com/perceptionandcognitionlab/ctx-reliability)  
+Rouder, J., &amp; Haaf, J. M. (2018). A Psychometrics of Individual Differences in Experimental Tasks. *PsyArXiv*. &lt;https://doi.org/gfdbw2&gt; (R Markdown and data files: https://github.com/perceptionandcognitionlab/ctx-reliability)  
 
-Rouder, J., &amp; Haaf, J. M. (2019). Optional Stopping and the Interpretation of The Bayes Factor. *PsyArXiv*. &lt;https://doi.org/10/gf523c&gt; (R Markdown and data files: https://osf.io/uv456/)  
+Rouder, J., &amp; Haaf, J. M. (2019). Optional Stopping and the Interpretation of The Bayes Factor. *PsyArXiv*. &lt;https://doi.org/gf523c&gt; (R Markdown and data files: https://osf.io/uv456/)  
 
-Rouder, J., Haaf, J. M., &amp; Snyder, H. K. (2018a). Minimizing Mistakes In Psychological Science. *PsyArXiv*. &lt;https://doi.org/10/gfdb27&gt; (R Markdown and data files: https://github.com/perceptionandcognitionlab/lab-transparent)  
+Rouder, J., Haaf, J. M., &amp; Snyder, H. K. (2018). Minimizing Mistakes In Psychological Science. *PsyArXiv*. &lt;https://doi.org/gfdb27&gt; (R Markdown and data files: https://github.com/perceptionandcognitionlab/lab-transparent)  
 
-Rouder, J., Haaf, J. M., Stober, C., &amp; Hilgard, J. (2017). Beyond Overall Effects: A Bayesian Approach to Finding Constraints Across A Collection Of Studies In Meta-Analysis. *PsyArXiv*. &lt;https://doi.org/10/gffjrd&gt; (R Markdown and data files: https://github.com/perceptionandcognitionlab/meta-planned)  
+Rouder, J., Haaf, J. M., Stober, C., &amp; Hilgard, J. (2017). Beyond Overall Effects: A Bayesian Approach to Finding Constraints Across A Collection Of Studies In Meta-Analysis. *PsyArXiv*. &lt;https://doi.org/gffjrd&gt; (R Markdown and data files: https://github.com/perceptionandcognitionlab/meta-planned)  
 
-Rouder, J. N., Haaf, J. M., &amp; Aust, F. (2018b). From theories to models to predictions: A Bayesian model comparison approach. *Communication Monographs*, *85*(1), 41–56. &lt;https://doi.org/10.1080/03637751.2017.1394581&gt;  
+Rouder, J. N., Haaf, J. M., &amp; Aust, F. (2018). From theories to models to predictions: A Bayesian model comparison approach. *Communication Monographs*, *85*(1), 41–56. &lt;https://doi.org/10.1080/03637751.2017.1394581&gt;  
 
-Samaey, C., Wagemans, J., &amp; Moors, P. (2020). Individual differences in processing orientation and proximity as emergent features. *Vision Research*, *169*, 12–24. &lt;https://doi.org/10/ggnc6w&gt; (R Markdown and data files: https://osf.io/vgxja/)  
+Samaey, C., Wagemans, J., &amp; Moors, P. (2020). Individual differences in processing orientation and proximity as emergent features. *Vision Research*, *169*, 12–24. &lt;https://doi.org/ggnc6w&gt; (R Markdown and data files: https://osf.io/vgxja/)  
 
 Sauer, S. (2017). Observation oriented modeling revised from a statistical point of view. *Behavior Research Methods*. &lt;https://doi.org/10.3758/s13428-017-0949-8&gt; (R Markdown and data files: https://osf.io/6vhja/)  
+
+Stahl, C., Aust, F., Mierop, A., B’ena, J., &amp; Corneille, O. (2020). Moving beyond the Process-Dissociation procedure towards fine-grained memory and attitude measures in Evaluative Conditioning. *PsyArXiv*. &lt;https://doi.org/ghm947&gt; (R Markdown and data files: https://osf.io/b8w9j/)  
 
 Stahl, C., Barth, M., &amp; Haider, H. (2015). Distorted estimates of implicit and explicit learning in applications of the process-dissociation procedure to the SRT task. *Consciousness and Cognition*, *37*, 27–43. &lt;https://doi.org/10.1016/j.concog.2015.08.003&gt;  
 
 Stahl, C., &amp; Corneille, O. (2020). Evaluative conditioning in the Surveillance paradigm is moderated by awareness exclusion criteria. *PsyArXiv*. &lt;https://doi.org/10.31234/osf.io/3xsbu&gt; (R Markdown and data files: https://osf.io/qs35v)  
 
-Stahl, C., Haaf, J., &amp; Corneille, O. (2016a). Subliminal Evaluative Conditioning? Above-Chance CS Identification May Be Necessary and Insufficient for Attitude Learning. *Journal of Experimental Psychology: General*, *145*, 1107–1131. &lt;https://doi.org/10.1037/xge0000191&gt;  
+Stahl, C., Haaf, J., &amp; Corneille, O. (2016). Subliminal Evaluative Conditioning? Above-Chance CS Identification May Be Necessary and Insufficient for Attitude Learning. *Journal of Experimental Psychology: General*, *145*, 1107–1131. &lt;https://doi.org/10.1037/xge0000191&gt;  
 
-Stahl, C., Henze, L., &amp; Aust, F. (2016b). False memory for perceptually similar but conceptually distinct line drawings. *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/zr7m8&gt; (R Markdown and data files: https://osf.io/jxm7z/)  
+Stahl, C., Henze, L., &amp; Aust, F. (2016). False memory for perceptually similar but conceptually distinct line drawings. *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/zr7m8&gt; (R Markdown and data files: https://osf.io/jxm7z/)  
 
 Stahl, C., &amp; Heycke, T. (2016). Evaluative Conditioning with Simultaneous and Sequential Pairings Under Incidental and Intentional Learning Conditions. *Social Cognition*, *34*(5), 382–412. &lt;https://doi.org/10.1521/soco.2016.34.5.382&gt;  
 
-Stevens, J. R., &amp; Soh, L.-K. (2018). Predicting similarity judgments in intertemporal choice with machine learning. *Psychonomic Bulletin &amp; Review*, *25*(2), 627–635. &lt;https://doi.org/10/gdfghk&gt;  
+Stevens, J. R., &amp; Soh, L.-K. (2018). Predicting similarity judgments in intertemporal choice with machine learning. *Psychonomic Bulletin &amp; Review*, *25*(2), 627–635. &lt;https://doi.org/gdfghk&gt;  
 
-Urry, H. L. (2019). Don’t Ditch the Laptop Just Yet: A Direct Replication of Mueller and Oppenheimer’s (2014) Study 1 Plus Mini-Meta-Analyses Across Similar Studies. *PsyArXiv*. &lt;https://doi.org/10/gg6rbg&gt; (R Markdown and data files: https://osf.io/tr868/)  
+Tcherkassof, A., &amp; Dupr’e, D. (2020). The emotion–facial expression link: Evidence from human and automatic expression recognition. *Psychological Research*. &lt;https://doi.org/ghmbwn&gt; (R Markdown and data files: https://osf.io/erua5/)  
 
-Urry, H. L., Sifre, E., Song, J., Steinberg, H., Bornstein, M., Kim, J., … Andrews, M. (2018). Effect of Disgust on Judgments of Moral Wrongness: A Replication of Eskine, Kacinik, and Prinz (2011). *At Tufts University - Spring, 2017*. Retrieved from &lt;https://osf.io/fu384/&gt; (R Markdown and data files: https://osf.io/ddmkm)  
+Urry, H. L. (2019). Don’t Ditch the Laptop Just Yet: A Direct Replication of Mueller and Oppenheimer’s (2014) Study 1 Plus Mini-Meta-Analyses Across Similar Studies. *PsyArXiv*. &lt;https://doi.org/gg6rbg&gt; (R Markdown and data files: https://osf.io/tr868/)  
+
+Urry, H. L., Sifre, E., Song, J., Steinberg, H., Bornstein, M., Kim, J., … Andrews, M. (2018). Effect of Disgust on Judgments of Moral Wrongness: A Replication of Eskine, Kacinik, and Prinz (2011) at Tufts University - Spring, 2017. Retrieved from &lt;https://osf.io/fu384/&gt; (R Markdown and data files: https://osf.io/ddmkm)  
 
 Valentine, K., Buchanan, E., Scofield, J., &amp; Beauchamp, M. (2018). Beyond p-values: Utilizing Multiple Estimates to Evaluate Evidence. *PsyArXiv*. &lt;https://doi.org/10.17605/osf.io/9hp7y&gt; (R Markdown and data files: https://osf.io/u9hf4/)  
 
 Vuorre, M., &amp; Curley, J. P. (2018). Curating Research Assets: A Tutorial on the Git Version Control System. *PsyArXiv*. &lt;https://doi.org/10.31234/osf.io/6tzh8&gt; (R Markdown and data files: https://github.com/mvuorre/reproguide-curate)  
 
-Xu, R., DeShon, R. P., &amp; Dishop, C. R. (2019). Challenges and Opportunities in the Estimation of Dynamic Models. *Organizational Research Methods*, 109442811984263. &lt;https://doi.org/10/gf3vbj&gt;  
+Xu, R., DeShon, R. P., &amp; Dishop, C. R. (2019). Challenges and Opportunities in the Estimation of Dynamic Models. *Organizational Research Methods*, 109442811984263. &lt;https://doi.org/gf3vbj&gt;  
 
-Zhang, H., Miller, K. F., Sun, X., &amp; Cortina, K. S. (2020). Wandering eyes: Eye movements during mind wandering in video lectures. *Applied Cognitive Psychology*, acp.3632. &lt;https://doi.org/10/ggjvfp&gt;  
+Zhang, H., Miller, K. F., Sun, X., &amp; Cortina, K. S. (2020). Wandering eyes: Eye movements during mind wandering in video lectures. *Applied Cognitive Psychology*, acp.3632. &lt;https://doi.org/ggjvfp&gt;  
 
-Zhang, H., Qu, C., Miller, K. F., &amp; Cortina, K. S. (2019). Missing the joke: Reduced rereading of garden-path jokes during mind-wandering. *Journal of Experimental Psychology: Learning, Memory, and Cognition*. &lt;https://doi.org/10/gf68nd&gt;  
+Zhang, H., Qu, C., Miller, K. F., &amp; Cortina, K. S. (2019). Missing the joke: Reduced rereading of garden-path jokes during mind-wandering. *Journal of Experimental Psychology: Learning, Memory, and Cognition*. &lt;https://doi.org/gf68nd&gt;  
 
-Zhang, T., Hu, G., Yang, Y., Wang, J., &amp; Zhou, Y. (2019). All-Atom Knowledge-Based Potential for RNA Structure Discrimination Based on the Distance-Scaled Finite Ideal-Gas Reference State. *Journal of Computational Biology*. &lt;https://doi.org/10/ggcp6w&gt;  </code></pre>
+Zhang, T., Hu, G., Yang, Y., Wang, J., &amp; Zhou, Y. (2019). All-Atom Knowledge-Based Potential for RNA Structure Discrimination Based on the Distance-Scaled Finite Ideal-Gas Reference State. *Journal of Computational Biology*. &lt;https://doi.org/ggcp6w&gt;  </code></pre>
 
 </div>
 <h1>Comments and Questions</h1>

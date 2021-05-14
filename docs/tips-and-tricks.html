@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Tips and Tricks | papaja: Reproducible APA manuscripts with R Markdown</title>
   <meta name="description" content="""" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Tips and Tricks | papaja: Reproducible APA manuscripts with R Markdown" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Frederik Aust &amp; Marius Barth" />
 
 
-<meta name="date" content="2020-10-20" />
+<meta name="date" content="2021-05-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="reporting.html"/>
 <link rel="next" href="collaborative-writing.html"/>
+<script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,22 +51,21 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -135,34 +135,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a><ul>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="introduction.html"><a href="introduction.html#reproducible-scientific-reports"><i class="fa fa-check"></i><b>1.1.1</b> Reproducible scientific reports</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#implementation"><i class="fa fa-check"></i><b>1.2</b> Implementation</a><ul>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#implementation"><i class="fa fa-check"></i><b>1.2</b> Implementation</a>
+<ul>
 <li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#guiding-principles"><i class="fa fa-check"></i><b>1.2.1</b> Guiding principles</a></li>
 <li class="chapter" data-level="1.2.2" data-path="introduction.html"><a href="introduction.html#document-compilation"><i class="fa fa-check"></i><b>1.2.2</b> Document compilation</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>1.3</b> Alternatives</a></li>
-<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#getting-started"><i class="fa fa-check"></i><b>1.4</b> Getting started</a><ul>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#getting-started"><i class="fa fa-check"></i><b>1.4</b> Getting started</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="introduction.html"><a href="introduction.html#software-requirements"><i class="fa fa-check"></i><b>1.4.1</b> Software requirements</a></li>
 <li class="chapter" data-level="1.4.2" data-path="introduction.html"><a href="introduction.html#installing-papaja"><i class="fa fa-check"></i><b>1.4.2</b> Installing papaja</a></li>
 <li class="chapter" data-level="1.4.3" data-path="introduction.html"><a href="introduction.html#creating-a-document"><i class="fa fa-check"></i><b>1.4.3</b> Creating a document</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="r-markdown-components.html"><a href="r-markdown-components.html"><i class="fa fa-check"></i><b>2</b> R Markdown components</a><ul>
-<li class="chapter" data-level="2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#yaml-front-matter"><i class="fa fa-check"></i><b>2.1</b> YAML front matter</a><ul>
+<li class="chapter" data-level="2" data-path="r-markdown-components.html"><a href="r-markdown-components.html"><i class="fa fa-check"></i><b>2</b> R Markdown components</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#yaml-front-matter"><i class="fa fa-check"></i><b>2.1</b> YAML front matter</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#manuscript-metadata"><i class="fa fa-check"></i><b>2.1.1</b> Manuscript metadata</a></li>
 <li class="chapter" data-level="2.1.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#rendering-options"><i class="fa fa-check"></i><b>2.1.2</b> Rendering options</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#body"><i class="fa fa-check"></i><b>2.2</b> Body</a><ul>
+<li class="chapter" data-level="2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#body"><i class="fa fa-check"></i><b>2.2</b> Body</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="r-markdown-components.html"><a href="r-markdown-components.html#markdown"><i class="fa fa-check"></i><b>2.2.1</b> Markdown</a></li>
 <li class="chapter" data-level="2.2.2" data-path="r-markdown-components.html"><a href="r-markdown-components.html#r-code"><i class="fa fa-check"></i><b>2.2.2</b> R code</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i><b>3</b> Writing</a><ul>
+<li class="chapter" data-level="3" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i><b>3</b> Writing</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="writing.html"><a href="writing.html#markdown-text-formatting"><i class="fa fa-check"></i><b>3.1</b> Markdown text formatting</a></li>
-<li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a><ul>
+<li class="chapter" data-level="3.2" data-path="writing.html"><a href="writing.html#citations"><i class="fa fa-check"></i><b>3.2</b> Citations</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="writing.html"><a href="writing.html#citation-styles"><i class="fa fa-check"></i><b>3.2.1</b> Citation styles</a></li>
 <li class="chapter" data-level="3.2.2" data-path="writing.html"><a href="writing.html#works-in-press"><i class="fa fa-check"></i><b>3.2.2</b> Works ‘in press’</a></li>
 <li class="chapter" data-level="3.2.3" data-path="writing.html"><a href="writing.html#conveniently-inserting-citations-with-citr"><i class="fa fa-check"></i><b>3.2.3</b> Conveniently inserting citations with <code>citr</code></a></li>
@@ -175,38 +184,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6" data-path="writing.html"><a href="writing.html#counting-words"><i class="fa fa-check"></i><b>3.6</b> Counting words</a></li>
 <li class="chapter" data-level="3.7" data-path="writing.html"><a href="writing.html#comparing-document-versions"><i class="fa fa-check"></i><b>3.7</b> Comparing document versions</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a><ul>
+<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Reporting</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#numerical-values"><i class="fa fa-check"></i><b>4.1</b> Numerical values</a></li>
-<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#figures"><i class="fa fa-check"></i><b>4.2</b> Figures</a><ul>
+<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#figures"><i class="fa fa-check"></i><b>4.2</b> Figures</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#r-generated-figures"><i class="fa fa-check"></i><b>4.2.1</b> R-generated figures</a></li>
 <li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#external-images"><i class="fa fa-check"></i><b>4.2.2</b> External images</a></li>
 <li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#figure-captions"><i class="fa fa-check"></i><b>4.2.3</b> Figure captions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.1</b> Table captions</a></li>
-<li class="chapter" data-level="4.3.2" data-path="introduction.html"><a href="introduction.html#alternatives"><i class="fa fa-check"></i><b>4.3.2</b> Alternatives</a></li>
+<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#tables"><i class="fa fa-check"></i><b>4.3</b> Tables</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#fixed-width-columns"><i class="fa fa-check"></i><b>4.3.1</b> Fixed-width columns</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#table-captions"><i class="fa fa-check"></i><b>4.3.2</b> Table captions</a></li>
+<li class="chapter" data-level="4.3.3" data-path="reporting.html"><a href="reporting.html#alternatives-1"><i class="fa fa-check"></i><b>4.3.3</b> Alternatives</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#statistical-models-and-tests"><i class="fa fa-check"></i><b>4.4</b> Statistical Models and Tests</a><ul>
+<li class="chapter" data-level="4.4" data-path="reporting.html"><a href="reporting.html#statistical-models-and-tests"><i class="fa fa-check"></i><b>4.4</b> Statistical Models and Tests</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="reporting.html"><a href="reporting.html#reporting-models-and-tests-in-a-table"><i class="fa fa-check"></i><b>4.4.1</b> Reporting models and tests in a table</a></li>
-<li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#fully-supported-analysis-methods"><i class="fa fa-check"></i><b>4.4.2</b> Fully supported analysis methods</a></li>
+<li class="chapter" data-level="4.4.2" data-path="reporting.html"><a href="reporting.html#supported-analysis-methods"><i class="fa fa-check"></i><b>4.4.2</b> Supported analysis methods</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a><ul>
+<li class="chapter" data-level="4.5" data-path="reporting.html"><a href="reporting.html#caching-expensive-computations"><i class="fa fa-check"></i><b>4.5</b> Caching expensive computations</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="reporting.html"><a href="reporting.html#inserting-variables-before-they-have-been-computed"><i class="fa fa-check"></i><b>4.5.1</b> Inserting variables before they have been computed</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a><ul>
+<li class="chapter" data-level="5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html"><i class="fa fa-check"></i><b>5</b> Tips and Tricks</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#global-chunk-options"><i class="fa fa-check"></i><b>5.1</b> Global chunk options</a></li>
 <li class="chapter" data-level="5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#meaningful-chunk-names"><i class="fa fa-check"></i><b>5.2</b> Meaningful chunk names</a></li>
 <li class="chapter" data-level="5.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#text-references"><i class="fa fa-check"></i><b>5.3</b> Text references</a></li>
 <li class="chapter" data-level="5.4" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#useful-rstudio-addins"><i class="fa fa-check"></i><b>5.4</b> Useful RStudio Addins</a></li>
-<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environments"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environments</a><ul>
+<li class="chapter" data-level="5.5" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#reproducible-software-environments"><i class="fa fa-check"></i><b>5.5</b> Reproducible software environments</a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#docker"><i class="fa fa-check"></i><b>5.5.1</b> Docker</a></li>
 <li class="chapter" data-level="5.5.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#codeocean"><i class="fa fa-check"></i><b>5.5.2</b> CodeOcean</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#rstudio"><i class="fa fa-check"></i><b>5.6</b> RStudio</a></li>
 <li class="chapter" data-level="5.7" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#splitting-an-r-markdown-document"><i class="fa fa-check"></i><b>5.7</b> Splitting an R Markdown document</a></li>
 <li class="chapter" data-level="5.8" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#best-practices"><i class="fa fa-check"></i><b>5.8</b> Best practices</a></li>
-<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.9</b> Troubleshooting</a><ul>
+<li class="chapter" data-level="5.9" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#troubleshooting"><i class="fa fa-check"></i><b>5.9</b> Troubleshooting</a>
+<ul>
 <li class="chapter" data-level="5.9.1" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#yaml"><i class="fa fa-check"></i><b>5.9.1</b> YAML</a></li>
 <li class="chapter" data-level="5.9.2" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#r"><i class="fa fa-check"></i><b>5.9.2</b> R</a></li>
 <li class="chapter" data-level="5.9.3" data-path="tips-and-tricks.html"><a href="tips-and-tricks.html#bookdown"><i class="fa fa-check"></i><b>5.9.3</b> <code>bookdown</code></a></li>
@@ -216,19 +234,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="collaborative-writing.html"><a href="collaborative-writing.html"><i class="fa fa-check"></i><b>6</b> Collaborative writing</a></li>
 <li class="chapter" data-level="7" data-path="published-manuscripts.html"><a href="published-manuscripts.html"><i class="fa fa-check"></i><b>7</b> Published manuscripts</a></li>
-<li class="chapter" data-level="8" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>8</b> Limitations</a><ul>
-<li class="chapter" data-level="8.1" data-path="limitations.html"><a href="limitations.html#pdf-documents"><i class="fa fa-check"></i><b>8.1</b> PDF documents</a><ul>
+<li class="chapter" data-level="8" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>8</b> Limitations</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="limitations.html"><a href="limitations.html#pdf-documents"><i class="fa fa-check"></i><b>8.1</b> PDF documents</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="limitations.html"><a href="limitations.html#customizing-the-document-preamble"><i class="fa fa-check"></i><b>8.1.1</b> Customizing the document preamble</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="limitations.html"><a href="limitations.html#microsoft-word-documents"><i class="fa fa-check"></i><b>8.2</b> Microsoft Word documents</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="customizations.html"><a href="customizations.html"><i class="fa fa-check"></i><b>9</b> Customizations</a><ul>
+<li class="chapter" data-level="9" data-path="customizations.html"><a href="customizations.html"><i class="fa fa-check"></i><b>9</b> Customizations</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="customizations.html"><a href="customizations.html#author-name-disambiguation"><i class="fa fa-check"></i><b>9.1</b> Author name disambiguation</a></li>
 <li class="chapter" data-level="9.2" data-path="customizations.html"><a href="customizations.html#adjusting-line-spacing"><i class="fa fa-check"></i><b>9.2</b> Adjusting line spacing</a></li>
 <li class="chapter" data-level="9.3" data-path="customizations.html"><a href="customizations.html#writing-dissertations"><i class="fa fa-check"></i><b>9.3</b> Writing dissertations</a></li>
+<li class="chapter" data-level="9.4" data-path="customizations.html"><a href="customizations.html#customizing-apa_print"><i class="fa fa-check"></i><b>9.4</b> Customizing <code>apa_print()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a><ul>
-<li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a><ul>
+<li class="chapter" data-level="10" data-path="future-directions.html"><a href="future-directions.html"><i class="fa fa-check"></i><b>10</b> Future directions</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="future-directions.html"><a href="future-directions.html#contributions"><i class="fa fa-check"></i><b>10.1</b> Contributions</a>
+<ul>
 <li class="chapter" data-level="10.1.1" data-path="future-directions.html"><a href="future-directions.html#workflow"><i class="fa fa-check"></i><b>10.1.1</b> Workflow</a></li>
 </ul></li>
 </ul></li>
@@ -254,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tips-and-tricks" class="section level1">
+<div id="tips-and-tricks" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Tips and Tricks</h1>
 <ul>
 <li>Spell check functionality in RStudio</li>
@@ -263,21 +287,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>New line for each sentence</li>
 </ul>
-<div id="global-chunk-options" class="section level2">
+<div id="global-chunk-options" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Global chunk options</h2>
 <p>It can be useful to set chunk options globally for all (following) chunks to avoid retyping or copy-and-pasting</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="tips-and-tricks.html#cb77-1"></a><span class="co"># Save all plots as 600 DPI TIFF-files</span></span>
-<span id="cb77-2"><a href="tips-and-tricks.html#cb77-2"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">dev =</span> <span class="st">&quot;tiff&quot;</span>, <span class="dt">dpi =</span> <span class="dv">600</span>)</span>
-<span id="cb77-3"><a href="tips-and-tricks.html#cb77-3"></a></span>
-<span id="cb77-4"><a href="tips-and-tricks.html#cb77-4"></a><span class="co"># Do not evaluate subsequent chunks (debugging or fine-tuning)</span></span>
-<span id="cb77-5"><a href="tips-and-tricks.html#cb77-5"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">eval =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="tips-and-tricks.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save all plots as 600 DPI TIFF-files</span></span>
+<span id="cb79-2"><a href="tips-and-tricks.html#cb79-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">dev =</span> <span class="st">&quot;tiff&quot;</span>, <span class="at">dpi =</span> <span class="dv">600</span>)</span>
+<span id="cb79-3"><a href="tips-and-tricks.html#cb79-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-4"><a href="tips-and-tricks.html#cb79-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Do not evaluate subsequent chunks (debugging or fine-tuning)</span></span>
+<span id="cb79-5"><a href="tips-and-tricks.html#cb79-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">eval =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>See the <a href="https://yihui.name/knitr/options/">knitr chunk options and package options</a> for an overview of settings</p>
 </div>
-<div id="meaningful-chunk-names" class="section level2">
+<div id="meaningful-chunk-names" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Meaningful chunk names</h2>
 <p>…</p>
 </div>
-<div id="text-references" class="section level2">
+<div id="text-references" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Text references</h2>
 <p>Because <code>papaja</code> extends <code>bookdown</code> you can use text references in any <code>papaja</code> document.
 A text reference consists of a unique label—defined as <code>(ref:unique-label)</code> somewhere in the body of the document (not inside a code chunk)—and the text that the label stands in for.
@@ -290,7 +314,6 @@ Hence, the following will <em>not</em> work as expected</p>
 <pre><code>(ref:my-caption) 
 This is a caption for my table.</code></pre>
 </div>
-
 <p>Using text references for table and figure captions has several advantages:</p>
 <ol style="list-style-type: decimal">
 <li>Markdown and <span class="math inline">\(\LaTeX\)</span> syntax is not well supported in chunk options, such as <code>fig.cap</code>, or elsewhere inside a code chunk, e.g., in the <code>caption</code> argument of <code>apa_table()</code>.
@@ -328,7 +351,7 @@ Figure 5.1: An interesting plot. Points represent conditions means, error bars r
 </div>
 <p>Because the information about what points and error bars represent is repeated using a text reference, and not by literal repetition throughout the document, it’s easy to correct the typo (<code>955% confidence intervals</code>) and be sure that it is corrected in every instance.</p>
 </div>
-<div id="useful-rstudio-addins" class="section level2">
+<div id="useful-rstudio-addins" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Useful RStudio Addins</h2>
 <ul>
 <li><a href="https://github.com/crsh/citr"><code>citr</code></a>: Insert Markdown Citations</li>
@@ -390,17 +413,20 @@ Figure 5.1: An interesting plot. Points represent conditions means, error bars r
 <li><a href="https://frederikaust.shinyapps.io/retractcheck_shinyapp/"><code>retractcheck</code></a>: Check DOIs in a paper for retractions</li>
 </ul>
 </div>
-<div id="reproducible-software-environments" class="section level2">
+<div id="reproducible-software-environments" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Reproducible software environments</h2>
 <p>To ensure mid- to long-term computational reproducibility, we highly recommend conserving the software environment used to write a manuscript (e.g. R and all R packages) either in a software container or a virutal machine.
-This way you can be sure that your R code does not break because of updates to R or any R package.
-For a brief primer on containers and virtual machines see <a href="https://psych-transparency-guide.uni-koeln.de/analytic-reproducibility.html#document-hardware-and-software-used-for-analyses">the supplementary material</a> by <span class="citation">Klein et al. (<a href="#ref-klein_practical_2018" role="doc-biblioref">2018</a>)</span>.</p>
-<div id="docker" class="section level3">
+This helps to avoid <a href="https://en.wikipedia.org/wiki/Software_rot">code rot</a> (that is, your R code breaking because of updates to, for example, R or any R package) and ensures you can reproduce your analysis in the years to come.
+For a brief primer on containers and virtual machines see <a href="https://psych-transparency-guide.uni-koeln.de/analytic-reproducibility.html#document-hardware-and-software-used-for-analyses">the supplementary material</a> by <span class="citation"><a href="references.html#ref-klein_practical_2018" role="doc-biblioref">Klein et al.</a> (<a href="references.html#ref-klein_practical_2018" role="doc-biblioref">2018</a>)</span>.</p>
+<div id="docker" class="section level3" number="5.5.1">
 <h3><span class="header-section-number">5.5.1</span> Docker</h3>
 <p><a href="https://www.docker.com/">Docker</a> is probably the most widely used containerization approach.
-It is open source and free to use but requires some disk space.
+Docker containers are similar to virtual machines: insulated software environments (system libraries, R, R packages, RStudio, LaTeX, LaTeX packages, etc.) that run inside your host system.
+Docker works on most operating systems and is widely used, free, and open source.
+It just requires some disk space.
 For a concise hands-on introduction see the <a href="https://ropenscilabs.github.io/r-docker-tutorial/">ROpenSci Docker tutorial</a>; a <a href="https://docker-curriculum.com/">more detailed introduction</a> is available from the Docker project.
 Docker containers are configured using so-called Docker files that act as a recipe for the software environment.
+With the Docker file, anyone can automatically recreate the software environment that you used and rerun your analysis.
 As a starting point for your container you can build on the following Docker file, which sets up everything that is needed for creating a manuscript with <code>papaja</code>—including an instance of RStudio that you can access through your browser:</p>
 <pre class="docker"><code># Look up available R versions at https://github.com/rocker-org/rocker-versioned/tree/master/verse
 
@@ -426,22 +452,22 @@ RUN Rscript -e &quot;remotes::install_version(&#39;dplyr&#39;, &#39;1.0.0&#39;, 
 # Latest papaja development version
 RUN Rscript -e &quot;remotes::install_github(&#39;crsh/papaja&#39;,  quick = FALSE, build = TRUE, dependencies = c(&#39;Depends&#39;, &#39;Imports&#39;), Ncpus = 3, upgrade = FALSE)&quot;</code></pre>
 <p>Place this Docker file in your project directory alongside the following bash script (for MacOS or Linux):</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb82-1"><a href="tips-and-tricks.html#cb82-1"></a><span class="co">#!/bin/sh</span></span>
-<span id="cb82-2"><a href="tips-and-tricks.html#cb82-2"></a></span>
-<span id="cb82-3"><a href="tips-and-tricks.html#cb82-3"></a><span class="ex">docker</span> build \</span>
-<span id="cb82-4"><a href="tips-and-tricks.html#cb82-4"></a>    --build-arg RSTUDIO_VERSION=1.3.1093 \</span>
-<span id="cb82-5"><a href="tips-and-tricks.html#cb82-5"></a>    -t container-name .</span>
-<span id="cb82-6"><a href="tips-and-tricks.html#cb82-6"></a></span>
-<span id="cb82-7"><a href="tips-and-tricks.html#cb82-7"></a><span class="ex">docker</span> run -d \</span>
-<span id="cb82-8"><a href="tips-and-tricks.html#cb82-8"></a>    -p 8787:8787 \</span>
-<span id="cb82-9"><a href="tips-and-tricks.html#cb82-9"></a>    -e DISABLE_AUTH=true \</span>
-<span id="cb82-10"><a href="tips-and-tricks.html#cb82-10"></a>    -e ROOT=TRUE \</span>
-<span id="cb82-11"><a href="tips-and-tricks.html#cb82-11"></a>    -v <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/home/rstudio \</span>
-<span id="cb82-12"><a href="tips-and-tricks.html#cb82-12"></a>    container-name</span>
-<span id="cb82-13"><a href="tips-and-tricks.html#cb82-13"></a></span>
-<span id="cb82-14"><a href="tips-and-tricks.html#cb82-14"></a><span class="fu">sleep</span> 1</span>
-<span id="cb82-15"><a href="tips-and-tricks.html#cb82-15"></a></span>
-<span id="cb82-16"><a href="tips-and-tricks.html#cb82-16"></a><span class="ex">open</span> http://<span class="va">$(</span><span class="ex">ipconfig</span> getifaddr en0<span class="va">)</span>:8787</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb84-1"><a href="tips-and-tricks.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/sh</span></span>
+<span id="cb84-2"><a href="tips-and-tricks.html#cb84-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-3"><a href="tips-and-tricks.html#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> build <span class="dt">\</span></span>
+<span id="cb84-4"><a href="tips-and-tricks.html#cb84-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--build-arg</span> RSTUDIO_VERSION=1.3.1093 <span class="dt">\</span></span>
+<span id="cb84-5"><a href="tips-and-tricks.html#cb84-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">-t</span> container-name .</span>
+<span id="cb84-6"><a href="tips-and-tricks.html#cb84-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-7"><a href="tips-and-tricks.html#cb84-7" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-d</span> <span class="dt">\</span></span>
+<span id="cb84-8"><a href="tips-and-tricks.html#cb84-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">-p</span> 8787:8787 <span class="dt">\</span></span>
+<span id="cb84-9"><a href="tips-and-tricks.html#cb84-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">-e</span> DISABLE_AUTH=true <span class="dt">\</span></span>
+<span id="cb84-10"><a href="tips-and-tricks.html#cb84-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">-e</span> ROOT=TRUE <span class="dt">\</span></span>
+<span id="cb84-11"><a href="tips-and-tricks.html#cb84-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">-v</span> <span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span>:/home/rstudio <span class="dt">\</span></span>
+<span id="cb84-12"><a href="tips-and-tricks.html#cb84-12" aria-hidden="true" tabindex="-1"></a>    container-name</span>
+<span id="cb84-13"><a href="tips-and-tricks.html#cb84-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-14"><a href="tips-and-tricks.html#cb84-14" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 1</span>
+<span id="cb84-15"><a href="tips-and-tricks.html#cb84-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-16"><a href="tips-and-tricks.html#cb84-16" aria-hidden="true" tabindex="-1"></a><span class="ex">open</span> http://<span class="va">$(</span><span class="ex">ipconfig</span> getifaddr en0<span class="va">)</span>:8787</span></code></pre></div>
 <p>Execute this script in your project directory to set up and run the container.
 This script will take a little while to finish the first time around (it downloads the base container and installs all needed R packages), but should be fast the next time.
 Finally, a browser window with an instance of RStudio should open and all files from you project directory should be shared between your container and the host system.
@@ -451,7 +477,6 @@ You can work in that RStudio instance in your browser just as you usually would.
 Note that whenever you install an R package interactively (i.e., via the GUI or <code>install.packages()</code>) they will be lost once you stop the container.
 While this may seem inconvenient, it ensures that your Docker file (that is your recipe) is complete.
 </div>
-
 <p>To permanently install new R packages in your container, add them to the Docker file.
 For example,</p>
 <pre><code>RUN install2.r --error \
@@ -467,16 +492,15 @@ For the rocker images used here this date is the last day the desired version of
 If the installation of the required R packages takes a long time, it may help to install the packages and their dependencies in parallel.
 To install packages using three cores in parallel, add <code>--ncpus 3 \</code> to the above <code>RUN</code> instructions.
 </div>
-
 </div>
-<div id="codeocean" class="section level3">
+<div id="codeocean" class="section level3" number="5.5.2">
 <h3><span class="header-section-number">5.5.2</span> CodeOcean</h3>
 <p><a href="https://codeocean.com/">CodeOcean</a> is a commercial service that builds on Docker, facilitates setting up and sharing containers, and lets you run computations in the cloud.
 In case you prefer CodeOcean over plain Docker, you may be interested in the <a href="https://codeocean.com/capsule/8183533/">minimal <code>papaja</code> example capsule</a> that CodeOcean’s Seth Green has kindly prepared.
 If you want to use <code>papaja</code> in your next CodeOcean project, you may use this capsule as a starting point.</p>
 </div>
 </div>
-<div id="rstudio" class="section level2">
+<div id="rstudio" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> RStudio</h2>
 <ol style="list-style-type: decimal">
 <li>Document outline</li>
@@ -485,7 +509,7 @@ If you want to use <code>papaja</code> in your next CodeOcean project, you may u
 <!-- If you discover an error in a data file, never modify it directly, but instead write code to correct the value. Explain why you made the fix. -->
 <!-- Before you finish for the day, make sure you can knit the notebook (if you’re using caching, make sure to clear the caches). That will let you fix any problems while the code is still fresh in your mind. -->
 </div>
-<div id="splitting-an-r-markdown-document" class="section level2">
+<div id="splitting-an-r-markdown-document" class="section level2" number="5.7">
 <h2><span class="header-section-number">5.7</span> Splitting an R Markdown document</h2>
 <p>Some authors may prefer to split long manuscripts into multiple component files for better clarity.
 There are two basic strategies to split R Markdown documents that can be combined or used in isolation: sourcing R scripts and splitting the R Markdown document.
@@ -508,7 +532,7 @@ To include a child document, insert an empty chunk and provide the path to the R
 ```</code></pre>
 <p>Search all files with <kbd>Ctrl</kbd> + <kbd>Shift</kbd>+<kbd>F</kbd></p>
 </div>
-<div id="best-practices" class="section level2">
+<div id="best-practices" class="section level2" number="5.8">
 <h2><span class="header-section-number">5.8</span> Best practices</h2>
 <ol style="list-style-type: decimal">
 <li>Load all R packages in the first code chunk
@@ -524,9 +548,9 @@ To include a child document, insert an empty chunk and provide the path to the R
 <li>Try to ensure you can knit without errors before going home</li>
 </ol>
 </div>
-<div id="troubleshooting" class="section level2">
+<div id="troubleshooting" class="section level2" number="5.9">
 <h2><span class="header-section-number">5.9</span> Troubleshooting</h2>
-<p>As detailed in [Document compilation], rendering a <code>papaja</code> document involves several software packages.
+<p>As detailed in <a href="introduction.html#document-compilation">Document compilation</a>, rendering a <code>papaja</code> document involves several software packages.
 This layered software design grants the package its capabilities but it comes at a cost:
 When compilation of a <code>papaja</code>-document throws an error it may not be immediately obvious to an inexperienced user, which part of the process failed.
 However, the error message usually give some indication which portion of the process errored:</p>
@@ -561,19 +585,18 @@ However, the error message usually give some indication which portion of the pro
 <p>It is often helpful to search the internet for the error messages or portions thereof.
 Many times others will have encountered the same problem and may have documented their solution.
 In the following we provide some general advice.</p>
-<div id="yaml" class="section level3">
+<div id="yaml" class="section level3" number="5.9.1">
 <h3><span class="header-section-number">5.9.1</span> YAML</h3>
 <p>TBD</p>
 <p>Double check indentation and white space.</p>
 </div>
-<div id="r" class="section level3">
+<div id="r" class="section level3" number="5.9.2">
 <h3><span class="header-section-number">5.9.2</span> R</h3>
 
 <div class="rmdnote">
 Error messages generated by R unfortunately do not provide the exact line that has errored.
 The reported line number indicates the first line of R code chunk that contains the erroneous code.
 </div>
-
 <p>Fixing bugs in R Markdown documents can be challenging because the code is run in a new non-interactive R session.
 This makes it a little harder to play around to pinpoint what’s causing the problem.
 Hence, do your best to recreate the problem in your interactive session:</p>
@@ -585,33 +608,24 @@ Hence, do your best to recreate the problem in your interactive session:</p>
 <p>If you can’t reproduce the problem in your interactive R session, there must be some difference between it and the R environment of your document.
 Once you identify that difference you will often know what is causing the problem.
 If you don’t you at least can now recreate the problem in your interactive R session and start debugging.
-To learn more about debugging techniques refer to <a href="https://adv-r.hadley.nz/debugging.html">Advanced R</a> <span class="citation">(Wickham, <a href="#ref-wickham_advanced_2019" role="doc-biblioref">2019</a>)</span>.</p>
+To learn more about debugging techniques refer to <a href="https://adv-r.hadley.nz/debugging.html">Advanced R</a> <span class="citation">(<a href="references.html#ref-wickham_advanced_2019" role="doc-biblioref">Wickham, 2019</a>)</span>.</p>
 </div>
-<div id="bookdown" class="section level3">
+<div id="bookdown" class="section level3" number="5.9.3">
 <h3><span class="header-section-number">5.9.3</span> <code>bookdown</code></h3>
 <p>TBD</p>
 <p>Don’t use <code>_</code> in chunk names!</p>
 </div>
-<div id="pandoc" class="section level3">
+<div id="pandoc" class="section level3" number="5.9.4">
 <h3><span class="header-section-number">5.9.4</span> <code>pandoc</code></h3>
 <p>TBD</p>
 <p>Report errors with <code>papaja</code> Lua filters at <a href="https://github.com/crsh/papaja/issues" class="uri">https://github.com/crsh/papaja/issues</a></p>
 </div>
-<div id="latex" class="section level3">
+<div id="latex" class="section level3" number="5.9.5">
 <h3><span class="header-section-number">5.9.5</span> <span class="math inline">\(\LaTeX\)</span></h3>
 <p>TBD</p>
 <p>Inspect the log file.</p>
 
 </div>
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-klein_practical_2018">
-<p>Klein, O., Hardwicke, T. E., Aust, F., Breuer, J., Danielsson, H., Mohr, A. H., … Frank, M. C. (2018). A practical guide for transparency in psychological science. <em>Collabra: Psychology</em>, <em>4</em>(1). doi:<a href="https://doi.org/10.1525/collabra.158">10.1525/collabra.158</a></p>
-</div>
-<div id="ref-wickham_advanced_2019">
-<p>Wickham, H. (2019). <em>Advanced R</em> (2nd ed.). Chapman; Hall/CRC. Retrieved from <a href="https://adv-r.hadley.nz//">https://adv-r.hadley.nz//</a></p>
 </div>
 </div>
 <h1>Comments and Questions</h1>

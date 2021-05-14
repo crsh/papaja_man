@@ -123,16 +123,19 @@ Suggested keyboard shortcuts
 ## Reproducible software environments
 
 To ensure mid- to long-term computational reproducibility, we highly recommend conserving the software environment used to write a manuscript (e.g. R and all R packages) either in a software container or a virutal machine.
-This way you can be sure that your R code does not break because of updates to R or any R package.
+This helps to avoid [code rot](https://en.wikipedia.org/wiki/Software_rot) (that is, your R code breaking because of updates to, for example, R or any R package) and ensures you can reproduce your analysis in the years to come.
 For a brief primer on containers and virtual machines see [the supplementary material](https://psych-transparency-guide.uni-koeln.de/analytic-reproducibility.html#document-hardware-and-software-used-for-analyses) by @klein_practical_2018.
 
 
 ### Docker
 
 [Docker](https://www.docker.com/) is probably the most widely used containerization approach.
-It is open source and free to use but requires some disk space.
+Docker containers are similar to virtual machines: insulated software environments (system libraries, R, R packages, RStudio, LaTeX, LaTeX packages, etc.) that run inside your host system.
+Docker works on most operating systems and is widely used, free, and open source.
+It just requires some disk space.
 For a concise hands-on introduction see the [ROpenSci Docker tutorial](https://ropenscilabs.github.io/r-docker-tutorial/); a [more detailed introduction](https://docker-curriculum.com/) is available from the Docker project.
 Docker containers are configured using so-called Docker files that act as a recipe for the software environment.
+With the Docker file, anyone can automatically recreate the software environment that you used and rerun your analysis.
 As a starting point for your container you can build on the following Docker file, which sets up everything that is needed for creating a manuscript with `papaja`---including an instance of RStudio that you can access through your browser:
 
 ~~~docker
