@@ -143,8 +143,8 @@ Authors who contributed equally to the manuscript and share first authorship can
 When equal contributions are declared a superscript is added to the author names and a corresponding explanation is added to the author note.
 
 ```{block2, tenzing-note, type = "rmdnote"}
-For convenience, you can generate the YAML-code for the author-metadata with most of the above-mentioned information using the web application [*tenzing*](https://martonbalazskovacs.shinyapps.io/tenzing/) [@holcombe_tenzing_2020].
-Simply collect the metadata in an Excel or GoogleSheet, upload it to the web application and copy the generated YAML into the front-matter of your document.
+For convenience, you can generate the YAML-code for the author-metadata with most of the above-mentioned information using the web application [*tenzing*](https://tenzing.club) [@holcombe_tenzing_2020].
+Simply collect the metadata using the Excel or GoogleSheet template [provided](https://tenzing.club), upload it to [*tenzing*](https://tenzing.club) and copy the generated YAML into the front-matter of your document.
 ```
 
 `affiliation` is another structured list that contains the institutions' information; again each new element is indented and starts with `-`.
