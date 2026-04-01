@@ -59,7 +59,7 @@ Conveniently, the citations in subgroup 2 will be reordered but the order of the
 
 This ensures that the reordering citations doesn't distort the semantics implied by the prefixes.
 
-Further customizations, such as citing only a publications year (`[-@bem_2011]`) are available, see RStudio's [overview of the R Markdown citation syntax](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html).
+Further customizations, such as citing only a publications year (`[-@bem_2011]`) are available, see the `citeproc` [citation syntax](https://pandoc.org/MANUAL.html#citation-syntax) documentation.
 If you are not interested in creating Microsoft Word documents it's possible to use NatBib or Bib(La)TeX for reference formatting, which grant a little more flexibility than `pandoc-citeproc`.
 To do so, an additional argument has to be supplied to `apa6_pdf()`:
 
