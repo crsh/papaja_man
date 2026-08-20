@@ -13,7 +13,7 @@ The second part is the main body that contains R code chunks and prose in Markdo
 
 <!-- YAML data structures translate to (named) `list` objects<br />in R -->
 
-<!-- ```{yaml} -->
+<!-- ```{verbatim lang="yaml"} -->
 <!-- --- -->
 <!-- title: "YAML Example" -->
 <!-- author: "Frederik Aust" -->
@@ -35,7 +35,7 @@ The second part is the main body that contains R code chunks and prose in Markdo
 
 <!-- Indentations denote the structure of nested `list`s -->
 
-<!-- ```{yaml} -->
+<!-- ```{verbatim lang="yaml"} -->
 <!-- --- -->
 <!-- output: -->
 <!--   html_document: -->
@@ -60,7 +60,7 @@ The second part is the main body that contains R code chunks and prose in Markdo
 
 <!-- Similarly, it is possible to specify vectors -->
 
-<!-- ```{yaml} -->
+<!-- ```{verbatim lang="yaml"} -->
 <!-- --- -->
 <!-- bibliography: ["references.bib", "r-package-references.bib"] -->
 <!-- --- -->
@@ -80,7 +80,7 @@ The second part is the main body that contains R code chunks and prose in Markdo
 
 <!-- Text that spans multiple lines can be declared with `|` -->
 
-<!-- ```{yaml} -->
+<!-- ```{verbatim lang="yaml"} -->
 <!-- --- -->
 <!-- abstract: | -->
 <!--   This text spanns multiple rows. -->
@@ -212,7 +212,7 @@ To do this, set `annotate_references: yes` and add `*` (or other indicators) to 
 The `output` field determines the type of document that is created and can be either `papaja::apa6_pdf` or `papaja::apa6_word`.
 Additional arguments can be passed to these functions, e.g. to delete the LaTeX source file after the PDF has been rendered (see `?apa6_pdf` for details):
 
-```{yaml eval = FALSE}
+```{verbatim lang="yaml"}
 output: 
   papaja::apa6_pdf:
     keep_tex: FALSE
@@ -251,7 +251,7 @@ Markdown was desigend to be an easy-to-read and -write formatting syntax.
 The key design goal was to create a syntax that is readable as-is.
 The following is an excerpt from the APA example manuscript written in Markdown.
 
-```{markdown}
+```{verbatim lang = "markdown"}
 # Methods
 ## Participants
 Younger adults (14 women, 10 men, $M_{age} = 19.5$ years, age
@@ -306,7 +306,7 @@ Writing R code inline is a convenient way of reporting results of computations i
 For example, the mean and standard deviation of participants' age are stored in variables named `age_mean` and `age_sd`.
 These numbers can be reported by printing the variables in inline R code.
 
-```{markdown}
+```{verbatim lang = "markdown"}
 Participants mean age was `r age_mean` years ($SD = `r age_sd`$).
 ```
 

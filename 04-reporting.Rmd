@@ -11,46 +11,49 @@ It starts with simple numerical values (like a sample mean) and then continues w
 
 ## Numerical values
 
-```{r printnum-values, echo = FALSE}
+```{r apa_num-values, echo = FALSE}
 age_mean <- 22.8395
 age_sd <- 3.7846237542894
 ```
 
 Consider a basic example, where you want to include a mean and a standard deviation into text:
-`printnum()` can be used to include numeric values in the text.
+`apa_num()` can be used to include numeric values in the text.
 The function performs the rounding and optionally omits leading zeros in accordance with APA guidelines:
 
-```{r inline-printnum, eval = FALSE, highlight = FALSE}
-Participants mean age was `r printnum(age_mean)` years ($SD = `r printnum(age_sd)`$).
+```{r inline-apa_num, eval = FALSE, highlight = FALSE}
+Participants mean age was `r apa_num(age_mean)` years ($SD = `r apa_num(age_sd)`$).
 ```
 
 The above line is rendered as follows:
 
-> Participants mean age was `r printnum(age_mean)` years ($SD = `r printnum(age_sd)`$).
+> Participants mean age was `r apa_num(age_mean)` years ($SD = `r apa_num(age_sd)`$).
 
-`printnum()` is quiet flexible by passing its arguments to the underlying base function `formatC()`, so changing the number of digits after the decimal point or the character to be used to indicate the  decimal point (e.g., from a point `"."` to a comma `","`) is always possible.
+`apa_num()` is quiet flexible by passing its arguments to the underlying base function `formatC()`,
+so changing the number of digits after the decimal point or the character to be 
+used to indicate the  decimal point (e.g., from a point `"."` to a comma `","`) 
+is always possible.
 
 ```{block2, hook-note, type = "rmdnote"}
-`papaja` automatically applies `printnum()` to any number that is printed in inline code chunks.
-Hence, `` `r age_mean` `` and `` `r printnum(age_mean)` `` are effectively identical and both yield "22.84".
+`papaja` automatically applies `apa_num()` to any number that is printed in inline code chunks.
+Hence, `` `r age_mean` `` and `` `r apa_num(age_mean)` `` are effectively identical and both yield "22.84".
 ```
 
-`papaja` additionally provides a shorthand version of `printnum()`, namely `printp()`, with defaults for correct typesetting of $p$ values (e.g., $p < .001$ instead of $p = 0.000$).
+**papaja** additionally provides a shorthand version of `apa_num()`, namely `apa_p()`, with defaults for correct typesetting of $p$ values (e.g., $p < .001$ instead of $p = 0.000$).
 
 Typeset numerical values for greater control
-- `printnum()`
-- `printp()` as shorthand for *p* values
+- `apa_num()`
+- `apa_p()` as shorthand for *p* values
 
 ```{r}
-printnum(c(143234.34557, Inf))
+apa_num(c(143234.34557, Inf))
 ```
 
 ```{r}
-printnum(42L, numerals = FALSE, capitalize = TRUE)
+apa_num(42L, numerals = FALSE, capitalize = TRUE)
 ```
 
 ```{r}
-printp(c(1, 0.0008, 0))
+apa_p(c(1, 0.0008, 0))
 ```
 
 
@@ -80,7 +83,7 @@ plot(cars)
 
 Figure display size, resolution, file format and many other things can be controlled by setting the corresponding chunk options.
 Refer to the [plot-related `knitr` chunk options](https://yihui.name/knitr/options/#plots) for an overview of all options.
-In `papaja`-documents, by default, all figures are saved as vectorized PDF and pixel-based PNG files at a resolution of 300 DPI, which should in most cases be sufficient for a print publication.
+In **papaja**-documents, by default, all figures are saved as vectorized PDF and pixel-based PNG files at a resolution of 300 DPI, which should in most cases be sufficient for a print publication.
 When the target document format is PDF the vectorized PDF files are included; when the target document format is DOCX the pixel-based PNG files are included.
 The files can be found in the `mydocument_files` folder that is generated when `mydocument.Rmd` is knitted.
 
@@ -88,12 +91,15 @@ Note, if you define transparent colors in your plots (e.g., when you define colo
 Given the lossless compression in PNG and the decent resolution of 300 DPI this should not be a problem in print.
 
 
-#### `papaja` plot functions
+#### **papaja** plot functions
 
-Factorial designs are ubiquitous in experimental psychology, but notoriously cumbersome to visualize with R base `graphics`.
-That is why `papaja` provides a set of functions to facilitate plotting data from factorial designs.
+Factorial designs are ubiquitous in experimental psychology,
+but notoriously cumbersome to visualize with R base `graphics`.
+That is why **papaja** provides a set of functions to facilitate plotting data 
+from factorial designs.
 
-The functions `apa_beeplot()`, `apa_lineplot()`, `apa_barplot()`, and the generic `apa_factorial_plot()` are intended to provide a convenient way to obtain a publication-ready figure while maintaining enough flexibility for customization.
+The functions `apa_beeplot()`, `apa_lineplot()`, `apa_barplot()`, `apa_violinplot()`, 
+and the generic `apa_factorial_plot()` are intended to provide a convenient way to obtain a publication-ready figure while maintaining enough flexibility for customization.
 The basic arguments to these functions are all the same, so you only need to learn one syntax to generate different types of plots.
 Moreover, it is easy to switch between the different types of plots by only changing a few letters of the function name.
 
@@ -201,7 +207,7 @@ apa_beeplot(
 However, the use of `par()` is restricted in `knitr`.
 
 ```{block2, knitr-par-warning, type = "rmdcaution"}
-By default, `knitr` resets `par()` for every chunk; `par()` needs to be called anew in every chunk that creates a plot.
+By default, **knitr** resets `par()` for every chunk; `par()` needs to be called anew in every chunk that creates a plot.
 ```
 
 While there are advantages to this behavior it impedes defining a consistent plot style.
@@ -222,9 +228,9 @@ par(font.main = 1`, `cex.main = 1.05, las = 1)
 The customizations apply to all subsequently generated plots.
 It is, thus, advisable to add this code at the top of the R Markdown document shortly after the YAML front matter.
 
-The aforementioned limitations do not apply to users of `ggplot2`.
+The aforementioned limitations do not apply to users of **ggplot2**.
 Custom themes can be set as default as usual and are subsequently applied to all plots created with `ggplot()`.
-`papaja` provides a template `theme_apa()` that we feel is well suited to create publication-ready plots.
+**papaja** provides a template `theme_apa()` that we feel is well suited to create publication-ready plots.
 The following example demonstrates how to set a default theme.
 
 ```{r ggplot}
@@ -344,7 +350,7 @@ To ensure that `fig.scap` takes effect, `knitr` requires that the chunk specifie
 
 There are many available functions and packages to create tables in R Markdown documents.
 As a default option `knitr::kable()` is a good choice.
-`papaja` also provides a funtion to create tables---`apa_table()`.
+**papaja** also provides a function to create tables---`apa_table()`.
 `apa_table()` is an extension of `knitr::kable()`, so all the options you know from `kable()` will work with `apa_table()`.
 
 (ref:mixed-table-caption) Descriptive statistics of correct recall by dosage.
@@ -361,7 +367,7 @@ descriptives <- mixed_data %>% group_by(Dosage) %>%
     , Min = min(Recall)
     , Max = max(Recall)
   )
-descriptives[, -1] <- printnum(descriptives[, -1])
+descriptives[, -1] <- apa_num(descriptives[, -1])
 
 apa_table(
   descriptives
@@ -414,7 +420,7 @@ The resulting documents should suffice to enable collaboration with Wordy collea
 
 By default, the width of the table is set to accommodate its contents.
 In some cases, this may cause the table to exceed the page width.
-To address this, in PDF documents tables can be rotated 90 degrees by setting \code{langscape = TRUE}.
+To address this, in PDF documents tables can be rotated 90 degrees by setting `langscape = TRUE`.
 This approach, however, is not particularly useful if one of the columns contains long texts, such as survey question texts.
 In such cases, it is possible to create fixed-width columns by explicitly specifying the desired column widths.
 Such fixed-width colums automatically break the content into multiple lines.
@@ -514,7 +520,7 @@ kableExtra: https://cran.r-project.org/web/packages/kableExtra/index.html
 
 When creating reproducible reports of quantitative results, it will be necessary to include the results from statistical models and tests.
 However, what comes out of R cannot be included in a report easily.
-Consider the output from a simple *t* test:
+Consider the output from an independent-samples $t$ test:
 
 ```{r}
 t.test(yield ~ N, data = npk)
@@ -557,14 +563,14 @@ The above line is rendered as follows:
 
 
 The last element `$table` is intended to be used to create results tables that may be included in the manuscript via `apa_table()`.
-It will be most useful for analyses that contain multiple hypothesis tests, as you will see in the next subsections.
+It will be most useful for analyses that contain multiple hypothesis tests, as you will see in the following subsections.
 
 ### Reporting models and tests in a table
 
 For statistical models with multiple terms (for instance, multiple regression or multi-way ANOVA) it is sometimes convenient
 to report the statistical tests of all model terms in a table.
 For this purpose, `apa_print()` returns the list element `$table` that may be included using function `apa_table()` or any other table
-(for instance, `kable()` from the [{knitr}](https://cran.r-project.org/package=knitr) package).
+(for instance, `kable()` from the [**knitr**](https://cran.r-project.org/package=knitr) package).
 Consider the following regression model
 
 ```{r}
@@ -586,23 +592,37 @@ apa_table(
 
 ### Supported analysis methods
 
-There is a plethora of possible output objects from statistical analyses in R, and it is of course impossible to support all of them.
-However, over the course of time, we were able to create a corpus of methods that will likely cover many experimental psychologists' toolboxes.
+There is a plethora of possible output objects from statistical analyses in R,
+and it is of course not possible to support all of them.
+However, over the course of time,
+we were able to create a corpus of methods that will likely cover many experimental psychologists' toolboxes.
 
-- All NHST that are delivered with R's {stats} package, which includes:
+- All NHST that are delivered with R's [**stats**](https://cran.r-project.org/doc/manuals/r-release/packages/stats/refman/stats.html) package, which includes:
     - $t$ for means, $\chi^2$, and nonparametric equivalents `t.test()`
     - tests for correlation coefficients `cor.test()`
     - (generalized) linear models
     - ...
-    - except for pairwise comparisons (these should be done with the package [{emmeans}](https://cran.r-project.org/package=emmeans))
-- Analysis of Variance ANOVA and ANCOVA (from packages {stats}, [{car}](https://cran.r-project.org/package=car), and [{afex}](https://cran.r-project.org/package=afex))
-- Multivariate Analysis of Variance MANOVA and MANCOVA (from {stats})
-- Hierachical (Generalized) Linear Models (from [{lme4}](https://cran.r-project.org/package=lme4), [{lmerTest}](https://cran.r-project.org/package=lmerTest), [{nlme}](https://cran.r-project.org/package=nlme), and [{afex}](https://cran.r-project.org/package=afex))
-- Pairwise comparisons and planned contrasts from [{emmeans}](https://cran.r-project.org/package=emmeans), [{lsmeans}](https://cran.r-project.org/package=lsmeans), and [{glht}](https://cran.r-project.org/package=glht) (*these methods are still experimental*)
-- Bayesian *t* tests and ANOVAs from [{BayesFactor}](https://cran.r-project.org/package=BayesFactor)
+    - except for pairwise comparisons (these should be done with the package [**emmeans**](https://cran.r-project.org/package=emmeans)).
+- Analysis of Variance ANOVA and ANCOVA from
+  [**stats**](https://cran.r-project.org/doc/manuals/r-release/packages/stats/refman/stats.html),
+  [**car**](https://cran.r-project.org/package=car), and 
+  [**afex**](https://cran.r-project.org/package=afex).
+- Multivariate Analysis of Variance MANOVA and MANCOVA from
+  [**stats**](https://cran.r-project.org/doc/manuals/r-release/packages/stats/refman/stats.html) and
+  [**car**](https://cran.r-project.org/package=lmerTest).
+- Hierachical (Generalized) Linear Models from
+  [**lme4**](https://cran.r-project.org/package=lme4),
+  [**lmerTest**](https://cran.r-project.org/package=lmerTest),
+  [**nlme**](https://cran.r-project.org/package=nlme), 
+  [**glmmTMB**](https://cran.r-project.org/package=glmmTMB), and 
+  [**afex**](https://cran.r-project.org/package=afex).
+- Pairwise comparisons and planned contrasts from
+  [**emmeans**](https://cran.r-project.org/package=emmeans),
+  [**lsmeans**](https://cran.r-project.org/package=lsmeans), and 
+  [**glht**](https://cran.r-project.org/package=glht).
+- Bayesian *t* tests and ANOVA from [**BayesFactor**](https://cran.r-project.org/package=BayesFactor).
 
 There are gaps that we would like to fill, see section \@ref(future-directions).
-
 
 ```{r supported-s3-methods, echo = FALSE, results = "asis"}
 print_classes <- gsub("apa_print\\.", "", as.character(utils::methods("apa_print")))
@@ -730,7 +750,7 @@ apa_table(
 
 ```{r}
 lm_res <- lm(Post_QoL ~ Base_QoL + BDI, data = cosmetic_surgery)
-lm_res_apa <- apa_print(lm_res, observed_predictors = TRUE)
+lm_res_apa <- apa_print(lm_res, observed = TRUE)
 lm_res_apa$estimate$Intercept
 ```
 
@@ -794,25 +814,18 @@ cars[1:15, "dist"]
 ```
 -->
 
-#### Model Comparisons for Linear (Mixed-Effects) Models
-
-...
-
 #### Analysis of Variance ANOVA
 
-*You can skip this if you are not interested in technical background*.
-Amongst psychologists, analysis of variance is a still-popular and frequently used technique.
-In base R, however, analysis of variance is not implemented in a way that is too useful
-for psychologists, as the `aov`-function in the stats package does not provide the much sought-after
-Type-$\rm{I\!I\!I}$ sums-of-squares. A variety of R packages has emerged to fill the gap, e.g.
-{car} [@R-car], {ez} [@R-ez], and {afex} [@R-afex].
-Unfortunately, each ANOVA function provides different output objects that need to be digested by `apa_print()`.
-To do so, we rely on the package authors to return standardized result objects (i.e., S3/S4 classes).
-For this reason `apa_print()` does not support results from the popular `ezANOVA()`.
-The object returned by this function has no class to inform us about its contents and, thus, cannot be processed.
-We recommend you try one of the other available packages, e.g. `aov_ez()` from the `afex`-package.
+`apa_print()` supports Analysis of Variance ANOVA output from
+**stats**,
+**car** [@R-car],
+and **afex** [@R-afex].
+*Supporting **ez** [@R-ez] would require upstream changes.*
 
-*Functionality*.
+Note that, if you are a psychologist, you will most likely not use `aov()` from **stats**
+but instead use either `Anova()` from **car** or `aov_4()`, `aov_ez()`, `aov_car()` from **afex**.
+**papaja** currently plays especially well with **afex**.
+
 
 ```{r anova-apa, message = FALSE}
 cosmetic_surgery_anova <- afex::aov_ez(
@@ -826,8 +839,12 @@ apa_anova <- apa_print(cosmetic_surgery_anova)
 
 Now, you can report the results of your analyses like so:
 
-```{r eval = FALSE, highlight = FALSE}
-Clinic (`r apa_anova$full$Clinic`) and patient gender affected post-surgery quality of life, `r apa_anova$full$Gender`. However, the effect of gender differed by clinic, `r apa_anova$full$Clinic_Gender`.
+```{verbatim lang = "markdown"}
+Clinic (`r apa_anova$full$Clinic`) and patient gender affected 
+post-surgery quality of life,
+`r apa_anova$full$Gender`.
+However, the effect of gender differed by clinic,
+`r apa_anova$full$Clinic_Gender`.
 ```
 
 Which will yield the following text:
@@ -840,7 +857,7 @@ Again, you can easily create a complete ANOVA table by passing `$table` to `apa_
 apa_table(
   apa_anova$table
   , caption = "A really beautiful ANOVA table."
-  , note = "Note that the column names contain beautiful mathematical copy: This is because the table has variable labels."
+  , note = "Note that the column names contain proper mathematical copy: This is because the table has variable labels."
 )
 ```
 
@@ -849,15 +866,20 @@ apa_table(
 #### Post-hoc Comparisons and Planned Contrasts
 
 We are currently working on full support of post-hoc tests, contrasts and expected
-marginal means from the `emmeans` and `lsmeans` packages. A lot of work has already
+marginal means from the **emmeans** and **lsmeans** packages. A lot of work has already
 been done and you may use the available methods, but you should double-check
 the results because these new methods are not fully tested, yet.
 The same applies to results returned by the `glht()` function from package `multcomp`.
 
 #### Mixed-effects Models
 
-We are currently working on full supoort of mixed effects
+Support for hierarchical (generalized) linear models (a.k.a., mixed models) is still limited.
+Fixed effects can be readily reported, 
+whereas random effects are not yet supported.
+We are working toward full support for mixed-effects models.
 
+If you are in urgent need to report random effects for one of the supported model classes,
+[please file a feature request on github](https://github.com/crsh/papaja/issues).
 
 ## Caching expensive computations
 
@@ -968,7 +990,7 @@ The sample size is calculated in the method section:
 
 To report this variable in the abstract we need to use an inline code chunk in the YAML front matter field:
 
-```{yaml, eval = FALSE}
+```{verbatim lang="yaml"}
 ---
 abstract: |
   This is the abstract.

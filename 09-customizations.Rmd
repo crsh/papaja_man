@@ -70,7 +70,7 @@ Adjusting the line spacing of table contents is currently not supported in `papa
 However, as usual it is possible to adjust the spacing in PDF documents by including additional $\LaTeX$ code.
 If you use `apa_table()`, including the following in the YAML front matter will result in single-spaced tables with double-spaced caption and table note:
 
-```{yaml}
+```{verbatim lang="yaml"}
 header-includes:
   - \usepackage{setspace}
   - \AtBeginEnvironment{tabular}{\singlespacing}
@@ -82,7 +82,7 @@ header-includes:
 
 Similarly, the line spacing of figure captions can be adjusted as follows:
 
-```{yaml}
+```{verbatim lang="yaml"}
 header-includes:
   - \usepackage{setspace}
   - \AtBeginEnvironment{tabular}{\doublespacing}

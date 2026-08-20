@@ -80,7 +80,7 @@ You can use either one of the large number of [existing CSL files](https://www.z
 To change the citation style, add a `csl: mystyle.csl` to the YAML front matter.
 See the [R Markdown documentation](http://R Markdown.rstudio.com/authoring_bibliographies_and_citations.html) and [Citation Style Language](http://citationstyles.org/) for further details.
 
-```{yaml}
+```{verbatim lang="yaml"}
 ---
 csl: mystyle.csl
 ---
@@ -302,7 +302,7 @@ Appendices should be in a separate file<br />(e.g., `appendix.Rmd`)
 - One level-1 heading
 - No YAML front matter
 
-```{yaml}
+```{verbatim lang="yaml"}
 ---
 appendix: "appendix.Rmd"
 ---
@@ -313,7 +313,7 @@ The R code is executed after the main document; all packages and variables from 
 
 Multiple appendices are possible
 
-```{yaml}
+```{verbatim lang="yaml"}
 ---
 appendix:
   - "appendix_a.Rmd"

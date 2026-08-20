@@ -4,7 +4,7 @@
 
 <!-- --- -->
 
-```{r echo = FALSE, results = "asis"}
+```{r echo = FALSE, results = "asis", eval = FALSE}
 papaja_readme <- readLines("https://raw.githubusercontent.com/crsh/papaja/devel/README.md")
 
 reference_start <- which(grepl("Papers written with papaja", papaja_readme))
@@ -26,4 +26,11 @@ cat(papaja_readme)
 file.remove("published_papers.Rmd")
 ```
 
+If you are interested in seeing how others are using **papaja**,
+you can find papers written with or discussing papaja in the
+[public Zotero library](https://www.zotero.org/groups/2202906/papaja/library).
+
+If you have published a paper that was written with **papaja**,
+please add the reference to the [public Zotero group](https://www.zotero.org/groups/2202906/papaja)
+yourself or send it to us.
 
